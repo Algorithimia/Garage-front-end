@@ -1,0 +1,30 @@
+.Land_nav{
+   
+    .Land_logo{
+        margin-left: 73px;
+        margin-top:25px ;
+    }
+    .options{
+    margin-top: 34px;
+    
+    .option{
+        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 20px/24px Aileron;
+        text-align: left;
+        font: normal normal normal 20px/24px Aileron;
+        letter-spacing: 0px;
+        color: #969B85BF;
+        opacity: 1;
+        font-size: 20px;
+    }
+    .active{
+        color: #152F55;
+        font-weight: bold;
+    }
+}
+    .right{
+        float: right;
+        margin-right: 47px;
+        margin-top: 21px;
+    }
+    
+}
