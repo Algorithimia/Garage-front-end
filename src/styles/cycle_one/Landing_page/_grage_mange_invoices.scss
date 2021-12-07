@@ -1,0 +1,31 @@
+.grage_mange_invoices{
+    margin-top: 90px;
+    margin-bottom: 90px;
+    background-color: #fff;
+    .grage_option{
+        width: 77%;
+        margin: auto;
+        h3{
+            color: #000;
+            font-size: 30px;
+        }
+        .line{
+            background-color: #FECA29;
+            width: 147px;
+            height: 5px;
+            margin-bottom: 10px;
+        }
+        p{
+            color: #969B85;
+            font-size: 20px;
+            max-height: 116px;
+            overflow: hidden;
+            line-height: 2;
+        }
+        button{
+            background-color: #fff;
+            margin-left: 0;
+            margin-top: 15px;
+        }
+    }
+}

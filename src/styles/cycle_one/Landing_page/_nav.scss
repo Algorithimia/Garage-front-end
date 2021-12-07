@@ -1,11 +1,12 @@
 .Land_nav{
-   
+   margin-bottom: 11px;
     .Land_logo{
-        margin-left: 73px;
+        margin-left: 20%;
         margin-top:25px ;
     }
     .options{
     margin-top: 34px;
+    margin-left: 25%;
     
     .option{
         font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 20px/24px Aileron;
@@ -15,6 +16,8 @@
         color: #969B85BF;
         opacity: 1;
         font-size: 20px;
+        overflow: visible;
+        margin-right: 10%;
     }
     .active{
         color: #152F55;

@@ -1,0 +1,58 @@
+.auto_repair{
+background-color: #fff;
+margin-top: 72px;
+margin-bottom: 98px;
+.auto-mechanic-checking-car{
+    height: 100%;
+    background: url("../../../../src/backgrounds/auto-mechanic-checking-car.png");
+    background-repeat:no-repeat ;
+    background-size:80% 100%; 
+    background-position: left center;
+}
+.info{
+   max-width: 85%;
+   margin: auto;
+    .title{
+        font: normal normal bold 30px Aileron;
+    }
+    p{
+        margin-top: 20px;
+        font: normal normal normal 20px Aileron;
+        max-width: 485px;
+        color: #969B85;
+        line-height: 1.7;
+      
+    }
+    .store{
+        background-color: black;
+        width: 220px;
+        height: 80px;
+        border-radius: 15px;
+        padding: 15px;
+        color: #fff;
+        float: left;
+        img{
+            display: inline-block;
+            margin-bottom: 33px;
+            width: 48px;
+            height: 45px;
+        }
+        .inline_text{
+            font-size: 16px;
+            display: inline-block;
+            margin-left: 13px;
+            opacity: 80%;
+            &:hover{
+                opacity: 100%;
+                cursor: pointer;
+            }
+            .store_name{
+                font-size: 18px;
+            }
+        }
+       
+    }
+}
+
+
+}

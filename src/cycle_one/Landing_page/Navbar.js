@@ -4,36 +4,33 @@ const Nav = ()=>{
      <>
         <div className='Land_nav'>
          <Row>
-          <Col>
+          <Col sm={3}>
             <img className='Land_logo' src='images/cycle one/GarageWorkLogo.png' />
           </Col>
-          <Col>
+          <Col sm={7}>
            <div className='options'>
-            <Row>
-              <Col>
+            
+              
                 <span className='option active'>
                   Home
                 </span>
-              </Col>
-              <Col>
+            
                 <span className='option'>
                    About
                 </span>
-              </Col>
-              <Col>
+            
                 <span className='option'>
                   Blog
                 </span>
-              </Col>
-              <Col>
+              
                 <span className='option'>
                   Contact Us
                 </span>
-              </Col>
-            </Row>
+             
+          
            </div>  
           </Col>
-          <Col>
+          <Col sm={2}>
            <div className='right'>
            <button className='dark_button'>Login</button>
            </div>
