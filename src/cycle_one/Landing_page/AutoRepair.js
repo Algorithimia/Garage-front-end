@@ -6,13 +6,13 @@ return(
      <div className="auto_repair">
       <Container>
       <Row>
-          <Col>
+          <Col sm={12}lg={6}>
            <div className='auto-mechanic-checking-car'>
 
            </div>
             
           </Col>
-          <Col>
+          <Col sm={12}lg={6}>
            
            <div className='info'>
                <span className='title'>Auto Repair &#38; Garage Management</span>

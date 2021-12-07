@@ -1,12 +1,25 @@
 .Land_nav{
+    @media screen and (max-width: 990px) {
+        
+        text-align: center;
+        }
    margin-bottom: 11px;
     .Land_logo{
         margin-left: 20%;
         margin-top:25px ;
+        @media screen and (max-width: 990px) {
+            margin-left: 0;
+            margin-bottom: 10px;
+            }
+      
     }
     .options{
     margin-top: 34px;
     margin-left: 25%;
+    @media screen and (max-width: 990px) {
+        margin-top: 0;
+        }
+    
     
     .option{
         font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 20px/24px Aileron;
@@ -25,9 +38,15 @@
     }
 }
     .right{
-        float: right;
+       float: right;
         margin-right: 47px;
         margin-top: 21px;
+        @media screen and (max-width: 990px) {
+            margin-top: -10px;
+           
+       
+          
+            }
     }
     
 }

@@ -5,7 +5,7 @@ const Footer=()=>{
         <>
             <div className='footer'>
                 <Row>
-                    <Col sm={4}>
+                    <Col lg={4} >
                     <div className='subscribe'>
                         <img  className='grage_logo' src='images/cycle one/GarageWorkLogo.png' />
                         <br/>
@@ -25,7 +25,8 @@ const Footer=()=>{
                         <button className='dark_button'>Subscribe</button> 
                     </div>   
                     </Col>
-                    <Col sm={2}>
+                    <Col lg={2}>
+                        <div className='fotter_col'>
                         <span className='title'>Quick Links</span>
                         <br />
                         <Link to='/'>Join Us</Link>
@@ -39,15 +40,19 @@ const Footer=()=>{
                         <Link to='/f'>Features</Link>
 
                        
+                     </div>
                     </Col>
-                    <Col sm={2}>
+                    <Col lg={2}>
+                       <div className='fotter_col'>
                         <span  className='title'>Get To Know Us</span>
                         <br />
                         <Link to='/'>About Us</Link>
                         <br />
                         <Link to='/h'>Our Team</Link>
+                     </div>
                     </Col>
-                    <Col sm={2}>
+                    <Col lg={2}>
+                     <div className='fotter_col'>
                       <span  className='title'>Other Services</span>
                       <br />
                         <Link to='/'>Join Us</Link>
@@ -60,8 +65,10 @@ const Footer=()=>{
                         <br />
                         <Link to='/pp'>Dikwe</Link>
                        
+                     </div>
                     </Col>
-                    <Col sm={2}>
+                    <Col lg={2}>
+                   <div className='fotter_col'>
                     <span  className='title'>Resources</span>
                     <br />
                         <Link to='/'>Help</Link>
@@ -74,6 +81,7 @@ const Footer=()=>{
                         <br />
                         <Link to='/'>Cookies Policies</Link>
 
+                     </div>
                     </Col>
                 </Row>
                 <div className="copyright">

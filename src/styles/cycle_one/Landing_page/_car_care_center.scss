@@ -1,10 +1,17 @@
 .car_care_center{
     background-color: #4390E08F;
-    max-height: 450px;
+  
     .car_center_info{
         margin-left: 27%;
         max-width: 333px;
         margin-top: 80px;
+        height: 450px;
+        @media screen and (max-width: 1024px) {
+            margin-left: 0;
+      
+            margin: auto;
+            margin-top: 50px;
+        }  
        
 
         span{
@@ -43,6 +50,13 @@
     background-repeat:no-repeat ;
      background-size:contain; 
      background-position: left center;
+     @media screen and (max-width: 990px) {
+        background-position: center center;
+      margin-top: -250px;
+       
+   
+      
+        }
 
     }
 }

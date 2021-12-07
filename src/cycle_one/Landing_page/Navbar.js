@@ -4,10 +4,10 @@ const Nav = ()=>{
      <>
         <div className='Land_nav'>
          <Row>
-          <Col sm={3}>
+          <Col sm={12}lg={3}>
             <img className='Land_logo' src='images/cycle one/GarageWorkLogo.png' />
           </Col>
-          <Col sm={7}>
+          <Col sm={8} lg={7}>
            <div className='options'>
             
               
@@ -30,7 +30,7 @@ const Nav = ()=>{
           
            </div>  
           </Col>
-          <Col sm={2}>
+          <Col sm={4} lg={2}>
            <div className='right'>
            <button className='dark_button'>Login</button>
            </div>
