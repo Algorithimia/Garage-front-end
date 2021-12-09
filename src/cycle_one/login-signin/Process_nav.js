@@ -1,9 +1,11 @@
-import { Row, Col } from 'react-bootstrap';
-import {Link} from 'react-router-dom'
-const Nav = ()=>{
-    return(
-     <>
-        <div className='navv'>
+import { Row, Col,Container } from 'react-bootstrap';
+
+const Process_nav =()=>{
+    return (
+
+        <>
+        <div>
+          <div className='navv'>
          <Row>
           <Col sm={12}lg={3}>
             <img className='Land_logo' src='images/cycle one/GarageWorkLogo.png' />
@@ -25,23 +27,18 @@ const Nav = ()=>{
                 </span>
               
                 <span className='option'>
-                  Contact-Us
+                  Contact_Us
                 </span>
              
           
            </div>  
           </Col>
-          <Col sm={4} lg={2}>
-           <div className='right'>
-            <Link to='/login_choose'>
-              <button className='dark_button'>Login</button>
-            </Link>
-           </div>
-          </Col>
+         
          </Row>
 
         </div>
-    </>
+        </div>  
+        </>
     )
 }
-export default Nav
+export default Process_nav

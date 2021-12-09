@@ -1,10 +1,13 @@
-const Login_type =()=>{
+const Login_type =({ title,p , button_text , logo_url , background_color})=>{
     return(
         <>
-         <div className='login_type'>
-             <h4>Vehicle Owner</h4>
-             <p>vehicle owner seeking maintenance for his vehicle or using other services</p>
-             <button>SignIn</button>
+         <div className='login_type' style={{backgroundColor:background_color}}>
+             <div className='login_logo'>
+                 <img src={logo_url}/>
+             </div>
+             <h4>{title}</h4>
+             <p>{p}</p>
+             <button>{button_text}</button>
 
 
          </div>
