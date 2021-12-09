@@ -1,4 +1,5 @@
 .Login_process{
+    font-size: 22px;
 .right_section{
     background: url("../../../../src/backgrounds/auto-mechanic-checking-car@2x.png");
  
@@ -23,12 +24,8 @@
 
 }
 .options{
-    margin-left: 20%;
-    @media screen and (max-width: 1200px) {
-        
-      //  margin-left:50px;
-        
-        }
+    margin-left: 30%;
+   
         .option{
 
             margin-left: 8%;
@@ -40,15 +37,50 @@
 
 
 .owner_login{
-    margin-top: 20px;
-    width: 75%;
+   
+    width: 100%;
     height: 910px;
     box-shadow: 0px 3px 6px #00000029;
     margin-left: 10%;
     z-index: 9;
-    padding-top: 100px;
-    .login_input{
+    padding-top: 20px;
+    color: gray;
+    
+    
+
+    .owner_or_employee{
+        
+        margin: auto;
+        background-color: #DADCD4;
+        min-width: 90%;
+        height: 62px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 248px;
+        margin-top: 10px;
+        
+        
+        @media screen and (max-width: 1225px) {
+        min-width: 250px;
+        margin-left: 10px;
+        
+     
+        }
        
+       
+        img{
+            width: 24px;
+            height: 24px;
+            margin: 20px;
+        }
+    }
+    .active{
+        background-color: #4390E0;
+    }
+    .login_input{
+        margin-top: 50px;
         position: relative;
         z-index: 1;
         text-align: center;
@@ -61,16 +93,62 @@
             z-index: 9;
             padding: 15px;
             font-size: 20px;
+            color: #000;
 
         }
         input{
             width: 80%;
-            height: 62px;
+            max-height: 62px;
             border: none;
             border: 1px solid #707070;
             outline: none;
+            padding:20px;
+        }
+        position: relative;
+        .mark{
+            position: absolute;
+            right: 11%;
+            top: 10px;
+            background-color: #fff;
+            
+        }
+        .checkbox{
+           width: 18px;
+           height: 18px;
+           border: none;
+           border-radius: 50%;
+           border: none;
+           margin-right: 10px;
+           border: 1px solid #71a43f;
+        }
+       
+        .dark_button{
+        width: 158px;
+        height: 30px;
+        padding:13px  53px;
+        padding-bottom: 40px;
+        border-radius: 25px;
+        margin-top: 27px;
+        margin-bottom: 27px;
         }
         
+    }   
+        
+    
+    .forget_password{
+        margin-top: 24px;
+        margin-bottom: 13px;
+    }
+    .blue{
+        color: #4390E0;
+    }
+    .agree_privacy{
+        margin-top: 52px;
+        font-size: 18px;
+    }
+    .sign_up{
+        color: #000;
+        font-size: 20px;
     }
     
    

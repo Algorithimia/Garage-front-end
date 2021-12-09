@@ -11,10 +11,10 @@ const Login_process=()=>{
         <>
          <div className='Login_process'>
          <Row>
-             <Col sm={6}>
+             <Col sm={8}>
                 <Process_nav />
              </Col>
-             <Col sm={6}>
+             <Col sm={4}>
                <Right_Section />
              </Col>
              <Col sm={6}> <Owner_login /></Col>
