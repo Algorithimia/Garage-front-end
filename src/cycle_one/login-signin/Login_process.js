@@ -8,6 +8,7 @@ import Right_Section from './Process_right_section'
 import Confirmation_code from './Confirmation-code'
 import Forgot_password_email from './Forgot_password_email '
 import Reset_password from './Reset_password'
+import Reset_code from './Reset_code'
 const Login_process=()=>{
     return(
         <>
@@ -32,6 +33,7 @@ const Login_process=()=>{
             <Route path="/confirmation" element={<Confirmation_code />}  exact  />
             <Route path="/forget" element={<Forgot_password_email />}  exact  />
             <Route path="/reset" element={<Reset_password />}  exact  />
+            <Route path="/resetcode" element={<Reset_code />}  exact  />
             
             
         </Routes>

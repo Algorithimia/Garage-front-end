@@ -60,7 +60,7 @@ const Owner_register = () =>{
                
 
            </div>
-            </form>
+            
             
 
 
@@ -69,8 +69,10 @@ const Owner_register = () =>{
                     <div><span className='blue'>Terms of Service </span> &amp; <span className='blue'>Privacy Policy</span></div>
                     </div>
                     <Link to='/login_process/confirmation'> <input className='dark_button' type='submit' value='Signup'/> </Link>
+                    
                     <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_login'><span className='blue'>LOGIN</span></Link> </div>
                  </div>
+                 </form>     
 
          </div>
         </>

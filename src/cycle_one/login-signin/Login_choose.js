@@ -8,6 +8,7 @@ const Login_choose=()=>{
     <>
      <div className='log-sign'>
         <div className='log-sign_image'>
+         <div className='opacity'>
          <Container>
             <Row className="justify-content-md-center">
               <Col md='5'>
@@ -34,11 +35,13 @@ const Login_choose=()=>{
             </Row>
          </Container>
         </div>
+        </div>
         <div className='logo'>
             <Link to='/'>
             <img src='images/cycle one/GarageWorkLogo@2x.png' />
             </Link>
         </div>
+        
      </div>
     </> 
     )

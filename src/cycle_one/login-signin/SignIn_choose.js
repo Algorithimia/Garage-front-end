@@ -6,6 +6,7 @@ const SignIn_choose=()=>{
     <>
       <div className='log-sign'>
         <div className='log-sign_image'>
+        <div className='opacity'>
          <Container>
             <Row className="justify-content-md-center">
                 <Col md='5'>
@@ -32,6 +33,7 @@ const SignIn_choose=()=>{
                     </Col> 
             </Row>
          </Container>
+        </div>
         </div>
         <div className='logo'>
             

@@ -3,7 +3,7 @@ const Right_Section =()=>{
     return(
         <>
          <div className='right_section'>
-             <img  src="/images/cycle one/auto-mechanic-checking-car.png" /> 
+             <img  src="/images/cycle one/right_side.png" /> 
              
          </div>
         </>

@@ -38,7 +38,7 @@ const Owner_login = () =>{
                 <div className='mark'><FcCheckmark /></div> 
                 </div>
                 <div className="action">
-                    <div className='blue forget_password '>Forgot Password !</div>
+                   <Link to='/login_process/forget'> <div className='blue forget_password '>Forgot Password !</div></Link>
                     <div>
                         <input className='checkbox' type="checkbox" /> 
                         <span>Remember Me For 7 days</span>
