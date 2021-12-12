@@ -125,8 +125,36 @@
     }
 
 }
-    
+.timer{
+    //  float: right;
+    text-align: right;
+      width: 80%;
+      color: #969B85;
+      margin: auto;
+      font-size: 20px;
+      margin-top: 10px;
+      .blue{
+          color: #152F55;
+          margin-right: 10px;
+          font-weight:600;
+          cursor: pointer;
+      }
+  }
    
+}
+.owner_login{
+    padding-top: 70px;
+    .justify-content-md-center{
+        margin-bottom: 100px;
+    }
+     .action{
+        padding: 0;
+     }
+     .forget_password{
+        margin-top: -25px;
+    
+    }
+  
 }
 .owner_register{
     .owner_or_employee{
@@ -155,21 +183,7 @@
         }
     }
 
-    .timer{
-      //  float: right;
-      text-align: right;
-        width: 80%;
-        color: #969B85;
-        margin: auto;
-        font-size: 20px;
-        margin-top: 10px;
-        .blue{
-            color: #152F55;
-            margin-right: 10px;
-            font-weight:600;
-            cursor: pointer;
-        }
-    }
+   
     .line{
         height: .5px;
         background-color: #969B85;
@@ -221,6 +235,21 @@
     .sign_up{
         margin-top: 115px;
       
+    }
+}
+.reset_code{
+    padding-top: 100px;
+    .dark_button{
+        margin-top: 46px;
+    }
+    .sign_up{
+        margin-top: 72px;
+      
+    }
+    .title{
+        width: 80%;
+        margin: auto;
+        color: #000;
     }
 }
 

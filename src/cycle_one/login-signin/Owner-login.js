@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Owner_login = () =>{
     return(
         <>
-         <div className='login'>
+         <div className='login owner_login'>
 
 
            <Row className="justify-content-md-center">
