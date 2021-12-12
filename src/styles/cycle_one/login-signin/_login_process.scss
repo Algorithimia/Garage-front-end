@@ -1,28 +1,21 @@
 .Login_process{
     font-size: 22px;
 .right_section{
-    background: url("../../../../src/backgrounds/auto-mechanic-checking-car@2x.png");
- 
+  
     width: 100%;
     height:100%;
-    background-repeat:no-repeat ;
-    background-size:cover; 
-    background-position: left center;
+  
     position: fixed;
-  
-    
-    
-}
-
-
-.Land_logo{
-    @media screen and (max-width: 1200px) {
+    img{
        
-     
-        }
+       
+    }
   
-
+    
+    
 }
+
+
 .options{
     margin-left: 30%;
    
@@ -36,24 +29,29 @@
 }
 
 
-.owner_login{
+.login{
    
-    width: 100%;
-    height: 910px;
+    width: 50%;
+   
     box-shadow: 0px 3px 6px #00000029;
-    margin-left: 10%;
+    margin-left: 4%;
     z-index: 9;
     padding-top: 20px;
     color: gray;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding-bottom: 150px;
     
-    
+    @media screen and (max-width: 970px) {
+        margin-left: 100px;
+    }  
 
     .owner_or_employee{
         
         margin: auto;
         background-color: #DADCD4;
         min-width: 90%;
-        height: 62px;
+        min-height: 62px;
         color: #fff;
         font-size: 20px;
         font-weight: bold;
@@ -62,9 +60,12 @@
         margin-top: 10px;
         
         
-        @media screen and (max-width: 1225px) {
-        min-width: 250px;
+        @media screen and (max-width: 1250px) {
+       
+        max-width: 70%;
         margin-left: 10px;
+        text-align: center;
+        padding-bottom: 3px;
         
      
         }
@@ -79,60 +80,31 @@
     .active{
         background-color: #4390E0;
     }
-    .login_input{
-        margin-top: 50px;
-        position: relative;
-        z-index: 1;
+   
+    .action{
         text-align: center;
-        label{
-            position: absolute;
-            top: -29px;
-            height: 20px;
-            margin-left: 50px;
-            background-color:#fff;
-            z-index: 9;
-            padding: 15px;
-            font-size: 20px;
-            color: #000;
+    .checkbox{
+        width: 18px;
+        height: 18px;
+        border: none;
+        border-radius: 50%;
+        border: none;
+        margin-right: 10px;
+        border: 1px solid #71a43f;
+     }
+    
+     .dark_button{
+         text-align: center;
+     width: 158px;
+     height: 30px;
+     padding:13px  20px;
+     padding-bottom: 40px;
+     border-radius: 25px;
+     margin-top: 27px;
+     margin-bottom: 27px;
 
-        }
-        input{
-            width: 80%;
-            max-height: 62px;
-            border: none;
-            border: 1px solid #707070;
-            outline: none;
-            padding:20px;
-        }
-        position: relative;
-        .mark{
-            position: absolute;
-            right: 11%;
-            top: 10px;
-            background-color: #fff;
-            
-        }
-        .checkbox{
-           width: 18px;
-           height: 18px;
-           border: none;
-           border-radius: 50%;
-           border: none;
-           margin-right: 10px;
-           border: 1px solid #71a43f;
-        }
-       
-        .dark_button{
-        width: 158px;
-        height: 30px;
-        padding:13px  53px;
-        padding-bottom: 40px;
-        border-radius: 25px;
-        margin-top: 27px;
-        margin-bottom: 27px;
-        }
-        
-    }   
+     
+     }
         
     
     .forget_password{
@@ -150,7 +122,62 @@
         color: #000;
         font-size: 20px;
     }
+
+}
     
    
 }
+.owner_register{
+    .owner_or_employee{
+        text-align: center;
+      height: 18px;
+    }
+    .title{
+        text-align: center;
+        color: #000;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+}
+.confirmation{
+    padding-top: 100px;
+    .text{
+        font-size: 20px;
+        color:#000;
+        width: 80%;
+        margin:auto;
+        margin-bottom: 75px;
+        .bold{
+            font-weight: bold;
+        }
+    }
+
+    .timer{
+      //  float: right;
+      text-align: right;
+        width: 80%;
+        color: #969B85;
+        margin: auto;
+        font-size: 20px;
+        margin-top: 10px;
+        .blue{
+            color: #152F55;
+            margin-right: 10px;
+            font-weight:600;
+            cursor: pointer;
+        }
+    }
+    .line{
+        height: .5px;
+        background-color: #969B85;
+        width: 80%;
+        margin: auto;
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
+}
+
+
 }

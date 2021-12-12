@@ -1,4 +1,6 @@
-const Login_type =({ title,p , button_text , logo_url , background_color})=>{
+import { Link } from "react-router-dom"
+
+const Login_type =({ title,p , button_text , logo_url , background_color,link})=>{
     return(
         <>
          <div className='login_type' style={{backgroundColor:background_color}}>
@@ -7,7 +9,9 @@ const Login_type =({ title,p , button_text , logo_url , background_color})=>{
              </div>
              <h4>{title}</h4>
              <p>{p}</p>
+             <Link to={link}>
              <button>{button_text}</button>
+             </Link>
 
 
          </div>

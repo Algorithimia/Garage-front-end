@@ -17,6 +17,7 @@ const Login_choose=()=>{
                     button_text='Login'
                     logo_url="images/cycle one/service_icons/icon_2.png"
                     background_color='#71A43F'
+                    link='/login_process'
             
                 />
               </Col>
@@ -27,6 +28,7 @@ const Login_choose=()=>{
                         button_text='Login'
                         logo_url="images/cycle one/service_icons/icon_2.png"
                         background_color='#4390E0'
+                        link='/login_process/owner_login'
                 />
              </Col> 
             </Row>

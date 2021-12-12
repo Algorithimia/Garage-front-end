@@ -1,11 +1,13 @@
 import { Col, Row } from 'react-bootstrap'
-import { Route, Routes, BrowserRouter as Router} from 'react-router-dom'
+import { Route, Routes, BrowserRouter as Router, Outlet} from 'react-router-dom'
 
 import Owner_login from './Owner-login'
 import Owner_register from './Owner-register'
 import Process_nav from './Process_nav'
 import Right_Section from './Process_right_section'
-
+import Confirmation_code from './Confirmation-code'
+import Forgot_password_email from './Forgot_password_email '
+import Reset_password from './Reset_password'
 const Login_process=()=>{
     return(
         <>
@@ -17,7 +19,7 @@ const Login_process=()=>{
              <Col sm={4}>
                <Right_Section />
              </Col>
-             <Col sm={6}> <Owner_login /></Col>
+          
          </Row>
         
         
@@ -25,11 +27,15 @@ const Login_process=()=>{
        
         <Routes>
            
-            <Route path="/owner_login" element={<Owner_login />} exact  />
+            <Route path="/owner_login" element={<Owner_login /> } exact  />
             <Route path="/owner_sign_in" element={<Owner_register />}  exact  />
+            <Route path="/confirmation" element={<Confirmation_code />}  exact  />
+            <Route path="/forget" element={<Forgot_password_email />}  exact  />
+            <Route path="/reset" element={<Reset_password />}  exact  />
             
             
         </Routes>
+        <Outlet />
       
 
 

@@ -1,4 +1,5 @@
 import { Row, Col,Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Process_nav =()=>{
     return (
@@ -8,7 +9,9 @@ const Process_nav =()=>{
           <div className='navv'>
          <Row>
           <Col sm={12}lg={3}>
-            <img className='Land_logo' src='images/cycle one/GarageWorkLogo.png' />
+            <Link to='/'>
+               <img className='Land_logo' src='/images/cycle one/GarageWorkLogo.png' />
+            </Link>
           </Col>
           <Col sm={8} lg={7}>
            <div className='options'>
