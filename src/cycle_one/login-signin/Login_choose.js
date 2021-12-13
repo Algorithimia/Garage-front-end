@@ -16,7 +16,7 @@ const Login_choose=()=>{
                     title='Vehicle Owner' 
                     p='vehicle owner seeking maintenance for his vehicle or using other services' 
                     button_text='Login'
-                    logo_url="images/cycle one/service_icons/icon_2.png"
+                    logo_url="images/cycle one/service_icons/Rectangle 101.png"
                     background_color='#71A43F'
                     link='/login_process'
             

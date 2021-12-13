@@ -1,5 +1,5 @@
 import { Col, Row } from 'react-bootstrap'
-import { Route, Routes, BrowserRouter as Router, Outlet} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 
 import Owner_login from './Owner-login'
 import Owner_register from './Owner-register'
@@ -37,7 +37,7 @@ const Login_process=()=>{
             
             
         </Routes>
-        <Outlet />
+   
       
 
 
