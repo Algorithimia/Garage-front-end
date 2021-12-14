@@ -6,12 +6,12 @@ import GrageOwnerDashbord from './GrageOwnerDashbord'
 
 const WorkshopRoutes = () => {
     return (
-        <div>
+        <div className='workshop-background'>
             <Row>
-                <Col sm={3}>
+                <Col sm={6} md={3}>
                     <SideBar />
                 </Col>
-                <Col sm={9}>
+                <Col sm={12} md={9}>
                 <Routes>
                     <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
                 </Routes>

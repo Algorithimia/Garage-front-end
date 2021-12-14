@@ -1,7 +1,17 @@
+.workshop-background{
+    background-color:#F8F8F8 ;
+ 
+}
 .grage_owner_dashbord{
+    margin-left: -30px;
    padding-top: 32px;
     width: 100%;
     background-color: #F8F8F8;
+    @media screen and (max-width: 1250px) {
+        margin-left: 0;
+        padding: 20px;
+      
+      }   
    
     .right{
         text-align: right;
@@ -28,6 +38,8 @@
             height: .25px;
             margin-top: 15px;
             margin-bottom: 10px;
+            width: 120%;
+            margin-left: -10%;
         }
         .bold{
             font-size: 20px;
@@ -46,17 +58,58 @@
             height: 227px;
         }
     }
+    .appointment{
+        width: 97.5%;
+    height: 168px;
+    background-color: #FFF;
+    margin-top: 20px;
+    box-shadow: 0px 3px 6px #00000029;
+    color: #000;
+    font-size: 18px;
+    //font-weight: bold;
+    padding: 20px;
+    @media screen and (max-width: 767px) {
+        margin-bottom: 20px;
+        margin-top: 20px;
+      
+      }   
+    span{
+        margin-left: 10px;
+        color: #152F55;
+        font-weight: bold;
+    }
+    .yello{
+        color: #F2A911;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    .inline-block{
+        float: right;
+        text-align: right;
+        margin-right: 15px;
+        background-color: #4390E0;
+        color: #fff;
+        padding: 6px;
+        padding-top: 1px;
+        border-radius: 50%;
+        font-size: 20px;
+       
+    }
+    }
     .title{
         font-size: 18px;
         color: #000;
         font-weight: bold;
     }
     .icon_row{
-        margin-top: 25px;
-        margin-bottom: 25px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     .icon_box{
-    
-        padding-bottom: 6px;
+         padding-top: 7px;
+        padding-bottom: 7px;
+        padding-right: 1%;
+        padding-left: 1%;
         width: 90%;
         min-height: 70px;
         box-shadow: 0px 3px 9px #00000029;
@@ -71,5 +124,87 @@
 
 }
 }
+.employes{
+    font-size: 18px;
+    font-weight: bold;
+    @media screen and (max-width: 1250px) {
+    background-color: #fff;
+     width: 300px;
+     margin: auto;
+     padding: 20px;
+     margin-left: 150px;
+     box-shadow: 0px 3px 6px #00000029;
+     border-radius: 9px;
+     a{
+         margin-top: -12px;
+     }
+    }  
+    .title{
+        margin-bottom: 10px;
+    }
+    .employ{
+        font-weight: normal;
+        margin-top: 0px;
+        position: relative;
+        img{
+            width: 38px;
+            height: 41px;
+            border-radius: 50%;
+            margin-bottom: 22px;
+            margin-right: 10px;
 
+        }
+        .gray{
+            font-size: 14px;
+            color: #969B85;
+        }
+        .delete_icon{
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            background-color:#969B8533 ;
+            padding-left: 7px;
+            color: #969B85;
+            width: 34px;
+            height: 33px;
+            font-size: 20px;
+            margin-left:40px ;
+            margin-bottom: 40px;
+            border-radius: 50%;
+           
+        }
+        .tools_icon{
+            background-color:#969B8533 ;
+            color: #152F55;
+
+        }
+       
+     
+       
+    }
+    .customer_margin{
+        margin-bottom: 10px;
+   }
+   .margin_top{
+      margin-top: 30px;
+   }
+  
+}
+
+a{
+    text-align: right;
+    text-decoration: underline;
+    float: right;
+    margin-right: 20px;
+    color: #4390E0;
+    font-size: 14px;
+    font-weight: normal;
+}
+}
+.width{
+    @media screen and (max-width: 1250px) {
+      width: 150%;
+      margin-bottom: 50px;
+    
+    }   
 }

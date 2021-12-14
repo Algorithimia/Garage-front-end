@@ -6,6 +6,10 @@
     padding-bottom: 50px;
     box-shadow: 0px 3px 12px #00000029;
     text-align: center;
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
     .logo{
     
         width: 158px;
@@ -19,11 +23,18 @@
         border-radius: 50%;
     }
     .dropdown{
+        margin: auto;
         margin-top: 20px;
         background-color: #fff;
         color: #4390E0;
         border: none;
         margin-bottom: 17px;
+        @media screen and (max-width: 900px) {
+            width: 100%;
+        max-width: 223px;
+      
+          
+          }   
        
     }
     .btn-primary.dropdown-toggle{

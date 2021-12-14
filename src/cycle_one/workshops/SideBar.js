@@ -11,13 +11,13 @@ const SideBar = () => {
                 <Dropdown>
                     <img className='dropdown_img' src='/images/cycle one/workshop.jpg' />
                     <Dropdown.Toggle  className='dropdown' >
-                        Dropdown Button
+                    Workshop Name
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        <Dropdown.Item href="#/action-1"><img className='dropdown_img' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2"><img className='dropdown_img' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3"><img className='dropdown_img' src='/images/cycle one/workshop.jpg' /> &nbsp; Workshop Name</Dropdown.Item>
                     </Dropdown.Menu>
                  </Dropdown>
                 <div className='line'></div>
