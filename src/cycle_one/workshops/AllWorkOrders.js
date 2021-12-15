@@ -1,6 +1,7 @@
 import {AiFillPlusCircle} from "react-icons/ai"
-import { Link } from 'react-router-dom'
+import { Link, Route,Routes } from 'react-router-dom'
 import WorkOrder from './WorkOrder'
+import FilterWorkOrders from "./FilterWorkOrders"
 const AllWorkOrders = () => {
     return (
         <div className='work_orders'>
@@ -8,7 +9,7 @@ const AllWorkOrders = () => {
                 <div className='first_line'>
                     <span>ALL WORK ORDERS</span>
                     <div className="right">
-                        <div className='inline-block'><Link to=''><button className="light_blue">FILTER</button></Link></div>
+                        <div className='inline-block'><Link to='/workshop/owner/allworkorders/filter'><button className="light_blue">FILTER</button></Link></div>
                         <div className='inline-block'><Link to='/workshop/owner/createworkeorder'><button className="blue"><AiFillPlusCircle  /> Create Work Oder</button></Link></div>
                     </div>
                 </div>
@@ -51,6 +52,9 @@ const AllWorkOrders = () => {
 <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
                    
             </table>
+            <Routes>
+                    <Route path="/filter" element={<FilterWorkOrders />} exact  />
+            </Routes>
         </div>
     )
 }

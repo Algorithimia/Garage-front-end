@@ -15,7 +15,7 @@ const WorkshopRoutes = () => {
                 <Col sm={12} md={9} style={{ backgroundColor:'#F8F8F8'}}>
                 <Routes>
                     <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
-                    <Route path="/owner/allworkorders" element={<AllWorkOrders />} exact  />
+                    <Route path="/owner/allworkorders/*" element={<AllWorkOrders />} exact  />
                     <Route path="/owner/createworkeorder/*" element={<CreateWorkOrder />} exact  />
                     
                     
