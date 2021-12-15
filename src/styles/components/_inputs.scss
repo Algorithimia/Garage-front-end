@@ -29,12 +29,24 @@
     input::placeholder {
         color: #969B858F;
     }
+ 
     position: relative;
     .mark{
         position: absolute;
         right: 11%;
         top: 10px;
         background-color: #fff;
+        
+    }
+
+    textarea{
+        font-size: 20px;
+        outline: none;
+        float: left;
+        
+    }
+    textarea::placeholder {
+        color: #969B858F;
         
     }
     

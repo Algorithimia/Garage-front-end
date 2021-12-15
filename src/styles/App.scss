@@ -2,6 +2,7 @@
 @import "components/buttons.scss";
 @import "components/layout";
 @import "components/inputs";
+@import "components/table";
 @import "cycle_one/Landing_page/nav";
 @import "cycle_one/Landing_page/car_care_center";
 @import "cycle_one/Landing_page/autorepair";
@@ -14,3 +15,5 @@
 //workshops
 @import"cycle_one/workshops/sideBar";
 @import"cycle_one/workshops/grage_owner_dashbord";
+@import"cycle_one/workshops/workOrders";
+@import"cycle_one/workshops/createWorkOrder";

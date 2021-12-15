@@ -1,0 +1,141 @@
+.create_work_order{
+    .opacity{
+        position: fixed;
+    }
+    background: #fff;
+    margin: 50px;
+    height: auto;
+    padding-bottom: 140px;
+    margin-left: -4%;
+    @media screen and (max-width: 1250px) {
+        margin-left: 0;
+        width: 15%0;
+      
+      }   
+    .main_ttitle{
+        font-size: 20px;
+        color: #000;
+        padding: 20px;
+        height: 70px;
+        border-bottom: .25px solid #e4e6e1cf;
+        font-weight: 500;
+    }
+    input{
+        position: relative;
+        padding: 20px;
+        width: 90%;
+    }
+    select{
+        position: absolute;
+         left: 0;
+         width: 70%;
+         bottom: 18px;
+         border:none;
+         left: 14%;
+         font-size: 18px;
+         border: 0px;
+         outline: none;
+         color: #969B85CC;
+        option{
+            color: black;
+        }
+        
+    }
+    .customer_info{
+        
+    }
+    .title{
+        margin-top: 20px;
+        margin-bottom: -25px;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 20px;
+    }
+    .margin_top{
+        padding-top: 0px;
+    }
+    .vechile_info{
+       
+        padding: 0 30px;
+    }
+    .customer_info{
+        margin-top: 60px;
+        padding-bottom: 60px;
+        padding: 0 30px;
+    }
+  .big_input{
+    height: 171px;
+    width: 90%;
+    padding: 25px 30px;
+    margin-left: 2%;
+    
+}
+.main_input{
+    margin-top: 30px;
+    margin-left: 5%;
+   
+}
+
+label{
+
+    left: -10px;
+}
+
+.dark_button{
+    width: 158px;
+height: 50px;
+padding: 0;
+float: right;
+margin-right: 40px;
+margin-top: 50px;
+}
+
+
+
+}
+
+
+.after_work_order{
+    border-radius: 12px;
+    height: 642px;
+    position: fixed;
+    top: 20vh;
+    background-color:#fff;
+    width: 65%;
+    z-index: 9999999;
+    margin-left: 23%;
+   text-align: center;
+   img{
+       margin-top: 105px;
+   }
+   .green_color{
+       
+       color: #71A43F;
+       font-size: 20px;
+       font-weight: bold;
+       margin-top: 35px;
+      
+   }
+   button{
+    width: 348px;
+    height: 47px;
+    
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    max-width: 100%;
+   }
+   .dark{
+    margin-top: 45px;
+    background-color: #152F55;
+    color: #fff;
+   
+   }
+   .light{
+    background-color: #ECEAEA;
+    color: #152F55;
+    font-weight: 500;
+   
+   }
+}
