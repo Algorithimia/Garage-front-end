@@ -1,0 +1,146 @@
+.select_spareparts{
+    background: #fff;
+    margin-top: 50px;
+  //  padding: 30px;
+    width: 95%;
+  //  padding-left: 5%;
+    padding-bottom: 50px;
+    input{
+        border:1px solid #8b8b8bcf;
+    }
+    .first_row{
+        border-bottom:1px solid #b3b4b2cf;;
+        padding: 30px;
+        padding-left: 5%;
+    }
+    .search_div{
+        width: 270px;
+        float: right;
+        margin-right: 10%;
+       // width: 750px;
+        position: relative;
+        text-align: center;
+       // margin: auto;
+    .search{
+       // margin-top: 30px;
+        width: 100%;
+        height: 42px;
+        border: 1px solid #969b85;
+        padding-left: 20px;
+       
+    }
+    .icon{
+        position: absolute;
+        top:8px;
+        right: 20px;
+        color: #969B85;
+        
+    }
+}
+
+ 
+    
+    .title{
+        font-size: 20px;
+        font-weight: 500;
+        padding-top: 15px;
+        padding-bottom: 24px;
+    }
+    .second-row{
+        padding: 30px;
+        padding-left: 5%;
+        margin-top: 20px;
+        margin-bottom: -25px;
+    }
+    .tables-row{
+        padding: 30px;
+        padding-left: 5%;
+    }
+    .table_div{
+        padding-top: 15px;
+        // max-height:463px;
+        // overflow: scroll;
+     
+        table{
+            width: 90%;
+            border: 1px solid #152F55;
+           min-height: 325px;
+           
+         
+          
+            thead{
+                border-top:1px solid #152F55;
+                text-align: center;
+            }
+        
+        }
+    }
+    .end_row{
+        padding: 30px;
+        padding-left: 5%;
+      
+        button{
+            border: none;
+            float: right;
+            margin-right: 10%;
+            background-color: #152F55;
+            color: #fff;
+            width: 242px;
+            height: 50px;
+            border-radius: 25px;
+        }
+        a{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+    .spare_part{
+        .input{
+         
+            width: 65px;
+        }
+        button{
+            width: 74px;
+            height: 30px;
+            color: #fff;
+            border: none;
+        }
+        .blue{
+            background-color: #152F55;
+        }.gray{
+            background-color: #969B85;
+            padding-left:5px ;
+            padding-right: 5px;
+        }
+    }
+
+
+}
+.buy{
+     .search_div{
+        width: 641px;;
+        float: left;
+        margin-right: 0%;
+     }
+     .second-row{
+        .button{
+            width: 242px;
+            height: 50px;
+            color: #fff;
+            border: none;
+            background-color: #152F55;
+            font-size: 20px;
+            border-radius: 25px;
+        }
+     }
+     .total{
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+     }
+     .price{
+         font-size: 20px;
+         color: #F2A911;
+         font-weight: bold;
+     }
+}

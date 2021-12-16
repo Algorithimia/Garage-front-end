@@ -5,6 +5,8 @@ import SideBar from './SideBar'
 import GrageOwnerDashbord from './GrageOwnerDashbord'
 import AllWorkOrders from './AllWorkOrders'
 import CreateWorkOrder from './CreateWorkOrder'
+import SelectSparePartsFromInventory from './SelectSparePartsFromInventry'
+import BuySpareParts from './BuySpareParts'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -17,6 +19,8 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
                     <Route path="/owner/allworkorders/*" element={<AllWorkOrders />} exact  />
                     <Route path="/owner/createworkeorder/*" element={<CreateWorkOrder />} exact  />
+                    <Route path="/owner/selectinventory" element={<SelectSparePartsFromInventory />} exact  />
+                    <Route path="/owner/buyspareparts" element={<BuySpareParts />} exact  />
                     
                     
                 </Routes>

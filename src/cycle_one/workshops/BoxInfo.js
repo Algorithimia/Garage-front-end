@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom"
 
 
-const BoxInfo = ({icon,bacGroundColor,title,number}) => {
+const BoxInfo = ({icon,bacGroundColor,title,number,path}) => {
     return (
         <div>
             <div className="box_info" style={{background:bacGroundColor}}>
@@ -10,7 +11,7 @@ const BoxInfo = ({icon,bacGroundColor,title,number}) => {
                                 </span>
                                 <div className="bold">{number}</div>
                                 <div className="line"></div>
-                                <div className="center">View All</div>
+                              <Link to={path} style={{textAlign:'center', margin:'auto'}} >  <div className="center">View All</div> </Link>
                             </div>
         </div>
     )

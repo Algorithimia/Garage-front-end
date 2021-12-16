@@ -34,16 +34,16 @@ const GrageOwnerDashbord = () => {
                       <Col  sm={12} md={9} className="width">
                           <Row className="justify-content-md-center">
                             <Col sm={3}>
-                                <BoxInfo icon={<RiTimer2Fill />} title='Created' number='120' bacGroundColor="#71A43F"/>
+                                <BoxInfo icon={<RiTimer2Fill />} title='Created' number='120' bacGroundColor="#71A43F" path='/workshop/owner/allworkorders'/>
                             </Col>
                             <Col sm={3}>
-                                <BoxInfo icon={<GiSandsOfTime />} title='In Progress' number='2' bacGroundColor="#F2A911"/>
+                                <BoxInfo icon={<GiSandsOfTime />} title='In Progress' number='2' bacGroundColor="#F2A911" path='/workshop/owner/allworkorders'/>
                             </Col>
                             <Col sm={3}>
-                                <BoxInfo icon={<BsCheckCircleFill />} title='Completed' number='2' bacGroundColor="#4094EB"/>
+                                <BoxInfo icon={<BsCheckCircleFill />} title='Completed' number='2' bacGroundColor="#4094EB" path='/workshop/owner/allworkorders'/>
                             </Col>
                             <Col sm={3}>
-                                <BoxInfo icon={<MdPayment />} title='Payment Due' number='120 $' bacGroundColor="#51459D"/>
+                                <BoxInfo icon={<MdPayment />} title='Payment Due' number='120 $' bacGroundColor="#51459D" path='/workshop/owner/allworkorders'/>
                             </Col>
                          </Row> 
                          <Row className="secoond_row">
