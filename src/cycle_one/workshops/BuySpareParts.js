@@ -21,7 +21,9 @@ const BuySpareParts = () => {
                         </div>
                     </Col>
                     <Col sm={6}md={4}>
+                     <Link to='/workshop/owner/purchase'>
                      <button className="button">PURCHASE ORDER</button>
+                     </Link>   
                     </Col>
                 </Row>     
               </div>
