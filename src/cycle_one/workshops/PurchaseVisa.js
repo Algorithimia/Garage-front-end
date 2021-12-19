@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Row , Col} from "react-bootstrap"
+import SuccessfulPurchase from './SuccessfulPurchase';
 const PurchaseVisa = () => {
     let result = "347405405655278".replace(/(.{4})/g, '$1    ');
     return (
@@ -55,6 +56,9 @@ const PurchaseVisa = () => {
          </div>
          <input className="button" type='submit' value='PURCHASE' />
          </form>
+         <Routes>
+           < Route path="/success" element={<SuccessfulPurchase />} exact  /> 
+         </Routes>
          </div>
     )
 }

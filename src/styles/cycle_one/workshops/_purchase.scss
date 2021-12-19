@@ -57,6 +57,11 @@
       
       .card_info{
         padding: 24px;
+        .right_img{
+            float: right;
+            width: 70px;
+            height: 20px;
+        }
         .right{
             float: right;
         }
@@ -156,5 +161,37 @@ input::placeholder {
 .saved_cards{
     font-size: 20px;
     font-weight: 500;
+    
 }
+}
+
+.success_purchase{
+    width: 50%;
+    margin-left: 25%;
+    height: 80%;
+    margin-top: 5%;
+    background-color: #fff;
+    img{
+        margin-top: 95px;
+        margin-bottom: 37px;
+    }
+    .green{
+      color: #71A43F;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 64px;
+      span{
+          font-size: 30px;     
+      }
+    }
+    button{
+        border: none;
+        color: #fff;
+        width: 348px;
+        height: 47px;
+        background-color: #152F55;
+        box-shadow: 0px 3px 6px #152F558C;
+        border-radius: 25px;
+
+    }
 }

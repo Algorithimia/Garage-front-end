@@ -18,7 +18,7 @@ const Purchase = () => {
                     <Col>
                    <Routes>
 
-                        <Route path="/visa" element={<PurchaseVisa />} exact  /> 
+                        <Route path="/visa/*" element={<PurchaseVisa />} exact  /> 
                         <Route path="/paypal" element={<PurchasePaypal />} exact  /> 
                     
                    </Routes>
@@ -37,7 +37,7 @@ const Purchase = () => {
                              Bankname
                              </Col>
                              <Col>
-                            <RiVisaLine />
+                             <img  className="right_img" src='/images/cycle one/visa.svg' /> 
                              </Col>
                          </Row>
                          <div className="password">
