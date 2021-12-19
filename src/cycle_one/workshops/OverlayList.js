@@ -17,11 +17,11 @@ const OverlayList = () => {
           
           <div className='hidden_list'>
             <div className='option'>
-           <Link to='/' style={{color:"#4390E0", fontWeight:"bold"  }}>VIEW WORK ORDER</Link>
+           <Link to='/workshop/owner/singleworkorder' style={{color:"#4390E0", fontWeight:"bold"  }}>VIEW WORK ORDER</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to='/' style={{color:"#4390E0", fontWeight:"bold" }}>ASSIGN EMPLOYEE</Link>
+           <Link to='/workshop/owner/allworkorders/assignEmploye' style={{color:"#4390E0", fontWeight:"bold" }}>ASSIGN EMPLOYEE</Link>
            <br />
            </div>
            <div className='option'>

@@ -14,7 +14,7 @@
     .payment_way{ 
         width: 448px;
         box-shadow: 0px 3px 6px #00000029;
-        padding: 5%;
+        padding: 7%;
         text-align: center;
         color: #2699FB;
         label{
@@ -28,18 +28,22 @@
     }
         
     .visa{
-      
-        color: #2699FB;
-        font-size: 100px;
-        margin-top: 80px;
-        border-bottom:3px solid #2699FB;
+       width: 77px;
+      height: 77px;
+       padding-bottom: 10px;
+        border-bottom:5px solid #2699FB;
+        margin-right: 80px;
     }
     .paypal{
-        color: #2699FB;
-        font-size: 30px;
-        font-weight: bold;
-        border-bottom:3px solid #2699FB;
+        width: 77px;
+        height: 77px;
+        padding-bottom: 10px;
+     
+      //  border-bottom:3px solid #2699FB;
         opacity:52% ;
+        &:hover{
+            opacity: 100%;
+        }
        
     }
     .card{
@@ -130,7 +134,27 @@ input::placeholder {
     border-radius: 25px;
     background-color: #152F55;
     color: #fff;
-   
+   font-weight: 100;
     padding-bottom: 2px;
+    font-size: 16px;
+}
+.paypal_way{
+    .visa{
+      
+        border: none;
+        opacity: 52%;
+        &:hover{
+            opacity: 100%;
+        }
+    }
+    .paypal{
+        opacity: 100%;
+        border-bottom:5px solid #2699FB;
+
+    }
+}
+.saved_cards{
+    font-size: 20px;
+    font-weight: 500;
 }
 }

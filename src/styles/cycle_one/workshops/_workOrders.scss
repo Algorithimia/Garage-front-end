@@ -254,3 +254,37 @@
 //    padding-bottom: 10px;
 }
 
+
+.assign_employ{
+    width: 80%;
+    margin-left: 10%;
+    height: 80%;
+    margin-top: 5%;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 65px;
+    font-weight: 500;
+    font-size: 18px;
+    input{
+        border: 1px solid #969B85;
+        width: 50%;
+        padding: 7px;
+        padding-left: 20px;
+        margin-top: 117px;
+    }
+    .buttons{
+        margin-top: 150px;
+        button{
+        color: #fff;
+        border: none;
+        width: 126px;
+        height: 38px;
+        border-radius: 25px;
+        background-color: #4390E0;
+        }
+        .gray{
+            background-color: #969b85;
+            margin-right: 20px;
+        }
+    }
+}

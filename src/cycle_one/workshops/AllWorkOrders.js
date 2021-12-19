@@ -7,6 +7,7 @@ import { Link, Route,Routes } from 'react-router-dom'
 
 import WorkOrder from './WorkOrder'
 import FilterWorkOrders from "./FilterWorkOrders"
+import AssignEmploye from './AssinEmploye'
 const AllWorkOrders = () => {
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
@@ -94,6 +95,8 @@ const AllWorkOrders = () => {
             </table>
             <Routes>
                     <Route path="/filter" element={<FilterWorkOrders />} exact  />
+                    <Route path="/assignEmploye" element={<AssignEmploye />} exact  />
+
             </Routes>
         </div>
     )
