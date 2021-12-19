@@ -25,8 +25,9 @@ const PurchasePaypal = () => {
                     <label>GARAGE NAME</label> <br/>
                     <input placeholder="Name Here .." />
                 </div>
-
-                <input className="button" type='submit' value='PURCHASE' />
+                <Link  to='/workshop/owner/purchase/visa/success'>
+                    <input className="button" type='submit' value='PURCHASE' />
+                </Link>
          </form>
             
         </div>

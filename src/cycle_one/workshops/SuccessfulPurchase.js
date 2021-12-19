@@ -11,7 +11,7 @@ const SuccessfulPurchase = () => {
                   <span>  <BsFillCheckCircleFill /> </span>
                     PURCHASE COMPLETED SUCCESSFULLY
                 </div>
-                <Link to='/'>
+                <Link to='/workshop/owner/buyspareparts'>
                     <button>PURCHASE NEW SAPRE PART</button>
                 </Link>
 
