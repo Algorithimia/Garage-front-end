@@ -8,6 +8,7 @@ import CreateWorkOrder from './CreateWorkOrder'
 import SelectSparePartsFromInventory from './SelectSparePartsFromInventry'
 import BuySpareParts from './BuySpareParts'
 import Purchase from './Purchase'
+import Pagination from './Pagination'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -23,6 +24,8 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/selectinventory" element={<SelectSparePartsFromInventory />} exact  />
                     <Route path="/owner/buyspareparts" element={<BuySpareParts />} exact  />
                     <Route path="/owner/purchase" element={<Purchase />} exact  />
+                    <Route path="/owner/paginatin" element={<Pagination />} exact  />
+
 
                     
                     

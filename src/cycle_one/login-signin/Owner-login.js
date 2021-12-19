@@ -46,7 +46,9 @@ const Owner_login = () =>{
                     <div className='agree_privacy'>By logging in, you agree to our
                     <div><span className='blue'>Terms of Service </span> &amp; <span className='blue'>Privacy Policy</span></div>
                     </div>
-                    <input className='dark_button' type='submit' value='Login'/>
+                    <Link to='/workshop/owner/dashbord'>
+                       <input className='dark_button' type='submit' value='Login'/>
+                    </Link>
                     <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_sign_in'><span className='blue'>SIGNUP</span></Link> </div>
                  </div>
            </form>

@@ -1,9 +1,30 @@
+import React, { useState,useEffect } from 'react';
+import {FaSearch} from'react-icons/fa'
 import {AiFillPlusCircle} from "react-icons/ai"
 import {GoTriangleDown,GoTriangleUp} from "react-icons/go"
 import { Link, Route,Routes } from 'react-router-dom'
+
+
 import WorkOrder from './WorkOrder'
 import FilterWorkOrders from "./FilterWorkOrders"
 const AllWorkOrders = () => {
+    const [entries, setEntries] = useState(0);
+    const [date, setDate] =  useState(0);
+    const upEntries=()=>{
+       setEntries(parseInt(entries)+1)
+    }
+    const downEntries=()=>{
+       setEntries(parseInt(entries)-1)
+    }
+    const upDate=()=>{
+        setDate(parseInt(date)+1)
+
+      
+     }
+     const downDate=()=>{
+        setDate(parseInt(date)-1)
+      
+     }
     return (
         <div className='work_orders'>
             <div className='head_section'>
@@ -19,15 +40,33 @@ const AllWorkOrders = () => {
                        <span>
                        Show Entries
                        </span>
-                       <input type='number' min={1} max={10} />
+                       <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
+                       <div className="change_number">
+                        <div className='change' onClick={upEntries}>   
+                         <GoTriangleUp />
+                        </div>
+                        <div className="up change" onClick={downEntries}>
+                         <GoTriangleDown />
+                        </div>
+                       </div>
+                       
                     </div>
                     <div className='inline-block input_block'>
                         <span>
                         Date
                         </span>
-                        <input type='number' min={1} max={12} />
+                        <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                        <div className="change_number">
+                            <div className='change' onClick={upDate}>
+                             <GoTriangleUp />
+                            </div>
+                            <div className="up change" onClick={downDate}>
+                             <GoTriangleDown />
+                            </div>
                         </div>
-                    <input className="right" type='search' placeholder="Search Repair Order" />
+                        </div>
+                    <input className="right" placeholder="Search Repair Order" />
+                    <div className='icon'><FaSearch /></div> 
                 </div>
             </div>
             <table>
