@@ -10,6 +10,10 @@ import BuySpareParts from './BuySpareParts'
 import Purchase from './Purchase'
 import Pagination from './Pagination'
 import SingleWorkOrder from './SingleWorkOrder'
+import ViewCustomer from './ViewCustomer'
+import CreateOrEditeCustomer from './CreateOrEditeCustomer'
+import AddVehicle from './AddVehicle'
+import ViewVehicle from './ViewVehicle'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -27,6 +31,10 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/purchase/*" element={<Purchase />} exact  />
                     <Route path="/owner/paginatin" element={<Pagination />} exact  />
                     <Route path="/owner/singleworkorder" element={<SingleWorkOrder />} exact  />
+                    <Route path="/owner/viewcustomer" element={<ViewCustomer />} exact  />
+                    < Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
+                    < Route path="/owner/addvehicle" element={<AddVehicle />} exact  />
+                    < Route path="/owner/viewvehicle" element={<ViewVehicle />} exact  />
 
 
                     

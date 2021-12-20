@@ -85,7 +85,7 @@ const CreateWorkOrder = () => {
                  </Row>
 
                 </div>
-                <div className="customer_info">
+                <div className="customer_info_create">
                   <div className="title">CUSTOMER INFO</div>
                   <Row>
                       <Col md={6} lg={4}>

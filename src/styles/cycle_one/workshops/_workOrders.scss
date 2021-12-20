@@ -57,6 +57,10 @@
             border: none;
             border-radius: 25px;
             margin-left: 20px;
+            span{
+                vertical-align:top;
+                margin-right: 5px;
+            }
            }
          }
      }
@@ -265,6 +269,7 @@
     padding-top: 65px;
     font-weight: 500;
     font-size: 18px;
+    z-index: 99999999999999999999999;
     input{
         border: 1px solid #969B85;
         width: 50%;

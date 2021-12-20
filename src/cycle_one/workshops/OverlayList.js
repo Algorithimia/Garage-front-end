@@ -25,15 +25,15 @@ const OverlayList = () => {
            <br />
            </div>
            <div className='option'>
-           <Link to='/' style={{color:"#4390E0", fontWeight:"bold" }}>ASSIGN SPARE PARTS</Link>
+           <Link to='/workshop/owner/selectinventory' style={{color:"#4390E0", fontWeight:"bold" }}>ASSIGN SPARE PARTS</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to='/' style={{color:"#4390E0", fontWeight:"bold" }}>VIEW CUSTOMER</Link>
+           <Link to='/workshop/owner/viewcustomer' style={{color:"#4390E0", fontWeight:"bold" }}>VIEW CUSTOMER</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to='/' style={{color:"#4390E0", fontWeight:"bold" }}>VIEW VEHICLE</Link>
+           <Link to='/workshop/owner/viewvehicle' style={{color:"#4390E0", fontWeight:"bold" }}>VIEW VEHICLE</Link>
            </div>
           </div>
         </Popover>
