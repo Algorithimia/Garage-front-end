@@ -65,9 +65,24 @@
   
     
     .header{
+        font-size: 20px;
       font-weight: 500;
       padding: 30px;
       border-bottom: 1px solid #EFEFEF;
+     
+          button{
+              font-weight: 400;
+              font-size: 16px;
+              margin-top: 0;
+            float: right;
+              border: none;
+              color: #fff;
+              background-color: #152F55;
+              width: 213px;
+              height: 38px;
+              border-radius: 25px;
+          
+      }
     }
     .secod_row{
         .car_view{

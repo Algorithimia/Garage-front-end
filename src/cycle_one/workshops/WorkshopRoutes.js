@@ -14,6 +14,9 @@ import ViewCustomer from './ViewCustomer'
 import CreateOrEditeCustomer from './CreateOrEditeCustomer'
 import AddVehicle from './AddVehicle'
 import ViewVehicle from './ViewVehicle'
+import Employes from './Employes'
+import AddNewEmploy from './AddNewEmploy'
+import EpmloysAssignedWorkOrder from './EpmloysAssignedWorkOrder'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -32,9 +35,12 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/paginatin" element={<Pagination />} exact  />
                     <Route path="/owner/singleworkorder" element={<SingleWorkOrder />} exact  />
                     <Route path="/owner/viewcustomer" element={<ViewCustomer />} exact  />
-                    < Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
-                    < Route path="/owner/addvehicle" element={<AddVehicle />} exact  />
-                    < Route path="/owner/viewvehicle" element={<ViewVehicle />} exact  />
+                    <Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
+                    <Route path="/owner/addvehicle" element={<AddVehicle />} exact  />
+                    <Route path="/owner/viewvehicle" element={<ViewVehicle />} exact  />
+                    <Route path="/owner/employes" element={<Employes />} exact  />
+                    <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
+                    <Route path="/owner/employassignworkorder" element={<EpmloysAssignedWorkOrder />} exact  />
 
 
                     

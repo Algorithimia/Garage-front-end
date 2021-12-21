@@ -1,5 +1,6 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const AddVehicle = () => {
     return (
@@ -96,7 +97,9 @@ const AddVehicle = () => {
               </Col>
 
           </Row>
-          <input className='butn' type='submit' value='SAVE DETAILS' />
+          <Link to='/workshop/owner/viewvehicle'>
+             <input className='butn' type='submit' value='SAVE DETAILS' />
+          </Link>
           </form>
           </div>
             

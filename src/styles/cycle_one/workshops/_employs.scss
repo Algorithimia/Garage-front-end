@@ -1,0 +1,276 @@
+.employs{
+    margin-top: 50px;
+    background-color: #fff;
+    width: 80%;
+
+   .body{
+       padding: 30px;
+     padding-top: 50px;
+     .employ{
+        width: 370px;
+        box-shadow: 0px 3px 6px #00000029;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        margin: auto;
+        img{
+           
+            width: 142px;
+            height: 140px;
+            border-radius: 50%;
+        }
+        .name{
+            font-size: 18px;
+            font-weight: bold;
+            color: #152F55;
+            margin: 5px;
+        }
+        button{
+            margin: 5px;
+            border: none;
+            color: #fff;
+            background-color: #4390E0;
+            width: 270px;
+            height: 33px;
+            font-weight: 100;
+          
+        }
+        .login_info{
+            margin: 16px;
+            margin-top: 23px;
+            background-color: #ECEAEA;
+            color: #152F55;
+            font-size: 18px;
+            text-align: left;
+            padding: 20px;
+            .info{
+                margin-top: 25px;
+                div{
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+            .gray_color{
+                color: #838383;
+               
+            }
+             }
+            .right{
+                float: right;
+                
+              span{
+                  
+                color: #fff;
+                background-color: #4390E0;
+                width: 20px;
+                height: 20px;
+                padding: 7px;
+                padding-top: 2px;
+                border-radius: 50%;
+             
+                 
+              }
+            }
+        }
+        .personal_info,.salary_info{
+            text-align: left;
+            font-size: 18px;
+            color: #152F55;
+            padding: 20px;
+            border-top:1px solid  #d4d6ce;
+            border-bottom:1px solid  #d4d6ce;
+            span{
+                font-weight: 500;
+            }
+   
+        }
+        .assigned_decision{
+           text-align: left;
+           padding: 20px;
+           font-weight: 500;
+           font-size: 18px;
+           
+          
+                color: #5D5D5D;
+                .option{
+                   margin-top: 10px;
+                }
+        
+           a{ 
+               color: #152F55;
+               font-weight: 400;
+           }
+        }
+
+
+        .delete{
+            width: 45%;
+            background-color: #fff;
+            color: #152F55;
+            font-weight: 500;
+            border: 1px solid #152F55;
+          }
+          .edite{
+             width: 45%;
+             background-color: #152F55;
+          }
+     }
+
+     
+   }
+
+}
+
+
+//header
+.header_employ{
+    padding: 30px;
+    font-weight: 500;
+    font-size: 20px;
+    border-bottom:1px solid  #d4d6ce;
+.right{
+    float: right;
+    font-weight: 400;
+    font-size: 16px;
+    .input{
+        position: relative;
+        display: inline-block;
+    input{
+        border:1px solid  #969B85;
+        margin-right: 70px;
+        width: 270px;
+        height: 30px;
+        padding: 18px;
+    
+
+    }
+    .icon{
+        position: absolute;
+        right: 87px;
+        top: 6px;
+        color: #969B85;
+     }
+    }
+    button{
+        border: none;
+        width: 209px;
+        height: 38px;
+        color: #fff;
+        background-color: #152F55;
+        border-radius: 25px;
+        span{
+            vertical-align:top;
+            margin-right: 5px;
+        }
+    }
+}
+}  
+
+//employassignworkorder
+.employassignworkorder{
+    width: 90%;
+    background-color: #fff;
+    margin-top: 50px;
+    .body{
+        margin-top: 70px;
+        padding: 20px;
+        .employ_info{
+            color: #152F55;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 200;
+        img{
+            width: 106px;
+            height: 106px;
+            border-radius: 50%;
+        }
+        .bold{
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 5px;
+
+        }
+        .work_orders_num{
+            margin-top: 5px;
+            font-weight: 400;
+            span{
+                vertical-align:text-bottom;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .employ_order{
+        text-align: center;
+        margin: auto;
+        margin-bottom: 50px;
+        width: 386px;
+        background-color: #fff;
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 10px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        .car_info{
+            text-align: left;
+            padding: 10px;
+            padding-top: 3px;
+            border-left:  4px solid #95C1EE;
+            font-size: 18px;
+            font-weight: 500;
+            color: #152F55;
+            .car_name{
+                font-weight: bold;
+                margin-bottom: 25px;
+            }
+        }
+        table{
+            margin: 5px;
+            margin-top: 10px;
+            th{
+                //text-align: right;
+              //  float: right;
+                font-size: 18px;
+                color: #152F55;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-weight: 500;
+            }
+            .date{
+               
+                    color: #969B85A6;
+                    text-align: right;
+                    font-size: 16px;
+                
+            }
+            .red{
+                th{
+                color: #EB0836;
+                border: 1px solid #00000029;
+                }
+            }
+            thead{
+                border: none;
+                th{
+                    color: #152F55;
+                    font-weight: bold;
+                    text-align: left;
+                }
+            }
+          
+        }
+        .btn{
+            text-align: center;
+            margin-top: 20px;
+        .red_btn{
+            
+           margin: auto;
+            border: none;
+            color: #fff;
+            background-color: #EB0836;
+            width: 290px;
+            height: 33px;
+            border-radius: 25px;
+        }
+    } 
+    }
+    }
+}
