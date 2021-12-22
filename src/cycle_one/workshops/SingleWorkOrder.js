@@ -5,6 +5,9 @@ import{MdCreditCard,MdDeleteSweep} from 'react-icons/md'
 import { Col, Row } from 'react-bootstrap'
 
 
+
+import Part from './components/Part'
+
 const SingleWorkOrder = () => {
     return (
         <div className='single_work_order'>
@@ -42,40 +45,7 @@ const SingleWorkOrder = () => {
                          PART 2
                            <span className='right'><span className='yello'><MdCreditCard /></span> <span className='gray'><MdDeleteSweep /></span>  </span>
                          </div>
-                         <div className='part'>
-                         PART 3
-                           <span className='right'><span className='yello'><MdCreditCard /></span> <span className='gray'><MdDeleteSweep /></span>  </span>
-                           <div className='hiddenlist'>
-                           <span>A/C air duct and vent</span>
-                           <br />
-                           QUANTITY
-                           <br />
-                           <span>01</span>
-                           <br />
-                           INVOICE NUMBER
-                           <br />
-                           <span>451</span>
-                           <br />
-                           DATE
-                           <br />
-                           <span>12/6</span>
-                           <table>
-                             
-                                  <tr>
-                                      <th className='black'> Total</th>
-                                      <th className='blue'> Recieved</th>
-                                      <th  className='red'> Due</th>
-                                    
-                                  </tr>
-                             
-                              <tr className='bold'>
-                                  <th className='black' > 100 $</th>
-                                  <th  className='blue'>70 $ </th>
-                                  <th className='red'>30 $</th>
-                                  </tr>
-                        </table>
-                        </div>
-                         </div>
+                         < Part />
 
                        </div>
                        

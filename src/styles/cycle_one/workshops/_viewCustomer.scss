@@ -47,15 +47,19 @@
         font-weight: 500;
        }
         .cars{
+            margin: auto;
             margin-top: 114px;
             width: 370px;
+            max-width: 100%;
             background-color: #fff;
             box-shadow: 0px 3px 6px #00000029;
             margin-left: 10%;
            
         }
         .orders{
+            margin: auto;
             width: 370px;
+            max-width: 100%;
             height: 485px;  
             color: #fff;
             box-shadow: 0px 3px 6px #00000029;
@@ -160,13 +164,24 @@
         padding: 0 30px;
        
         .main_input{
+            @media screen and (max-width: 1255px) {
+               
+              }
+            label{
+              left:-20px;
+              @media screen and (max-width: 1255px) {
+              font-size: 16px;    
+            }
+            }
             .wider{
                 width: 95%;
             }
             input{
                 width: 90%;
                 padding: 20px;
+               
             }
+        
             .tags{
                 border: 1px solid gray;
                 float: left;

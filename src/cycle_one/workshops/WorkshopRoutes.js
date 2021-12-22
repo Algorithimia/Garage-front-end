@@ -17,6 +17,10 @@ import ViewVehicle from './ViewVehicle'
 import Employes from './Employes'
 import AddNewEmploy from './AddNewEmploy'
 import EpmloysAssignedWorkOrder from './EpmloysAssignedWorkOrder'
+import AllOverDue from './AllOverDue'
+import SentPayment from './SentPayment'
+import FilterSentPayment from './FilterSentPayment'
+import ViewSingleItemInventory from './ViewSingleItemInventory'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -41,6 +45,12 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/employes" element={<Employes />} exact  />
                     <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
                     <Route path="/owner/employassignworkorder" element={<EpmloysAssignedWorkOrder />} exact  />
+                    <Route path="/owner/alloverdue" element={<AllOverDue />} exact  />
+                    <Route path="/owner/alloverduesentpayment" element={<SentPayment />} exact  />
+                    <Route path="/owner/filtersentpayment" element={<FilterSentPayment />} exact  />
+                    <Route path="/owner/viewsingleiteminventory" element={<ViewSingleItemInventory />} exact  />
+                    
+
 
 
                     

@@ -1,0 +1,164 @@
+.all_ovser_due{
+    padding-bottom: 20px;
+    margin-top: 50px;
+    width: 90%;
+    background-color: #fff;
+    .header{
+        font-size: 20px;
+        font-weight: 500;
+        padding: 30px 25px;
+        border-bottom: 1px solid #EFEFEF;
+    }
+    .second_line{
+        padding: 20px;
+        border-bottom: 1px solid #EFEFEF;
+        button{
+            border: none;
+            font-size: 18px;
+            font-weight: 400;
+            &:hover{
+                opacity: 80%;
+            }
+        }
+        .all{
+            background-color: #969B8580;
+            width: 93px;
+            height: 37px;
+            border-radius: 19px;
+            margin-right: 32px;
+           
+        }
+        .over_due{
+            background-color: #E3EFFB;
+            color: #4390E0ff;
+            width: 128px;
+            height: 37px;
+            border-radius: 19px;
+
+        }
+    }
+    .third_line{
+        padding: 20px;
+        padding-bottom: 0;
+        width: 100%;
+        float: left;
+        background-color: #fff;
+        .input_block{
+            margin-bottom: 20px;
+            vertical-align: middle;
+        }
+          .alpha{
+            font-size:20px;
+            font-weight: bold;
+            
+           
+            padding: 3px 15px 5px 15px;
+            margin: 0 10px;
+            vertical-align: middle;
+            border-radius: 12px;
+            cursor: pointer;
+          }
+        .z_to_a{
+      
+       
+            display: inline-block;
+        color:#0000005C;
+        background-color: #ECEAEA;
+        margin-bottom: 20px;
+      
+        
+       }
+       .a_to_z{
+           display: inline-block;
+        color: #4390E0;
+        background-color: #95C1EE42;
+        margin-bottom: 20px;
+        
+       
+
+       }
+       .right{
+           border: none;
+           float: right;
+           color: #fff;
+           background-color: #4390E0;
+           width: 126px;
+           height: 38px;
+           border-radius: 25px;
+     
+       }
+    }
+    .fourth_line{
+        
+
+
+        .hidden_list{
+            padding: 30px;
+            line-height: 2;
+            font-size: 18px;
+           z-index: -1;
+         
+            option{
+                padding: 10px;
+                margin-top: 40px;
+                border-bottom: 1px solid #000;
+                
+                
+                
+            }
+         
+           
+        
+        }
+        .CASH{
+            background-color: #71A43F45;
+            color: #71A43F;
+        
+        }
+        .CREDIT{
+            background-color: #FECA2969;
+            color: #FCB92C;
+        }
+        .NONE{
+            background-color: #95C1EE40;
+            color: #95C1EE;
+        }
+        .payment_type{
+         
+            max-width: 100%;
+            height: 27px;
+            border-radius: 11px;
+            font-weight: bold;
+        //     padding: 5px;
+        //    padding-bottom: 10px;
+        }
+        button{
+            border: none;
+            color: #fff;
+            background-color: #152F55;
+            width: 74px;
+            height: 33px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}
+
+.sent_payment{
+
+    .second_line{
+    .all{
+        background-color: #E3EFFB;
+        color: #4390E0ff;
+      
+       
+       
+    }
+    .over_due{
+        background-color: #969B8580;
+        color: #000;
+        
+
+    }
+} 
+}

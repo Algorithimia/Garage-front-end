@@ -9,7 +9,7 @@ const OverlayList = () => {
             <>
   {['left'].map((placement) => (
     <OverlayTrigger
-      trigger="click"
+      trigger="focus"
       key={placement}
       placement={placement}
       overlay={
@@ -17,23 +17,23 @@ const OverlayList = () => {
           
           <div className='hidden_list'>
             <div className='option'>
-           <Link to='/workshop/owner/singleworkorder' style={{color:"#4390E0", fontWeight:"bold"  }}>VIEW WORK ORDER</Link>
+           <Link to='/workshop/owner/singleworkorder' style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>VIEW WORK ORDER</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to='/workshop/owner/allworkorders/assignEmploye' style={{color:"#4390E0", fontWeight:"bold" }}>ASSIGN EMPLOYEE</Link>
+           <Link to='/workshop/owner/allworkorders/assignEmploye' style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>ASSIGN EMPLOYEE</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to='/workshop/owner/selectinventory' style={{color:"#4390E0", fontWeight:"bold" }}>ASSIGN SPARE PARTS</Link>
+           <Link to='/workshop/owner/selectinventory' style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>ASSIGN SPARE PARTS</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to='/workshop/owner/viewcustomer' style={{color:"#4390E0", fontWeight:"bold" }}>VIEW CUSTOMER</Link>
+           <Link to='/workshop/owner/viewcustomer' style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>VIEW CUSTOMER</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to='/workshop/owner/viewvehicle' style={{color:"#4390E0", fontWeight:"bold" }}>VIEW VEHICLE</Link>
+           <Link to='/workshop/owner/viewvehicle' style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>VIEW VEHICLE</Link>
            </div>
           </div>
         </Popover>
