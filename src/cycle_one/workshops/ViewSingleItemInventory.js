@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
 import {FaCar} from 'react-icons/fa'
+import {AiFillPlusCircle} from 'react-icons/ai'
 
 import Part from './components/Part'
 import UsedPaymentMethods from './components/UsedPaymentMethods'
@@ -12,7 +13,13 @@ const ViewSingleItemInventory = () => {
         <div className='single_item_in_inventory'>
             <div className='header'>
             INVENTORY
+            <div className='right'>
+                 <Link to='/'> <button className='light_blue'> <span><AiFillPlusCircle  /> </span> Add New Purchase</button></Link>
+                 <Link to='/'> <button className='dark_blue'> <span><AiFillPlusCircle  /> </span> Add New Part</button></Link>
+               
             </div>
+            </div>
+            <div className='body'>
             <Row>
                 <Col md={12} lg={6}>
                     <div className='spare_part'>
@@ -43,8 +50,8 @@ const ViewSingleItemInventory = () => {
                         <button className='right'>ASSIGN</button>
                        </Link>
                        <div className='cars'>
-                           <FaCar />
-                           <br/>
+                           <span><FaCar /></span>
+                          
                            NOT ASSIGNED TO 
                            <br/>
                            ANY CARS
@@ -56,6 +63,7 @@ const ViewSingleItemInventory = () => {
                 </div>
                 </Col>
             </Row>
+           </div> 
         </div>
     )
 }

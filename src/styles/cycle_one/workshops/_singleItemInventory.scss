@@ -3,9 +3,40 @@
     background-color: #fff;
     width: 90%;
     .header{
-        padding: 30px 20px;
+        padding: 30px;
+        color: #152F55;
+        font-size: 18px;
+        font-weight: 500;
+        border-bottom: 1px solid #0000001A;
+        .right{
+            float: right;
+            display: inline-block;
+            button{
+                border: none;
+                color: #fff;
+                border-radius: 25px;
+                width: 231px;
+                height: 38px;
+                font-weight: 400;
+                font-size: 16px;
+                span{
+                    vertical-align:text-bottom;
+                }
+            }
+            .light_blue{
+                background-color:#4390E0 ;
+                margin-right: 25px;
+            }
+            .dark_blue{
+                background-color: #152F55;
+            }
+           
+        }
     }
+    .body{
+        margin-top: 50px;
     .spare_part{
+
         width: 370px;
         box-shadow: 0px 3px 6px #00000029;
       //  min-height: 400px;
@@ -13,6 +44,7 @@
         color: #152F55;
         font-size: 18px;
         font-weight: bold;
+        margin: auto;
         .line{
             width: 100%;
             background-color: #707070;
@@ -58,6 +90,7 @@
         width: 400px;
         box-shadow: 0px 3px 6px #00000029;
         padding:30px 5px 40px  30px ;
+        margin: auto;
         .title{
             margin-bottom: 30px;
             
@@ -93,11 +126,13 @@
         }
     }
     .assigned_cars{
-        margin-top: 40px;
+       
         width: 400px;
         height: 410px;
         box-shadow: 0px 3px 6px #00000029;
         padding:30px;
+        margin: auto;
+        margin-top: 50px;
         .first_line{
             color: #152F55;
             font-weight: bold;
@@ -107,19 +142,31 @@
                 float: right;
                 width: 120px;
                 height: 33px;
-                border-radius: 25px;                
+                border-radius: 25px;  
+
                 
                     color: #fff;
-                    font-weight: normal;
+                    font-weight: 100;
                     background-color: #152F55;
                 
             }
         
         }
         .cars{
-            
+            text-align: center;
+            margin-top: 90px;
+            color: #5D5D5D;
+            font-size: 18px;
+            font-weight: 500;
+            span{
+                color: #000;
+                display: block;
+                margin-bottom: 7px;
+              
+            }
         }
         
     }
+}  
 
 }
