@@ -14,8 +14,8 @@ const ViewSingleItemInventory = () => {
             <div className='header'>
             INVENTORY
             <div className='right'>
-                 <Link to='/'> <button className='light_blue'> <span><AiFillPlusCircle  /> </span> Add New Purchase</button></Link>
-                 <Link to='/'> <button className='dark_blue'> <span><AiFillPlusCircle  /> </span> Add New Part</button></Link>
+                 <Link to='/workshop/owner/buyspareparts'> <button className='light_blue'> <span><AiFillPlusCircle  /> </span> Add New Purchase</button></Link>
+                 <Link to='/workshop/owner/addsparepart'> <button className='dark_blue'> <span><AiFillPlusCircle  /> </span> Add New Part</button></Link>
                
             </div>
             </div>
@@ -46,7 +46,7 @@ const ViewSingleItemInventory = () => {
                 <div className='assigned_cars'>
                     <div className='first_line'>
                        CAR NAME
-                       <Link to='/'>
+                       <Link to='/workshop/owner/vehicle2'>
                         <button className='right'>ASSIGN</button>
                        </Link>
                        <div className='cars'>

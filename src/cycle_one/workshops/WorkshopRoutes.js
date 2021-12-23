@@ -21,6 +21,9 @@ import AllOverDue from './AllOverDue'
 import SentPayment from './SentPayment'
 import FilterSentPayment from './FilterSentPayment'
 import ViewSingleItemInventory from './ViewSingleItemInventory'
+import Vehicles2 from './Vehicles2'
+import Addvehicle2 from './Addvehicle2'
+import AddSparePart from './AddSparePart'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -49,6 +52,9 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/alloverduesentpayment" element={<SentPayment />} exact  />
                     <Route path="/owner/filtersentpayment" element={<FilterSentPayment />} exact  />
                     <Route path="/owner/viewsingleiteminventory" element={<ViewSingleItemInventory />} exact  />
+                    <Route path="/owner/vehicle2" element={<Vehicles2 />} exact  />
+                    <Route path="/owner/addvehicle2" element={<Addvehicle2 />} exact  />
+                    <Route path="/owner/addsparepart" element={<AddSparePart />} exact  />
                     
 
 

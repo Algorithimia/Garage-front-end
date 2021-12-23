@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const OverDue = ({payment_type,date,inovice_number,buisiness_info,total,paid,due}) => {
     return (
@@ -11,7 +12,7 @@ const OverDue = ({payment_type,date,inovice_number,buisiness_info,total,paid,due
             <th>{total}</th>
             <th>{paid}</th>
             <th>{due} </th>
-            <th><button>View</button></th>
+            <th><Link to='/workshop/owner/viewsingleiteminventory'><button>View</button></Link></th>
        </tr>
     )
 }

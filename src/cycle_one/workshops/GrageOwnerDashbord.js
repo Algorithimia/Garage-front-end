@@ -43,7 +43,7 @@ const GrageOwnerDashbord = () => {
                                 <BoxInfo icon={<BsCheckCircleFill />} title='Completed' number='2' bacGroundColor="#4094EB" path='/workshop/owner/allworkorders'/>
                             </Col>
                             <Col sm={3}>
-                                <BoxInfo icon={<MdPayment />} title='Payment Due' number='120 $' bacGroundColor="#51459D" path='/workshop/owner/allworkorders'/>
+                                <BoxInfo icon={<MdPayment />} title='Payment Due' number='120 $' bacGroundColor="#51459D" path='/workshop/owner/alloverdue'/>
                             </Col>
                          </Row> 
                          <Row className="secoond_row">
