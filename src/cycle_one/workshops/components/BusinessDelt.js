@@ -36,7 +36,7 @@ const BusinessDelt = ({favourite}) => {
             <div className='type'>
               Garage Type
             </div>
-            <Link to='/'>
+            <Link to='/workshop/owner/transactionbusinesses'>
              <button>SEE TRANSACTIONS</button>
             </Link>
 

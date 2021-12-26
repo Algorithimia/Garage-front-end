@@ -27,6 +27,9 @@ import AddSparePart from './AddSparePart'
 import Businesses from './Businesses'
 import FavouriteBusinesses from './FavouriteBusinesses'
 import DealtWithBusinesses from './DealtWithBusinesses'
+import BusinessTransAction from './BusinessTransAction'
+import PartsTransActionView from './PartsTransActionView'
+import Calender from './Calender'
 
 const WorkshopRoutes = () => {
     return (
@@ -62,6 +65,10 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/businesses" element={<Businesses />} exact  />
                     <Route path="/owner/favbusinesses" element={<FavouriteBusinesses />} exact  />
                     <Route path="/owner/dealtwithbusinesses" element={<DealtWithBusinesses />} exact  />
+                    <Route path="/owner/transactionbusinesses" element={<BusinessTransAction />} exact  />
+                    <Route path="/owner/partstransactionview" element={<PartsTransActionView />} exact  />
+                    <Route path="/owner/calender" element={<Calender />} exact  />
+
                     
 
 

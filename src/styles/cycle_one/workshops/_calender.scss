@@ -1,0 +1,82 @@
+.calender{
+width: 90%;
+background-color: #fff;
+    .header{
+        padding: 30px;
+        border-bottom: 1px solid #EFEFEF;
+        font-size: 20px;
+        font-weight: 500;
+        .right{
+            display: inline-block;
+            float: right;
+            font-size: 16px;
+            font-weight: 400;
+            button{
+                border: none;
+                background-color: #152F55;
+                color: #fff;
+                width: 163px;
+                height: 38px;
+                border-radius: 25px;
+
+            }
+           
+            span{
+                display: inline-block;
+                vertical-align: text-bottom;
+                margin-right: 5px;
+            }
+        }
+
+}
+.body{
+    padding: 30px;
+}
+
+}
+
+
+.react-calendar{
+    width: 100%;
+    background-color: #fff;
+// month & arows
+    .react-calendar__navigation{
+        width: 100%;
+    }
+    .react-calendar__navigation__label{
+        width: 80%;
+        border: none;
+        background-color: #fff;
+        font-weight: bold;
+        color: #152F55;
+        font-size: 18px;
+    }
+    .react-calendar__navigation__arrow{
+        width: 5%;
+        background-color: #152F55;
+        color: #fff;
+    
+    }
+    // weak days
+    .react-calendar__month-view__weekdays{
+        text-align: center;
+        padding: 5px;
+        margin: 10px 0;
+        font-weight: 500;
+
+    }
+    abbr[title]{
+           text-decoration: none;
+      padding: 5px;
+    }
+    //day
+    .react-calendar__month-view__days__day{
+        background-color: #fff;
+        width: 63px;
+        height: 51px;
+       // border-color: #EFEFEF;
+       border: none;
+       border:  1px solid #EFEFEF;
+    }
+    
+}
