@@ -57,36 +57,38 @@ const GrageOwnerDashbord = () => {
                                  <div className="title">QUICK PROCESSES</div>
                                  <Row className="icon_row">
                                      <Col>
-                                       <IconBox color='#BF054BCF' icon={<FaSearch />}/>
+                                       <IconBox color='#BF054BCF' icon={<FaSearch />} text='search work orders'/>
                                      </Col>
                                      <Col>
                                        <IconBox color='#BF054BCF' icon={  <> <AiFillPlusCircle  />
-                                            <RiFileCopy2Fill/> </>}/>
+                                            <RiFileCopy2Fill/> </>} text='add work order'/>
                                      </Col>
                                  </Row>
                                  <Row className="icon_row">
                                      <Col>
-                                       <IconBox color='#71A43F' icon={<FaSearch />}/>
+                                       <IconBox color='#71A43F' icon={<FaSearch />} text='search customers'/>
                                      </Col>
                                      <Col>
                                        <IconBox color='#71A43F' icon={  <> <AiFillPlusCircle />
-                                        <FaUsers /> </>}/>
+                                        <FaUsers /> </>}  text='add customer'/>
                                      </Col>
                                  </Row>
                                 
                                  <Row className="icon_row">
                                      <Col>
-                                       <IconBox color='#F2A911' icon={<FaSearch />}/>
+                                       <IconBox color='#F2A911' icon={<FaSearch />}text='search vehicles'/>
                                      </Col>
                                      
                                      <Col>
-                                       <IconBox color='#F2A911' icon={  <> <AiFillPlusCircle />
-                                        <RiCarFill /> </>}/>
+                                       <IconBox color='#F2A911' icon={  <> <AiFillPlusCircle  />
+                                        <RiCarFill /> </>} text='add vehicle'/>
                                      </Col>
                                  </Row>
                                  <Row className="icon_row">
                                      <Col sm={6}>
-                                       <IconBox color='#152F55' icon={<FaSearch />}/>
+                                        <Link to='/workshop/owner/businesses'>
+                                            <IconBox color='#152F55' icon={<FaSearch />} text='search Businesses'/>
+                                       </Link>
                                      </Col>
                                    
                                  </Row>
@@ -109,7 +111,7 @@ const GrageOwnerDashbord = () => {
                            <CustomerInList name="Steve Stewart" addBy="YOU" />
                               <CustomerInList name="Mike Ford" addBy="Employee name"  />
                               <CustomerInList name="Mike Ford" addBy="Employee name"  />
-                             <Link to='/'>SEE ALL</Link>
+                             <Link to='/workshop/owner/viewcustomer'>SEE ALL</Link>
                         </div>
 
                       </Col>

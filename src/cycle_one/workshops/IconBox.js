@@ -1,10 +1,10 @@
 
 
-const IconBox = ({icon,color}) => {
+const IconBox = ({icon,color, text}) => {
     return (
-        <div className="icon_box" style={{color:color}}>
+        <div className="icon_box"  style={{color:color}}>
             {icon}
-            <div className="text">search work orders</div>
+            <div className="text">{text}</div>
         </div>
     )
 }

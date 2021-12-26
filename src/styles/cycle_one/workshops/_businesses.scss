@@ -1,0 +1,138 @@
+.businesses{
+    background-color: #fff;
+    margin-top: 50px;
+   
+    .header{
+        padding: 30px;
+        font-size:20px ;
+        border-bottom: 1px solid #EFEFEF;
+        font-weight: 500;
+    
+    .right{
+       font-weight: 400;
+        position: relative;
+        display:  inline-block;
+        float: right;
+        margin-right: 20px;
+        font-size:14px ;
+        input{
+            border: 1px solid #969B85;
+            width: 270px;
+            height: 38px;
+            vertical-align: middle;
+            color: #969B85;
+            padding: 7px 20px;
+
+        }
+        span{
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            vertical-align: middle;
+            color: #969B85;
+        }
+    }
+}
+.gray_row{
+  //  width: 100%;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #ECEAEA;
+    margin: 40px;
+    a{
+        color: #5D5D5D;
+    }
+    .center{
+        display: inline-block;
+        text-align: center;
+        width: 33.3%;
+    }
+
+    .right{
+     display:inline-block;
+    text-align: right;
+     width: 33.3%;
+
+  }
+    .left{ 
+        display: inline-block;
+        width: 33.3%;
+    }
+    .active{
+        color: #4390E0;
+    }
+}
+
+
+//Buisness-box
+.body{
+    padding: 50px;
+.buisness-box{
+    width: 282px;
+    min-height: 342px;
+    max-width: 100%;
+    box-shadow: 0px 3px 30px #00000029;
+    margin: auto;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    img{
+        width: 172px;
+        height: 158px;
+        border-radius: 50%;
+    }
+    .rating{
+        display: inline-block;
+        margin-top: 15px;
+    }
+    .icon{
+        display: inline-block;
+        vertical-align: top;
+         margin-left: 5px;
+          color: #EB0836;
+           margin-top: 12px;
+          font-size: 28px;
+    }
+    .name{
+        font-size: 20px;
+        color: #152F55;
+        font-weight: bold;
+
+    }
+    .type{
+        font-size: 20px;
+        color: #000;
+        font-weight: bold;
+
+
+    }
+    .deals{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45px;
+        height: 66px;
+        border: 1px solid #152F55;
+        color: #152F55;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    button{
+        border: none;
+        color: #fff;
+        background-color: #152F55;
+        border-radius: 25px;
+        width: 209px;
+        min-height: 38px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        max-width: 90%;
+        padding: 3px;
+        
+    }
+}
+}
+
+}

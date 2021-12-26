@@ -24,6 +24,10 @@ import ViewSingleItemInventory from './ViewSingleItemInventory'
 import Vehicles2 from './Vehicles2'
 import Addvehicle2 from './Addvehicle2'
 import AddSparePart from './AddSparePart'
+import Businesses from './Businesses'
+import FavouriteBusinesses from './FavouriteBusinesses'
+import DealtWithBusinesses from './DealtWithBusinesses'
+
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -55,6 +59,9 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/vehicle2" element={<Vehicles2 />} exact  />
                     <Route path="/owner/addvehicle2" element={<Addvehicle2 />} exact  />
                     <Route path="/owner/addsparepart" element={<AddSparePart />} exact  />
+                    <Route path="/owner/businesses" element={<Businesses />} exact  />
+                    <Route path="/owner/favbusinesses" element={<FavouriteBusinesses />} exact  />
+                    <Route path="/owner/dealtwithbusinesses" element={<DealtWithBusinesses />} exact  />
                     
 
 

@@ -1,4 +1,5 @@
 import {FaSearch} from'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const FilterSentPayment = () => {
     return (
@@ -30,8 +31,12 @@ const FilterSentPayment = () => {
                 <div className='icon'><FaSearch /></div> 
                 </div>
                 <br/>
+                <Link to='/workshop/owner/alloverdue'>      
                 <button className='gray'>Reset</button>
+                </Link>   
+                <Link to='/workshop/owner/alloverdue'>
                 <button className='blue'>FILTER</button>
+                </Link>
 
 
             </div>
