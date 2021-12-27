@@ -1,6 +1,7 @@
 .calender{
 width: 90%;
 background-color: #fff;
+margin-top: 50px;
     .header{
         padding: 30px;
         border-bottom: 1px solid #EFEFEF;
@@ -30,15 +31,101 @@ background-color: #fff;
 
 }
 .body{
-    padding: 30px;
+    padding: 100px 20px;
+    .right_div{
+        width: 100%;
+        border-left: 3px solid #152F55;
+        height: 100%;
+        padding-top: 50px;
+        .comming{
+            width: 370px;
+            box-shadow: 0px 3px 6px #00000029;
+            margin: auto;
+            padding: 20px;
+            max-width: 100%;
+          //  margin-top: 50px;
+          .first_line{
+              span{
+                  color: #F2A911;
+                  font-size: 18px;
+                  font-weight: 500;
+              }
+              .right{
+                  display: inline-block;
+                  float: right;
+                  span{
+                      font-size: 20px;
+                      color: #fff;
+                      width: 30px;
+                      height: 30px;
+                      padding: 5px;
+                      padding-top: 0px;
+                      border-radius: 50%;
+                      vertical-align: middle;
+                  }
+                  .gray{
+                      background-color: #969B85;
+                      margin-right: 5px;
+
+                  }
+                  .blue{
+                      background-color: #4390E0;
+
+                  }
+              }
+          }
+          .title{
+              color: #152F55;
+              font-size: 18px;
+              font-weight: bold;
+              margin: 10px 0 -3px 0;
+          }
+          .date{
+              font-size: 18px;
+              margin-bottom: 10px;
+              color: #707070;
+              font-weight: 500;
+          }
+          .with{
+            font-size: 18px;
+              color: #152F55;
+              font-weight: 500;
+              margin-bottom: 7px;
+
+          }
+          .note{
+            font-size: 16px;
+            max-height: 50px;
+            overflow: hidden;
+            margin: 10px 2px;
+            &:hover{
+                max-height: none;
+            }
+              span{
+                  color: #152F55;
+                  font-weight: bold;
+                  
+              }
+              .text{
+                  
+                margin-left: -8px;
+                margin-top: 2px;
+                color: #707070;
+                font-weight: 400;
+
+              }
+          }
+        }
+    }
 }
 
 }
 
 
 .react-calendar{
-    width: 100%;
+    width: 90%;
     background-color: #fff;
+    margin: auto;
 // month & arows
     .react-calendar__navigation{
         width: 100%;
@@ -52,7 +139,9 @@ background-color: #fff;
         font-size: 18px;
     }
     .react-calendar__navigation__arrow{
-        width: 5%;
+        border: none;
+        margin: .25%;
+        width: 4.5%;
         background-color: #152F55;
         color: #fff;
     
@@ -70,6 +159,7 @@ background-color: #fff;
       padding: 5px;
     }
     //day
+    
     .react-calendar__month-view__days__day{
         background-color: #fff;
         width: 63px;
@@ -77,6 +167,116 @@ background-color: #fff;
        // border-color: #EFEFEF;
        border: none;
        border:  1px solid #EFEFEF;
+       &:hover{
+           background-color: #ECEAEA;
+       }
+    }
+    .react-calendar__tile--active {
+         background: #ECEAEA;
+         
+         
+    }
+    .react-calendar__tilereact-calendar__tile--now{
+
     }
     
+    .react-calendar__tile--now{
+     //   background-color: pink;
+      
+    
+    }   
+   
+    .react-calendar__tile--hasActive{
+        position: relative;
+        :after{
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #4390E0;
+           position: absolute;
+           top: 5px;
+           right: 5px;
+        
+        }
+        
+    }
+}
+
+
+
+.add_appointment{
+    background-color: #fff;
+    margin-top: 50px;
+    width: 90%;
+    .header{
+        font-size: 20px;
+        font-weight: 500;
+        padding: 30px 20px;
+        border-bottom: solid 1px  #EFEFEF;
+    }
+    .body{
+        padding: 50px 20px;
+        text-align: center;
+        .input_div{
+            width: 532px;
+            text-align: left;
+            margin: auto;
+            margin-bottom: 30px;
+            max-width: 100%;
+            input,textarea{
+                border: solid 2px  #EFEFEF;
+                padding: 20px 12px;
+                border-radius: 10px;
+                width: 100%;
+                outline: none;
+               
+             }
+             label{
+                 font-size: 16px;
+                 font-weight: 500;
+                 margin-bottom: 10px;
+                 margin-left: 4px;
+             }
+        }
+        .time{
+            width: 255px !important;}
+        }
+        .date{
+        
+            width: 255px !important;
+            margin-right: 20px !important;
+           // height: 66px;
+           
+        //    border-radius: 10px;
+           
+         }
+        
+         
+        .input_row{
+         .input_div{
+            display: inline-block;
+         }
+        }
+        .butns{
+             button{
+                border: none;
+                color: #fff;
+                width: 85px;
+                height: 38px;
+                border-radius: 25px;  
+                &:hover{
+                    opacity: 50%;
+                }              
+             }
+             .gray{
+                 background-color: #5D5D5D;
+                 margin-right: 15px;
+                 margin-left: 320px;
+             }
+             .blue{
+                 background-color:#4390E0 ;
+             }
+        }
+        
 }

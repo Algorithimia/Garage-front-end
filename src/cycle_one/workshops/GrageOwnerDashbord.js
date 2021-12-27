@@ -57,20 +57,28 @@ const GrageOwnerDashbord = () => {
                                  <div className="title">QUICK PROCESSES</div>
                                  <Row className="icon_row">
                                      <Col>
-                                       <IconBox color='#BF054BCF' icon={<FaSearch />} text='search work orders'/>
+                                        <Link to='/workshop/owner/allworkorders/'>
+                                             <IconBox color='#BF054BCF' icon={<FaSearch />} text='search work orders'/>
+                                       </Link>
                                      </Col>
                                      <Col>
-                                       <IconBox color='#BF054BCF' icon={  <> <AiFillPlusCircle  />
-                                            <RiFileCopy2Fill/> </>} text='add work order'/>
+                                       <Link to='/workshop/owner/createworkeorder'>
+                                            <IconBox color='#BF054BCF' icon={  <> <AiFillPlusCircle  />
+                                                    <RiFileCopy2Fill/> </>} text='add work order'/>
+                                        </Link>     
                                      </Col>
                                  </Row>
                                  <Row className="icon_row">
                                      <Col>
-                                       <IconBox color='#71A43F' icon={<FaSearch />} text='search customers'/>
+                                       <Link to='/workshop/owner/vheiclesview'>
+                                             <IconBox color='#71A43F' icon={<FaSearch />} text='search customers'/>
+                                       </Link>
                                      </Col>
                                      <Col>
-                                       <IconBox color='#71A43F' icon={  <> <AiFillPlusCircle />
-                                        <FaUsers /> </>}  text='add customer'/>
+                                       <Link to='/workshop/owner/createoreditecustomer'>
+                                        <IconBox color='#71A43F' icon={  <> <AiFillPlusCircle />
+                                            <FaUsers /> </>}  text='add customer'/>
+                                       </Link>
                                      </Col>
                                  </Row>
                                 

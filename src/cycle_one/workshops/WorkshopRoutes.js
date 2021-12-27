@@ -30,6 +30,9 @@ import DealtWithBusinesses from './DealtWithBusinesses'
 import BusinessTransAction from './BusinessTransAction'
 import PartsTransActionView from './PartsTransActionView'
 import Calender from './Calender'
+import AddAppointment from './AddAppointment'
+import VehicleView from './vehiceView'
+import ViewVehiclesList from './ViewVehiclesList'
 
 const WorkshopRoutes = () => {
     return (
@@ -68,6 +71,10 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/transactionbusinesses" element={<BusinessTransAction />} exact  />
                     <Route path="/owner/partstransactionview" element={<PartsTransActionView />} exact  />
                     <Route path="/owner/calender" element={<Calender />} exact  />
+                    <Route path="/owner/addappointment" element={<AddAppointment />} exact  />
+                    <Route path="/owner/vheiclesview" element={<VehicleView/>} exact  />
+                    <Route path="/owner/vheiclesListview" element={<ViewVehiclesList/>} exact  />
+
 
                     
 

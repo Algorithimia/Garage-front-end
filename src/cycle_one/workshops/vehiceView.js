@@ -1,25 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import {AiFillPlusCircle} from "react-icons/ai"
+import { AiFillPlusCircle } from 'react-icons/ai'
 import {HiViewGrid} from 'react-icons/hi'
 import { MdViewList} from 'react-icons/md'
 import {FaSearch} from 'react-icons/fa'
 import { Col, Row } from 'react-bootstrap'
 
-
 import CarForVheicle2 from './components/CarForVheicle2'
-
-const Vehicles2 = () => {
+import { Link } from 'react-router-dom'
+const vehiceView = () => {
     return (
-        <div className='vehicle2'>
-           <div className='header'>
-           SEARCH VEHICLES
+        <div className='vehicles_view'>
+            <div className='header'>
+                GARAGE VEHICLES
+                <button className='right'>
+                     <span><AiFillPlusCircle  /></span>  
+                     Add New Vehicle 
+                </button>
 
-           <Link to='/workshop/owner/addvehicle2' >
-            <button className='right'> <span> <AiFillPlusCircle /> </span>  Add New Vehicle</button>
-           </Link>
-          </div>   
-          <div className='vehicles_second_line'>
+            </div>
+            <div className='vehicles_second_line'>
               <button className='all'>2100 All </button>
               <button className='active'>100 Active</button>
               <div className='right'>
@@ -29,14 +28,16 @@ const Vehicles2 = () => {
                   </div>
 
                   <span className='icons'>
-
+                     <Link to='/'>
                     <span className='grid'>   
                          <HiViewGrid />
                     </span>
-
+                    </Link>
+                    <Link to='/workshop/owner/vheiclesListview'>
                     <span className='list'>
                          <MdViewList />
                     </span>
+                    </Link>
                   </span>
 
               </div>
@@ -58,8 +59,9 @@ const Vehicles2 = () => {
                  
               </Row>
          </div>        
+            
         </div>
     )
 }
 
-export default Vehicles2
+export default vehiceView

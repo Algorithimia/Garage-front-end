@@ -1,12 +1,20 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
- import {FaCar, FaUsers} from 'react-icons/fa'
- import {RiFileCopy2Fill} from 'react-icons/ri'
+ import {FaCar, FaUsers, FaTools} from 'react-icons/fa'
+import { MdDeleteSweep } from 'react-icons/md'
+ import {RiFileCopy2Fill, RiEditLine} from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 const CarForVheicle2 = () => {
     return (
-        <div className='car'>
-            <div className='name'>
+        <div >
+            
+            <span className='name'>
             CAR NAME
+            </span>
+            <div className='right'>
+                <span className='gray' ><MdDeleteSweep /> </span>
+                <Link to='/workshop/owner/addvehicle2'><span className='blue'><RiEditLine /></span> </Link>
+                <span className='green'><FaTools /></span>
             </div>
             <div className='main_info'>
                 <div className='line'>
