@@ -33,7 +33,12 @@ import Calender from './Calender'
 import AddAppointment from './AddAppointment'
 import VehicleView from './vehiceView'
 import ViewVehiclesList from './ViewVehiclesList'
-
+import ChooseGrage from './ChooseGrage'
+import ChooseGrageDeltWith from './ChooseGrageDeltWith'
+import ChooseGrageFavourite from './ChooseGrageFavourite'
+import AddWorkOrderGrage from './AddWorkOrderGrage'
+import AfterWorkOrder from './AfterWorkOrder'
+import GarageCustomers from './GarageCustomers'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -73,9 +78,13 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/calender" element={<Calender />} exact  />
                     <Route path="/owner/addappointment" element={<AddAppointment />} exact  />
                     <Route path="/owner/vheiclesview" element={<VehicleView/>} exact  />
-                    <Route path="/owner/vheiclesListview" element={<ViewVehiclesList/>} exact  />
-
-
+                    <Route path="/owner/vheiclesListview/*" element={<ViewVehiclesList/>} exact  />
+                    <Route path="/owner/choosegrage" element={<ChooseGrage/>} exact  />
+                    <Route path="/owner/choosegragedeltwith" element={<ChooseGrageDeltWith/>} exact  />
+                    <Route path="/owner/choosegragefavourite" element={<ChooseGrageFavourite/>} exact  />
+                    <Route path="/owner/addworkordergrage" element={<AddWorkOrderGrage/>} exact  />
+                    <Route path="/owner/afterworkordergrage" element={<AfterWorkOrder path='/workshop/owner/vheiclesview' back='BACK TO VEHICLES' />} exact  />
+                    <Route path="/owner/garagecustomers" element={<GarageCustomers/>} exact  />
                     
 
 

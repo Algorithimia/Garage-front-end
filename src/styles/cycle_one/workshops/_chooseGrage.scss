@@ -1,0 +1,67 @@
+.choose_grage{
+    padding: 20px;
+    background-color: #fff;
+    margin: auto;
+    margin-top: 50px;
+    vertical-align:middle;
+    width:70%;
+    height: 90%;
+    overflow-y: scroll;
+    .header{
+        padding: 20px;
+        padding-bottom: 45px;
+        font-size: 20px;
+        color: #000;
+        font-weight: 500;
+    }
+    .search_div{
+        width: 90%;
+        margin: auto;
+        position: relative;
+        font-size: 20px;
+        color: #969B85;
+        input{
+            width: 100%;
+            background-color: #ECEAEA;
+            height: 50px;
+           
+           padding: 20px;
+        }
+        span{
+            position: absolute;
+            right: 5%;
+            top: 7px;
+          
+            
+        }
+    }
+    .gray_row{
+    width: 90%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+    }
+    .body{
+        margin: auto;
+        width: 90%;
+        margin-top: 30px;
+        .buisness-box{
+            button{
+                display: none;
+            }
+        }
+        .right{
+            float: right;
+            width: 242px;
+            height: 50px;
+            color: #fff;
+            border: none;
+            background-color: #152F55;
+            border-radius: 25px;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+       
+    }
+   
+}

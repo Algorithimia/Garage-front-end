@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import {BsFillCheckCircleFill} from 'react-icons/bs'
-const AfterWorkOrder = () => {
+const AfterWorkOrder = ({back,path}) => {
     return (
         <div className='opacity'>
             <div className='after_work_order'>
@@ -8,7 +8,7 @@ const AfterWorkOrder = () => {
                 <div className='green_color'><BsFillCheckCircleFill /> WORK ORDER ADDED SUCCESSFULLY</div>
                 <Link to='/workshop/owner/selectinventory'><button className='dark'>ADD SPARE PARTS</button></Link>
                 <br />
-                <Link to='/workshop/owner/allworkorders'><button className='light'>BACK TO WORK ORDERS</button></Link>
+                <Link to={path}><button className='light'>{back}</button></Link>
                  
             </div>
            

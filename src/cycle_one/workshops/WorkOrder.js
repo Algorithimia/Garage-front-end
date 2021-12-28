@@ -14,7 +14,11 @@ const WorkOrder = ({status, stage,  num, date, customerName, workItem, employNam
         <th className='moreIcon'>
         
 
-           <OverlayList />
+           <OverlayList option1='VIEW WORK ORDER' option1_path='/workshop/owner/singleworkorder'
+                        option2='ASSIGN EMPLOYEE' option2_path='/workshop/owner/allworkorders/assignEmploye'
+                        option3='ASSIGN SPARE PARTS' option3_path='/workshop/owner/selectinventory' 
+                        option4='VIEW CUSTOMER' option4_path='/workshop/owner/viewcustomer'  
+                        option5='VIEW VEHICLE' option5_path='/workshop/owner/viewvehicle'  />
           
             </th>
         

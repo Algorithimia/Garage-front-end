@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 
 import { AiFillPlusCircle } from 'react-icons/ai'
 import {HiViewGrid} from 'react-icons/hi'
@@ -7,6 +7,13 @@ import { MdViewList} from 'react-icons/md'
 import {FaSearch} from 'react-icons/fa'
 import {GoTriangleDown,GoTriangleUp} from "react-icons/go"
 
+
+
+
+
+import CarInfoListView from './components/CarInfoListView'
+import UserinfoListView from './components/UserinfoListView'
+import OrderInfoListView from './components/OrderInfoListView'
 
 const ViewVehiclesList = () => {
     const [entries, setEntries] = useState(0);
@@ -60,7 +67,7 @@ const ViewVehiclesList = () => {
 
           </div>
       </div> 
-      <div className="second_line">
+      <div className="third_line">
                     <div className='inline-block input_block'>
                        <span>
                        Show Entries
@@ -89,8 +96,16 @@ const ViewVehiclesList = () => {
                              <GoTriangleDown />
                             </div>
                         </div>
-                        </div>
-                        </div>
+                    </div>
+                </div>
+
+               <Routes>
+                   <Route  path="/" element={<CarInfoListView/>} exact />
+                   <Route  path="/user" element={<UserinfoListView/>} exact />
+                   <Route  path="/order" element={<OrderInfoListView/>} exact />
+                  
+                  
+               </Routes>
       </div>
     )
 }

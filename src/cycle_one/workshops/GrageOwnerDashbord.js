@@ -84,7 +84,9 @@ const GrageOwnerDashbord = () => {
                                 
                                  <Row className="icon_row">
                                      <Col>
-                                       <IconBox color='#F2A911' icon={<FaSearch />}text='search vehicles'/>
+                                       <Link to='/workshop/owner/vheiclesview'>
+                                            <IconBox color='#F2A911' icon={<FaSearch />}text='search vehicles'/>
+                                       </Link>
                                      </Col>
                                      
                                      <Col>

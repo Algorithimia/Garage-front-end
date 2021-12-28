@@ -132,7 +132,7 @@ const CreateWorkOrder = () => {
             </form>
 
             <Routes>
-                    <Route path="/afterworkorder" element={<AfterWorkOrder />} exact  />
+                    <Route path="/afterworkorder" element={<AfterWorkOrder  back='BACK TO WORK ORDERS' path='/workshop/owner/allworkorders' />} exact  />
             </Routes>
         </div>
     )
