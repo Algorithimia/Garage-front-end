@@ -12,7 +12,7 @@
 @import "cycle_one/login-signin/Login_sign";
 @import"cycle_one/login-signin/login_process";
 
-//workshops
+//workshop-owner
 @import"cycle_one/workshops/sideBar";
 @import"cycle_one/workshops/grage_owner_dashbord";
 @import"cycle_one/workshops/workOrders";
@@ -37,3 +37,5 @@
 @import"cycle_one/workshops/addWorkOrderGrage";
 @import"cycle_one/workshops/grageCustomers";
 @import"cycle_one/workshops/createWorkOrder2";
+@import"cycle_one/workshops/manageInventory";
+@import"cycle_one/workshops/grageFinance";

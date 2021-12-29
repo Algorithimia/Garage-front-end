@@ -1,0 +1,106 @@
+.mange_inventory{
+    background-color: #fff;
+    margin-top: 50px;
+    width: 90%;
+    .header{
+        padding: 30px;
+        font-size: 20px ;
+        font-weight: 500;
+        border-bottom:solid 1px #EFEFEF ;
+        .right{
+            float: right;
+            display: inline-block;
+            font-size: 16px;
+            button{
+                border: none;
+                border-radius: 25px;
+                margin-right: 10px;
+                span{
+                    vertical-align: text-bottom;
+                    margin-right: 5px;
+                }
+            }
+            .light_blue{
+                width: 126px;
+                height: 38px;
+                
+                color: #000;
+                background-color: #E3EFFB;
+            }
+            .add_purchase{
+                color: #fff;
+                background-color: #4390E0;
+                width: 231px;
+                height: 38px;
+
+            }
+            .add_part{
+                color: #fff;
+                background-color: #152F55;
+                width: 176px;
+                height: 38px;
+                
+            }
+        }
+    }
+    .second_line{
+        padding: 20px 30px;
+        .alpha{
+            margin-bottom: 0;
+        }
+        .right{
+            display: inline-block;
+            float: right;
+            position: relative;
+            input{
+                width: 270px;
+                height: 38px;
+                border: solid 1px #969B85;
+                padding-left: 20px;
+           
+
+            }
+            span{
+                position: absolute;
+                right: 15px;
+                top: 6px;
+                color: #969B85;
+            }
+        }
+    }
+    table{
+        thead{
+            th{
+                color: #707070;
+            }
+        }
+        th{
+        .payment{
+           padding:2px 20px;
+            height: 21px;
+            border-radius: 11px;
+        }
+        .CASH{
+            color:#71A43F ;
+            background-color:#71A43F45 ;
+        }
+        .CREDIT{
+            color:#FCB92C ;
+            background-color:#FECA2969 ;
+        }
+        .NONE{
+            color:#5D5D5D ;
+            background-color:#ECEAEA ;
+        }
+        .Available{
+            color:#71A43F;
+        }
+        .Unavailable{
+            color:#EB0836;
+        }
+        
+        
+    }
+    }
+
+}

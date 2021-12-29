@@ -40,6 +40,8 @@ import AddWorkOrderGrage from './AddWorkOrderGrage'
 import AfterWorkOrder from './AfterWorkOrder'
 import GarageCustomers from './GarageCustomers'
 import CreateWorkOrder2 from './CreateWorkOrder2'
+import ManageInventory from './ManageInventory'
+import GrageFinance from './GrageFinance'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -88,6 +90,8 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/garagecustomers" element={<GarageCustomers/>} exact  />
                     <Route path="/owner/createworkorder2" element={<CreateWorkOrder2/>} exact  />
                     <Route path="/owner/addvehiclecustomer" element={<AddVehicle path='/workshop/owner/createworkorder2' />} exact  />
+                    <Route path="/owner/manageinventory" element={<ManageInventory/>} exact  />
+                    <Route path="/owner/gragefinance" element={<GrageFinance/>} exact  />
                     
 
 

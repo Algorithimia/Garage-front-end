@@ -23,21 +23,21 @@ const SideBar = () => {
                 <div className='line'></div>
                 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/vheiclesview'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon awesome-car-alt.svg' />
                     <span className='text_link'>VEHICLES</span>
                     </Link>
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/allworkorders'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Mask Group 9.svg' />
                     <span className='text_link'>WORK ORDERS</span>
                     </Link>
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/garagecustomers'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon awesome-users.svg' />
                     <span className='text_link'>CUSTOMERS</span>
                     </Link>
@@ -45,21 +45,21 @@ const SideBar = () => {
                 <div className='line'></div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/manageinventory'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon awesome-tools.svg' />
                     <span className='text_link'>INVENTORY</span>
                     </Link>
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/employes'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon awesome-users-cog.svg' />
                     <span className='text_link'>EMPLOYEES</span>
                     </Link>
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/businesses'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Mask Group 11.svg' />
                     <span className='text_link'>BUSSINESSES</span>
                     </Link>
@@ -68,7 +68,7 @@ const SideBar = () => {
                 <div className='line'></div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/gragefinance'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Mask Group 7.svg' />
                     <span className='text_link'>FINANCE</span>
                     </Link>
@@ -76,7 +76,7 @@ const SideBar = () => {
 
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/calender'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon ionic-ios-time.svg' />
                     <span className='text_link'>APPOINTMENT</span>
                     </Link>

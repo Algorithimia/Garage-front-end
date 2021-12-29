@@ -1,0 +1,142 @@
+.grage_finance{
+    width: 90%;
+    background-color: #fff;
+    margin-top: 50px;
+    .header{
+        padding: 30px;
+        font-size: 20px;
+        font-weight: 500;
+        border-bottom: solid 1px #EFEFEF;
+    }
+    .body{
+        padding: 30px;
+
+
+        .money{
+            color: #152F55;
+            padding:  10px;
+            font-weight: 1000;
+            border-bottom: solid 1px #707070;
+
+        }
+        .left{
+        .paid_inovices{
+            margin: auto;
+            width: 417px;
+            max-width: 100%;
+            box-shadow: 0px 3px 6px #00000029;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 30px ;
+            margin-bottom: 30px ;
+            
+            
+            .line{
+                color: #152F55;
+                padding: 10px;
+                font-weight: bold;
+               
+                .right{
+                    float: right;
+                    margin-right: 30px;
+                   font-weight: normal;
+                  
+                }
+            
+            }
+            .end_line{
+                color: #969B85;
+                padding: 15px 10px;
+                a{
+                    color: #4390E0;
+                    float: right;
+                    font-weight: 500;
+                }
+            }
+            
+        }
+
+     
+    }
+    .right_div{
+        width: 100%;
+        border-left: solid 1px #70707026;
+        height: 100%;
+    }
+
+    }
+    .overdue_invoices{
+        max-width: 100%;
+        margin: auto;
+        padding: 10px;
+        width: 417px;
+        box-shadow: 0px 3px 6px #00000029;
+       
+        .first_line{
+            padding: 10px;
+            color: #152F55;
+            font-weight: bold;
+            button{
+                border: none;
+                float: right;
+                color: #fff;
+                background-color:#4390E0 ;
+                width: 85px;
+                height: 38px;
+                border-radius: 25px;
+            }
+        }
+        .person{
+            font-size: 16px;
+            margin: 20px 10px;
+            img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: inline-block;
+                vertical-align: text-bottom;
+            }
+            .inline-block{
+                margin-left: 10px;
+                vertical-align:top;
+                
+                
+                .gray{
+                    color: #969B85;
+                }
+
+            }
+            .name{
+                margin-top: 5px;
+            }
+            .salary{
+                vertical-align: text-bottom;
+                background-color: #ECEAEA;
+                width: 73px;
+                height: 31px;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            .right{
+                float: right;
+                display: inline-block;
+                vertical-align: text-bottom;
+                margin-top: 10px;
+               
+                
+                a{
+                    color: #4390E0;
+                    font-weight: 500;
+                }
+            }
+       
+
+        }
+        a{
+            color: #4390E0;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+    }
+}
