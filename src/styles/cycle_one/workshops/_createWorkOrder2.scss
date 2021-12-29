@@ -1,0 +1,81 @@
+.create_work_order2{
+    width: 90%;
+    min-height: 80vh;
+    background-color: #fff;
+    margin-top: 50px;
+    .header{
+        padding: 30px;
+        border-bottom: solid 1px #EFEFEF;
+        font-size: 20px;
+        font-weight: 500;
+        .right{
+            font-size: 16px;
+            font-weight: 400;
+            float: right;
+            border: none;
+            color: #fff;
+            background-color: #152F55;
+            width: 213px;
+            height: 38px;
+            border-radius: 25px;
+            span{
+                vertical-align: text-bottom;
+                margin-right: 5px;
+
+            }
+        }
+    }
+    .body{
+
+        padding:50px 30px;
+        .car_div{
+            margin: auto;
+            width: 370px;
+            box-shadow: 0px 3px 6px #00000029;
+            padding: 15px;
+            padding-bottom: 30px;
+            .car{
+                margin-top: 35px;
+                border-left: solid 1.5px #007DFF;
+                padding-left: 20px;
+                padding-top: 0;
+                padding-bottom: 0;
+            .right_icons{
+                display: none;
+            }
+            .show{
+                border: none;
+                padding: 0;
+                margin-left: 0;
+            }
+            .more_info{
+                font-size: 16px;
+            }
+            .note{
+                font-size: 16px;
+
+                span{
+                    font-weight: bold;
+                }
+            }
+     
+        }
+
+        .btn_div{
+            text-align: center;
+            margin-top: 25px;
+            button{
+                border: none;
+                color: #fff;
+                background-color: #152F55;
+                width: 158px;
+                height: 45px;
+                border-radius: 25px;
+                font-size: 20px;
+
+            }
+        }
+            
+        }
+    }
+}

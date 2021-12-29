@@ -70,7 +70,7 @@ const GrageOwnerDashbord = () => {
                                  </Row>
                                  <Row className="icon_row">
                                      <Col>
-                                       <Link to='/workshop/owner/vheiclesview'>
+                                       <Link to='/workshop/owner/garagecustomers'>
                                              <IconBox color='#71A43F' icon={<FaSearch />} text='search customers'/>
                                        </Link>
                                      </Col>

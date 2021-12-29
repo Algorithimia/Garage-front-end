@@ -47,36 +47,7 @@
             margin-bottom: 20px;
             vertical-align: middle;
         }
-          .alpha{
-            font-size:20px;
-            font-weight: bold;
-            
-           
-            padding: 3px 15px 5px 15px;
-            margin: 0 10px;
-            vertical-align: middle;
-            border-radius: 12px;
-            cursor: pointer;
-          }
-        .z_to_a{
-      
        
-            display: inline-block;
-        color:#0000005C;
-        background-color: #ECEAEA;
-        margin-bottom: 20px;
-      
-        
-       }
-       .a_to_z{
-           display: inline-block;
-        color: #4390E0;
-        background-color: #95C1EE42;
-        margin-bottom: 20px;
-        
-       
-
-       }
        .right{
            border: none;
            float: right;
@@ -161,4 +132,38 @@
 
     }
 } 
+}
+
+
+//alphapetic
+
+.alpha{
+    font-size:20px;
+    font-weight: bold;
+    
+   
+    padding: 3px 15px 5px 15px;
+    margin: 0 10px;
+    vertical-align: middle;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+.z_to_a{
+
+
+    display: inline-block;
+color:#0000005C;
+background-color: #ECEAEA;
+margin-bottom: 20px;
+
+
+}
+.a_to_z{
+   display: inline-block;
+color: #4390E0;
+background-color: #95C1EE42;
+margin-bottom: 20px;
+
+
+
 }

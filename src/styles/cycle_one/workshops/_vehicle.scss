@@ -21,11 +21,13 @@
       }
        .main_input{
            input{
-               padding: 20px;
+               padding:15px 30px 10px 40px;
+               border-color: #707070;
+               font-size: 18px;
            }
            label{
-               font-size: 14px;
-               font-weight: bold;
+               font-size: 18px;
+               font-weight: 500;
                left: 3px;
            }
        }

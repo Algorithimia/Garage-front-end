@@ -39,6 +39,7 @@ import ChooseGrageFavourite from './ChooseGrageFavourite'
 import AddWorkOrderGrage from './AddWorkOrderGrage'
 import AfterWorkOrder from './AfterWorkOrder'
 import GarageCustomers from './GarageCustomers'
+import CreateWorkOrder2 from './CreateWorkOrder2'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -58,7 +59,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/singleworkorder" element={<SingleWorkOrder />} exact  />
                     <Route path="/owner/viewcustomer" element={<ViewCustomer />} exact  />
                     <Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
-                    <Route path="/owner/addvehicle" element={<AddVehicle />} exact  />
+                    <Route path="/owner/addvehicle" element={<AddVehicle path='/workshop/owner/viewvehicle' />} exact  />
                     <Route path="/owner/viewvehicle" element={<ViewVehicle />} exact  />
                     <Route path="/owner/employes" element={<Employes />} exact  />
                     <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
@@ -85,6 +86,8 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/addworkordergrage" element={<AddWorkOrderGrage/>} exact  />
                     <Route path="/owner/afterworkordergrage" element={<AfterWorkOrder path='/workshop/owner/vheiclesview' back='BACK TO VEHICLES' />} exact  />
                     <Route path="/owner/garagecustomers" element={<GarageCustomers/>} exact  />
+                    <Route path="/owner/createworkorder2" element={<CreateWorkOrder2/>} exact  />
+                    <Route path="/owner/addvehiclecustomer" element={<AddVehicle path='/workshop/owner/createworkorder2' />} exact  />
                     
 
 

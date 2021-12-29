@@ -28,7 +28,7 @@ const vehiceView = () => {
                   </div>
 
                   <span className='icons'>
-                     <Link to='/'>
+                     <Link to='/workshop/owner/vheiclesview'>
                     <span className='grid'>   
                          <HiViewGrid />
                     </span>

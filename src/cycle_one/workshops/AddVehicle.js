@@ -2,7 +2,7 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const AddVehicle = () => {
+const AddVehicle = ({path}) => {
     return (
         <div className='add_vehicle'>
           <div className='header'>
@@ -97,7 +97,7 @@ const AddVehicle = () => {
               </Col>
 
           </Row>
-          <Link to='/workshop/owner/viewvehicle'>
+          <Link to={path}>
              <input className='butn' type='submit' value='SAVE DETAILS' />
           </Link>
           </form>

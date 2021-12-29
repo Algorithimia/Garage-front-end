@@ -2,10 +2,12 @@
     background-color: #fff;
     margin-top: 50px;
     width: 90%;
+    padding-bottom: 50px;
     .header{
         padding: 30px;
         font-size: 20px;
         font-weight: 500;
+        border-bottom: 1px solid #EFEFEF;
         .right{
             border: none;
             color: #fff;
@@ -22,6 +24,62 @@
             }
          
 
+        }
+    }
+    .second_line{
+        padding: 20px 30px;
+        border-bottom: 1px solid #EFEFEF;
+        button{
+            border: none;
+            border-radius: 25px;
+            background-color: #5D5D5D3B;
+            color: #5D5D5D;
+            height: 45px;
+            padding: 8px 40px;
+            padding-bottom: 30px;
+            margin-right: 20px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .active{
+            background-color: #95C1EE42;
+            color: #000;
+        }
+        .right{
+            float: right;
+            position: relative;
+            input{
+                border: 1px solid #969B85;
+                width: 284px;
+                height: 38px;
+                padding: 5px 20px;
+
+            }
+            span{
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                color: #969B85;
+            }
+        }
+    }
+    .third_line{
+        padding: 15px 30px;
+        color: #707070;
+        .input_block{
+            margin-right: 34px;
+        }
+        .alpha{
+            margin-bottom: 0;
+            font-weight: bold;
+            font-size: 22px;
+        }
+    }
+    table{
+        thead{
+            th{
+                color: #707070;
+            }
         }
     }
 }
