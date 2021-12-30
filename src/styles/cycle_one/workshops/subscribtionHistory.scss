@@ -1,0 +1,82 @@
+.subscribtion_history{
+    margin-top: 50px;
+    width: 90%;
+    background-color: #fff;
+    .header{
+        font-size: 20px;
+        font-weight: 500;
+        padding: 30px;
+        border-bottom: solid 1px #EFEFEF;
+    }
+    .body{
+        padding: 30px;
+        .account{
+            padding: 20px;
+            margin: auto;
+            width: 343px;
+            padding-bottom: 60px;
+            padding-top: 30px;
+            max-width: 100%;
+            box-shadow: 0px 25px 30px #0000001A;
+            border-radius: 10px;
+            color: #152F55;
+            margin-bottom: 30px;
+            .first_row{
+                font-size: 20px;
+                font-weight: bold;
+                img{
+                    float: right;
+                    width: 90px;
+                    height: 40px;
+                }
+                .visa{
+                    width: 60px;
+                    height: 40px;
+                }
+              
+                
+            }
+            .id{
+                margin: 25px 0;
+                font-size: 20px;
+                font-weight: normal;
+            }
+            .card_info{
+                font-size: 20px;
+                color: #152F55;
+                padding-bottom: 30px;
+                border-bottom: solid 1px #EFEFEF;
+
+                span{
+                    font-size: 14px ;
+                    font-weight: bold;
+
+                }
+                .right{
+                    float: right;
+                }
+            }
+            .plan{
+                font-size: 14px;
+                font-weight: bold;
+                margin-top: 20px;
+                .underline{
+                                   
+                    text-decoration: underline;
+                }
+                .right{
+                    color: #F2A911;
+                    float: right;
+                }
+              
+            }
+            .date{
+                margin-top: 20px;
+                margin-bottom: 20px;
+                 float: right;
+           
+                    
+            }
+        }
+    }
+}

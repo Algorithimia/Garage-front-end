@@ -60,9 +60,22 @@
         float: left;
         
     }
+    .textarea_label{
+        left: 2%;
+    }
+    .textareaa{
+        height: 84px;
+        width: 90%;
+        padding: 25px 30px;
+        margin-left:5.5%;
+        color: red;
+        float: left;
+        text-align: left;
+    }
     textarea::placeholder {
         color: #969B858F;
         
     }
+
     
 }   

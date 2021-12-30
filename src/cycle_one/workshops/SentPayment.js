@@ -27,7 +27,7 @@ const SentPayment = () => {
     return (
         <div className='all_ovser_due sent_payment'>
           <div className='header'>
-          OVERDUE INVOICES
+          SENT PAYMRNTS
          </div>
          <div className='second_line'>
          <Link to='/workshop/owner/alloverdue'><button className='all'>All</button></Link>

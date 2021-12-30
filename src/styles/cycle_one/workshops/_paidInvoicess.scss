@@ -1,0 +1,142 @@
+.paid_invices{
+    background-color: #fff;
+    margin-top: 50px;
+    width: 90%;
+    .header{
+        padding: 30px;
+        font-size: 20px;
+        font-weight: 500;
+        border-bottom: solid 1px #EFEFEF;
+    }
+    .second_line{
+        padding: 20px 30px;
+        .alpha{
+            margin-bottom: 0;
+        }
+    }
+    table{
+        thead{
+            th{
+                color: #707070;
+            }
+        }
+    }
+
+    .notify_customer{
+        padding-top: 100px;
+        padding-bottom: 100px;
+        width: 65%;
+        min-height: 415px;
+        max-height: 90%;
+        background-color: #fff;
+        margin: auto;
+       //center verticaly
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        .notify_way{
+            margin-top: 30px;
+            font-size: 18px;
+          
+            button{
+                border: none;
+                width: 216px;
+                height: 72px;
+               
+                border-radius: 8px;
+                color: #fff;   
+                margin: 30px;  
+                span{
+                    background-color: #fff;
+                    width: 29px;
+                    height: 21px;
+                    margin-right: 10px;
+                //    vertical-align: middle;
+                    padding: 0px 3px 3px 8px;
+                }           
+            }
+            .red{
+                box-shadow: 0px 3px 6px #B1052885;
+                background-color: #B10528;
+                span{
+                    color: #B10528;
+                }
+
+
+            }
+            .blue{
+                background-color: #4390E0;
+                box-shadow: 0px 3px 6px #4390E03B;
+                span{
+                    color: #4390E0;
+                }
+            }
+        }
+    }
+
+
+    .notify_user_way{
+        margin: auto;
+        background-color: #fff;
+        width: 65%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        min-height: 642px;
+        max-height: 90%;
+        .header_notify{
+            padding: 20px 50px;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            .way_name{
+                margin-right: 20px;
+                font-weight: bold;
+            }
+           
+            .right{
+                float: right;
+                font-size: 28px;
+                display: inline-block;
+              margin-top: -10px;
+              vertical-align: super;
+            }
+        }
+        .EMAIL{
+            background-color: #B10528;
+        }
+        .MESSAGE{
+            background-color: #4390E0;
+        }
+        .body{
+            text-align: center;
+            .main_input{
+                width: 698px;
+                min-height: 249px;
+                margin: auto;
+                margin-top: 90px;
+               
+                textarea{
+                  
+                    height: 249px;
+                    color: #000;
+                }
+            }
+            .btn{
+                margin-top: 50px;
+                color: #fff;
+                background-color: #152F55;
+                border-radius: 25px;
+                width: 180px;
+                height: 50px;   
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+

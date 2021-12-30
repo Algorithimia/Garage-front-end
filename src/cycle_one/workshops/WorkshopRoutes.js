@@ -42,6 +42,9 @@ import GarageCustomers from './GarageCustomers'
 import CreateWorkOrder2 from './CreateWorkOrder2'
 import ManageInventory from './ManageInventory'
 import GrageFinance from './GrageFinance'
+import PaidInvoices from './PaidInvoices'
+import SubscribtionHistory from './SubscribtionHistory'
+import Subscribtion from './Subscribtion'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -92,6 +95,9 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/addvehiclecustomer" element={<AddVehicle path='/workshop/owner/createworkorder2' />} exact  />
                     <Route path="/owner/manageinventory" element={<ManageInventory/>} exact  />
                     <Route path="/owner/gragefinance" element={<GrageFinance/>} exact  />
+                    <Route path="/owner/paidinvoicess/*" element={<PaidInvoices/>} exact  />
+                    <Route path="/owner/subscribtionhistory" element={<SubscribtionHistory/>} exact  />
+                    <Route path="/owner/subscribtion" element={<Subscribtion/>} exact  />
                     
 
 
