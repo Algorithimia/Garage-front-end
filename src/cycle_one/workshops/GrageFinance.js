@@ -13,7 +13,7 @@ const GrageFinance = () => {
            </div>
            <div className='body'>
                <Row>
-                   <Col md={6}>
+                   <Col lg={6}>
                      <div className='left'>
                          <div className='paid_inovices'>
                            <div className='line'>
@@ -93,7 +93,7 @@ const GrageFinance = () => {
 
                      </div>
                    </Col>
-                   <Col md={6}>
+                   <Col lg={6}>
                      <div className='right_div'>
                      <div className='box'>
                               <div className='first_line'>

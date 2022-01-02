@@ -21,7 +21,7 @@ const SelectSparePartsFromInventry = () => {
             <div className="tables-row">
              <Row>
                
-                <Col sm={12} md={6}>
+                <Col md={12} lg={6}>
                     <div className='table_div'>
                         <div className="title">SPARE PARTS LIST</div>
                         <table>
@@ -39,7 +39,7 @@ const SelectSparePartsFromInventry = () => {
                         </table>
                     </div>
                 </Col>
-                <Col sm={12} md={6}>
+                <Col md={12} lg={6}>
                 <div className='table_div'>
                         <div className="title">SELECTED PARTS</div>
                         <table>

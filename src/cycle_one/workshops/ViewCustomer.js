@@ -37,7 +37,7 @@ const ViewCustomer = () => {
                     <div className="vehicle_and_orders">
                         <div className="title">COUSTOMER VEHICLES &amp; WORK ORDERS</div>
                         <Row>
-                            <Col sm={12} md={6}>
+                            <Col md={12} lg={6}>
                              <div className="cars">
                                  <div className="car">
                                    CAR NAME
@@ -59,7 +59,7 @@ const ViewCustomer = () => {
 
                              </div>
                             </Col>
-                            <Col sm={12} md={6}>
+                            <Col md={12} lg={6}>
                                 <div className="orders">
                                   
                                     <div className="right_icons">

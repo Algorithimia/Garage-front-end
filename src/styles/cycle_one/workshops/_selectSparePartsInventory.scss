@@ -1,15 +1,16 @@
 .select_spareparts{
+    margin: auto;
     background: #fff;
     margin-top: 50px;
   //  padding: 30px;
-    width: 95%;
+    width: 90%;
   //  padding-left: 5%;
     padding-bottom: 50px;
     input{
         border:1px solid #8b8b8bcf;
     }
     .first_row{
-        border-bottom:1px solid #b3b4b2cf;
+        border-bottom:1px solid #EFEFEF;
         padding: 30px;
         padding-left: 5%;
     }
@@ -58,6 +59,7 @@
     }
     .table_div{
         padding-top: 15px;
+        margin: auto;
         // max-height:463px;
         // overflow: scroll;
      

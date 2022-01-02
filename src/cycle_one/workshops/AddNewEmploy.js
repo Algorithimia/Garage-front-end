@@ -13,31 +13,31 @@ const AddNewEmploy = () => {
              <div className='input_row'>
                EMPLOYEE INFO
                <Row>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Employee Name</label>
                         <input type='text' placeholder='Employee Name'/>
                     </div>
                    </Col>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Phone Number</label>
                         <input type='text' placeholder='Phone Number'/>
                     </div>
                    </Col>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Joining Date</label>
                         <input type='text' placeholder='50000 $'/>
                     </div>
                    </Col>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>salary</label>
                         <input type='date'/>
                     </div>
                    </Col>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>salary</label>
                         <input type='text' placeholder='500 $'/>
@@ -49,13 +49,13 @@ const AddNewEmploy = () => {
              <div className='input_row'>
              EMPLOYEE LOGIN INFORMATION
                <Row>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Email ID</label>
                         <input type='text' placeholder='Email ID'/>
                     </div>
                    </Col>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Password</label>
                         <input type='password' placeholder='●●●●●●●●●●●'/>

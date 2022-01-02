@@ -1,7 +1,8 @@
 .employs{
+    margin: auto;
     margin-top: 50px;
     background-color: #fff;
-    width: 80%;
+    width: 90%;
 
    .body{
        padding: 30px;
@@ -169,6 +170,7 @@
 
 //employassignworkorder
 .employassignworkorder{
+    margin: auto;
     width: 90%;
     background-color: #fff;
     margin-top: 50px;
@@ -176,10 +178,12 @@
         margin-top: 70px;
         padding: 20px;
         .employ_info{
+            margin: auto;
             color: #152F55;
             font-size: 18px;
             text-align: center;
             font-weight: 200;
+            margin-bottom: 20px;
         img{
             width: 106px;
             height: 106px;
@@ -211,6 +215,7 @@
         padding: 10px;
         padding-top: 30px;
         padding-bottom: 20px;
+        max-width: 100%;
         .car_info{
             text-align: left;
             padding: 10px;

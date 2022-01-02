@@ -21,7 +21,7 @@ const PurchasePaypal = () => {
                     <br />
                     <input type='number'  placeholder="500 $"/> <br />
                  </div>
-                 <div className="input_div">
+                 <div className="input_div grage_name">
                     <label>GARAGE NAME</label> <br/>
                     <input placeholder="Name Here .." />
                 </div>

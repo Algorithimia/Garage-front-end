@@ -12,7 +12,7 @@ const AddVehicle = ({path}) => {
           <span>VECHILE INFO</span>
           <form>
           <Row>
-              <Col sm={6} md={4}>
+              <Col md={6} lg={4}>
                 
            
 
@@ -29,7 +29,7 @@ const AddVehicle = ({path}) => {
 
                   
               </Col>
-              <Col sm={6} md={4}>
+              <Col md={6} lg={4}>
           
                  
 
@@ -46,7 +46,7 @@ const AddVehicle = ({path}) => {
 
                      
               </Col>
-              <Col sm={6} md={4}>
+              <Col md={6} lg={4}>
             
                  
 
@@ -63,33 +63,32 @@ const AddVehicle = ({path}) => {
 
                      
               </Col>
-          </Row>
-          <Row>
-              <Col sm={6} md={4}>
+         
+              <Col md={6} lg={4}>
                   <div className='main_input'>
                         <label>Vehicle Number</label>
                         <input   type='text' placeholder='Vehicle Number'/> 
                    </div>
               </Col>
-              <Col sm={6} md={4}>
+              <Col md={6} lg={4}>
                   <div className='main_input'>
                         <label>Kilometer Driven</label>
                         <input   type='text' placeholder='Kilometer Driven'/> 
                    </div>
               </Col>
-              <Col sm={6} md={4}>
+              <Col md={6} lg={4}>
                   <div className='main_input'>
                         <label>Chassis Number</label>
                         <input   type='text' placeholder='Chassis Number'/> 
                    </div>
               </Col>
-              <Col sm={6} md={4}>
+              <Col md={6} lg={4}>
                   <div className='main_input'>
                         <label>Engine Number</label>
                         <input   type='text' placeholder='Engine Number'/> 
                    </div>
               </Col>
-              <Col sm={6} md={4}>
+              <Col md={6} lg={4}>
                   <div className='main_input'>
                         <label>Fuel Indicator</label>
                         <input  className='wider' type='text' placeholder='Fuel Indicator'/> 

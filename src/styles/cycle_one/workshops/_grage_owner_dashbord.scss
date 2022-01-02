@@ -1,17 +1,30 @@
 .workshop-background{
+    width: 100%;
+    height: auto;
     background-color:#F8F8F8 ;
+    position: relative;
+
+    
+    .page{
+        position: absolute;
+        top: 0px;
+        left: 225px;
+        width: calc(100% - 200px);
+        background-color:#F8F8F8 ;
+       
+    }
  
 }
 .grage_owner_dashbord{
-    margin-left: -30px;
+  margin: auto;
    padding-top: 32px;
-    width: 100%;
+    width: 90%;
     background-color: #F8F8F8;
-    @media screen and (max-width: 1250px) {
-        margin-left: 0;
-        padding: 20px;
+    // @media screen and (max-width: 1250px) {
+    //     margin-left: 0;
+    //     padding: 20px;
       
-      }   
+    //   }   
    
     .right{
         text-align: right;

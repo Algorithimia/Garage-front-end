@@ -13,12 +13,12 @@ const ViewVehicle = () => {
             </div>
             <div className='secod_row'>
             <Row>
-                <Col sm={6}>
+                <Col lg={6}>
                  <div className='car_view'> 
                      <Car />
                  </div>
                 </Col>
-                <Col sm={6}>
+                <Col lg={6}>
                  <User />
                 </Col>
             </Row>

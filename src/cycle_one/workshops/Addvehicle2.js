@@ -84,6 +84,7 @@ const Addvehicle2 = () => {
 
                     <div className='main_input'>
                                 <label>Brand</label>
+                                <br/>
                                 <input type='text' placeholder=''/>
                                     <select name="select Brand" >
                                             <option >select brand</option>
@@ -101,9 +102,10 @@ const Addvehicle2 = () => {
 
                     <div className='main_input'>
                                 <label>Model</label>
+                                <br/>
                                 <input type='text' placeholder=''/>
                                     <select name="select Model" >
-                                            <option >select brand</option>
+                                            <option >select Model</option>
                                             <option> option 1</option>
                                             <option> option 2</option>
                                             <option> option 3</option>
@@ -118,9 +120,10 @@ const Addvehicle2 = () => {
 
                     <div className='main_input'>
                                 <label>Fuel Type</label>
+                                <br/>
                                 <input type='text' placeholder=''/>
                                     <select name="select Fuel Type" >
-                                            <option >select brand</option>
+                                            <option >select Fuel Type</option>
                                             <option> option 1</option>
                                             <option> option 2</option>
                                             <option> option 3</option>

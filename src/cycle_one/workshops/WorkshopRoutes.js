@@ -48,11 +48,12 @@ import Subscribtion from './Subscribtion'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
-            <Row>
-                <Col sm={6} md={3}>
+         
+                <div className='inline-block'>
                     <SideBar />
-                </Col>
-                <Col sm={12} md={9} style={{ backgroundColor:'#F8F8F8'}}>
+                    </div>
+             
+                    <div className='inline-block page'>
                 <Routes>
                     <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
                     <Route path="/owner/allworkorders/*" element={<AllWorkOrders />} exact  />
@@ -99,15 +100,14 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/subscribtionhistory" element={<SubscribtionHistory/>} exact  />
                     <Route path="/owner/subscribtion" element={<Subscribtion/>} exact  />
                     
+                    
 
 
 
                     
                     
                 </Routes>
-                </Col>
-            </Row>
-
+                </div>
             
         </div>
     )

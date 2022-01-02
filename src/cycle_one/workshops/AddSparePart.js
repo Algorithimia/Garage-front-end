@@ -73,12 +73,18 @@ const AddSparePart = () => {
                         <div className='main_input'>
                             <label>PURCHASE AVAILABILITY</label>
                             <div  className='wider_input' >
-                                 
-                            <input type="radio" name='avaliability'  value="Available" />
-                            <label for="vehicle1"> Available to be purchased</label>
-                            <input type="radio"  name='avaliability' value="notAvaliable" />
+                            <Row>
+                              <Col sm={6}>
+                                <input type="radio" name='avaliability'  value="Available" />
+                                <label for="vehicle1"> Available to be purchased</label>
+                              </Col>
+                              <Col sm={6}>
+                                <input type="radio"  name='avaliability' value="notAvaliable" />
+                                <label for="vehicle2"> Not Available</label>
+                              </Col>    
+                            </Row>  
                             
-                            <label for="vehicle2"> Not Available</label>
+                           
                                 
                             </div> 
                     </div>

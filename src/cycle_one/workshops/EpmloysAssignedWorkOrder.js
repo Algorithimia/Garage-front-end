@@ -23,7 +23,7 @@ const EpmloysAssignedWorkOrder = () => {
             </div>
             <div className='body'>
               <Row>
-                  <Col sm={6} md={2}>
+                  <Col md={12} lg={2}>
                       <div className='employ_info'>
                       <img 
                       src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvUsGOsBcDS6hxduYR8UpkewPhZmi6tHecxjGNYJRCo1kkClxTeDYsSJ2gXfTggvXZU8U&usqp=CAU'
@@ -35,15 +35,15 @@ const EpmloysAssignedWorkOrder = () => {
                   
                   </Col>
                   
-                  <Col sm={6} md={10}>
+                  <Col md={12} lg={10}>
                     <Row>
-                    <Col sm={6} >
+                    <Col  lg={6} >
                       <EmployOrder />
                      </Col>
-                     <Col sm={6} >
+                     <Col  lg={6} >
                       <EmployOrder />
                      </Col>
-                     <Col sm={6} >
+                     <Col  lg={6} >
                       <EmployOrder />
                      </Col>
 

@@ -1,4 +1,6 @@
 .purchase{
+    margin: auto;
+    width: 90%;
  background-color: #fff;
  margin-top: 50px;
  .first_row{
@@ -206,5 +208,13 @@ input::placeholder {
         box-shadow: 0px 3px 6px #152F558C;
         border-radius: 25px;
 
+    }
+}
+
+
+
+.purchase_sub{
+    .grage_name{
+        display: none;
     }
 }
