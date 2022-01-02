@@ -14,7 +14,7 @@ const SubscribtionType = ({price, days }) => {
                  {price}$
             </div>
 
-            <Link to='/'>UPGRADE</Link>
+            <Link to='/workshop/owner/purchasesubscribtion/visa'>UPGRADE</Link>
         </div>
     )
 }

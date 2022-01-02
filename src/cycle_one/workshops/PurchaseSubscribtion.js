@@ -18,7 +18,7 @@ const PurchaseSubsccribtion = () => {
                     <Col>
                    <Routes>
 
-                        <Route path="/visa/*" element={<PurchaseVisa paypal_path='/workshop/owner/purchasesubscribtion/paypal' successLink='/workshop/owner/purchasesubscribtion/visa/success'/>} exact  /> 
+                        <Route path="/visa/*" element={<PurchaseVisa paypal_path='/workshop/owner/purchasesubscribtion/paypal' successLink='/workshop/owner/purchasesubscribtion/visa/success' success_message={<>SUCCESSFULLY UPGRADED TO <span className='thirtydays'> 30 DAYS </span> PLAN</>}  success_button='BACK TO YOUR DACHBOARD' success_button_link='/workshop/owner/dashbord'  />} exact  /> 
                         <Route path="/paypal" element={<PurchasePaypal visa_path='/workshop/owner/purchasesubscribtion/visa'  successLink='/workshop/owner/purchasesubscribtion/visa/success' />} exact  /> 
                     
                    </Routes>

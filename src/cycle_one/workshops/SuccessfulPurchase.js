@@ -2,7 +2,7 @@ import React from 'react'
 import {BsFillCheckCircleFill} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
-const SuccessfulPurchase = ({button='PURCHASE NEW SAPRE PART', success_message=' PURCHASE COMPLETED SUCCESSFULLY'}) => {
+const SuccessfulPurchase = ({button='PURCHASE NEW SAPRE PART', success_message, success_button, success_button_link}) => {
     return (
         <div className='opacity'>
             <div className='success_purchase'>
@@ -11,8 +11,8 @@ const SuccessfulPurchase = ({button='PURCHASE NEW SAPRE PART', success_message='
                   <span>  <BsFillCheckCircleFill /> </span>
                    {success_message}
                 </div>
-                <Link to='/workshop/owner/buyspareparts'>
-                    <button>{button}</button>
+                <Link to={success_button_link}>
+                    <button>{success_button}</button>
                 </Link>
 
             </div>

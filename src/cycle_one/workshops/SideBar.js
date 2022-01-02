@@ -83,7 +83,7 @@ const SideBar = () => {
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/marketing'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Mask Group 26.svg' />
                     <span className='text_link'>MARKETING</span>
                     </Link>

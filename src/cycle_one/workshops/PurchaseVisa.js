@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Route, Routes } from "react-router-dom";
 import { Row , Col} from "react-bootstrap"
 import SuccessfulPurchase from './SuccessfulPurchase';
-const PurchaseVisa = ({ paypal_path='/workshop/owner/purchase/paypal', successLink='/workshop/owner/purchase/visa/success'}) => {
+const PurchaseVisa = ({ paypal_path='/workshop/owner/purchase/paypal', successLink='/workshop/owner/purchase/visa/success', success_message='PURCHASE COMPLETED SUCCESSFULLY' ,success_button='PURCHASE NEW SAPRE PART',success_button_link='/workshop/owner/buyspareparts'}) => {
     let result = "347405405655278".replace(/(.{4})/g, '$1    ');
     return (
         <div className="payment_way">
@@ -59,7 +59,7 @@ const PurchaseVisa = ({ paypal_path='/workshop/owner/purchase/paypal', successLi
          </Link>
          </form>
          <Routes>
-           < Route path="/success" element={<SuccessfulPurchase success_message={<>SUCCESSFULLY UPGRADED TO <span className='thirtydays'> 30 DAYS </span> PLAN</>} />} exact  /> 
+           < Route path="/success" element={<SuccessfulPurchase  success_message={success_message} success_button={success_button} success_button_link={success_button_link} />} exact  /> 
          </Routes>
          </div>
     )
