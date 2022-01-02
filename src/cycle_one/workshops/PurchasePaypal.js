@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PurchasePaypal = () => {
+const PurchasePaypal = ({visa_path='/workshop/owner/purchase/visa', successLink='/workshop/owner/purchase/visa/success'}) => {
     return (
         <div className='payment_way paypal_way'>
             <form>
                 <span className="visa">  
-                <Link to='/workshop/owner/purchase/visa'>  <img src='/images/cycle one/visa.svg' /> </Link>
+                <Link to={visa_path}>  <img src='/images/cycle one/visa.svg' /> </Link>
                 </span>
                 <span className="paypal"> 
                   <img src='/images/cycle one/paypal.svg' /> 
@@ -16,7 +16,7 @@ const PurchasePaypal = () => {
                     <br/>
                     <input  placeholder='justin.hayes@mail.com'/>
                 </div>
-                <div className="input_div">
+                <div className="input_div total">
                     <label>TOTAL AMOUNT $</label>
                     <br />
                     <input type='number'  placeholder="500 $"/> <br />
@@ -25,7 +25,7 @@ const PurchasePaypal = () => {
                     <label>GARAGE NAME</label> <br/>
                     <input placeholder="Name Here .." />
                 </div>
-                <Link  to='/workshop/owner/purchase/visa/success'>
+                <Link  to={successLink}>
                     <input className="button" type='submit' value='PURCHASE' />
                 </Link>
          </form>

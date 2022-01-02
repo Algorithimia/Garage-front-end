@@ -11,15 +11,15 @@ const PurchaseSubsccribtion = () => {
     return (
         <div className="purchase purchase_sub"> 
             <div className="first_row">
-               PURCHASE &#38; PAYMENT
+              PURCHASE YOUR SUBSCRIBTION
             </div>
             <div className="second_row">
                 <Row>
                     <Col>
                    <Routes>
 
-                        <Route path="/visa/*" element={<PurchaseVisa />} exact  /> 
-                        <Route path="/paypal" element={<PurchasePaypal />} exact  /> 
+                        <Route path="/visa/*" element={<PurchaseVisa paypal_path='/workshop/owner/purchasesubscribtion/paypal' successLink='/workshop/owner/purchasesubscribtion/visa/success'/>} exact  /> 
+                        <Route path="/paypal" element={<PurchasePaypal visa_path='/workshop/owner/purchasesubscribtion/visa'  successLink='/workshop/owner/purchasesubscribtion/visa/success' />} exact  /> 
                     
                    </Routes>
      

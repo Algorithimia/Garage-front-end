@@ -45,6 +45,7 @@ import GrageFinance from './GrageFinance'
 import PaidInvoices from './PaidInvoices'
 import SubscribtionHistory from './SubscribtionHistory'
 import Subscribtion from './Subscribtion'
+import PurchaseSubsccribtion from './PurchaseSubscribtion'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -99,6 +100,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/paidinvoicess/*" element={<PaidInvoices/>} exact  />
                     <Route path="/owner/subscribtionhistory" element={<SubscribtionHistory/>} exact  />
                     <Route path="/owner/subscribtion" element={<Subscribtion/>} exact  />
+                    <Route path="/owner/purchasesubscribtion/*" element={<PurchaseSubsccribtion/>} exact  />
                     
                     
 

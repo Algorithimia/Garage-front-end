@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Route, Routes } from "react-router-dom";
 import { Row , Col} from "react-bootstrap"
 import SuccessfulPurchase from './SuccessfulPurchase';
-const PurchaseVisa = () => {
+const PurchaseVisa = ({ paypal_path='/workshop/owner/purchase/paypal', successLink='/workshop/owner/purchase/visa/success'}) => {
     let result = "347405405655278".replace(/(.{4})/g, '$1    ');
     return (
         <div className="payment_way">
@@ -11,7 +11,7 @@ const PurchaseVisa = () => {
             <img src='/images/cycle one/visa.svg' />
          </span>
          <span className="paypal"> 
-         <Link to='/workshop/owner/purchase/paypal'>  <img src='/images/cycle one/paypal.svg' /> </Link>
+         <Link to={paypal_path}>  <img src='/images/cycle one/paypal.svg' /> </Link>
          </span>
          <br />
          
@@ -54,12 +54,12 @@ const PurchaseVisa = () => {
             <label>GARAGE NAME</label> <br/>
             <input placeholder="Name Here .." />
          </div>
-         <Link  to='/workshop/owner/purchase/visa/success'>
+         <Link  to={successLink}>
            <input className="button" type='submit' value='PURCHASE' />
          </Link>
          </form>
          <Routes>
-           < Route path="/success" element={<SuccessfulPurchase />} exact  /> 
+           < Route path="/success" element={<SuccessfulPurchase success_message={<>SUCCESSFULLY UPGRADED TO <span className='thirtydays'> 30 DAYS </span> PLAN</>} />} exact  /> 
          </Routes>
          </div>
     )
