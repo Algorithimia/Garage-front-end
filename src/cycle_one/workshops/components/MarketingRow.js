@@ -2,6 +2,7 @@ import React from 'react'
 
 import {AiFillMessage} from 'react-icons/ai'
 import {GrMail} from 'react-icons/gr'
+import { Link } from 'react-router-dom'
 const MarketingRow = ({name, address, phone, mail, work_orders}) => {
     return (
         <tr>
@@ -12,7 +13,11 @@ const MarketingRow = ({name, address, phone, mail, work_orders}) => {
             <th>{work_orders}</th>  
             <th></th>
             <th></th>
-            <th><span className='mail'><GrMail /> </span> <span className='msg'> <AiFillMessage /> </span></th>
+            <th>
+                <Link to='/workshop/owner/marketing/notifybyemail'><span className='mail'><GrMail /> </span> </Link>
+                <Link to='/workshop/owner/marketing/notifybymessage'><span className='msg'> <AiFillMessage /> </span> </Link>
+                
+                </th>
        </tr>
     )
 }

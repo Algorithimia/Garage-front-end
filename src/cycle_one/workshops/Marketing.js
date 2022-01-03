@@ -11,6 +11,7 @@ import {FaTimes} from 'react-icons/fa'
 
 import FilterMarketing from './FilterMarketing'
 import MarketingRow from './components/MarketingRow'
+import NotifyUserWay from './components/NotifyUserWay'
 const Marketing = () => {
     const[tagss, setTags]=useState([])
     const getFilterTags= (tags) => {
@@ -47,8 +48,8 @@ const Marketing = () => {
              <div className='header'>
                MARKETING
                <div className='inline-block'>
-                   <button className='mail'> <span> <GrMail /> </span>  Email All </button>
-                   <button className='msg'> <span> <AiFillMessage /> </span> Message All </button>
+                  <Link to='/workshop/owner/marketing/notifybyemail'><button className='mail'> <span> <GrMail /> </span>  Email All </button></Link> 
+                  <Link to='/workshop/owner/marketing/notifybymessage'> <button className='msg'> <span> <AiFillMessage /> </span> Message All </button></Link>
 
                </div>
 
@@ -134,8 +135,9 @@ const Marketing = () => {
                 <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
             </table>  
             <Routes>
-             <Route path="/filtermarketing" element={<FilterMarketing  getFilterTags={getFilterTags}/>} exact  />
-                 
+             <Route path="/filtermarketing" element={<FilterMarketing  getFilterTags={getFilterTags} />}  exact  />
+             <Route path="/notifybyemail" element={<NotifyUserWay way='EMAIL' after_send='/workshop/owner/marketing' num='12' />} exact  />
+             <Route path="/notifybymessage" element={<NotifyUserWay way='MESSAGE' after_send='/workshop/owner/marketing' num='12' />} exact  />   
             </Routes>  
             
         </div>

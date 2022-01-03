@@ -79,65 +79,85 @@
     }
 
 
-    .notify_user_way{
-        margin: auto;
-        background-color: #fff;
-        width: 65%;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        min-height: 642px;
-        max-height: 90%;
-        .header_notify{
-            padding: 20px 50px;
-            border: none;
-            color: #fff;
-            font-size: 20px;
-            .way_name{
-                margin-right: 20px;
-                font-weight: bold;
-            }
-           
-            .right{
-                float: right;
-                font-size: 28px;
-                display: inline-block;
-              margin-top: -10px;
-              vertical-align: super;
-            }
-        }
-        .EMAIL{
-            background-color: #B10528;
-        }
-        .MESSAGE{
-            background-color: #4390E0;
-        }
-        .body{
-            text-align: center;
-            .main_input{
-                width: 698px;
-                min-height: 249px;
-                margin: auto;
-                margin-top: 90px;
-               
-                textarea{
-                  
-                    height: 249px;
-                    color: #000;
-                }
-            }
-            .btn{
-                margin-top: 50px;
-                color: #fff;
-                background-color: #152F55;
-                border-radius: 25px;
-                width: 180px;
-                height: 50px;   
-                font-size: 18px;
-                font-weight: 500;
-            }
-        }
-    }
 }
 
+
+//notify
+
+.notify_user_way{
+    margin: auto;
+    background-color: #fff;
+    width: 65%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 642px;
+    max-height: 90%;
+    .header_notify{
+        padding: 20px 50px;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        .way_name{
+            margin-right: 20px;
+            font-weight: bold;
+        }
+       
+        .right{
+            float: right;
+            font-size: 28px;
+            display: inline-block;
+          margin-top: -10px;
+          vertical-align: super;
+        }
+    }
+    .EMAIL{
+        background-color: #B10528;
+        .num{
+            color: #B10528;
+        }
+    }
+    .MESSAGE{
+        background-color: #4390E0;
+        .num{
+            color: #4390E0;
+        }
+        
+    }
+    .body{
+        text-align: center;
+        .main_input{
+            width: 698px;
+            min-height: 249px;
+            margin: auto;
+            margin-top: 90px;
+           
+            textarea{
+              
+                height: 249px;
+                color: #000;
+            }
+        }
+        .btn{
+            margin-top: 50px;
+            color: #fff;
+            background-color: #152F55;
+            border-radius: 25px;
+            width: 180px;
+            height: 50px;   
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    .num{
+       
+        border-radius: 50%;
+        background-color: #fff;
+          padding: 7px;
+        font-size: 18px;
+        margin-left: 10px;
+       
+        font-weight: 500;
+    }
+}
 
