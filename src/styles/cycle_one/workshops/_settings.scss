@@ -1,0 +1,110 @@
+.settings{
+    margin: auto;
+    width: 90%;
+    margin-top: 50px;
+    background-color: #fff;
+    .header{
+        padding: 30px;
+        font-size: 20px;
+        font-weight: 500;
+        border-bottom: solid 1px #EFEFEF;
+        .right{
+            float: right;
+            color: #EB0836;
+            .under_line{
+                margin-left: 10px;
+                font-weight: bold;
+                text-decoration: underline;
+                color: #EB0836;
+            }
+        }
+    }
+    .second_row{
+        padding: 40px 30px;
+        border-bottom: solid 1px #EFEFEF;
+        .lang{
+            padding: 23px 50px;
+            background-color: #ECEAEA;
+            width: 100%;
+            font-size: 18px;
+            color: #152F55;
+            .right{
+                font-size: 20px;
+                font-weight: bold;
+                float: right;
+                border: none;
+                outline: none;
+                background-color: #ECEAEA;
+               
+                cursor: pointer;
+                option{
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+    .workshop_info{
+        padding: 30px;
+        padding-bottom: 100px;
+        border-bottom: solid 1px #EFEFEF;
+        .left{
+            padding-top: 44px;
+            text-align: center;
+            div{
+                color: #152F55;
+                font-weight: 500;
+                font-size: 20px;
+                margin-bottom: 42px;
+            }
+            img{
+                width: 182px;
+                height: 173px;
+                border-radius: 50%;
+                border: solid 1px #4390E0;
+            }
+        }
+        .right{
+           
+            padding-top: 50px;
+            @media screen and (max-width: 992px) {padding-top: 10px;}
+            .main_input{
+                width: 80%;
+               text-align: left;
+                @media screen and (max-width: 992px) {
+                    text-align:center;
+                    margin: auto;
+                    margin-top: 30px;
+                }
+            }
+            input{
+                padding: 20px 60px;
+            }
+
+           
+        span{
+            display: block;
+            margin-top: 25px;
+            text-decoration: underline;
+            font-size: 20px;
+            font-weight: 500;
+            color: #4390E0;
+            @media screen and (max-width: 992px) {
+                text-align:center;}
+        }
+            
+        }
+        .btn{
+            margin-top: 45px;
+            float: right;
+            margin-right: 35%;
+            border-radius: 25px;
+            width: 242px;
+            height: 50px;
+            
+            color: #fff;
+            background-color: #969B85;
+            font-size: 20px;
+          
+        }
+    }
+}

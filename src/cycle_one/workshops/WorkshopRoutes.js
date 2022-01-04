@@ -47,7 +47,10 @@ import SubscribtionHistory from './SubscribtionHistory'
 import Subscribtion from './Subscribtion'
 import PurchaseSubsccribtion from './PurchaseSubscribtion'
 import Marketing from './Marketing'
-import FilterMarketing from './FilterMarketing'
+import Assets from './Assets'
+import CreateAssets from './CreateAssets'
+import Settings from './Settings'
+import MaintenancePackaging from './MaintenancePackaging'
 const WorkshopRoutes = () => {
     return (
         <div className='workshop-background'>
@@ -104,6 +107,10 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/subscribtion" element={<Subscribtion/>} exact  />
                     <Route path="/owner/purchasesubscribtion/*" element={<PurchaseSubsccribtion/>} exact  />
                     <Route path="/owner/marketing/*" element={<Marketing/>} exact  />
+                    <Route path="/owner/assets/*" element={<Assets/>} exact  />
+                    <Route path="/owner/createasset" element={<CreateAssets/>} exact  />
+                    <Route path="/owner/settings" element={<Settings/>} exact  />
+                    <Route path="/owner/maintnance" element={<MaintenancePackaging/>} exact  />
                     
                     
 

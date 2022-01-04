@@ -90,14 +90,14 @@ const SideBar = () => {
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/assets'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Group 636.svg' />
                     <span className='text_link'>ASSETS</span>
                     </Link>
                 </div>
                 <div className='line'></div>    
                 <div className='link'>
-                   <Link to='/workshop'>
+                   <Link to='/workshop/owner/settings'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
                     <span className='text_link'>SETTING</span>
                     </Link>
