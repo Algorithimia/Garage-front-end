@@ -66,8 +66,10 @@ const AllWorkOrders = () => {
                             </div>
                         </div>
                         </div>
-                    <input className="right" placeholder="Search Repair Order" />
+                    <div className="right">
+                    <input  placeholder="Search Repair Order" />
                     <div className='icon'><FaSearch /></div> 
+                    </div>
                 </div>
             </div>
             <table>

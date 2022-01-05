@@ -47,31 +47,29 @@ const Addvehicle2 = () => {
                         
                     </div>
                     </Col>
-                    <Col md={12} lg={8}>
-                      <Row>
-                        <Col sm={4}>
+                    
+                        <Col md={6} lg={4}>
                         <div className='main_input'>
                             <label>Customer Name</label>
                             <input type='text' placeholder='Customer Name'/>
                             
                         </div>
                         </Col>
-                        <Col sm={4}>
+                        <Col md={6} lg={4}>
                         <div className='main_input'>
                             <label>Phone Number</label>
                             <input type='tel' placeholder='Phone Number'/>
                             
                         </div>
                         </Col>
-                        <Col sm={4}>
+                        <Col md={6} lg={4}>
                         <div className='main_input'>
                             <label>Customer Name</label>
                             <input type='text' placeholder='Customer Name'/>
                             
                         </div>
                         </Col>
-                      </Row>
-                    </Col>
+                   
                    
                 </Row>
                 <div className='info'>

@@ -110,7 +110,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/assets/*" element={<Assets/>} exact  />
                     <Route path="/owner/createasset" element={<CreateAssets/>} exact  />
                     <Route path="/owner/settings" element={<Settings/>} exact  />
-                    <Route path="/owner/maintnance" element={<MaintenancePackaging/>} exact  />
+                    <Route path="/owner/maintnance/*" element={<MaintenancePackaging/>} exact  />
                     
                     
 

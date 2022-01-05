@@ -17,7 +17,7 @@ const SingleWorkOrder = () => {
             </div>
             <div className='main_info'>
               <Row>
-                  <Col sm={12} md={6}> 
+                  <Col md={12} lg={6}> 
                    <div className='car'> 
                      <div className='header'>
                        <span>CAR NAME</span>
@@ -52,7 +52,7 @@ const SingleWorkOrder = () => {
 
                    </div>
                   </Col>
-                  <Col sm={12} md={6}> 
+                  <Col md={12} lg={6}> 
                    <div className='stages'>
                      <div className='header'>
                      WORK ORDER STAGES 

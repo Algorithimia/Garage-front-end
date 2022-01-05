@@ -61,7 +61,7 @@ const AddNewEmploy = () => {
                         <input type='password' placeholder='●●●●●●●●●●●'/>
                     </div>
                    </Col>
-                   <Col sm={6} md={4}>
+                   <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Confirm Pasword</label>
                         <input type='password' placeholder='●●●●●●●●●●●'/>
@@ -76,7 +76,7 @@ const AddNewEmploy = () => {
                         <label>Assigned Sections</label>
                         <div className='check_box'>
                             <Row>
-                                <Col sm={6} md={3}>
+                                <Col md={6} lg={3}>
                                 <div className='checkbox_line'>
                                     <input type="checkbox"  value="VEHICLES" />
                                     <label > VEHICLES</label><br/>
@@ -98,7 +98,7 @@ const AddNewEmploy = () => {
                                 
                                 
                                 </Col>
-                                <Col sm={6} md={3}>
+                                <Col md={6} lg={3}>
                                 <div className='checkbox_line'>
                                     <input type="checkbox"  value="INVENTORY" />
                                     <label > INVENTORY</label><br/>
@@ -117,7 +117,7 @@ const AddNewEmploy = () => {
                                 
                                 
                                 </Col>
-                                <Col sm={6} md={3}>
+                                <Col md={6} lg={3}>
                                     <div className='checkbox_line'>
                                         <input type="checkbox"  value="FINANCE" />
                                         <label > FINANCE</label><br/>
@@ -136,7 +136,7 @@ const AddNewEmploy = () => {
                                 
                                 
                                 </Col>
-                                <Col sm={6} md={3}>
+                                <Col md={6} lg={3}>
                                 <div className='checkbox_line'>
                                         <input type="checkbox"  value="ASSETS" />
                                         <label > ASSETS</label><br/>

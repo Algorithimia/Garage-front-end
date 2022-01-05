@@ -130,10 +130,21 @@
     font-weight: 500;
     font-size: 20px;
     border-bottom:1px solid  #d4d6ce;
+    height: auto;
 .right{
     float: right;
     font-weight: 400;
     font-size: 16px;
+    @media screen and (max-width: 967px) {
+        display: inline-block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        button{
+            
+            margin: 10px 30px;
+        }
+         
+         }
     .input{
         position: relative;
         display: inline-block;

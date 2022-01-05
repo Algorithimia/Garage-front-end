@@ -1,7 +1,9 @@
 import React from 'react'
-import { AiFillPlusCircle } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
 
+import { Link, Route, Routes } from 'react-router-dom'
+
+import MintenancePackagingBody from './MintenancePackagingBody'
+import AddEditePackage from './AddEditePackage'
 const MaintenancePackaging = () => {
     return (
         <div className='mintenance'>
@@ -14,10 +16,11 @@ const MaintenancePackaging = () => {
             </span>
  
            </div>
-           <div className='body'>
-               <Link to='/'><button><span><AiFillPlusCircle /> Add New Package</span></button></Link>
-
-           </div>
+           <Routes>
+              <Route path="/" element={<MintenancePackagingBody/>} exact  />
+              <Route path="/add" element={<AddEditePackage/>} exact  />
+           </Routes>
+  
 
             
         </div>

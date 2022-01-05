@@ -1,11 +1,15 @@
+import React , {useState} from 'react'
 import {Dropdown} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const SideBar = () => {
+    const [showSettings,setShowSettings]= useState(false)
     return (
         <>
             <div className='sidebar'> 
-                <img className='logo' src='/images/cycle one/GarageWorkLogo.png' />
+                <Link to='/workshop/owner/dashbord'>
+                       <img className='logo' src='/images/cycle one/GarageWorkLogo.png' />
+                </Link>
                 <br />
               
                 <Dropdown>
@@ -96,11 +100,26 @@ const SideBar = () => {
                     </Link>
                 </div>
                 <div className='line'></div>    
-                <div className='link'>
-                   <Link to='/workshop/owner/settings'>
+                <div className='link pointer' onClick={()=>{setShowSettings(!showSettings)}}>
+                   {/* <Link to='/workshop/owner/settings'> */}
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
                     <span className='text_link'>SETTING</span>
-                    </Link>
+                    {/* </Link> */}
+                   { showSettings &&
+                     <div className='settings'>
+                        <Link to='/workshop/owner/settings'>
+                                <div className='option'> Prefrence Settings </div>  
+                        </Link>
+                        <Link to='/workshop/owner/subscribtion'>
+                           <div className='option'> Subscribtion Plan </div>
+                        </Link>
+                        <Link to='/workshop/owner/maintnance'>
+                        <div className='option'> Mintenance Packaging </div>
+                        </Link>
+                        <div className='option log_out'> Logout </div>
+
+
+                    </div>}
                 </div>
              
 

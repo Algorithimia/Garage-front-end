@@ -16,6 +16,37 @@
         height: 70px;
         border-bottom: .25px solid #e4e6e1cf;
         font-weight: 500;
+        .right{
+            display: inline-block;
+            float: right;
+            position: relative;
+            width: 270px;
+            height: 38px;
+            padding: 3px;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-right: 20px;
+            margin-bottom: 40px;
+            input{
+                height: 35px;
+              width: 100%;
+                border: solid 1px #969b85;
+               
+                
+            }
+            span{
+                margin-left: -30px;
+                position: absolute;
+                right: 20px;
+                top: 12px;
+                color: #969b85;
+                &:hover{
+                    color:#4390E0; ;
+                    cursor: pointer;
+                }
+                
+            }
+        }
     }
     input{
         position: relative;
@@ -25,10 +56,10 @@
     select{
         position: absolute;
          
-         width: 70%;
+         width: 75%;
          bottom: 18px;
          border:none;
-         left: 14%;
+         left: 12%;
          font-size: 18px;
          border: 0px;
          outline: none;
@@ -39,6 +70,21 @@
         
     }
     .customer_info_create{
+      padding-top: 0;
+        .left_select{
+            margin-left: 10%;
+            max-width: 250px;
+        }
+        .center_select{
+            margin: auto;
+            margin-top: 30px;
+            max-width: 250px;
+        }
+        .right_select{
+          float: right;
+         margin-right: 3.75%;
+         max-width: 250px;
+        }
         
     }
     .title{
@@ -56,14 +102,14 @@
         padding: 0 30px;
     }
     .customer_info_create{
-        margin-top: 60px;
+      
         padding-bottom: 60px;
         padding: 0 30px;
     }
   .big_input{
     height: 171px;
     width: 90%;
-    padding: 25px 30px;
+    padding: 25px 65PX;
     margin-left: 2%;
     
 }
@@ -76,6 +122,7 @@
 label{
 
     left: -10px;
+   
 }
 
 .dark_button{
