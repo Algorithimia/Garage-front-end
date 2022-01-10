@@ -7,6 +7,7 @@ import { FaSearch } from 'react-icons/fa'
 
 
 import RowInventory from './components/RowInventory'
+import { Link } from 'react-router-dom'
 const ManageInventory = () => {
 
     
@@ -33,8 +34,8 @@ const ManageInventory = () => {
            INVENTORY
            <div className='right'>
                <button className='light_blue'>FILTER</button>
-               <button className='add_purchase'> <span> <AiFillPlusCircle /></span>  Add New Purchase </button>
-               <button className='add_part'> <span> <AiFillPlusCircle /> </span>   Add New Part </button>
+               <Link to='/workshop/owner/buyspareparts'><button className='add_purchase'> <span> <AiFillPlusCircle /></span>  Add New Purchase </button> </Link>
+               <Link to='/workshop/owner/addsparepart'> <button className='add_part'> <span> <AiFillPlusCircle /> </span>   Add New Part </button> </Link>
 
            </div>
 
