@@ -1,6 +1,7 @@
 .sidebar{
     background-color: #fff;
-    width: 223px;;
+ width: 223px;;
+   
     min-height: 100%;
     min-width: 223px;;
     padding-bottom: 50px;
@@ -10,7 +11,7 @@
     margin-top: -22px;
     z-index: 1;
     @media screen and (max-width: 767px) {
-        max-width: 100px;
+        display: none;
     }
 
     .logo{

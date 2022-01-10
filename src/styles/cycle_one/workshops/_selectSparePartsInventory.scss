@@ -134,6 +134,10 @@
             font-size: 18px;
             border-radius: 25px;
             max-width: 100%;
+
+            @media screen and (max-width: 575px) {
+               margin-top: 10px;
+             }
         }
      }
      .total{

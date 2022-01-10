@@ -15,6 +15,7 @@
     padding-left: 5%;
     .payment_way{ 
         width: 448px;
+        max-width: 95%;
         box-shadow: 0px 3px 6px #00000029;
         padding: 7%;
         text-align: center;
@@ -183,12 +184,14 @@ input::placeholder {
 .success_purchase{
     width: 50%;
     margin-left: 25%;
-    height: 80%;
+    min-height: 80%;
     margin-top: 5%;
     background-color: #fff;
+    padding-bottom: 20px;
     img{
         margin-top: 95px;
         margin-bottom: 37px;
+        max-width: 100%;
     }
     .green{
       color: #71A43F;
@@ -203,6 +206,7 @@ input::placeholder {
         border: none;
         color: #fff;
         width: 348px;
+        max-width: 90%;
         height: 47px;
         background-color: #152F55;
         box-shadow: 0px 3px 6px #152F558C;

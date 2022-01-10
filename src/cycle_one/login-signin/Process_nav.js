@@ -6,14 +6,14 @@ const Process_nav =()=>{
 
         <>
         <div>
-          <div className='navv'>
+          <div className='navv process_nav'>
          <Row>
-          <Col sm={12}lg={3}>
+          <Col md={12}lg={3}>
             <Link to='/'>
                <img className='Land_logo' src='/images/cycle one/GarageWorkLogo.png' />
             </Link>
           </Col>
-          <Col sm={8} lg={7}>
+          <Col md={8} lg={7}>
            <div className='options'>
             
               
