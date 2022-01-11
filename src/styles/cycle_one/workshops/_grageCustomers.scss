@@ -37,6 +37,10 @@
     .second_line{
         padding: 20px 30px;
         border-bottom: 1px solid #EFEFEF;
+        @media screen and (max-width: 500px) {
+                
+          text-align: center;
+            }
         button{
             border: none;
             border-radius: 25px;

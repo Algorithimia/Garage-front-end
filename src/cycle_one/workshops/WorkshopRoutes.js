@@ -1,6 +1,7 @@
+import React ,{useState} from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Route, Routes} from 'react-router-dom'
-
+import {BsList} from 'react-icons/bs'
 import SideBar from './SideBar'
 import GrageOwnerDashbord from './GrageOwnerDashbord'
 import AllWorkOrders from './AllWorkOrders'
@@ -51,7 +52,9 @@ import Assets from './Assets'
 import CreateAssets from './CreateAssets'
 import Settings from './Settings'
 import MaintenancePackaging from './MaintenancePackaging'
+import SidebarOptions from './components/SidebarOptions'
 const WorkshopRoutes = () => {
+    const[showside,setShowSide]=useState(false)
     return (
         <div className='workshop-background'>
          
@@ -60,6 +63,11 @@ const WorkshopRoutes = () => {
                     </div>
              
                     <div className='inline-block page'>
+                        <div className='show_sidebar' onClick={()=>setShowSide(!showside)}>
+                            <BsList />  options
+                        </div>
+                        {showside && <SidebarOptions />}
+
                 <Routes>
                     <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
                     <Route path="/owner/allworkorders/*" element={<AllWorkOrders />} exact  />

@@ -28,12 +28,17 @@ margin-bottom: 98px;
     }
     p{
         margin-top: 20px;
+        padding-bottom: 20px;
         font: normal normal normal 20px Aileron;
         max-width: 485px;
         color: #969B85;
         line-height: 1.7;
-        max-height: 291px;
+      height: 296px;
         overflow: hidden;
+        &:hover{
+            overflow:visible;
+            height: auto;
+        }
       
     }
     .store{

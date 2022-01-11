@@ -142,8 +142,11 @@
             min-height: 249px;
             margin: auto;
             margin-top: 90px;
-            max-width: 100%;
-           
+            max-width: 98%;
+           label{
+               background-color: #fff;
+               z-index: 99;
+           }
             textarea{
                 
                 height: 249px;

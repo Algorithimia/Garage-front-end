@@ -37,8 +37,8 @@ const AddAppointment = () => {
                         <textarea  placeholder='APPOINTMENT NOTE'/>
                     </div>
                     <div className='butns'>
-                        <Link to='/'><button className='gray'>RESET</button></Link>
-                        <Link to='/'><button className='blue'>ADD</button></Link>
+                        <Link to='/workshop/owner/calender'><button className='gray'>RESET</button></Link>
+                        <Link to='/workshop/owner/calender'><button className='blue'>ADD</button></Link>
 
                     </div>
 

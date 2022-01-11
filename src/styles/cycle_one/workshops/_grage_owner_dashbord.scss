@@ -12,9 +12,24 @@
         width: calc(100% - 200px);
         background-color:#F8F8F8 ;
         min-height: 100vh;
+        .show_sidebar{
+            margin: 10px;
+           // width: 100%;
+            background-color: #fff;
+            height: 50px;
+            padding-top: 10px;
+            padding-left: 18px;
+            cursor: pointer;
+            display: none;
+
+        }
         @media screen and (max-width: 767px) {
             width: 100%;
             left: 0;
+            .show_sidebar{
+                display: block;
+            
+            }
         }
        
     }

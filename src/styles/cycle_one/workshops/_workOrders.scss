@@ -7,6 +7,7 @@
             margin-bottom: 20px;
         }
     }
+    
     background-color: #fff;
     .opacity{
         position: fixed;
@@ -39,7 +40,9 @@
              @media screen and (max-width: 967px) {
                
                 float: none;
+                
             }
+            
            .light_blue{
                background-color: #4390E0;
                color: #fff;
@@ -48,6 +51,11 @@
                padding: 7px 30px;
                border: none;
                border-radius: 25px;
+               @media screen and (max-width: 500px) {
+                display: block;
+                margin: 0;
+                margin-top: 5px;
+            }
            }
            .blue{
             width: 209px;
@@ -57,6 +65,11 @@
             border: none;
             border-radius: 25px;
             margin-left: 20px;
+            @media screen and (max-width: 500px) {
+                display: block;
+                margin: 0;
+                margin-top: 5px;
+            }
             span{
                 vertical-align:top;
                 margin-right: 5px;
@@ -70,7 +83,15 @@
          margin-bottom:10px;
          position: relative;
         //input_block
-         
+       
+            @media screen and (max-width: 500px) {
+               text-align: left;
+               .input_block{
+                margin-bottom: 10px;
+
+               }
+              
+               }
   
      
     
@@ -194,6 +215,10 @@
 .input_block{
     margin-right: 20px;
     position: relative;
+    @media screen and (max-width: 825px) {
+        margin: auto;
+      
+       }
     input{
        // margin-bottom: 10px;
        width: 81px;
@@ -319,6 +344,7 @@
        border: none;
        margin-right: 22px;
        margin-top: 120px;
+      
       
    }
    .gray{

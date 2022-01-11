@@ -96,3 +96,13 @@
         }
     }
 }
+.sidebar_options{
+    position: absolute;
+    max-height: 500px;
+    min-height: 500px;
+    z-index: 999999999999;
+    @media screen and (max-width: 767px) {
+        display: block;
+    }
+    
+}

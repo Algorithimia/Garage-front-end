@@ -5,7 +5,10 @@
         margin-left: 27%;
         max-width: 333px;
         margin-top: 80px;
-        height: 450px;
+       min-height: 450px;
+      
+       z-index: 999999999999999;
+      
         @media screen and (max-width: 1024px) {
             margin-left: 0;
       
@@ -30,18 +33,23 @@
             margin-top: 20px;
             max-height: 103px;
             overflow: hidden;
+            // &:hover{
+            //     overflow:visible;
+            // }
             color: #FFF;
             font-size: 22px;
             max-width: 333px;
             margin-bottom: 40px;
         }
         .buttons{
+            display: block;
             margin-left: -10px;
+            z-index: 999999999999999;
         }
     }
     .mask_group{
-        
-   
+     
+     z-index: 100;
         height: 450px;
         width: 100%;
   background-color: blanchedalmond;
@@ -51,8 +59,9 @@
      background-size:contain; 
      background-position: left center;
      @media screen and (max-width: 990px) {
-        background-position: center center;
-      margin-top: -250px;
+         display: block;
+        background-position: top center;
+      margin-top: -140px;
        
    
       

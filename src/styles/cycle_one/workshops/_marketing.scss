@@ -60,6 +60,11 @@
     .second_row{
         padding: 20px 30px;
         padding-right: 40px;
+        @media screen and (max-width: 500px) {
+          button{
+              margin-bottom: 10px;
+          }
+             }
         button{
             border: none;
             background-color: #5D5D5D3B;
@@ -78,6 +83,7 @@
             border: solid 1px #969B85;
             padding:2px 5px ;
             padding-left: 20px;
+            width: 330px;
             @media screen and (max-width: 1024px) {
                 float: none;
                  margin: 10px 0 -20px 0;
@@ -100,6 +106,7 @@
         border-top: solid 1px #EFEFEF;
         
         .alpha{
+            margin-top: 5px;
             margin-bottom: 0;
         }
         .right{
