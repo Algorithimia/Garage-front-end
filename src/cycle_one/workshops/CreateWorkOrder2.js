@@ -22,7 +22,7 @@ const CreateWorkOrder2 = () => {
                 <Row>
                     <Col>
                         <div className='car_div'>
-                            <Car />
+                            <Car view='true' />
                             <div className='btn_div'>
                                 <Link to='/workshop/owner/choosegrage'>
                                 <button>Choose</button>
@@ -33,7 +33,7 @@ const CreateWorkOrder2 = () => {
                     </Col>
                     <Col>
                         <div className='car_div'>
-                            <Car />
+                            <Car view='true' />
                              <div className='btn_div'>
                                 <Link to='/workshop/owner/choosegrage'>
                                 <button>Choose</button>

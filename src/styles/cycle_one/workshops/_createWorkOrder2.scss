@@ -19,6 +19,12 @@
             width: 213px;
             height: 38px;
             border-radius: 25px;
+            @media screen and (max-width: 840px) {
+                
+                float: none;
+                margin-top: 10px;
+                margin-left: 10px;
+                }
             span{
                 vertical-align: text-bottom;
                 margin-right: 5px;

@@ -34,7 +34,7 @@ const Calender = () => {
           </div>
           <div className='body'>
           <Row>
-              <Col md={6}>
+              <Col lg={6}>
                 <Calendar
                     onChange={(value)=>{setAppointments([...appointments , value])
                      console.log(appointments)
@@ -48,7 +48,7 @@ const Calender = () => {
 
               
               </Col>
-              <Col md={6}>
+              <Col lg={6}>
                   <div className='right_div'>
                       <div className='comming'>
                           <div className='first_line'>

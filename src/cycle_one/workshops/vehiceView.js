@@ -12,10 +12,12 @@ const vehiceView = () => {
         <div className='vehicles_view'>
             <div className='header'>
                 GARAGE VEHICLES
+                <Link to='/workshop/owner/addvehicle2'>
                 <button className='right'>
                      <span><AiFillPlusCircle  /></span>  
                      Add New Vehicle 
                 </button>
+                </Link>
 
             </div>
             <div className='vehicles_second_line'>

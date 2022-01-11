@@ -7,7 +7,7 @@ import MintenancePackage from './components/MintenancePackage'
 const MintenancePackagingBody = () => {
     return (
         <div className='body'>
-            <Link to='/'><button><span><AiFillPlusCircle /> Add New Package</span></button></Link>
+            <Link to='/workshop/owner/maintnance/add'><button><span><AiFillPlusCircle /> Add New Package</span></button></Link>
             <div className='packages'>
                 <Row>
                     <Col md={12} lg={6}>

@@ -11,9 +11,11 @@
         padding: 30px 25px;
         border-bottom: 1px solid #EFEFEF;
     }
+    
     .second_line{
         padding: 20px;
         border-bottom: 1px solid #EFEFEF;
+      
         button{
             border: none;
             font-size: 18px;
@@ -45,6 +47,13 @@
         width: 100%;
         float: left;
         background-color: #fff;
+        .alpha_small{
+            @media screen and (max-width: 610px) {
+              display: inline-block;
+              margin: 5px 0;
+              
+              }
+            }
         .input_block{
             margin-bottom: 20px;
             vertical-align: middle;
@@ -58,6 +67,14 @@
            width: 126px;
            height: 38px;
            border-radius: 25px;
+           @media screen and (max-width: 934px) {
+           float: none;
+          
+         margin-left: 20px;
+         margin-bottom: 5px;
+          
+            
+            }
      
        }
     }

@@ -3,6 +3,7 @@
     background-color: #fff;
     margin-top: 50px;
     width: 90%;
+    overflow-x: scroll;
     .header{
         padding: 30px;
         font-size: 20px ;
@@ -12,10 +13,19 @@
             float: right;
             display: inline-block;
             font-size: 16px;
+            @media screen and (max-width: 1050px) {
+                float: none;
+                margin-top: 10px;
+              
+              }
             button{
                 border: none;
                 border-radius: 25px;
                 margin-right: 10px;
+                @media screen and (max-width: 915px) {
+                  margin-bottom: 10px;
+                  
+                  }
                 span{
                     vertical-align: text-bottom;
                     margin-right: 5px;
@@ -46,6 +56,13 @@
     }
     .second_line{
         padding: 20px 30px;
+        .alpha_small{
+            @media screen and (max-width: 820px) {
+              display: block;
+              margin: 10px 0;
+              
+              }
+        }
         .alpha{
             margin-bottom: 0;
         }
@@ -53,6 +70,10 @@
             display: inline-block;
             float: right;
             position: relative;
+            @media screen and (max-width: 1117px) {
+                float: none;
+                
+                }
             input{
                 width: 270px;
                 height: 38px;

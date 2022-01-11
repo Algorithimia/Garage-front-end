@@ -77,11 +77,13 @@ const GarageCustomers = () => {
                                         </div>
                                     </div>
                                     </div>
-                                    <span className='alpha z_to_a'>
-                                        <BsSortAlphaUpAlt />
-                                    </span>
-                                    <span className='alpha a_to_z'>
-                                        <BsSortAlphaUp />
+                                    <span className='alpha_small'>
+                                        <span className='alpha z_to_a'>
+                                            <BsSortAlphaUpAlt />
+                                        </span>
+                                        <span className='alpha a_to_z'>
+                                            <BsSortAlphaUp />
+                                        </span>
                                     </span>
                                     
 

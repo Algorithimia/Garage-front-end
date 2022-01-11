@@ -90,8 +90,10 @@ const GrageOwnerDashbord = () => {
                                      </Col>
                                      
                                      <Col>
-                                       <IconBox color='#F2A911' icon={  <> <AiFillPlusCircle  />
-                                        <RiCarFill /> </>} text='add vehicle'/>
+                                       <Link to='/workshop/owner/addvehicle2'> 
+                                            <IconBox color='#F2A911' icon={  <> <AiFillPlusCircle  />
+                                            <RiCarFill /> </>} text='add vehicle'/>
+                                        </Link>
                                      </Col>
                                  </Row>
                                  <Row className="icon_row">

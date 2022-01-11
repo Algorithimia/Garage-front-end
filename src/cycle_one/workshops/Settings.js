@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Row, Col} from 'react-bootstrap'
+import {MdPhotoCamera} from 'react-icons/md'
 const Settings = () => {
     return (
         <div className='settings'>
@@ -30,9 +31,12 @@ const Settings = () => {
                    <Col sm={12} lg={4}>
                       <div className='left'>
                           <div>WORKSHOP INFO</div>
-                          <img 
-                              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvUsGOsBcDS6hxduYR8UpkewPhZmi6tHecxjGNYJRCo1kkClxTeDYsSJ2gXfTggvXZU8U&usqp=CAU'
-                          />
+                          <div className='change_img'>
+                                <img 
+                                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvUsGOsBcDS6hxduYR8UpkewPhZmi6tHecxjGNYJRCo1kkClxTeDYsSJ2gXfTggvXZU8U&usqp=CAU'
+                                />
+                               <span> <MdPhotoCamera /> </span>
+                          </div>
                       </div>
                    </Col>
                    <Col sm={12} lg={8}>

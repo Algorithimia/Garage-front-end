@@ -7,6 +7,14 @@
     width:70%;
     height: 90%;
     overflow-y: scroll;
+    @media screen and (max-width: 794px) {
+                
+        width: 90%;
+        }
+        @media screen and (max-width: 590px) {
+                text-align: center;
+            width: 95%;
+            }
     .header{
         padding: 20px;
         padding-bottom: 45px;

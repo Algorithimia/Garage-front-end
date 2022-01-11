@@ -3,6 +3,7 @@
     background-color: #fff;
     margin-top: 50px;
     width: 90%;
+    overflow-x: scroll;
     .header{
         padding: 30px;
         font-size: 20px;
@@ -11,6 +12,13 @@
     }
     .second_line{
         padding: 20px 30px;
+        .alpha_small{
+            @media screen and (max-width: 619px) {
+                display: block;
+                margin-top: 10px;
+                }
+
+        }
         .alpha{
             margin-bottom: 0;
         }
@@ -101,6 +109,9 @@
         .way_name{
             margin-right: 20px;
             font-weight: bold;
+            @media screen and (max-width: 630px) {
+               display: block;
+                }
         }
        
         .right{
@@ -131,9 +142,10 @@
             min-height: 249px;
             margin: auto;
             margin-top: 90px;
+            max-width: 100%;
            
             textarea{
-              
+                
                 height: 249px;
                 color: #000;
             }

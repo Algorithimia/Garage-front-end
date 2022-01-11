@@ -17,6 +17,10 @@
         float: right;
         margin-right: 20px;
         font-size:14px ;
+        @media screen and (max-width: 565px) {
+           float: none;
+           margin-top: 10px;
+         }
         input{
             border: 1px solid #969B85;
             width: 270px;
@@ -56,6 +60,10 @@
       font-size: 20px;
       background-color: #ECEAEA;
       margin: 40px;
+      @media screen and (max-width: 608px) {
+         text-align: center;
+         font-size: 17px;
+      }
       a{
           color: #5D5D5D;
       }

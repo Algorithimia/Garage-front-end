@@ -4,6 +4,7 @@
     margin-top: 50px;
     width: 90%;
     padding-bottom: 50px;
+    overflow-x: scroll;
     .header{
         padding: 30px;
         font-size: 20px;
@@ -18,6 +19,12 @@
             height: 38px;
             border-radius: 25px;
             font-size: 16px;
+            @media screen and (max-width: 840px) {
+                
+                float: none;
+                margin-top: 10px;
+                margin-left: 10px;
+                }
             span{
                
                 vertical-align:text-bottom;
@@ -41,6 +48,7 @@
             margin-right: 20px;
             font-size: 18px;
             font-weight: 500;
+            margin-bottom: 10px;
         }
         .active{
             background-color: #95C1EE42;
@@ -49,11 +57,18 @@
         .right{
             float: right;
             position: relative;
+            @media screen and (max-width: 1072px) {
+                width: 284px;
+                float: none;
+              
+                margin-left: 10px;
+                }
             input{
                 border: 1px solid #969B85;
                 width: 284px;
                 height: 38px;
                 padding: 5px 20px;
+                position: relative;
 
             }
             span{
@@ -69,6 +84,15 @@
         color: #707070;
         .input_block{
             margin-right: 34px;
+        }
+        .alpha_small{
+            @media screen and (max-width: 665px) {
+                
+               display: block;
+
+               margin-top: 10px;
+                }
+
         }
         .alpha{
             margin-bottom: 0;

@@ -13,6 +13,11 @@ margin-top: 50px;
             float: right;
             font-size: 16px;
             font-weight: 400;
+            @media screen and (max-width: 586px) {
+                float: none;
+                margin: 5px;
+                
+                }
             button{
                 border: none;
                 background-color: #152F55;
@@ -38,6 +43,10 @@ margin-top: 50px;
         border-left: 3px solid #152F55;
         height: 100%;
         padding-top: 50px;
+        @media screen and (max-width: 992px) {
+           border: none;
+            
+            }
         .comming{
             width: 370px;
             box-shadow: 0px 3px 6px #00000029;
@@ -274,7 +283,7 @@ margin-top: 50px;
              .gray{
                  background-color: #5D5D5D;
                  margin-right: 15px;
-                 margin-left: 320px;
+                
              }
              .blue{
                  background-color:#4390E0 ;
