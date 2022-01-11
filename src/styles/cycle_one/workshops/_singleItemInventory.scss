@@ -9,9 +9,13 @@
         font-size: 18px;
         font-weight: 500;
         border-bottom: 1px solid #0000001A;
+        
         .right{
             float: right;
             display: inline-block;
+            @media screen and (max-width: 740px) {
+               float: none;
+               }
             button{
                 border: none;
                 color: #fff;
@@ -20,6 +24,10 @@
                 height: 38px;
                 font-weight: 400;
                 font-size: 16px;
+                @media screen and (max-width: 740px) {
+                   
+                    margin-top: 5px;
+                    }
                 span{
                     vertical-align:text-bottom;
                 }

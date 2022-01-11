@@ -7,6 +7,7 @@ import { Link, Route,Routes } from 'react-router-dom'
 
 import User from "./components/User"
 import Car from "./components/Car"
+import Order from "./components/Order"
 const ViewCustomer = () => {
     return (
         <div className="view_customer">
@@ -39,21 +40,10 @@ const ViewCustomer = () => {
                         <Row>
                             <Col md={12} lg={6}>
                              <div className="cars">
-                                 <div className="car">
-                                   CAR NAME
-                                   <div className="right_icons">
-                                       <span><MdDeleteSweep /></span>
-                                       <span className="blue"><RiEditLine /></span>
-                                   </div>
-                                 </div>
-                                 <div className="car">
-                                   CAR NAME
-                                   <div className="right_icons">
-                                       <span><MdDeleteSweep /></span>
-                                       <span className="blue"><RiEditLine /></span>
-                                   </div>
-                                 </div>
+                                <Car />
                                  <Car />
+                                 <Car view='true'/>
+
                                  
 
 
@@ -67,39 +57,9 @@ const ViewCustomer = () => {
                                        <span className="blue"><RiEditLine /></span>
                                    </div>
                                  <div className="orders_list">
-                                    <div className="order">
-                                        order 1
-                                    </div>
-                                    <div className="order">
-                                        order 2
-                                    </div>
-                                    <div className="order">
-                                        order 3
-                                        <div className="more">
-                                          <div className="text">
-                                            <div><FaCar /> &nbsp; ABC 569 &nbsp;  BMW &nbsp;  2017 &nbsp; Deseil</div>
-                                            <div>10 MAR 2021</div> 
-                                            <div>customer name</div>
-                                             <div>ABC 569</div>
-                                           </div> 
-                                           <table>
-                                                
-                                                <tr>
-                                                    <th className='black'> Total</th>
-                                                    <th className='blue'> Recieved</th>
-                                                    <th  className='red'> Due</th>
-                                                
-                                                </tr>
-                                            
-                                                <tr className='bold'>
-                                                    <th className='black' > 100 $</th>
-                                                    <th  className='blue'>70 $ </th>
-                                                    <th className='red'>30 $</th>
-                                                 </tr>
-                                            </table>
-
-                                        </div>
-                                    </div>
+                                    <Order  />
+                                    <Order  />
+                                    <Order  view='true'/>
                                   </div>
 
                                 </div>

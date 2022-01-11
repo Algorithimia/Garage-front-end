@@ -13,9 +13,9 @@ const ViewVehicle = () => {
             </div>
             <div className='secod_row'>
             <Row>
-                <Col lg={6}>
+                <Col xs={12}lg={6}>
                  <div className='car_view'> 
-                     <Car />
+                     <Car view='true'/>
                  </div>
                 </Col>
                 <Col lg={6}>

@@ -37,6 +37,9 @@ tr{
         padding: 15px;
         font-weight: normal;
         max-width: 100%;
+        @media screen and (max-width: 767px) {
+           padding:10px ;
+        }
 
         button{
             border: none;

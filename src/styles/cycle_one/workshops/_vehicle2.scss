@@ -20,6 +20,11 @@
              height: 38px;
              border-radius: 25px;
              font-size: 16px;
+             @media screen and (max-width: 500px) {
+                float: none;
+                margin-bottom: -25px;
+                margin-top: 10px;
+                }
              span{
                  vertical-align:text-bottom;
                  margin-right: 5px;
@@ -68,9 +73,15 @@
     }
     .right{
         float: right;
+        @media screen and (max-width: 1052px) {
+            float: none;
+            margin-top: 10px;
+          
+            }
         .input_div{
             position: relative;
             display: inline-block;
+           
         input{
             border:  1px solid #969B85;
             vertical-align: text-bottom;
@@ -115,6 +126,7 @@
     width: 370px;
     box-shadow: 0px 3px 6px #00000029;
     max-width: 100%;
+    margin-bottom: 20px !important;
     .name{
         color: #152F55;
         font-size: 18px;
@@ -197,6 +209,9 @@
         .text{
             color: #707070;;
             margin-left: -35px;
+            @media screen and (max-width: 575px) {
+                margin-left: 20px;
+                }
          
         }
         &:hover{
