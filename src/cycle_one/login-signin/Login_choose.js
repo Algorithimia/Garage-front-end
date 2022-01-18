@@ -11,7 +11,7 @@ const Login_choose=()=>{
          <div className='opacity'>
          <Container>
             <Row className="justify-content-md-center">
-              <Col md='5'>
+              <Col md='6'>
                 <Login_type
                     title='Vehicle Owner' 
                     p='vehicle owner seeking maintenance for his vehicle or using other services' 
@@ -22,7 +22,7 @@ const Login_choose=()=>{
             
                 />
               </Col>
-              <Col md='5'>
+              <Col md='6'>
                     <Login_type
                         title='Garage Owner/Employee' 
                         p='Garage or Spare Part Shop Owner or a Company who owns one or more garages or outlets' 

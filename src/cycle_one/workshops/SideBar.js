@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
 import {Dropdown} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import {AiFillPlusCircle} from 'react-icons/ai'
 
 const SideBar = () => {
     const [showSettings,setShowSettings]= useState(false)
@@ -19,9 +20,15 @@ const SideBar = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1"><img className='dropdown_img' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2"><img className='dropdown_img' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3"><img className='dropdown_img' src='/images/cycle one/workshop.jpg' /> &nbsp; Workshop Name</Dropdown.Item>
+                       <div>
+                           <Dropdown.Item ><img className='dropdown_img drop_imgg ' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item></div> 
+                       <div> 
+                          <Dropdown.Item><img className='dropdown_img drop_imgg' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item>
+                       </div>
+                       <div className='add'>
+                        <Dropdown.Item ><Link to='/'><span><AiFillPlusCircle /></span> Add New</Link></Dropdown.Item>
+                            
+                       </div>
                     </Dropdown.Menu>
                  </Dropdown>
                 <div className='line'></div>

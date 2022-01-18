@@ -2,8 +2,9 @@
     background-color: #fff;
  width: 223px;;
    
-    min-height: 100%;
-    min-width: 223px;;
+  height: 100vh;
+  max-height: 100%;
+  
     padding-bottom: 50px;
     box-shadow: 0px 3px 12px #00000029;
     position: fixed;
@@ -19,20 +20,51 @@
         width: 158px;
         height: 45px;
         margin-top: 25px;
+        max-height: 10vh;
     
     }
     .dropdown_img{
         width: 34px;
         height: 32px;
         border-radius: 50%;
+        display: inline-block;
+        margin-top:2vh ;
+        margin-left: 15px;
+        
     }
+    .drop_imgg{
+        margin-top: 0;
+    }
+    .dropdown-menu{
+        .add{
+           a{ color: #4390E0;}
+        }
+        padding-bottom: 0;
+        .dropdown-item{
+           border-bottom: solid 1px #7070703D;
+           padding: 10px;
+           
+          padding-left: 0;
+         
+        }
+      
+    a{
+        display: block;
+        margin: auto;
+        text-align: center;
+        color: #969B85CF;
+    }
+    
+}
     .dropdown{
         margin: auto;
-        margin-top: 20px;
+        margin-top: 15px;
         background-color: #fff;
         color: #4390E0;
         border: none;
-        margin-bottom: 17px;
+       
+     
+       
         @media screen and (max-width: 900px) {
             width: 100%;
         max-width: 223px;
@@ -54,11 +86,11 @@
         height: .5px;
         width: 100%;
         background-color: #EFEFEF;
-        margin-top: 25px;
-        margin-bottom: 25px;
+        margin-top:3vh;
+        margin-bottom:3vh;
     }
     .link{
-        margin:20px;
+        margin:1vh;
         text-align: left;
         color: #969B85CF;
         position: relative;
@@ -101,6 +133,45 @@
     max-height: 500px;
     min-height: 500px;
     z-index: 999999999999;
+    .link{
+        margin:20px;
+        text-align: left;
+        color: #969B85CF;
+        position: relative;
+        .img_link{
+            width: 17px;
+            height: 17px;
+            margin-right: 10px;
+            margin-left: 30px;
+        }
+        .text_link{
+            font-size: 16px;
+
+        }
+        a{
+            text-decoration: none;
+            color: #969B85CF;
+        }
+        .settings{
+            width: 240px;
+            min-height: 200px;
+            background-color: #fff;
+            box-shadow: 0px 3px 12px #00000029;
+            position: absolute;
+            left: 140px;
+            top: -220px;
+           
+            .option{
+                padding: 14px 25px;
+                color: #4390E0;
+                border-bottom: solid 1px #EFEFEF;;
+            }
+            .log_out{
+                color: #EB0836;
+            }
+        }
+    }
+
     @media screen and (max-width: 767px) {
         display: block;
     }

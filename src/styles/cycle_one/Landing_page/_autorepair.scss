@@ -24,16 +24,18 @@ margin-bottom: 98px;
    margin: auto;
    margin-bottom: 0;
     .title{
-        font: normal normal bold 30px Aileron;
-    }
+        font-weight:  bold;
+        font-size:  30px ;
+    };
     p{
         margin-top: 20px;
         padding-bottom: 20px;
-        font: normal normal normal 20px Aileron;
+        font-size: 20px ;
+        
         max-width: 485px;
         color: #969B85;
         line-height: 1.7;
-      height: 296px;
+      height: 280px;
         overflow: hidden;
         &:hover{
             overflow:visible;
@@ -68,6 +70,7 @@ margin-bottom: 98px;
             }
             .store_name{
                 font-size: 18px;
+                font-weight: 500;
             }
         }
        
