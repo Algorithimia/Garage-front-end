@@ -1,0 +1,47 @@
+.workshop_add{
+    margin: auto;
+    width: 90%;
+    margin-top: 50px;
+    background-color: #fff;
+    padding-bottom: 50px;
+    .header{
+        padding: 30px;
+        font-size: 20px;
+        font-weight: 500;
+        border-bottom: solid 1px #EFEFEF;
+    }
+    .body{
+        text-align: center;
+        padding: 30px 20px;
+        .change_img{
+            margin-top: 30px;
+        }
+        .main_input{
+            width: 482px;
+            height: 62px;
+            margin: auto;
+            margin-top: 50px;
+            max-width: 100%;
+            input{
+                width: 100%;
+                height: 100%;
+
+                padding: 20px;
+                padding-left: 30px;
+            }
+            .mark{
+                font-size: 20px;
+                right: 4.5%;
+            }
+        }
+        .submit_button{
+           
+            padding:12px 50px;
+            background-color: #152F55;
+            color: #fff;
+            border-radius: 25px;
+            margin-top: 80px;
+            font-size: 20px;
+        }
+    }
+}

@@ -53,6 +53,7 @@ import CreateAssets from './CreateAssets'
 import Settings from './Settings'
 import MaintenancePackaging from './MaintenancePackaging'
 import SidebarOptions from './components/SidebarOptions'
+import AddWorkshop from './AddWorkshop'
 const WorkshopRoutes = () => {
     const[showside,setShowSide]=useState(false)
     return (
@@ -119,6 +120,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/createasset" element={<CreateAssets/>} exact  />
                     <Route path="/owner/settings" element={<Settings/>} exact  />
                     <Route path="/owner/maintnance/*" element={<MaintenancePackaging/>} exact  />
+                    <Route path="/owner/addworkshop" element={<AddWorkshop/>} exact  />
                     
                     
 
