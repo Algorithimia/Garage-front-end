@@ -7,6 +7,7 @@ import { Col, Row } from 'react-bootstrap'
 
 
 import Part from './components/Part'
+import { Link } from 'react-router-dom'
 
 const SingleWorkOrder = () => {
     return (
@@ -21,7 +22,7 @@ const SingleWorkOrder = () => {
                    <div className='car'> 
                      <div className='header'>
                        <span>CAR NAME</span>
-                       <button className='right'><span><BsPencilSquare /> </span>Edit</button>
+                       <Link to='/workshop/owner/createworkeorder'><button className='right'><span><BsPencilSquare /> </span>Edit</button></Link>
                      </div>
                      <div className='car_info'> <FaCar /> &nbsp;  Car &nbsp;  BMW &nbsp;  A7 &nbsp; Fuel 6%</div>
                      <div className='more_info'>Engine Number : 2 | Chassis <br /> Number : 125 <br/> 0 KM Driven <br/> yomna sabry<br/> 012 158 123 - example@gmail.com <br/>ADDRESS : Egypt ,Cairo <br/>TAX NUMBER : 123
@@ -32,7 +33,7 @@ const SingleWorkOrder = () => {
                    <div className='spare_parts'>
                      <div className='header'>
                        <span>USED SPARE PARTS</span>
-                       <button className='right'>Add</button>
+                       <Link to='/workshop/owner/selectinventory'><button className='right'>Add</button></Link>
                      </div>
                      <div className='parts'>
                          <div className='part'>
@@ -56,7 +57,7 @@ const SingleWorkOrder = () => {
                    <div className='stages'>
                      <div className='header'>
                      WORK ORDER STAGES 
-                     <button className='right'>Assign</button>
+                     <Link to='/workshop/owner/allworkorders/assignEmploye'><button className='right'>Assign</button></Link>
                      <div className='start_date'>Start Date 20 Mar 2021</div>
 
                      </div>

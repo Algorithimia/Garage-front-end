@@ -1,4 +1,5 @@
 import {FaTools} from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 const CustomerInList = ({name, addBy}) => {
     return (
@@ -8,9 +9,11 @@ const CustomerInList = ({name, addBy}) => {
                 <div>{name}</div>
                 <div className="gray">Added by {addBy}</div>
             </div>
-            <div className="inline-block tools_icon delete_icon">
+            <Link to='/workshop/owner/singleworkorder'>
+                <div className="inline-block tools_icon delete_icon">
                 <FaTools style={{marginBottom:'5' }}/>
-            </div>
+                </div>
+            </Link>
         </div>
     )
 }
