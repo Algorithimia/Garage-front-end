@@ -30,8 +30,8 @@ const SentPayment = () => {
           SENT PAYMRNTS
          </div>
          <div className='second_line'>
-         <Link to='/workshop/owner/alloverdue'><button className='all'>All</button></Link>
-           <button className='over_due'>Overdue</button>
+         <Link to='/workshop/owner/alloverduesentpayment'> <button className='all'>All</button></Link>
+         <Link to='/workshop/owner/alloverdue'> <button className='over_due'>Overdue</button></Link>
          </div>
          <div className='third_line'>
          <div className='inline-block input_block'>
