@@ -3,7 +3,8 @@ import { Col, Row } from 'react-bootstrap'
 import Employ from './components/Employ'
 import {AiFillPlusCircle} from "react-icons/ai"
 import {FaSearch} from'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
+import ChangeEmployinfo from './ChangeEmployinfo'
 
 const Employes = () => {
     return (
@@ -31,6 +32,9 @@ const Employes = () => {
                 </Col>
             </Row>
            </div> 
+           <Routes>
+                <Route path="/changeinfo" element={<ChangeEmployinfo />} exact  />
+           </Routes>
             
         </div>
     )

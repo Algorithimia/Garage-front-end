@@ -77,7 +77,7 @@ const Settings = () => {
                             <label>Email</label>
                             <input type='tel' placeholder='handel@example.com'/>
                         </div>
-                         <Link to='/'><span>RESET PASSWORD</span></Link>
+                         <Link to='/workshop/owner/settings'><span>RESET PASSWORD</span></Link>
                          
                          
                      </div>

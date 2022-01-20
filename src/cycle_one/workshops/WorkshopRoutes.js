@@ -82,7 +82,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
                     <Route path="/owner/addvehicle" element={<AddVehicle path='/workshop/owner/viewvehicle' />} exact  />
                     <Route path="/owner/viewvehicle" element={<ViewVehicle />} exact  />
-                    <Route path="/owner/employes" element={<Employes />} exact  />
+                    <Route path="/owner/employes/*" element={<Employes />} exact  />
                     <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
                     <Route path="/owner/employassignworkorder" element={<EpmloysAssignedWorkOrder />} exact  />
                     <Route path="/owner/alloverdue" element={<AllOverDue />} exact  />

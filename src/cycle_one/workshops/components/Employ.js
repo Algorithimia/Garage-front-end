@@ -12,7 +12,7 @@ const Employ = ({img}) => {
              <button>View Assigned Work Orders</button>
             </Link>
             <div className='login_info'>
-                <span className='right'> <Link to='/'> <span> <RiEditLine /> </span> </Link> </span>
+                <span className='right'> <Link to='/workshop/owner/employes/changeinfo'> <span> <RiEditLine /> </span> </Link> </span>
                 <div className='info'>
                     <div>USER NAME</div>
                     <span className='gray_color'>garagehandle3258</span>
@@ -43,8 +43,8 @@ const Employ = ({img}) => {
                 <Link to='/'><div className='option'>EMPLOYEES</div></Link>
  
             </div>
-            <button className='delete'>DELETE</button>
-            <button className='edite'>EDIT</button>
+           <button className='delete'>DELETE</button> 
+           <Link to='/workshop/owner/addemploy'> <button className='edite'>EDIT</button> </Link>
         </div>
     )
 }

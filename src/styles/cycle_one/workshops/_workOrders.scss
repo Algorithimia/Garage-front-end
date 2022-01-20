@@ -134,24 +134,7 @@
  
    
 }
-.hidden_list{
-    padding: 30px;
-    line-height: 2;
-    font-size: 18px;
-   z-index: -1;
- 
-    option{
-        padding: 10px;
-        margin-top: 40px;
-        border-bottom: 1px solid #000;
-        
-        
-        
-    }
- 
-   
 
-}
 .created{
     background-color: #71A43F45;
     color: #71A43F;
@@ -357,3 +340,31 @@
 }
 
 
+.table_hidden_list{
+    background-color:#fff ;
+    padding: 5px 10px;
+    line-height: 2;
+    font-size: 18px;
+  z-index: 9;
+  left: -135px;
+  top: 0px;
+position: absolute;
+box-shadow: 0px 3px 30px #00000029;
+a{
+    text-decoration: none;
+    border: none;
+}
+ 
+    option{
+        padding: 3px;
+      text-decoration: none;
+      font-size: 18px;
+      
+        
+        
+        
+    }
+ 
+   
+
+}
