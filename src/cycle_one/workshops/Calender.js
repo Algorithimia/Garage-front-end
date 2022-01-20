@@ -57,9 +57,11 @@ const Calender = () => {
                                   <span className='gray'>
                                      <MdDeleteSweep />
                                   </span>
-                                  <span className='blue'>
-                                     <RiEditLine />
-                                  </span>
+                                  <Link to='/workshop/owner/addappointment'>
+                                    <span className='blue'>
+                                      <RiEditLine />
+                                    </span>
+                                  </Link>
 
                               </div>
                               <div className='title'>

@@ -31,12 +31,13 @@ const Settings = () => {
                    <Col sm={12} lg={4}>
                       <div className='left'>
                           <div>WORKSHOP INFO</div>
-                          <div className='change_img'>
+                          <div className='change_img'  onClick={()=> document.getElementById("my_file").click()}>
                                 <img 
                                     src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvUsGOsBcDS6hxduYR8UpkewPhZmi6tHecxjGNYJRCo1kkClxTeDYsSJ2gXfTggvXZU8U&usqp=CAU'
                                 />
                                <span> <MdPhotoCamera /> </span>
                           </div>
+                          <input type="file" id="my_file" style={{display: "none"}} />
                       </div>
                    </Col>
                    <Col sm={12} lg={8}>

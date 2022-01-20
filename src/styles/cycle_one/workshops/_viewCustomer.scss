@@ -66,7 +66,7 @@
             margin: auto;
             width: 370px;
             max-width: 100%;
-              
+              height: auto;
             color: #fff;
             box-shadow: 0px 3px 6px #00000029;
             margin-top: 60px;
@@ -74,11 +74,13 @@
             
             .orders_list{
                margin-top: 40px;
+               padding-bottom: 30px;
                 .order{
                     color: #E10A0A;
                     font-size: 18px;
                     font-weight: 500;
                     margin: 10px;
+                   
                   span{
                       cursor: pointer;
                   }
@@ -88,6 +90,7 @@
                         background-color: #95C1EE4D;
                         padding: 5px;
                         padding-left: 10px;
+                        margin: 5px 0;
                         div{
                             margin-top: 10px;
                         }
@@ -125,6 +128,17 @@
                               
                             }
                         }
+                    }
+                }
+                .open_more{
+                    float: right;
+                    text-decoration: underline;
+                  
+                    a{
+                        font-size: 18px;
+                        font-weight: 500;
+                         color: #4390E0;
+                    
                     }
                 }
 

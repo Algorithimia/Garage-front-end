@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {RiEditLine} from 'react-icons/ri'
-const Employ = () => {
+const Employ = ({img}) => {
     return (
         <div className='employ'>
             <img
-            src='https://media.istockphoto.com/photos/headshot-of-44-year-old-mixed-race-man-in-casual-polo-shirt-picture-id1264106963?b=1&k=20&m=1264106963&s=170667a&w=0&h=dLQliHpFkaweGQhiRfkNGkwsAPoKCEy9UWWk-m2iCCk='
+            src={img}
             />
             <div className='name'>Jerry Watkins</div>
             <Link to='/workshop/owner/employassignworkorder'>

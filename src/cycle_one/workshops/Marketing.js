@@ -13,6 +13,7 @@ import FilterMarketing from './FilterMarketing'
 import MarketingRow from './components/MarketingRow'
 import NotifyUserWay from './components/NotifyUserWay'
 const Marketing = () => {
+    const[multible,setMultible]= useState(false)
     const[tagss, setTags]=useState([])
     const getFilterTags= (tags) => {
         setTags(tags)
@@ -47,11 +48,11 @@ const Marketing = () => {
         <div className='marketing'>
              <div className='header'>
                MARKETING
-               <div className='inline-block'>
+              { multible && <div className='inline-block'>
                   <Link to='/workshop/owner/marketing/notifybyemail'><button className='mail'> <span> <GrMail /> </span>  Email All </button></Link> 
                   <Link to='/workshop/owner/marketing/notifybymessage'> <button className='msg'> <span> <AiFillMessage /> </span> Message All </button></Link>
 
-               </div>
+               </div>}
 
              </div>
              <div className='second_row'>
@@ -106,7 +107,7 @@ const Marketing = () => {
                         </span>
                         <div className='right'>
                              <Link to='/workshop/owner/marketing/filtermarketing'><button> {rendered_tags} FILTER</button> </Link>
-                             <button>select multiple</button>
+                             <button onClick={()=>setMultible(!multible)}>select multiple</button>
                         </div>
 
                         
@@ -125,14 +126,14 @@ const Marketing = () => {
 
                     
                 </thead>
-                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
-                <MarketingRow name='Benjamin Fuller' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
-                <MarketingRow name=' Amanda Brewer' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
-                <MarketingRow name='Christine Miller' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
-                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
-                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
-                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
-                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0'/>
+                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
+                <MarketingRow name='Benjamin Fuller' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
+                <MarketingRow name=' Amanda Brewer' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
+                <MarketingRow name='Christine Miller' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
+                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
+                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
+                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
+                <MarketingRow name='Denise Powell' address='Egypt ,Cairo..' phone='025 025 256 3' mail='y@y.com' work_orders='0' multible={multible}/>
             </table>  
             <Routes>
              <Route path="/filtermarketing" element={<FilterMarketing  getFilterTags={getFilterTags} />}  exact  />

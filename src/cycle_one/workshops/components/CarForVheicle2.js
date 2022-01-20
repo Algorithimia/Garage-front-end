@@ -14,7 +14,7 @@ const CarForVheicle2 = () => {
             <div className='right'>
                 <span className='gray' ><MdDeleteSweep /> </span>
                 <Link to='/workshop/owner/addvehicle2'><span className='blue'><RiEditLine /></span> </Link>
-                <span className='green'><FaTools /></span>
+                <Link to='/workshop/owner/choosegrage'><span className='green'><FaTools /></span> </Link>
             </div>
             <div className='main_info'>
                 <div className='line'>

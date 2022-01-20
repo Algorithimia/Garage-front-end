@@ -12,7 +12,7 @@ const Car = ({view= false}) => {
         CAR NAME
         <div className="right_icons">
             <span><MdDeleteSweep /></span>
-            <span className="blue"><RiEditLine /></span>
+           <Link to='/workshop/owner/addvehicle'> <span className="blue"><RiEditLine /></span> </Link>
         </div>
         {show && <div className="show">
               <div className='car_info'> <FaCar /> &nbsp;  Car &nbsp;  BMW &nbsp;  A7 &nbsp; Fuel 6%</div>

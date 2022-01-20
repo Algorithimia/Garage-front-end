@@ -30,8 +30,8 @@ const AllOverDue = () => {
           OVERDUE INVOICES
          </div>
          <div className='second_line'>
-           <button className='all'>All</button>
-           <Link to='/workshop/owner/alloverduesentpayment'> <button className='over_due'>Overdue</button></Link>
+         <Link to='/workshop/owner/alloverduesentpayment'> <button className='all'>All</button></Link>
+         <Link to='/workshop/owner/alloverdue'> <button className='over_due'>Overdue</button></Link>
          </div>
          <div className='third_line'>
          <div className='inline-block input_block'>

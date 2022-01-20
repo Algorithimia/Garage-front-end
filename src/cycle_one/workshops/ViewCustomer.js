@@ -2,8 +2,8 @@ import { Col, Row } from "react-bootstrap"
 import {AiFillPlusCircle} from "react-icons/ai"
 import {RiEditLine}from "react-icons/ri"
 import {MdDeleteSweep} from "react-icons/md"
-import{FaCar} from 'react-icons/fa'
-import { Link, Route,Routes } from 'react-router-dom'
+
+import { Link } from 'react-router-dom'
 
 import User from "./components/User"
 import Car from "./components/Car"
@@ -40,9 +40,9 @@ const ViewCustomer = () => {
                         <Row>
                             <Col md={12} lg={6}>
                              <div className="cars">
-                                <Car />
-                                 <Car />
+                                <Car  />
                                  <Car view='true'/>
+                                 <Car />
 
                                  
 
@@ -54,12 +54,13 @@ const ViewCustomer = () => {
                                   
                                     <div className="right_icons">
                                        <span><MdDeleteSweep /></span>
-                                       <span className="blue"><RiEditLine /></span>
+                                      <Link to='/workshop/owner/createworkeorder'><span className="blue"><RiEditLine /></span> </Link> 
                                    </div>
                                  <div className="orders_list">
+                                    <Order view='true' />
                                     <Order  />
                                     <Order  />
-                                    <Order  view='true'/>
+                                    <span className="open_more"><Link to='/workshop/owner/viewcustomer'>OPEN MORE</Link></span>
                                   </div>
 
                                 </div>

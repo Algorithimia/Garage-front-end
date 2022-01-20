@@ -1,6 +1,7 @@
 import React from 'react'
 import { MdDeleteSweep } from 'react-icons/md'
 import { RiEditLine } from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 
 const MintenancePackage = () => {
     return (
@@ -18,7 +19,7 @@ const MintenancePackage = () => {
                 <span className='right'>
 
                 <span><MdDeleteSweep /></span>
-            <span className="blue"><RiEditLine /></span>
+          <Link to='/workshop/owner/maintnance/add'>  <span className="blue"><RiEditLine /></span> </Link>
                 </span>
 
             </div>

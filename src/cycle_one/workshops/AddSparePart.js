@@ -6,7 +6,7 @@ const AddSparePart = () => {
         <div className='add_sparePart'>
             <div className='header'>
             ADD SPARE PART
-
+ 
             </div>
             <div className='body'>
                 <div className='upload'

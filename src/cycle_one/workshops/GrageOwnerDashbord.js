@@ -26,7 +26,7 @@ const GrageOwnerDashbord = () => {
                   <Col sm={12}>
                   <div className="right">
                       <span>Your Free Trail Will Expire in 7 Days</span>
-                      <span className="blue">ACTIVATE NOW</span>
+                     <Link to='/workshop/owner/subscribtion'> <span className="blue">ACTIVATE NOW</span> </Link>
                   </div>
                   </Col>
                

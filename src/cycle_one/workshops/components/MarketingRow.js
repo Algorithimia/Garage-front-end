@@ -3,10 +3,10 @@ import React from 'react'
 import {AiFillMessage} from 'react-icons/ai'
 import {GrMail} from 'react-icons/gr'
 import { Link } from 'react-router-dom'
-const MarketingRow = ({name, address, phone, mail, work_orders}) => {
+const MarketingRow = ({name, address, phone, mail, work_orders,multible}) => {
     return (
         <tr>
-            <th className='check'> <input type='checkbox'  value={name} />{name}</th>
+            <th className='check'> {multible &&<input type='checkbox'  value={name} />}{name}</th>
             <th>{address}</th>
             <th> {phone}</th>
             <th>{mail}</th>
