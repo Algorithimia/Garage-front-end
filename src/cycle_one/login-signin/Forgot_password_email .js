@@ -13,8 +13,9 @@ const Forgot_password_email  = () => {
                         <input type='email' placeholder='handel@example.com'/>
                             <div className='mark'><FcCheckmark /></div> 
                         </div>
-                        <Link to='/login_process/reset'> <input className='dark_button' type='submit' value='Continue'/> </Link>
-                        <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_sign_in'><span className='blue'>SIGNUP</span></Link> </div>
+                        
+                        <Link to='/login_process/resetcode'> <input className='dark_button' type='submit' value='Continue'/> </Link>
+                       
                 </form>
 
 

@@ -121,6 +121,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/settings" element={<Settings/>} exact  />
                     <Route path="/owner/maintnance/*" element={<MaintenancePackaging/>} exact  />
                     <Route path="/owner/addworkshop" element={<AddWorkshop/>} exact  />
+                    <Route path="/owner/sparepartsgrage" element={<ChooseGrage link= '/workshop/owner/buyspareparts'/>} exact  />
                     
                     
 

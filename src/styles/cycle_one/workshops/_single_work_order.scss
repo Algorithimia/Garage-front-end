@@ -186,6 +186,11 @@
     padding: 10px;
     font-weight: 500;
     min-height: 50px;
+    a{
+        span{
+            color: #fff;
+        }
+    }
     &:hover{
         cursor: pointer;
     }

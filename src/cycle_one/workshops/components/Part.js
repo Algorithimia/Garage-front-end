@@ -1,12 +1,13 @@
 import React from 'react'
 
 import{MdCreditCard,MdDeleteSweep} from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const Part = () => {
     return (
         <div className='part'>
                 PART 3
-                <span className='right'><span className='yello'><MdCreditCard /></span> <span className='gray'><MdDeleteSweep /></span>  </span>
+                <span className='right'> <Link to='/workshop/owner/purchase/visa'><span className='yello'><MdCreditCard /></span></Link> <span className='gray'><MdDeleteSweep /></span>  </span>
                 <div className='hiddenlist'>
                 <span>A/C air duct and vent</span>
                 <br />

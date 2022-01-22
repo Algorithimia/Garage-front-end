@@ -14,8 +14,8 @@ const FilterAssets = () => {
 
                     </select>
                 </div>
-                <div className='input'>
-                    <input  placeholder='Date                12MAR : 12ABR' />
+                <div className='input' >
+                    <input  placeholder='Date                12MAR : 12ABR'  type='date'/>
                 </div>
 
                 <Link to='/workshop/owner/assets'>      

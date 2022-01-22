@@ -3,12 +3,12 @@ import ReactStars from "react-rating-stars-component";
 import {AiTwotoneHeart,AiOutlineHeart} from 'react-icons/ai'
 import {FaTools} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-const BusinessDelt = ({favourite}) => {
+const BusinessDelt = ({favourite,choosedBuissness}) => {
    const ratingChanged = (newRating) => {
         console.log(newRating);
       };
     return (
-        <div className='buisness-box'>
+        <div className='buisness-box' onClick={()=>choosedBuissness('BUSINESS NAME')}>
             <div className='deals'>
                 <div className='number'>03</div>
                 <div className='tools'><FaTools /> </div>

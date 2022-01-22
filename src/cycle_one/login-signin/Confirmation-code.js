@@ -34,7 +34,7 @@ const Confirmation_code = () => {
            
            <div className="action">
            <input className='dark_button' type='submit' value='Confirm'/>  
-             <div className='sign_up'> Have Account ! <Link to='/login_process/owner_login'><span className='blue'>LOGIN</span></Link> </div>
+             
             </div>    
             </form>
         </div>

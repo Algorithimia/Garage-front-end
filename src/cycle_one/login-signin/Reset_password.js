@@ -24,11 +24,11 @@ const Reset_password = () => {
                         </Col>
                     </Row>
                     </div>
-                    <Link to='/login_process/resetcode'>
+                    <Link to='/login_process/forget'>
                          <input className='dark_button' type='submit' value='Continue'/>  
                     </Link>
                 </form>
-                <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_sign_in'><span className='blue'>SIGNUP</span></Link> </div>
+            
             </div>
         </> 
     )

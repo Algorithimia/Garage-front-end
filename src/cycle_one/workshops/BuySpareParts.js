@@ -16,7 +16,7 @@ const BuySpareParts = () => {
                 <Row>
                     <Col sm={6}md={8}>
                         <div className='search_div'>
-                            <input className="search"  type='search'  placeholder="Search Spare Parts"/>
+                           <Link to='/workshop/owner/sparepartsgrage'> <input className="search"  type='search'  placeholder="Search Spare Parts"/></Link>
                             <div className='icon'><FaSearch /></div>
                         </div>
                     </Col>

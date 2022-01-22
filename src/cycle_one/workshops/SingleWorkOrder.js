@@ -38,13 +38,13 @@ const SingleWorkOrder = () => {
                      <div className='parts'>
                          <div className='part'>
                          PART 1
-                           <span className='right'><span className='yello'><MdCreditCard /></span> <span className='gray'><MdDeleteSweep /></span>  </span>
+                         <span className='right'> <Link to='/workshop/owner/purchase/visa'> <span className='yello'><MdCreditCard /></span></Link> <span className='gray'><MdDeleteSweep /></span>  </span>
                           
 
                          </div>
                          <div className='part'>
                          PART 2
-                           <span className='right'><span className='yello'><MdCreditCard /></span> <span className='gray'><MdDeleteSweep /></span>  </span>
+                         <span className='right'> <Link to='/workshop/owner/purchase/visa'><span className='yello'><MdCreditCard /></span> </Link><span className='gray'><MdDeleteSweep /></span>  </span>
                          </div>
                          < Part />
 

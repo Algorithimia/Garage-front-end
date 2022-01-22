@@ -8,8 +8,8 @@ import {MdDeleteSweep} from "react-icons/md"
 const Car = ({view= false}) => {
     const [show,setShow]=useState(view)
     return (
-        <div className="car car_border" onClick={()=>setShow(!show)}>
-        CAR NAME
+        <div className="car car_border">
+        <span  onClick={()=>setShow(!show)}>CAR NAME</span>
         <div className="right_icons">
             <span><MdDeleteSweep /></span>
            <Link to='/workshop/owner/addvehicle'> <span className="blue"><RiEditLine /></span> </Link>

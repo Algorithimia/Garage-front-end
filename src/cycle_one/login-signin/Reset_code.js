@@ -17,7 +17,7 @@ const Reset_code = () => {
                         </div>
                         <div className="action">
                         <input className='dark_button' type='submit' value='Continue'/>
-                        <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_sign_in'><span className='blue'>SIGNUP</span></Link> </div>
+                       
                         </div>
                  </form>
 
