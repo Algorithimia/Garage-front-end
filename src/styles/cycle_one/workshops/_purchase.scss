@@ -46,9 +46,9 @@
         padding-bottom: 10px;
      
       //  border-bottom:3px solid #2699FB;
-        opacity:.52 ;
+        opacity:0.52 ;
         &:hover{
-            opacity: .100;
+            opacity: 0.100;
         }
        
     }
@@ -157,13 +157,13 @@ input::placeholder {
     .visa{
       
         border: none;
-        opacity: .52;
+        opacity: 0.52;
         &:hover{
-            opacity: .100;
+            opacity: 0.100;
         }
     }
     .paypal{
-        opacity: .100;
+        opacity: 0.100;
         border-bottom:5px solid #2699FB;
 
     }
