@@ -48,7 +48,7 @@
       //  border-bottom:3px solid #2699FB;
         opacity:0.52 ;
         &:hover{
-            opacity: 1;
+            opacity: 100%;
         }
        
     }
@@ -159,11 +159,11 @@ input::placeholder {
         border: none;
         opacity: 0.52;
         &:hover{
-            opacity: 1;
+            opacity: 100%;
         }
     }
     .paypal{
-        opacity: 1;
+        opacity: 100%;
         border-bottom:5px solid #2699FB;
 
     }
