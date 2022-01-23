@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactStars from "react-rating-stars-component";
 import {AiTwotoneHeart,AiOutlineHeart} from 'react-icons/ai'
 import {FaTools} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-const BusinessDelt = ({favourite,choosedBuissness}) => {
+const BusinessDelt = ({favourite,choosedBuissness,rating=false}) => {
+  const[fav,setFav]=useState({favourite})
    const ratingChanged = (newRating) => {
         console.log(newRating);
       };
     return (
-        <div className='buisness-box' onClick={()=>choosedBuissness('BUSINESS NAME')}>
+        <div className='buisness-box'  onClick={()=>{!rating && choosedBuissness('BUSINESS NAME')}}>
             <div className='deals'>
                 <div className='number'>03</div>
                 <div className='tools'><FaTools /> </div>
@@ -22,14 +23,15 @@ const BusinessDelt = ({favourite,choosedBuissness}) => {
                     <ReactStars
                         count={5}
                         onChange={ratingChanged}
-                        edit={false}
+                        edit={rating}
                         value={4}
                         size={24}
                         activeColor="#ffd700"
                     />
                     
             </div>
-            <span className='icon'>{favourite? <AiTwotoneHeart /> : <AiOutlineHeart/> }</span>
+            <span className='icon'onClick={()=>{rating && setFav(!fav)}}>{fav? <AiTwotoneHeart /> : <AiOutlineHeart/> }</span>
+
             <div className='name'>
               Garage Name
             </div>

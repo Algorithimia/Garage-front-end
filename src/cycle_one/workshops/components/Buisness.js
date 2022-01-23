@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactStars from "react-rating-stars-component";
 
 import {AiTwotoneHeart,AiOutlineHeart} from 'react-icons/ai'
 
 
 const Buisness = ({favourite}) => {
-
+const[fav,setFav]=useState({favourite})
 
     const ratingChanged = (newRating) => {
         console.log(newRating);
@@ -20,14 +20,14 @@ const Buisness = ({favourite}) => {
                     <ReactStars
                         count={5}
                         onChange={ratingChanged}
-                        edit={false}
+                       
                         value={4}
                         size={24}
                         activeColor="#ffd700"
                     />
                     
             </div>
-            <span className='icon'>{favourite? <AiTwotoneHeart /> : <AiOutlineHeart/> }</span>
+            <span className='icon'onClick={()=>setFav(!fav)}>{fav? <AiTwotoneHeart /> : <AiOutlineHeart/> }</span>
             <div className='name'>
               Garage Name
             </div>

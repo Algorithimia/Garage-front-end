@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
 
 import BusinessDelt from './components/BusinessDelt'
 const ChooseGrageDeltWith = () => {
+  const [choose,setChoose]=useState()
+  const choosedBuissness=(buissness)=>{
+    setChoose(buissness)
+  }
     return (
         <div className='opacity' >
            <div className='choose_grage'>
@@ -43,20 +47,20 @@ const ChooseGrageDeltWith = () => {
          <div className='body'>
              <Row>
                  <Col lg={4} md={6}>
-                   <BusinessDelt />
+                   <BusinessDelt  choosedBuissness={choosedBuissness} />
                  </Col>
                  <Col lg={4} md={6}>
-                   <BusinessDelt favourite />
+                   <BusinessDelt  choosedBuissness={choosedBuissness} favourite />
                  </Col>
                  <Col lg={4} md={6}>
-                   <BusinessDelt />
+                   <BusinessDelt  choosedBuissness={choosedBuissness} />
                  </Col>
 
              </Row>
              <Link to='/workshop/owner/addworkordergrage'>
-                <button className='right'> 
+             {choose && <button className='right'> 
                 Choose &amp; Continue
-                </button>
+                </button>}
              </Link>
 
          </div>

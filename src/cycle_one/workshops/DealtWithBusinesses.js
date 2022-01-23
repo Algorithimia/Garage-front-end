@@ -40,32 +40,32 @@ const DealtWithBusinesses = () => {
         <div className='body'>
             <Row>
                 <Col lg={4} md={6}>
-                 <BusinessDelt favourite={false}/>
+                 <BusinessDelt rating={true} favourite={false}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt favourite={true}/>
+                 <BusinessDelt rating={true} favourite={true}/>
                 
                 </Col>
 
                 <Col lg={4} md={6}>
-                 <BusinessDelt  favourite={false}/>
+                 <BusinessDelt  rating={true} favourite={false}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt favourite={true}/>
+                 <BusinessDelt rating={true} favourite={true}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt  favourite={false}/>
+                 <BusinessDelt  rating={true} favourite={false}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt  favourite={true}/>
+                 <BusinessDelt  rating={true} favourite={true}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt  favourite={false}/>
+                 <BusinessDelt  rating={true} favourite={false}/>
                 
                 </Col>
 
