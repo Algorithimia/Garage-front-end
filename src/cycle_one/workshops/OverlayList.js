@@ -17,23 +17,23 @@ option5, option5_path }) => {
             <button onClick={()=>setShow(!show)}><BsThreeDotsVertical /></button>
 {show &&<div className='table_hidden_list'>
             <div className='option'>
-           <Link to={option1_path} style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>{option1}</Link>
+           <Link to={option1_path} style={{color:"#4390E0", fontWeight:"bold"}}>{option1}</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to={option2_path} style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>{option2}</Link>
+           <Link to={option2_path} >{option2}</Link>
            <br />
            </div>
            <div className='option'>
-           <Link to={option3_path} style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>{option3}</Link>
+           <Link to={option3_path} >{option3}</Link>
            <br />
            </div>
          {  option4 && <div className='option'>
-           <Link to={option4_path} style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>{option4}</Link>
+           <Link to={option4_path} >{option4}</Link>
            <br />
            </div>}
            {option5 && <div className='option'>
-           <Link to={option5_path} style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>{option5}</Link>
+           <Link to={option5_path} >{option5}</Link>
            </div>}
      </div>}
            
@@ -53,7 +53,7 @@ option5, option5_path }) => {
           
           <div className='hidden_list'>
             <div className='option'>
-           <Link to={option1_path} style={{color:"#4390E0", fontWeight:"bold", borderBottom:'1px solid #00000029' }}>{option1}</Link>
+           <Link to={option1_path} style={{color:"#4390E0", fontWeight:"bold"}}>{option1}</Link>
            <br />
            </div>
            <div className='option'>
