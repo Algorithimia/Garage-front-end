@@ -65,8 +65,9 @@
     margin-top: 20px;
     margin-bottom: 100px;
     padding-bottom: 150px;
+  text-align: center;
     .main_input{
-        width: 593px;
+        width: 482px;
         margin: auto;
         margin-top: 30px;
         margin-bottom: 10px;
@@ -81,8 +82,12 @@
             }
         }
         input{
+            width: 100%;
             font-size: 18px;
             padding: 27px;
+        }
+        .mark{
+            right: 2%;
         }
         
     }
@@ -179,7 +184,8 @@
 .timer{
     //  float: right;
     text-align: right;
-      width: 80%;
+    width: 482px;
+    max-width: 100%;
       color: #969B85;
       margin: auto;
       font-size: 20px;
@@ -312,6 +318,18 @@
         color: #000;
     }
 }
-
+.password_form{
+    .title{
+        margin-top: 90px;
+        margin-bottom: 30px;
+        color: #000;
+    }
+    .main_input{
+        margin-top: 35px;
+    }
+    .dark_button{
+        margin-top: 70px;
+    }
+}
 
 }

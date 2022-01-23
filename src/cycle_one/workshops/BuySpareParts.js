@@ -6,7 +6,7 @@ import {FaSearch} from'react-icons/fa'
 
 import SparePartInventory from "./SparePartsInventory"
 import SelectedSparePart from "./SelectedSpareParts"
-const BuySpareParts = () => {
+const BuySpareParts = ({businessName, businessType}) => {
     return (
         <div className="select_spareparts buy">
               <div className="first_row">
@@ -16,7 +16,7 @@ const BuySpareParts = () => {
                 <Row>
                     <Col sm={6}md={8}>
                         <div className='search_div'>
-                           <Link to='/workshop/owner/sparepartsgrage'> <input className="search"  type='search'  placeholder="Search Spare Parts"/></Link>
+                           <Link to='/workshop/owner/sparepartsgrage'> <input className="search"  type='search'  placeholder="Search Spare Parts"value ={businessName && businessName +'     '+ businessType}/></Link>
                             <div className='icon'><FaSearch /></div>
                         </div>
                     </Col>

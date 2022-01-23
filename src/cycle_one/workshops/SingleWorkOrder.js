@@ -8,12 +8,20 @@ import { Col, Row } from 'react-bootstrap'
 
 import Part from './components/Part'
 import { Link } from 'react-router-dom'
+import { AiFillPlusCircle } from 'react-icons/ai'
 
 const SingleWorkOrder = () => {
     return (
         <div className='single_work_order'>
             <div className='first_line'>
             WORK ODER NUMBER
+            <div className='right'>
+              <Link to='/workshop/owner/createworkeorder'>
+                <button className="blue">
+                  <span><AiFillPlusCircle  /> </span>Create Work Oder
+                </button>
+              </Link>
+            </div>
 
             </div>
             <div className='main_info'>

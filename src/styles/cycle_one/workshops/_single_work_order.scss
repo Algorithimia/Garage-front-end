@@ -7,8 +7,26 @@
     .first_line{
         font-size: 18px;
         font-weight: bold;
-        padding: 10px;
+        padding: 20px ;
         border-bottom: 1px solid #152F55;
+        .right{
+            display: inline-block;
+            float: right;
+            button{
+            color: #fff;
+            background-color: #152F55;
+            border: none;
+            width: 209px;
+            height: 38px;
+            border-radius: 25px;
+            font-size: 16px;
+            span{
+                vertical-align: bottom;
+                margin: 0 3px;
+            }
+            }
+            
+        }
     }
     .main_info{
         margin-top: 40px;

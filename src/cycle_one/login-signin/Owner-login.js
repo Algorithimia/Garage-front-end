@@ -50,6 +50,7 @@ const Owner_login = () =>{
                     <Link to='/workshop/owner/dashbord'>
                        <input className='dark_button' type='submit' value='Login'/>
                     </Link>
+                    <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_sign_in'><span className='blue'>SIGNUP</span></Link> </div>
                     
                  </div>
            </form>

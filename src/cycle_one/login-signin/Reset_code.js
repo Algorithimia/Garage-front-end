@@ -16,7 +16,9 @@ const Reset_code = () => {
                             <span className="blue">Resend</span> 02 : 48
                         </div>
                         <div className="action">
-                        <input className='dark_button' type='submit' value='Continue'/>
+                         <Link to='/login_process/resetpassword'>  
+                            <input className='dark_button' type='submit' value='Continue'/>
+                        </Link>  
                        
                         </div>
                  </form>
