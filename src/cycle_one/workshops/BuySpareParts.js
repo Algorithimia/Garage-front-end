@@ -22,7 +22,7 @@ const BuySpareParts = ({businessName, businessType}) => {
                     </Col>
                     <Col sm={6}md={4}>
                      <Link to='/workshop/owner/purchase/visa'>
-                     <button className="button">PURCHASE ORDER</button>
+                     <button className="button">PURCHASE ORDER</button> 
                      </Link>   
                     </Col>
                 </Row>     
