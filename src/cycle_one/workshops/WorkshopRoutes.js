@@ -56,15 +56,28 @@ import SidebarOptions from './components/SidebarOptions'
 import AddWorkshop from './AddWorkshop'
 const WorkshopRoutes = () => {
     const[showside,setShowSide]=useState(false)
+  
     return (
-        <div className='workshop-background'>
+        <div className='workshop-background' onClick={(e)=>
+       { if(e.target !== document.getElementById('option'))
+       {setShowSide(false)
+           } 
+    }
+        }>
          
                 <div className='inline-block'>
                     <SideBar />
                     </div>
              
                     <div className='inline-block page'>
-                        <div className='show_sidebar' onClick={()=>setShowSide(!showside)}>
+                        <div id='option' className='show_sidebar'
+                         onClick={(e)=>{
+                            e.preventDefault()
+                            setShowSide(!showside)
+                           
+                        }
+                            
+                         }>
                             <BsList />  options
                         </div>
                         {showside && <SidebarOptions />}
