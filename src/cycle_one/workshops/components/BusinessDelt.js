@@ -9,7 +9,21 @@ const BusinessDelt = ({favourite,choosedBuissness,rating=true}) => {
         console.log(newRating);
       };
     return (
-        <div className='buisness-box'  onClick={()=>{ choosedBuissness('BUSINESS NAME')}}>
+        <div className='buisness-box'  onClick={(e)=>{
+           choosedBuissness('BUSINESS NAME')
+           e.currentTarget.className = " buisness-box active_bussiness"
+      
+      
+      }} 
+        
+          onBlur={(e)=>{
+          
+            // e.currentTarget.classList.remove("active_bussiness")
+            console.log('esraa')
+          }}
+         
+          
+        >
             <div className='deals'>
                 <div className='number'>03</div>
                 <div className='tools'><FaTools /> </div>
