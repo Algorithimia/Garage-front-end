@@ -5,7 +5,7 @@ import {AiTwotoneHeart,AiOutlineHeart} from 'react-icons/ai'
 
 
 const Buisness = ({favourite}) => {
-const[fav,setFav]=useState({favourite})
+const[fav,setFav]=useState(favourite)
 
     const ratingChanged = (newRating) => {
         console.log(newRating);

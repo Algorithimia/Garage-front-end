@@ -3,8 +3,8 @@ import ReactStars from "react-rating-stars-component";
 import {AiTwotoneHeart,AiOutlineHeart} from 'react-icons/ai'
 import {FaTools} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-const BusinessDelt = ({favourite,choosedBuissness,rating=true}) => {
-  const[fav,setFav]=useState({favourite})
+const BusinessDelt = ({favourite=false,choosedBuissness,rating=true}) => {
+  const[fav,setFav]=useState(favourite)
  
    const ratingChanged = (newRating) => {
         console.log(newRating);

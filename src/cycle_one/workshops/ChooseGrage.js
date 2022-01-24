@@ -47,10 +47,10 @@ const ChooseGrage = ({link='/workshop/owner/addworkordergrage'}) => {
          <div className='body'>
              <Row>
                  <Col lg={4} md={6}>
-                   <BusinessDelt choosedBuissness={choosedBuissness} />
+                   <BusinessDelt  choosedBuissness={choosedBuissness} />
                  </Col>
                  <Col lg={4} md={6}>
-                   <BusinessDelt choosedBuissness={choosedBuissness} favourite />
+                   <BusinessDelt choosedBuissness={choosedBuissness} favourite={true} />
                  </Col>
                  <Col lg={4} md={6}>
                    <BusinessDelt choosedBuissness={choosedBuissness} />
