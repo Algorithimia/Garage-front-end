@@ -195,7 +195,7 @@
          padding: 10px;
         font-size: 16px;
         color: #000;
-        max-height: 55px;
+       
         word-break: break-word;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -207,11 +207,14 @@
             height: 50px;
         }
         .text{
-            color: #707070;;
             margin-left: -35px;
+           span{
+         color: #707070;;
+           
+            font-weight: 500;
             @media screen and (max-width: 575px) {
                 margin-left: 20px;
-                }
+                }}
          
         }
         &:active{
