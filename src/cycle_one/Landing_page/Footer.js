@@ -31,13 +31,13 @@ const Footer=()=>{
                         <br />
                         <Link to='/'>Join Us</Link>
                         <br />
-                        <Link to='/h'>Home</Link>
+                        <Link to='/'>Home</Link>
                         <br />
-                        <Link to='/hh'>How It Works</Link>
+                        <Link to='/'>How It Works</Link>
                         <br />
-                        <Link to='/pp'>Pricing</Link>
+                        <Link to='/'>Pricing</Link>
                         <br />
-                        <Link to='/f'>Features</Link>
+                        <Link to='/'>Features</Link>
 
                        
                      </div>
@@ -48,22 +48,16 @@ const Footer=()=>{
                         <br />
                         <Link to='/'>About Us</Link>
                         <br />
-                        <Link to='/h'>Our Team</Link>
+                        <Link to='/'>Our Team</Link>
                      </div>
                     </Col>
                     <Col lg={2}>
                      <div className='fotter_col'>
                       <span  className='title'>Other Services</span>
                       <br />
-                        <Link to='/'>Join Us</Link>
-                        <br />
-                        <Link to='/h'>Skiller Recuitment</Link>
-                        <br />
-                        <Link to='/hh'>Skilller Freelance</Link>
-                        <br />
-                        <Link to='/pp'>Riskory</Link>
-                        <br />
-                        <Link to='/pp'>Dikwe</Link>
+                        <Link to='/sign_in_choose'>Join Us</Link>
+                        
+                    
                        
                      </div>
                     </Col>
@@ -79,7 +73,7 @@ const Footer=()=>{
                         <br />
                         <Link to='/'>Cookies Policies</Link>
                         <br />
-                        <Link to='/'>Cookies Policies</Link>
+                        
 
                      </div>
                     </Col>
