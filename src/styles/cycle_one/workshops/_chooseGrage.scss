@@ -54,12 +54,13 @@
         width: 90%;
         margin-top: 30px;
         .buisness-box{
+            cursor: pointer;
             button{
                 display: none;
             }
         }
         .active_bussiness{
-            border: solid 2px red;
+            border: solid 2px #ffd700;
         }
         .right{
             float: right;

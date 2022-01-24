@@ -5,6 +5,7 @@ import {FaTools} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 const BusinessDelt = ({favourite,choosedBuissness,rating=true}) => {
   const[fav,setFav]=useState({favourite})
+ 
    const ratingChanged = (newRating) => {
         console.log(newRating);
       };
@@ -12,15 +13,18 @@ const BusinessDelt = ({favourite,choosedBuissness,rating=true}) => {
         <div className='buisness-box'  onClick={(e)=>{
            choosedBuissness('BUSINESS NAME')
            e.currentTarget.className = " buisness-box active_bussiness"
-      
+        //  {e.currentTarget.parentNode.nextElementSibling.children&& e.currentTarget.parentNode.nextElementSibling.children.classList.remove("active_bussiness")}
+        //  {e.currentTarget.parentNode.prevElementSibling.children && e.currentTarget.parentNode.prevElementSibling.children.classList.remove.remove("active_bussiness")}
+          // e.currentTarget.parentElement.siblings().children.classList.remove("active_bussiness")
       
       }} 
+     
         
-          onBlur={(e)=>{
-          
-            // e.currentTarget.classList.remove("active_bussiness")
-            console.log('esraa')
-          }}
+      // onPointerOut={(e)=>{
+      //     console.log('esraa')
+      //       e.currentTarget.classList.remove("active_bussiness")
+            
+      //     }}
          
           
         >
