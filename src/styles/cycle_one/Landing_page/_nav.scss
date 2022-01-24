@@ -11,6 +11,7 @@
         @media screen and (max-width: 990px) {
             margin-left: 0;
             margin-bottom: 10px;
+            text-align: center;
             }
       
     }
@@ -22,7 +23,7 @@
     @media screen and (max-width: 990px) {
        margin: 0;
        margin-bottom: 20px;
-        
+        text-align: center;
         }
     
     
@@ -34,8 +35,11 @@
         color: #969B85BF;
         opacity: 0.9;
         font-size: 20px;
-        overflow: visible;
+        width: 90%;
         margin-right: 10%;
+        @media screen and (max-width: 767px) {
+            margin-right: 5%;
+             }
     }
     .active{
         color: #152F55;
@@ -46,12 +50,24 @@
        float: right;
         margin-right: 47px;
         margin-top: 21px;
+        margin-bottom: 21px;
+
+        
         @media screen and (max-width: 990px) {
             margin: auto;
          display: block;
          float: none;
-         margin-top: 0px;
+        
          margin-top: -10px;
+         button{
+            width: 40%;
+          //  border-radius: 0;
+         }
+         @media screen and (max-width: 600px) {
+            margin-top: 0px;
+            margin-bottom: 5px;
+
+         }
            
        
           
