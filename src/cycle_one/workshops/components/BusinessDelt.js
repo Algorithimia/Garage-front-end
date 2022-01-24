@@ -13,6 +13,9 @@ const BusinessDelt = ({favourite=false,choosedBuissness,rating=true}) => {
         <div className='buisness-box'  onClick={(e)=>{
            choosedBuissness('BUSINESS NAME')
            e.currentTarget.className = " buisness-box active_bussiness"
+           {e.currentTarget.parentNode.nextElementSibling && e.currentTarget.parentNode.nextElementSibling.children.item(0).classList.remove("active_bussiness")}
+           {e.currentTarget.parentNode.previousElementSibling && e.currentTarget.parentNode.previousElementSibling.children.item(0).classList.remove("active_bussiness")}
+
         //  {e.currentTarget.parentNode.nextElementSibling.children&& e.currentTarget.parentNode.nextElementSibling.children.classList.remove("active_bussiness")}
         //  {e.currentTarget.parentNode.prevElementSibling.children && e.currentTarget.parentNode.prevElementSibling.children.classList.remove.remove("active_bussiness")}
           // e.currentTarget.parentElement.siblings().children.classList.remove("active_bussiness")

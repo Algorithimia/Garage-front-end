@@ -3,7 +3,8 @@ import { Col, Row } from 'react-bootstrap'
 import {FaSearch} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-import BusinessDelt from './components/BusinessDelt'
+import Buisness from './components/Buisness'
+
 const DealtWithBusinesses = () => {
     return (
         <div className='businesses'>
@@ -40,32 +41,32 @@ const DealtWithBusinesses = () => {
         <div className='body'>
             <Row>
                 <Col lg={4} md={6}>
-                 <BusinessDelt rating={true} favourite={false}/>
+                 <Buisness rating={true} favourite={false}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt rating={true} favourite={true}/>
+                 <Buisness rating={true} favourite={true}/>
                 
                 </Col>
 
                 <Col lg={4} md={6}>
-                 <BusinessDelt  rating={true} favourite={false}/>
+                 <Buisness  rating={true} favourite={false}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt rating={true} favourite={true}/>
+                 <Buisness rating={true} favourite={true}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt  rating={true} favourite={false}/>
+                 <Buisness  rating={true} favourite={false}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt  rating={true} favourite={true}/>
+                 <Buisness  rating={true} favourite={true}/>
                 
                 </Col>
                 <Col lg={4} md={6}>
-                 <BusinessDelt  rating={true} favourite={false}/>
+                 <Buisness  rating={true} favourite={false}/>
                 
                 </Col>
 
