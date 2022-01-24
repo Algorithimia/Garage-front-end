@@ -60,7 +60,7 @@ const ViewCustomer = () => {
                                     <Order view='true' />
                                     <Order  />
                                     <Order  />
-                                    <span className="open_more"><Link to='/workshop/owner/viewcustomer'>OPEN MORE</Link></span>
+                                    
                                   </div>
 
                                 </div>
