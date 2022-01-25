@@ -62,7 +62,8 @@
       margin: 40px;
       @media screen and (max-width: 608px) {
          text-align: center;
-         font-size: 17px;
+         font-size: 10px;
+         padding-left: 3px;
       }
       a{
           color: #5D5D5D;
@@ -91,7 +92,7 @@
   .buisness-box{
     width: 282px;
     min-height: 342px;
-    max-width: 100%;
+    max-width: 90%;
     box-shadow: 0px 3px 30px #00000029;
     margin: auto;
     margin-bottom: 30px;
