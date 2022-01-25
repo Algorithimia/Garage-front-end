@@ -15,7 +15,8 @@ margin-top: 50px;
             font-weight: 400;
             @media screen and (max-width: 586px) {
                 float: none;
-                margin: 5px;
+                margin-top: 20px;
+
                 
                 }
             button{
@@ -149,6 +150,9 @@ margin-top: 50px;
         font-weight: bold;
         color: #152F55;
         font-size: 18px;
+        @media screen and (max-width: 500px) {
+            width: 77%;
+            }
     }
     .react-calendar__navigation__arrow{
         border: none;
