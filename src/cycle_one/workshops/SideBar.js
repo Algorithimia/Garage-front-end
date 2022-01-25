@@ -1,10 +1,15 @@
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import {Dropdown} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {AiFillPlusCircle} from 'react-icons/ai'
 
-const SideBar = () => {
+
+const SideBar = ({settings}) => {
     const [showSettings,setShowSettings]= useState(false)
+
+    useEffect(()=>{
+        setShowSettings(settings)
+    },[settings])
     return (
         <>
             <div className='sidebar'> 
@@ -110,9 +115,9 @@ const SideBar = () => {
                 <div className='link pointer' onClick={()=>{setShowSettings(!showSettings)}}>
                    {/* <Link to='/workshop/owner/settings'> */}
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
-                    <span className='text_link'>SETTING</span>
+                    <span id='side_settings'  className='text_link'>SETTING</span>
                     {/* </Link> */}
-                   { showSettings &&
+                   {showSettings &&
                      <div className='settings'>
                         <Link to='/workshop/owner/settings'>
                                 <div className='option'> Prefrence Settings </div>  

@@ -79,10 +79,10 @@ const SidebarOptions = () => {
                     </Link>
                 </div>
                   
-                <div className='link pointer' onClick={()=>{setShowSettings(!showSettings)}}>
+                <div className='link pointer settings_target' onClick={()=>{setShowSettings(!showSettings)}}>
                    {/* <Link to='/workshop/owner/settings'> */}
-                    <img className='img_link' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
-                    <span className='text_link'>SETTING</span>
+                    <img className='img_link settings_target' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
+                    <span id='settings_target' className='text_link settings_target'>SETTING</span>
                     {/* </Link> */}
                    { showSettings &&
                      <div className='settings'>
