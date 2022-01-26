@@ -22,7 +22,7 @@
             font-size: 16px;
              font-weight:normal;
              @media screen and (max-width: 556px) {
-                display: block;
+                display: none;
                 float: none;
                 margin-top: 10px;
                 margin-bottom: -20px;
@@ -34,6 +34,16 @@
                 display: inline-block;
                 margin-top: -1px;
             }
+        }
+        .show_in_mob{
+            width: 80px;
+            margin: 0;
+            margin-right: -20px;
+            height: 37px;
+            display: none;
+            @media screen and (max-width: 556px) {
+                display: inline-block;}
+                float: right;
         }
     }
  

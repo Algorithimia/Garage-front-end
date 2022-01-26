@@ -42,6 +42,10 @@ const ViewVehiclesList = () => {
                      <span><AiFillPlusCircle  /></span>  
                      Add New Vehicle 
                 </button>
+                <button className='right show_in_mob'>
+                     <span><AiFillPlusCircle  /></span>  
+                     Add
+                </button>
                 </Link>
         </div>
         <div className='vehicles_second_line'>
