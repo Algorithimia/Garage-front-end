@@ -33,7 +33,8 @@ const AllWorkOrders = () => {
                     <span>ALL WORK ORDERS</span>
                     <div className="right">
                         <div className='inline-block'><Link to='/workshop/owner/allworkorders/filter'><button className="light_blue">FILTER</button></Link></div>
-                        <div className='inline-block'><Link to='/workshop/owner/createworkeorder'><button className="blue"><span><AiFillPlusCircle  /> </span>Create Work Oder</button></Link></div>
+                        <div className='inline-block show_desktop'><Link to='/workshop/owner/createworkeorder'><button className="blue"><span><AiFillPlusCircle  /> </span>Create Work Oder</button></Link></div>
+                        <div className='inline-block show_mob'><Link to='/workshop/owner/createworkeorder'><button className="blue"><span><AiFillPlusCircle  /> </span>Create</button></Link></div>
                     </div>
                 </div>
                 <div className="second_line">
