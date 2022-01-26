@@ -36,6 +36,7 @@ const Assets = () => {
                      </Link>
                      <Link to='/workshop/owner/createasset'>
                         <button className='dark_blue'> <span><AiFillPlusCircle/></span> Add New ASSET </button>
+                        <button className='dark_blue mobile_button'> <span><AiFillPlusCircle/></span> Add </button>
                      </Link>
 
                  </div>

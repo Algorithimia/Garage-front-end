@@ -57,7 +57,8 @@ const Marketing = () => {
              </div>
              <div className='second_row'>
                  <button className='active'>All</button>
-                 <button>with current work orders</button>
+                 <button className='desktop_button'>with current work orders</button>
+                 <button className='mobile_button'> current </button>
                  <div className='inline-block'>
                    <input  placeholder='Search Customers'/>
                    <span><FaSearch/> </span>
