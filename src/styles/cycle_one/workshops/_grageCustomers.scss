@@ -26,6 +26,10 @@
                 margin-top: 10px;
                
                 }
+                @media screen and (max-width: 556px) {
+                    display: none;
+                }
+
               
             span{
                
@@ -34,6 +38,19 @@
             }
          
 
+        }
+        .mobile{
+            display: none;
+            @media screen and (max-width: 556px) {
+                display: inline-block;
+                width: 90px;
+              
+                margin-left: 20px;
+            }
+        }
+        @media screen and (max-width: 556px) {
+            padding: 20px 10px;
+            font-size: 18px;
         }
     }
     .second_line{
@@ -55,6 +72,22 @@
             font-size: 18px;
             font-weight: 500;
             margin-bottom: 10px;
+            @media screen and (max-width: 556px) {
+               margin: 0;
+               margin-right: 5px;
+               margin-bottom: 20px;
+            }
+        }
+        .desktop_button{
+            @media screen and (max-width: 556px) {
+                display: none;
+            }
+        }
+        .mobile_button{
+            display: none;
+            @media screen and (max-width: 556px) {
+                display: inline-block;
+            }
         }
         .active{
             background-color: #95C1EE42;
@@ -107,6 +140,13 @@
             margin-bottom: 0;
             font-weight: bold;
             font-size: 22px;
+        }
+        @media screen and (max-width: 556px) {
+            padding: 20px;
+            text-align: center;
+            .input_block{
+                margin-right:5px;
+            }
         }
     }
     table{

@@ -32,12 +32,14 @@ const GarageCustomers = () => {
             GARAGE COUSTOMERS
             <Link to='/workshop/owner/createoreditecustomer'>
                 <button className='right'><span><AiFillPlusCircle /></span> Add New Customers</button>
+                <button className='right mobile'><span><AiFillPlusCircle /></span> Add</button>
             </Link>
 
             </div>
             <div className='second_line'>
                    <button className='active'>All</button>
-                   <button >with current work orders</button>
+                   <button  className='desktop_button'>with current work orders</button>
+                   <button className='mobile_button' >current</button>
                    <div className='right'>
                       <input placeholder='Search Customers' /> 
                       <span><FaSearch /> </span>
