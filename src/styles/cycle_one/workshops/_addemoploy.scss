@@ -69,6 +69,9 @@
           padding: 20px;
           .checkbox_line{
               margin-top: 10px;
+              position: relative;
+              
+             
           input{
              
               padding: 0;
@@ -87,8 +90,53 @@
                 padding: 0;
                 color: #969B85CF;
                 font-size: 16px;
+                z-index: -1;
+                
              
 
+            }
+            .add,.edite,.del{
+                
+                margin: 0 5px;
+                font-weight: bold;
+            }
+            .add{
+                color: #11883d;
+            }
+            .edite{
+             color: #aaaa0d;
+            }
+            .del{
+                color: #aa1b1b;
+            }
+            .tasks{
+                position: absolute;
+               
+                padding: 20px 0px 20px 20px;
+                background-color: rgba(32, 28, 28, 0.8);
+                z-index: 9;
+                .right{
+                    float: right;
+                    color: #fff;
+                    margin-top: -18px;
+                    margin-right: 10px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                .task{
+                    display:block;
+                    @media screen and (max-width: 556px) {
+                        display: block;
+                       }
+                }
+                
+                span{
+                    color: #fff;
+                    margin-right: 20px;
+                   
+                    
+                }
+                
             }
         }
         }
@@ -104,7 +152,7 @@
         margin-bottom: 15px;
     }
     }
-      
+       
 
 
 }

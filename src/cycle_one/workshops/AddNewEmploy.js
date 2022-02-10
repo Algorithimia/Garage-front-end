@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import AssignedCheck from './components/AssignedCheck'
 
 const AddNewEmploy = () => {
     return (
@@ -77,80 +78,26 @@ const AddNewEmploy = () => {
                         <div className='check_box'>
                             <Row>
                                 <Col md={6} lg={3}>
-                                <div className='checkbox_line'>
-                                    <input type="checkbox"  value="VEHICLES" />
-                                    <label > VEHICLES</label><br/>
-                                 </div>
+                                
+                                 <AssignedCheck type='VEHICLES' /> 
+                                 <AssignedCheck type='WORK ORDERS' /> 
+                                 <AssignedCheck type='CUSTOMERS' />  
+                                </Col>
 
-                                 <div className='checkbox_line'>
-                                    <input type="checkbox"  value="WORK_ORDERS" />
-                                    <label for="work_order">WORK ORDERS</label><br/>
-                                 </div>
-
-                                 
-                                 <div className='checkbox_line'>
-                                    <input type="checkbox"  value="CUSTOMERS" />
-                                    <label for="vehicles"> CUSTOMERS</label><br/>
-                                 </div>
-
-                                
-                                
-                                
-                                
+                                <Col md={6} lg={3}>
+                                    <AssignedCheck type='INVENTORY' />  
+                                    <AssignedCheck type='EMPLOYEES' />  
+                                    <AssignedCheck type='BUSSINESSES' />  
                                 </Col>
                                 <Col md={6} lg={3}>
-                                <div className='checkbox_line'>
-                                    <input type="checkbox"  value="INVENTORY" />
-                                    <label > INVENTORY</label><br/>
-                                 </div>
-
-                                 <div className='checkbox_line'>
-                                    <input type="checkbox"  value="EMPLOYEES" />
-                                    <label for="work_order"> EMPLOYEES</label><br/>
-                                 </div>
-
-                                 
-                                 <div className='checkbox_line'>
-                                    <input type="checkbox"  value="BUSSINESSES" />
-                                    <label for="vehicles">BUSSINESSES</label><br/>
-                                 </div>
-                                
-                                
+                                    <AssignedCheck type='FINANCE' />  
+                                    <AssignedCheck type='APPOINTMENT' />  
+                                    <AssignedCheck type='MARKETING' />  
+                                   
                                 </Col>
                                 <Col md={6} lg={3}>
-                                    <div className='checkbox_line'>
-                                        <input type="checkbox"  value="FINANCE" />
-                                        <label > FINANCE</label><br/>
-                                    </div>
-
-                                    <div className='checkbox_line'>
-                                        <input type="checkbox" value="APPOINTMENT" />
-                                        <label for="work_order"> APPOINTMENT</label><br/>
-                                    </div>
-
-                                    
-                                    <div className='checkbox_line'>
-                                        <input type="checkbox"  value="MARKETING" />
-                                        <label for="vehicles"> MARKETING</label><br/>
-                                    </div>
-                                
-                                
-                                </Col>
-                                <Col md={6} lg={3}>
-                                <div className='checkbox_line'>
-                                        <input type="checkbox"  value="ASSETS" />
-                                        <label > ASSETS</label><br/>
-                                    </div>
-
-                                    <div className='checkbox_line'>
-                                        <input type="checkbox" value="SETTING" />
-                                        <label for="work_order"> SETTING</label><br/>
-                                    </div>
-
-                        
-                              
-                                
-                                
+                                    <AssignedCheck type='ASSETS' />  
+                                    <AssignedCheck type='SETTING' /> 
                                 </Col>
                             </Row>
                         </div>
