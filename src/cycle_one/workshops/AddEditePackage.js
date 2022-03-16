@@ -9,7 +9,7 @@ const AddEditePackage = () => {
 
                         <img src='/images/cycle one/img.png'/>
                         <span>UPLOAD PHOTOS</span>
-                    </div>
+                     </div>
         
                 <input type="file" id="my_file" style={{display: "none"}} />
 
