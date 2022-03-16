@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import {AiFillPlusCircle} from 'react-icons/ai'
 
 
-const SideBar = ({settings}) => {
+const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
     const [showSettings,setShowSettings]= useState(false)
 
     useEffect(()=>{
@@ -13,7 +13,7 @@ const SideBar = ({settings}) => {
     return (
         <>
             <div className='sidebar'> 
-                <Link to='/workshop/owner/dashbord'>
+                <Link to={golink}>
                        <img className='logo' src='/images/cycle one/GarageWorkLogo.png' />
                 </Link>
                 <br />

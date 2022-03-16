@@ -49,7 +49,7 @@ const EmployRoutes = () => {
         }>
          
                 <div className='inline-block'>
-                    <SideBar settings={settings} />
+                    <SideBar settings={settings}  employ={true}/>
                     </div>
              
                     <div className='inline-block page'>

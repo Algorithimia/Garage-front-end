@@ -39,10 +39,14 @@ const EmployDashbord = () => {
                              <Col md={12} lg={6}>
                              <Row className="justify-md-lg-center">
                             <Col  md={6}>
-                                <BoxInfo icon={<RiTimer2Fill />} title='Created' number='120' bacGroundColor="#71A43F" path='/workshop/owner/allworkorders'/>
+                                <div className="employ-boxinfo">
+                                   <BoxInfo icon={<RiTimer2Fill />} title='WORK HOURS' number='120' view={false} bacGroundColor="#71A43F" path='/workshop/owner/allworkorders'/>
+                                </div>
                             </Col>
                             <Col md={6} >
-                                <BoxInfo icon={<GiSandsOfTime />} title='In Progress' number='2' bacGroundColor="#F2A911" path='/workshop/owner/allworkorders'/>
+                                <div className="employ-boxinfo">
+                                    <BoxInfo icon={<GiSandsOfTime />} title='In WORK ORDERS' view={false} number='2' bacGroundColor="#F2A911" path='/workshop/owner/allworkorders'/>
+                                </div>
                             </Col>
                            
                          </Row> 
