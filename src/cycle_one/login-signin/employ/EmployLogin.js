@@ -60,7 +60,7 @@ const EmployLogin = () =>{
                     <div className='agree_privacy'>By logging in, you agree to our
                     <div><span className='blue'>Terms of Service </span> &amp; <span className='blue'>Privacy Policy</span></div>
                     </div>
-                    <Link to='/workshop/owner/dashbord'>
+                    <Link to='/employ'>
                        <input className='dark_button' type='submit' value='Login'/>
                     </Link>
                    
