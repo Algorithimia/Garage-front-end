@@ -10,6 +10,7 @@ import Forgot_password_email from './Forgot_password_email '
 import Reset_password from './Reset_password'
 import Reset_code from './Reset_code'
 import ResetPasswordform from './ResetPasswordform'
+import EmployLogin from './employ/EmployLogin'
 const Login_process=()=>{
     return(
         <>
@@ -36,6 +37,7 @@ const Login_process=()=>{
             <Route path="/reset" element={<Reset_password />}  exact  />
             <Route path="/resetcode" element={<Reset_code />}  exact  />
             <Route path="/resetpassword" element={<ResetPasswordform />}  exact  />
+            <Route path="/Employlogin" element={<EmployLogin /> } exact  />
             
             
         </Routes>
