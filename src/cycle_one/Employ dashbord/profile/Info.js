@@ -41,7 +41,7 @@ const Info = () => {
                 <div className='title'>TOTAL ASSIGNED WORKORDERS</div>
                 <div className='assigned-box'>
                  <div><span>40</span> &nbsp; WORKORDER </div> 
-                 <Link to='/employ/employinfo'>VIEW ALL</Link>
+                 <Link to='/employ/workorders'>VIEW ALL</Link>
 
                 </div>
 

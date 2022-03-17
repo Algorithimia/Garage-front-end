@@ -1,8 +1,11 @@
 .employInfo{
     background-color: #fff;
-    padding: 30px ;
-    min-height: 100vh;
-    max-width: 100%;
+    padding:  30px ;
+   
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
     .title{
         font-size: 20px;
         color: #152F55;
@@ -28,6 +31,7 @@
             .value{
                 color: #152F55;
                 font-weight: bold;
+                font-size: 17px;
 
             }
         }
@@ -47,7 +51,7 @@
             margin-top: 10px;
             color: #152F55;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             text-decoration: none;
         }
