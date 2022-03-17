@@ -20,14 +20,15 @@ option5, option5_path }) => {
            <Link to={option1_path} style={{color:"#4390E0", fontWeight:"bold"}}>{option1}</Link>
            <br />
            </div>
-           <div className='option'>
+           {  option2 &&<div className='option'>
            <Link to={option2_path} >{option2}</Link>
            <br />
            </div>
-           <div className='option'>
+            }
+           {  option3 && <div className='option'>
            <Link to={option3_path} >{option3}</Link>
            <br />
-           </div>
+           </div>}
          {  option4 && <div className='option'>
            <Link to={option4_path} >{option4}</Link>
            <br />

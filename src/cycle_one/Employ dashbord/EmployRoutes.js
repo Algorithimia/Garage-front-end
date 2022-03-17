@@ -8,6 +8,7 @@ import {BsList} from 'react-icons/bs'
 import Info from './profile/Info'
 import Workorders from './WorkOrders/Workorders'
 import CreateWorkOrder from './WorkOrders/CreateWorkOrder'
+import EmployAssets from './EmployAssets/EmployAssets'
 const EmployRoutes = () => {
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
@@ -73,6 +74,8 @@ const EmployRoutes = () => {
                     <Route path="/employinfo" element={<Info/>} exact  /> 
                     <Route path="/workorders/*" element={<Workorders/>} exact  /> 
                     <Route path="/createworkorder/*" element={<CreateWorkOrder/>} exact  />  
+                    <Route path="/assets" element={<EmployAssets/>} exact  />
+
 
                 </Routes>
                 </div>

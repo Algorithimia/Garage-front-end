@@ -49,7 +49,7 @@ const Info = () => {
                 <div className='title'>TOTAL ASSIGNED ASSETS</div>
                 <div className='assigned-box'>
                  <div><span>3</span> &nbsp; ASSETS </div> 
-                 <Link to='/employ/employinfo'>VIEW ALL</Link>
+                 <Link to='/employ/assets'>VIEW ALL</Link>
 
                 </div>
 
