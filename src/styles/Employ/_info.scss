@@ -1,0 +1,78 @@
+.employInfo{
+    background-color: #fff;
+    padding: 30px ;
+    min-height: 100vh;
+    max-width: 100%;
+    .title{
+        font-size: 20px;
+        color: #152F55;
+        font-weight: 500;
+        margin-top: 20px;
+    }
+    .info-box{
+      width: 417px;
+      max-width: 90%;
+      margin-top: 10px;
+      box-shadow: 0px 3px 6px #00000029;
+      padding:20px 10px;
+      .personal-info{
+          margin-top: 40px;
+          padding:5px 15px;
+          border-bottom: 1px solid #70707073;
+          padding-bottom: 20px;
+        .property{
+            margin-top: 10px;
+            color: #5D5D5D;
+            font-weight: 500;
+            font-size: 18px;
+            .value{
+                color: #152F55;
+                font-weight: bold;
+
+            }
+        }
+        
+    }
+    .assigned-tasks{
+        margin-top:20px;
+        padding:5px 15px;
+        .assigned-tasks-title{
+            margin-bottom:5px;
+            color: #5D5D5D;
+            font-weight: 500;
+            font-size: 18px;
+            
+        }
+        .task{
+            margin-top: 10px;
+            color: #152F55;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+    }
+  
+    }
+    .assigned-box{
+        width: 417px;
+        max-width:90%;
+        margin: 15px 0;
+        padding:25px 30px;
+        box-shadow: 0px 3px 6px #00000029;
+        div{
+            margin-bottom: 10px;
+            color: #5D5D5D;
+            font-size: 18px;
+            font-weight: 500;
+            span{
+                font-weight: bold;
+            }
+        }
+        a{
+            text-decoration: underline;
+            font-size: 14px;
+        }
+    }
+}

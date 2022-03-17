@@ -5,6 +5,7 @@ import EmployDashbord from './EmployDashbord'
 import SideBar from '../workshops/SideBar'
 import SidebarOptions from '../workshops/components/SidebarOptions'
 import {BsList} from 'react-icons/bs'
+import Info from './profile/Info'
 const EmployRoutes = () => {
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
@@ -67,6 +68,7 @@ const EmployRoutes = () => {
 
                 <Routes>
                     <Route path="/" element={<EmployDashbord />} exact  />  
+                    <Route path="/employinfo" element={<Info/>} exact  />  
                 </Routes>
                 </div>
             
