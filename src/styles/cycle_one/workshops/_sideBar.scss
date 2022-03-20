@@ -23,6 +23,16 @@
         max-height: 10vh;
     
     }
+    .small-logo{
+        margin-top:30px;
+        margin-bottom: 30px;
+
+    }
+    .big-logo{
+        margin-top:30px;
+        margin-bottom: 30px;
+
+    }
     .dropdown_img{
         width: 34px;
         height: 32px;
@@ -94,14 +104,20 @@
         text-align: left;
         color: #969B85CF;
         position: relative;
+        padding-left: 30px;
+        &:hover{
+            opacity: .5;
+        }
         .img_link{
             width: 17px;
             height: 17px;
             margin-right: 10px;
-            margin-left: 30px;
+          
+           
         }
         .text_link{
             font-size: 16px;
+           
 
         }
         a{
@@ -154,6 +170,7 @@
         text-align: left;
         color: #969B85CF;
         position: relative;
+        padding-left: 0;
         .img_link{
             width: 17px;
             height: 17px;

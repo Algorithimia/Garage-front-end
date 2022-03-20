@@ -7,6 +7,8 @@ import Signin_choose from './cycle_one/login-signin/SignIn_choose';
 import Login_process from './cycle_one/login-signin/Login_process';
 import WorkshopRoutes from './cycle_one/workshops/WorkshopRoutes';
 import EmployRoutes from './cycle_one/Employ dashbord/EmployRoutes';
+import VehicleOwnerRoutes from './cycle_one/Vehichle/VehicleOwnerRoutes';
+
 
 const  App=() => {
   return (
@@ -25,6 +27,7 @@ const  App=() => {
                 <Route path="/login_process/*" element={<Login_process />} exact />
                 <Route path="/workshop/*" element={<WorkshopRoutes />} exact />
                 <Route path="/employ/*" element={<EmployRoutes />} exact />
+                <Route path="/vehicleowmer/*" element={<VehicleOwnerRoutes/>} exact />
                
             </Routes>
 
