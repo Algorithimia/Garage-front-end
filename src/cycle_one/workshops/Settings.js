@@ -88,6 +88,7 @@ const Settings = () => {
 
            </div>
            </form>
+           
         </div>
     )
 }

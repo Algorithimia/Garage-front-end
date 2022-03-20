@@ -143,8 +143,8 @@
 }
 .sidebar_options{
     position: absolute;
-    max-height: 500px;
-    min-height: 500px;
+    max-height: 560px;
+   
     z-index: 999999999999;
     @media screen and (min-width: 768px) {
         display: none;
@@ -190,6 +190,9 @@
 
     @media screen and (max-width: 767px) {
         display: block;
+    }
+    .employ{
+        margin-top:20px;
     }
     
 }

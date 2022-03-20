@@ -5,6 +5,15 @@ const SidebarOptions = () => {
     const [showSettings,setShowSettings]= useState(false)
     return (
         <div className='sidebar_options sidebar'>
+                <Link to='/employ/employinfo'>
+                    <div className='employ'>
+                        <img 
+                        src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
+                            /> 
+                            Employ Name
+
+                    </div>
+                </Link>
              <div className='link'>
                    <Link to='/workshop/owner/vheiclesview'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon awesome-car-alt.svg' />
@@ -96,9 +105,11 @@ const SidebarOptions = () => {
                         <div className='option'> Mintenance Packaging </div>
                         </Link>
                         <div className='option log_out'> Logout </div>
+                        
 
 
                     </div>}
+                
                 </div>
             
         </div>
