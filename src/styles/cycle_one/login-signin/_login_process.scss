@@ -106,6 +106,7 @@
       }
 
   }
+  
     .main_input{
         width: 482px;
         margin: auto;
@@ -125,10 +126,25 @@
             width: 100%;
             font-size: 18px;
             padding: 27px;
+            background-color: #fff !important;
         }
+        
         .mark{
-            right: 2%;
+            right: .25%;
         }
+        
+    }
+    .adress{
+        width: 482px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        max-width: 90%;
+        border-radius: 5px;
+         label{
+            margin-left: 15%;
+        }
+        
         
     }
     
@@ -186,6 +202,8 @@
     .green{
         background-color:#71A43F;
         position: relative;
+       // margin-top:-40px !important;
+        margin-bottom: 70PX !important;
         img{
             width:40px;
             height:40px;
@@ -255,7 +273,7 @@
    
 }
 .owner_login{
-    padding-top: 70px;
+  //  padding-top: 70px;
     .justify-content-md-center{
         margin-bottom: 100px;
     }
@@ -381,6 +399,9 @@
     }
     .main_input{
         margin-top: 35px;
+        input{
+            border-radius: 5px;
+        }
     }
     .dark_button{
         margin-top: 70px;

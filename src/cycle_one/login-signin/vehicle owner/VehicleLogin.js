@@ -7,21 +7,13 @@ import {BsTwitter, BsGoogle } from 'react-icons/bs'
 const VehicleLogin = () =>{
     return(
         <>
-         <div className='login owner_login'>
+         <div className='login owner_login owner_register'>
 
-
-           <Row className="justify-content-md-center">
-               <Col sm={12}>
-              
-                    <div className='owner_or_employee green '>
+         <div className='owner_or_employee green'>
                         <img src="/images/cycle one/service_icons/Rectangle 101.png" />
-                        <div className="inline-block"> Vehicle Owner</div>
-                    </div>
-               
-                 
-               </Col>
-           
-           </Row>
+                        <div className="inline-block"> Vehicle Owner </div>
+             </div>
+
            <div className='login-with'>
                     <div>Login With</div>
                     <span className="icon"><BsGoogle /></span>
@@ -56,6 +48,8 @@ const VehicleLogin = () =>{
                     <Link to='/employ'>
                        <input className='dark_button' type='submit' value='Login'/>
                     </Link>
+                    <div className='sign_up'>Don't Have Account ! <Link to='/login_process/vehicleregister'><span className='blue'>SIGNUP</span></Link> </div>
+                    
                    
                     
                  </div>
