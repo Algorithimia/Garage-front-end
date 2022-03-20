@@ -177,10 +177,19 @@
             height: 24px;
             margin: 20px;
             margin-left: 0;
+            vertical-align: middle
         }
     }
     .active{
         background-color: #4390E0;
+    }
+    .green{
+        background-color:#71A43F;
+        position: relative;
+        img{
+            width:40px;
+            height:40px;
+        }
     }
    
     .action{

@@ -18,7 +18,7 @@ const Login_choose=()=>{
                     button_text='Login'
                     logo_url="images/cycle one/service_icons/Rectangle 101.png"
                     background_color='#71A43F'
-                    link='/login_process'
+                    link='/login_process/vehiclelogin'
             
                 />
               </Col>
