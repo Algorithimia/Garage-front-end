@@ -9,7 +9,7 @@ const YourVehicles = () => {
     <div className='box'>
         <div className='title'>Your Vehicles</div>
         <div className='body'>
-           <div className='car-row'> 
+           <div className='box-row'> 
                <span className='icon'> <FaCar /></span> &nbsp;
                <span>CAR NAME</span> &nbsp;
                <span>BMW</span>
@@ -26,7 +26,7 @@ const YourVehicles = () => {
 
                </span>
            </div>
-           <div className='car-row'> 
+           <div className='box-row'> 
                <span className='icon'> <FaCar /></span> &nbsp;
                <span>CAR NAME</span> &nbsp;
                <span>BMW</span>

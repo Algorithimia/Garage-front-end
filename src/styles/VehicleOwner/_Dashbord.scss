@@ -10,7 +10,7 @@
         .title{
             padding: 20px;
             color: #152F55;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             border-bottom: solid .5px #4390E0;
              
@@ -18,8 +18,9 @@
 
          .body{
              padding:20px ;
-             .car-row{
-                 margin-bottom: 15px;
+             .box-row{
+                 margin-bottom: 20px;
+                 color: #152F55;
              }
              .icon{
                  vertical-align:text-bottom;
@@ -36,8 +37,14 @@
                     padding-top: 2px;
                     padding-left: 7px;
                     vertical-align: text-top;
-                    margin:0 2px;
+                    margin:0 3px;
                     cursor: pointer;
+                }
+                icon{
+                   color: #EB0836;
+                   font-size: 20px;
+                   vertical-align:text-bottom; 
+                   cursor: pointer;
                 }
                 .tools{
                     background-color: #152F55;
