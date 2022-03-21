@@ -45,7 +45,7 @@ const VehicleLogin = () =>{
                     <div className='agree_privacy'>By logging in, you agree to our
                     <div><span className='blue'>Terms of Service </span> &amp; <span className='blue'>Privacy Policy</span></div>
                     </div>
-                    <Link to='/employ'>
+                    <Link to='/vehicleowmer'>
                        <input className='dark_button' type='submit' value='Login'/>
                     </Link>
                     <div className='sign_up'>Don't Have Account ! <Link to='/login_process/vehicleregister'><span className='blue'>SIGNUP</span></Link> </div>

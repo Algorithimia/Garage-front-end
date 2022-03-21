@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Dashbord from './Dashbord'
+import Dashbord from './Dashbord/Dashbord'
 import Sidebar from './Sidebar'
 import SidebarOptions from '../workshops/components/SidebarOptions'
 import {BsList} from 'react-icons/bs' 
