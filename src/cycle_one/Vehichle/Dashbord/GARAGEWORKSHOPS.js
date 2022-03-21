@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 const GARAGEWORKSHOPS = () => {
   return (
-    <div className='box'>
-        <div className='title'>Your Vehicles</div>
+    <div className='box bigger'>
+        <div className='title'>GARAGE WORKSHOPS</div>
         <div className='body'>
            <div className='box-row'> 
                <span className='icon'>  <FaTools /> </span> &nbsp;

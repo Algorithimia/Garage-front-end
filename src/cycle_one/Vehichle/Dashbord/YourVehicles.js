@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const YourVehicles = () => {
   return (
-    <div className='box'>
+    <div className='box bigger'>
         <div className='title'>Your Vehicles</div>
         <div className='body'>
            <div className='box-row'> 
