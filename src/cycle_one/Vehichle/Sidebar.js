@@ -29,7 +29,7 @@ const Sidebar = ({settings,golink='/workshop/owner/dashbord'}) => {
 
                 
                 <div className='link'>
-                   <Link to='/workshop/owner/vheiclesview'>
+                   <Link to='/vehicleowmer/yourvehicles'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon awesome-car-alt.svg' />
                     <span className='text_link'>Your Vehicles</span>
                     </Link>
