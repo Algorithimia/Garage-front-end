@@ -33,12 +33,12 @@ const YourVehicle = () => {
                   </div>
 
                   <span className='icons'>
-                     <Link to='/workshop/owner/vheiclesview'>
+                     <Link to='/vehicleowmer'>
                     <span className='grid'>   
                          <HiViewGrid />
                     </span>
                     </Link>
-                    <Link to='/workshop/owner/vheiclesListview'>
+                    <Link to='/vehicleowmer/yourvehicleslist'>
                     <span className='list'>
                          <MdViewList />
                     </span>
