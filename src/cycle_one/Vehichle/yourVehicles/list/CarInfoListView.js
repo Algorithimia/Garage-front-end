@@ -3,7 +3,7 @@ import {BsArrowRightCircle} from "react-icons/bs"
 import { Link } from 'react-router-dom'
 
 
-import VhiclesListView from '../../../workshops/components/VhiclesListView'
+import VhiclesListView from './VhiclesListView'
 
 const CarInfoListView = () => {
     return (

@@ -57,12 +57,12 @@ const VeichelsList = () => {
 
               <span className='icons'>
                  <Link to='/vehicleowmer/yourvehicles'>
-                <span className='grid'>   
+                <span className='list'>   
                      <HiViewGrid />
                 </span>
                 </Link>
                 <Link to='/vehicleowmer/yourvehicleslist'>
-                <span className='list'>
+                <span className='grid'>
                      <MdViewList />
                 </span>
                 </Link>

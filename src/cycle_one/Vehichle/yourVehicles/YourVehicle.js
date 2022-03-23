@@ -11,7 +11,7 @@ const YourVehicle = () => {
         <div className='vehicles_view vehicles-ovner-vehicles_view '>
             <div className='header'>
                 GARAGE VEHICLES
-                <Link to='/workshop/owner/addvehicle2'>
+                <Link to='/vehicleowmer/addvehicle'>
                 <button className='right'>
                      <span><AiFillPlusCircle  /></span>  
                      Add New Vehicle 

@@ -6,6 +6,7 @@ import SidebarOptions from '../workshops/components/SidebarOptions'
 import {BsList} from 'react-icons/bs' 
 import YourVehicle from './yourVehicles/YourVehicle'
 import VeichelsList from './yourVehicles/VeichelsList'
+import AddVehicle from '../workshops/AddVehicle'
 const VehicleOwnerRoutes = () => {
     const[showside,setShowSide]=useState(false)
   
@@ -39,6 +40,7 @@ const VehicleOwnerRoutes = () => {
               <Route path="/" element={<Dashbord />} exact />
               <Route path="/yourvehicles" element={<YourVehicle />} exact />
               <Route path="/yourvehicleslist" element={<VeichelsList />} exact />
+              <Route path="/addvehicle" element={<AddVehicle  path='/vehicleowmer/yourvehicles'/>} exact />
         </Routes>
     </div>
     </div>

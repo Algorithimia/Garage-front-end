@@ -81,7 +81,7 @@ const Addvehicle2 = () => {
            
 
                     <div className='main_input'>
-                                <label>Brand</label>
+                                <label className='select-label'>Brand</label>
                                 <br/>
                                 <input type='text' placeholder=''/>
                                     <select name="select Brand" >
@@ -99,7 +99,7 @@ const Addvehicle2 = () => {
                  
 
                     <div className='main_input'>
-                                <label>Model</label>
+                                <label className='select-label'>Model</label>
                                 <br/>
                                 <input type='text' placeholder=''/>
                                     <select name="select Model" >
@@ -117,7 +117,7 @@ const Addvehicle2 = () => {
                  
 
                     <div className='main_input'>
-                                <label>Fuel Type</label>
+                                <label className='select-label'>Fuel Type</label>
                                 <br/>
                                 <input type='text' placeholder=''/>
                                     <select name="select Fuel Type" >
@@ -134,31 +134,31 @@ const Addvehicle2 = () => {
           <Row>
               <Col sm={6} md={4}>
                   <div className='main_input'>
-                        <label>Vehicle Number</label>
+                        <label >Vehicle Number</label>
                         <input   type='text' placeholder='Vehicle Number'/> 
                    </div>
               </Col>
               <Col sm={6} md={4}>
                   <div className='main_input'>
-                        <label>Kilometer Driven</label>
+                        <label >Kilometer Driven</label>
                         <input   type='text' placeholder='Kilometer Driven'/> 
                    </div>
               </Col>
               <Col sm={6} md={4}>
                   <div className='main_input'>
-                        <label>Chassis Number</label>
+                        <label >Chassis Number</label>
                         <input   type='text' placeholder='Chassis Number'/> 
                    </div>
               </Col>
               <Col sm={6} md={4}>
                   <div className='main_input'>
-                        <label>Engine Number</label>
+                        <label >Engine Number</label>
                         <input   type='text' placeholder='Engine Number'/> 
                    </div>
               </Col>
               <Col sm={6} md={4}>
                   <div className='main_input'>
-                        <label>Fuel Indicator</label>
+                        <label >Fuel Indicator</label>
                         <input  className='wider' type='text' placeholder='Fuel Indicator'/> 
                    </div>
               </Col>

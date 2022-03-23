@@ -31,9 +31,9 @@ const VhiclesListView = ({Brand,Model,Fuel_type,Vehicle_num,Kilometer_driven,Cha
             {CustomerAddress && <th>{CustomerAddress}</th>}
             <th>
               <div className='moreIcon'>
-                    <OverlayList option1='Edit Vehicle' option1_path='/workshop/owner/addvehicle2'
-                                option2='Add Work Order'  option2_path='/workshop/owner/choosegrage'  
-                                option3='Delete Vehicle' option3_path='/workshop/owner/vheiclesListview' />
+                    <OverlayList option1='Edit Vehicle' option1_path='/vehicleowmer/addvehicle'
+                                option2='Add Work Order'  option2_path='/vehicleowmer/yourvehicleslist'  
+                                option3='Delete Vehicle' option3_path='/vehicleowmer/yourvehicleslist' />
              </div>  
             
              </th>

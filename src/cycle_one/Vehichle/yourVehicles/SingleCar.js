@@ -14,7 +14,7 @@ const  SingleCar = () => {
             </span>
             <div className='right'>
                 <span className='gray' ><MdDeleteSweep /> </span>
-                <Link to='/workshop/owner/vheiclesview'><span className='blue'><RiEditLine /></span> </Link>
+                <Link to='/vehicleowmer/addvehicle'><span className='blue'><RiEditLine /></span> </Link>
             
             </div>
             <div className='main_info'>
