@@ -40,13 +40,14 @@ const Owner_login = () =>{
                  
                </Col>
            </Row>
+           <form onSubmit={e=>onSubmit(e)}>
            <div className='main_input'>
                <label>Email</label>
                <input type='email' placeholder='handel@example.com'  name="email" value={email} onChange={e=>onChange(e)} required  />
                 <div className='mark'><FcCheckmark /></div> 
                
            </div>
-           <form onSubmit={e=>onSubmit(e)}>
+          
             <div className='main_input'>
                 <label>Password</label>
                 <input type='password' placeholder='Type your password'  name="password" value={password} onChange={e=>onChange(e)} required />
