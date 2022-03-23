@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { FcCheckmark } from "react-icons/fc";
 
 
-import {ownerregister} from '../../actions/auth'
-import PropTypes from 'prop-types'
+
 const Owner_register = ({ownerregister}) =>{
     const [formData, setFormData] = useState({
         workshopname:'',
@@ -112,9 +111,5 @@ const Owner_register = ({ownerregister}) =>{
         </>
     )
 }
-Owner_register.propTypes = ({
-  
-    ownerregister:PropTypes.func.isRequired,
 
-    })
-export default connect(null,{ownerregister})( Owner_register)
+export default  Owner_register
