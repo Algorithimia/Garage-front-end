@@ -9,7 +9,7 @@ const Owner_login = () =>{
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const {isLoading,error}= useSelector((state)=>state.auth)
+    const {loggedIn, isLoading,error}= useSelector((state)=>state.auth)
     const[formData, setFormData]= useState({
         email:'',
         password:''
@@ -23,6 +23,7 @@ const Owner_login = () =>{
     }
     return(
         <>
+        {loggedIn&& navigate('/workshop/owner/dashbord')}
          {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
          <div className='login owner_login'>
 

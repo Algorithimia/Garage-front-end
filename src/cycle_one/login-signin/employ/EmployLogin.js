@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { FcCheckmark } from "react-icons/fc";
 import { Col, Row,Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {FaFacebookF } from 'react-icons/fa'
 import {BsTwitter, BsGoogle } from 'react-icons/bs'
 import {login} from '../../../store/store slices/auth'
 import { useDispatch,useSelector } from 'react-redux'
 
 const EmployLogin = () =>{
+    const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {isLoading,error}= useSelector((state)=>state.auth)
+    const {loggedIn,isLoading,error}= useSelector((state)=>state.auth)
     const[formData, setFormData]= useState({
         email:'',
         password:''
@@ -19,9 +20,12 @@ const EmployLogin = () =>{
     const onSubmit= async e => {
         e.preventDefault()
            dispatch( login(formData))
+           navigate('/employ')
     }
+   
     return(
         <>
+         {loggedIn && navigate('/employ')}
          {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
          <div className='login owner_login'>
 
@@ -71,7 +75,7 @@ const EmployLogin = () =>{
                 
                 
                  
-           </form>
+     
                 <div className="action">
                 
                    <Link to='/login_process/reset'> <div className='blue forget_password '>Forgot Password !</div></Link>
@@ -82,12 +86,14 @@ const EmployLogin = () =>{
                     <div className='agree_privacy'>By logging in, you agree to our
                     <div><span className='blue'>Terms of Service </span> &amp; <span className='blue'>Privacy Policy</span></div>
                     </div>
-                    <Link to='/employ'>
+                   
                        <input className='dark_button' type='submit' value='Login'/>
-                    </Link>
+                
                    
                     
                  </div>
+
+                 </form>
         
          </div>
 }
