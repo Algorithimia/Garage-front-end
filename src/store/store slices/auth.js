@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 export const grageOwnerRegister = createAsyncThunk ('auth/grageOwnerRegister', 
     async(registerData ,thunkAPI) =>{
     const {rejectWithValue} = thunkAPI
@@ -35,14 +36,14 @@ export const login = createAsyncThunk ('auth/login',
       }
       
       catch (e) {
-        return rejectWithValue(e.message);
+        return rejectWithValue(e.response.data);
     }
 })
 
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState: { loggedIn: false, create: false ,isLoading:false, error:null, token:''},
+    initialState: { loggedIn: false, create: false ,isLoading:false, error:null, token:cookies.get("token")},
     reducers:{
       logOut:(state)=>{
         state.token='';
@@ -87,6 +88,8 @@ const authSlice = createSlice({
           state.isLoading = false
           state.error= null
           state.token=action.payload.access
+         
+          cookies.set("token", action.payload.access)
      
          
        

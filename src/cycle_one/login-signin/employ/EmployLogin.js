@@ -2,13 +2,14 @@ import { useState } from "react";
 import { FcCheckmark } from "react-icons/fc";
 import { Col, Row,Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import {FaFacebookF, } from 'react-icons/fa'
+import {FaFacebookF } from 'react-icons/fa'
 import {BsTwitter, BsGoogle } from 'react-icons/bs'
 import {login} from '../../../store/store slices/auth'
 import { useDispatch,useSelector } from 'react-redux'
 
 const EmployLogin = () =>{
     const dispatch = useDispatch()
+    const {isLoading,error}= useSelector((state)=>state.auth)
     const[formData, setFormData]= useState({
         email:'',
         password:''
@@ -21,6 +22,7 @@ const EmployLogin = () =>{
     }
     return(
         <>
+         {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
          <div className='login owner_login'>
 
 
@@ -53,6 +55,7 @@ const EmployLogin = () =>{
               <div className='absolute'>Or By</div>
            </div>
            <form onSubmit={e=>onSubmit(e)}>
+           {error&& <div className='msg-error'>{ Object.values(error)}</div> }
            <div className='main_input'>
                <label>Email</label>
                <input type='email' placeholder='handel@example.com'  name="email" value={email} onChange={e=>onChange(e)} required  />
@@ -65,22 +68,9 @@ const EmployLogin = () =>{
                 <input type='password' placeholder='Type your password'  name="password" value={password} onChange={e=>onChange(e)} required />
                 <div className='mark'><FcCheckmark /></div> 
                 </div>
-                <div className="action">
                 
-                   <Link to='/login_process/reset'> <div className='blue forget_password '>Forgot Password !</div></Link>
-                    <div>
-                        <input className='checkbox' type="checkbox" /> 
-                        <span>Remember Me For 7 days</span>
-                    </div>
-                    <div className='agree_privacy'>By logging in, you agree to our
-                    <div><span className='blue'>Terms of Service </span> &amp; <span className='blue'>Privacy Policy</span></div>
-                    </div>
-                   
-                       <input className='dark_button' type='submit' value='Login'/>
-                   
-                    <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_sign_in'><span className='blue'>SIGNUP</span></Link> </div>
-                    
-                 </div>
+                
+                 
            </form>
                 <div className="action">
                 
@@ -100,6 +90,7 @@ const EmployLogin = () =>{
                  </div>
         
          </div>
+}
         </>
     )
 }

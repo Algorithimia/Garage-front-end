@@ -10,6 +10,7 @@ import { useDispatch,useSelector } from 'react-redux'
 
 const VehicleLogin = () =>{
     const dispatch = useDispatch()
+    const {isLoading,error}= useSelector((state)=>state.auth)
     const[formData, setFormData]= useState({
         email:'',
         password:''
@@ -23,6 +24,7 @@ const VehicleLogin = () =>{
     
     return(
         <>
+         {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
          <div className='login owner_login owner_register'>
 
          <div className='owner_or_employee green'>
@@ -40,6 +42,7 @@ const VehicleLogin = () =>{
               <div className='absolute'>Or By</div>
            </div>
            <form onSubmit={e=>onSubmit(e)}>
+           {error&& <div className='msg-error'>{ Object.values(error)}</div> }
            <div className='main_input'>
                <label>Email</label>
                <input type='email' placeholder='handel@example.com'  name="email" value={email} onChange={e=>onChange(e)} required  />
@@ -88,7 +91,7 @@ const VehicleLogin = () =>{
                     
                  </div>
         
-         </div>
+         </div>}
         </>
     )
 }

@@ -7,6 +7,7 @@ import { useDispatch,useSelector } from 'react-redux'
 
 const Owner_login = () =>{
     const dispatch = useDispatch()
+    const {isLoading,error}= useSelector((state)=>state.auth)
     const[formData, setFormData]= useState({
         email:'',
         password:''
@@ -19,9 +20,10 @@ const Owner_login = () =>{
     }
     return(
         <>
+         {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
          <div className='login owner_login'>
 
-
+          
            <Row className="justify-content-md-center">
                <Col sm={12}md={5}>
                   <div className='owner_or_employee active'>
@@ -39,8 +41,10 @@ const Owner_login = () =>{
                      </Link>
                  
                </Col>
+             
            </Row>
            <form onSubmit={e=>onSubmit(e)}>
+          {error&& <div className='msg-error'>{ Object.values(error)}</div> }
            <div className='main_input'>
                <label>Email</label>
                <input type='email' placeholder='handel@example.com'  name="email" value={email} onChange={e=>onChange(e)} required  />
@@ -71,6 +75,7 @@ const Owner_login = () =>{
                  </div>
            </form>
          </div>
+}
         </>
     )
 }
