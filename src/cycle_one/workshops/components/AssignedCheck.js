@@ -1,14 +1,15 @@
 import React,{useState} from 'react'
-
+import {AiOutlineClose} from 'react-icons/ai'
 const AssignedCheck = ({type}) => {
   const [check,setCheck] = useState(false)
   const[show,setShow] = useState(false)
   const[tasks,setTasks] = useState({
+    view:false,
     add:false,
     edite:false,
     del:false
   })
-  const { add, edite, del}=tasks
+  const {view, add, edite, del}=tasks
   const onChange=e=>{
     
     setTasks({...tasks, [e.target.name]: e.target.checked})
@@ -17,14 +18,18 @@ const AssignedCheck = ({type}) => {
   return (
  
         <div className='checkbox_line'>
-            <input type="checkbox"  value={type} onClick={(e)=> {e.target.checked && setShow(!show); setCheck(e.target.checked)}} /> 
+            <input type="checkbox"  value={type} onClick={(e)=> { setShow(e.target.checked); setCheck(e.target.checked)}} /> 
             <label > {type}</label>
             {/* show set  Tasks */}
-             { check && add && <span className='add'>Add</span>} {check &&edite && <span className='edite'>Edite</span>} {check && del && <span className='del'>Delete</span>}
+            { check && view && <span className='view-task'>view</span>} { check && add && <span className='add'>Add</span>} {check &&edite && <span className='edite'>Edite</span>} {check && del && <span className='del'>Delete</span>}
           
             <br/> 
            { show && <div className='tasks'>
-              <div className='right' onClick={()=>setShow(false)}>X</div>
+              <div className='right' onClick={()=>setShow(false)}><AiOutlineClose/></div>
+              <span className='task'> 
+                <input type="checkbox" name='view' onChange={onChange} checked={view} />
+                <span > View </span>
+              </span>
              <span className='task'> 
                 <input type="checkbox" name='add' onChange={onChange} checked={add} />
                 <span > Add</span>

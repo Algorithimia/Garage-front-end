@@ -95,9 +95,13 @@
              
 
             }
-            .add,.edite,.del{
+            .add,.edite,.del,.view-task{
                 
                 margin: 0 5px;
+                font-weight: bold;
+            }
+            .view-task{
+                color: #4099ec;
                 font-weight: bold;
             }
             .add{

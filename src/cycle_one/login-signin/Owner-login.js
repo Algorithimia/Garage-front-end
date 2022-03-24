@@ -19,7 +19,7 @@ const Owner_login = () =>{
     const onSubmit= async e => {
         e.preventDefault()
            dispatch( login(formData))
-           navigate('/workshop/owner/dashbord')
+           loggedIn&& navigate('/workshop/owner/dashbord')
     }
     return(
         <>
