@@ -1,13 +1,17 @@
-import React ,{useState} from "react";
+import React ,{useState, useEffect} from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { FcCheckmark } from "react-icons/fc";
+import {getaddress} from '../../store/store slices/addreseSlice'
 import {grageOwnerRegister} from '../../store/store slices/auth'
 import { useDispatch,useSelector } from 'react-redux'
 
 const Owner_register = () =>{
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+
     const {create,isLoading,error}= useSelector((state)=>state.auth)
+    const {addressList}= useSelector((state)=>state.address)
    
     const [formData, setFormData] = useState({
         workshopname:'',
@@ -20,10 +24,19 @@ const Owner_register = () =>{
         area_id:'',
         country_id:'',
         title:'',
+     
+
     })
+    
+    useEffect(() =>{
+        dispatch(getaddress())
+      
+    
+      },[dispatch])
+                        
 
     const {workshopname,workshopAddress, name,phone , email, password, confirm_password, area_id,country_id,title  }=formData
-
+  
     const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
     const onSubmit= async e => {
         e.preventDefault()
@@ -39,19 +52,28 @@ const Owner_register = () =>{
           
         }
     }
+
+    let  countries = addressList.map((country=> {
+         return <option key={country.id} value={country.id} >{country.name}</option>
+         
+    }))
+    let  selectedcountry =  country_id !== '' &&  addressList.find(country => country.id == country_id)
+    let renderedCities = selectedcountry && selectedcountry.cities.map((city)=><option key={city.id} value={city.id} >{city.name}</option>)
     return(
         <>
         {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
         
         <div className='login owner_register'>
-             <div>{error&& Object.values(error)}</div>
+          
             <div className='owner_or_employee active'>
                         <img src="/images/cycle one/service_icons/icon_2.png" />
                         <div className="inline-block"> Garage Owner </div>
              </div>
 
             <form onSubmit={e=>onSubmit(e)}>
+           
             <div className="title">Workshop Info</div>
+            {error&& <div className='msg-error'>{ Object.values(error)}</div> }
             <div className='main_input'>
                <label>Workshop Name</label>
                <input onChange={e=>onChange(e)} required type='text' name="workshopname" value={workshopname} placeholder='Jessica Hayes'/>
@@ -65,24 +87,20 @@ const Owner_register = () =>{
                
            </div>
 
-           <div className='main_input'>
-               <label>Workshop Address</label>
-               <input onChange={e=>onChange(e)} required type='text' name="workshopAddress" value={workshopAddress} placeholder='Jessica Hayes'/>
-                <div className='mark'><FcCheckmark /></div> 
-               
-           </div>
-           <div className='main_input'>
-               <label>Country Id</label>
-               <input onChange={e=>onChange(e)} required type='text' name="country_id" value={country_id} placeholder='Enter Country Id'/>
-                <div className='mark'><FcCheckmark /></div> 
-               
-           </div>
-           <div className='main_input'>
-               <label>Area Id</label>
-               <input onChange={e=>onChange(e)} required type='text' name="area_id" value={area_id} placeholder='Enter Area Id'/>
-                <div className='mark'><FcCheckmark /></div> 
-               
-           </div>
+           
+           <div className="title">Workshop Address</div>
+             
+          
+           <select className='address-id'name='country_id' value={country_id} onChange={e=>onChange(e)}>
+           <option hidden >choose a country</option>
+              {countries}
+           </select>
+           <select className='address-id'name='area_id' value={area_id} onChange={e=>onChange(e)}>
+           <option hidden >choose a city</option>
+              {renderedCities}
+           </select>
+          
+           
            <div className="title">Login Info</div>
            <div className='main_input'>
                <label>Owner Name</label>

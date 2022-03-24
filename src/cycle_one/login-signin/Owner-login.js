@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { FcCheckmark } from "react-icons/fc";
 import { Col, Row,Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate} from 'react-router-dom'
 import {login} from '../../store/store slices/auth'
 import { useDispatch,useSelector } from 'react-redux'
 
 const Owner_login = () =>{
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const {isLoading,error}= useSelector((state)=>state.auth)
     const[formData, setFormData]= useState({
         email:'',
@@ -17,6 +19,7 @@ const Owner_login = () =>{
     const onSubmit= async e => {
         e.preventDefault()
            dispatch( login(formData))
+           navigate('/workshop/owner/dashbord')
     }
     return(
         <>
