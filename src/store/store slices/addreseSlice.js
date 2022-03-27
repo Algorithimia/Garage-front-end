@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
+
+
 export const getaddress = createAsyncThunk ('address/get',  async(_ ,thunkAPI) =>{
     const {rejectWithValue } = thunkAPI
   
@@ -8,11 +10,12 @@ export const getaddress = createAsyncThunk ('address/get',  async(_ ,thunkAPI) =
   
     let res = await axios.get(`http://162.0.237.5/api/v1/addresses/`,{
       headers: {
-    'Content-Type': 'application/json'
+       'Content-Type': 'application/json'
       }
     
     
     })
+    
   
     return await res.data
 
@@ -42,7 +45,6 @@ export const getaddress = createAsyncThunk ('address/get',  async(_ ,thunkAPI) =
        [ getaddress.fulfilled ] :(state,action)=>{
         state.isLoading = false
         state.error= null
-       
         state.addressList = action.payload
     
         

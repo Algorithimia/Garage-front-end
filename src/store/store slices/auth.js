@@ -11,6 +11,7 @@ export const grageOwnerRegister = createAsyncThunk ('auth/grageOwnerRegister',
       const response = await axios.post("http://162.0.237.5/api/v1/garage_owner/create/", body, {
         headers: {
           'Content-Type': 'application/json', 
+        
         }})
         return (response.data) 
        
@@ -29,10 +30,10 @@ export const login = createAsyncThunk ('auth/login',
       const response = await axios.post("http://162.0.237.5/api/v1/login/", body, {
         headers: {
           'Content-Type': 'application/json', 
-          
+       
         }})
-      
-        return  await response.data
+      //  console.log(response.headers)
+        return ( await response.data)
       }
       
       catch (e) {

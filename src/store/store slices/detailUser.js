@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-export const getInsideWorkshops= createAsyncThunk ('address/get',  async(_ ,thunkAPI) =>{
+
+
+export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI) =>{
     const {rejectWithValue , getState} = thunkAPI
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("http://162.0.237.5/api/v1/garage_owner/workshops/",{
+      let res = await axios.get("http://162.0.237.5/api/v1/user/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}
@@ -23,7 +25,7 @@ export const getInsideWorkshops= createAsyncThunk ('address/get',  async(_ ,thun
   })
 
   
-  const insideWorkshopsSlice= createSlice({
+  const userDetails=createSlice({
     name:'discounts',
     initialState : {insideWorkShopLists:[], isLoading:false,addLoading:false, error:null},
     reducers:{
@@ -31,25 +33,22 @@ export const getInsideWorkshops= createAsyncThunk ('address/get',  async(_ ,thun
     },
     extraReducers:{
          // ............. start address ......................
-        [ getInsideWorkshops
-            .pending ] :(state,action)=>{
+        [ getUserDetails.pending ] :(state,action)=>{
 
             state.isLoading = true
             state.error = null
             
           
        },
-       [ getInsideWorkshops
-        .fulfilled ] :(state,action)=>{
+       [ getUserDetails.fulfilled ] :(state,action)=>{
         state.isLoading = false
         state.error= null
        
-        state.insideWorkShopLists = action.payload
+        state.insideWorkShopLists = action.payload.workshops
     
         
         },
-        [ getInsideWorkshops
-            .rejected ] :(state,action)=>{
+        [ getUserDetails.rejected ] :(state,action)=>{
              state.isLoading = false
              state.error = action.payload
            console.log(action)
@@ -61,4 +60,4 @@ export const getInsideWorkshops= createAsyncThunk ('address/get',  async(_ ,thun
 
 
 })
-export default insideWorkshopsSlice.reducer
+export default userDetails.reducer

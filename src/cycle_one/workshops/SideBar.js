@@ -2,14 +2,29 @@ import React , {useEffect, useState} from 'react'
 import {Dropdown} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {AiFillPlusCircle} from 'react-icons/ai'
+import { useDispatch,useSelector } from 'react-redux'
+import{getUserDetails} from '../../store/store slices/detailUser'
 
 
 const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
+    const dispatch = useDispatch()
+    const {insideWorkShopLists , isLoading ,error}= useSelector((state)=>state.userDetails)
     const [showSettings,setShowSettings]= useState(false)
-
+    const[workshop_id,SetWorkshop_id]= useState('')
     useEffect(()=>{
         setShowSettings(settings)
     },[settings])
+
+    useEffect(() =>{
+        dispatch(getUserDetails());
+       
+    
+      },[dispatch])
+    let renderedWorkshops =insideWorkShopLists && insideWorkShopLists.map((workshop)=>{return <div>
+    <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
+        
+        //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)
+    const onChange=e=>SetWorkshop_id(e.target.value)
     return (
         <>
             <div className='sidebar'> 
@@ -17,14 +32,21 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
                        <img className='logo' src='/images/cycle one/GarageWorkLogo.png' />
                 </Link>
                 <br />
-              
+             
+                        {/* <select  name='workshop_id' value={workshop_id} onChange={e=>onChange(e)} required> */}
+                            {/* <option hidden >choose a Workshop</option> */}
+                            {/* {renderedWorkshops} */}
+                        {/* </select> */}
+                  
                 <Dropdown>
                     <img className='dropdown_img' src='/images/cycle one/workshop.jpg' />
                     <Dropdown.Toggle  className='dropdown' >
+                  
                     Workshop Name
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
+                    {renderedWorkshops}
                        <div>
                            <Dropdown.Item ><img className='dropdown_img drop_imgg ' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item></div> 
                        <div> 

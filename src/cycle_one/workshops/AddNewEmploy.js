@@ -2,17 +2,18 @@ import React,{useEffect, useState} from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import AssignedCheck from './components/AssignedCheck'
-import{getInsideWorkshops} from '../../store/store slices/inSideWorksopSlice'
+import{getUserDetails} from '../../store/store slices/detailUser'
 import {getaddress} from '../../store/store slices/addreseSlice'
 import { useDispatch,useSelector } from 'react-redux'
 import {createEmploy} from '../../store/store slices/GOEmploy'
 const AddNewEmploy = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {insideWorkShopLists , isLoading ,error}= useSelector((state)=>state.insideWorkshops)
-    const {addressList}= useSelector((state)=>state.address)
+    const {insideWorkShopLists}= useSelector((state)=>state.userDetails)
+    const {gocreateemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
+   
     const [formData, setFormData] = useState({
-        workshop_id:'',
+        workshop_id: 2,
         email:'',
         password: '',
         confirm_password:'',
@@ -23,16 +24,18 @@ const AddNewEmploy = () => {
         bonus:''
     })
     const {workshop_id,email, name,phone , password, confirm_password,country_id,salary, bonus } = formData
+    const {addressList}= useSelector((state)=>state.address)
     useEffect(() =>{
         dispatch(getaddress());
+       // dispatch(getUserDetails());
        
     
       },[dispatch])
       
-      let renderedWorkshops = insideWorkShopLists.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
+    //   let renderedWorkshops = insideWorkShopLists.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
   
       const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
-      const onSubmit= async e => {
+      const onSubmit= async (e) => {
           e.preventDefault()
           if(password !== confirm_password){
               alert('password do not match')
@@ -42,16 +45,22 @@ const AddNewEmploy = () => {
               console.log(formData)
             //   console.log( grageOwnerRegister)
              e.preventDefault()
-              dispatch( createEmploy(formData))
+             dispatch( createEmploy(formData))
+              navigate('/workshop/owner/employes')
             
           }
       }
-      let  countries = addressList.map((country=> {
+      
+      console.log(typeof addressList)
+      console.log(addressList)
+      const  countries = addressList.map((country=> {
         return <option key={country.id} value={country.id} >{country.name}</option>
         
    }))
   
       return (
+          <>
+         { isLoading ? <img className='loading-img' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
         <div className='add_newEmploy'>
             <div className='header'>
                 
@@ -61,6 +70,7 @@ const AddNewEmploy = () => {
             <form onSubmit={e=>onSubmit(e)} >
              <div className='input_row'>
                EMPLOYEE INFO
+              
                <Row>
                    <Col md={6} lg={4}>
                    <div className='main_input'>
@@ -94,7 +104,7 @@ const AddNewEmploy = () => {
                         <input value=''/>
                         <select  name='workshop_id' value={workshop_id} onChange={e=>onChange(e)} required>
                             <option hidden >choose a Workshop</option>
-                            {renderedWorkshops}
+                            {/* {renderedWorkshops} */}
                         </select>
                     </div>
                     
@@ -177,6 +187,8 @@ const AddNewEmploy = () => {
             </div>
             
         </div>
+        }
+        </>
     )
 }
 

@@ -54,4 +54,25 @@
 
 //vehicle owner 
 @import "VehicleOwner/Dashbord";
-@import "VehicleOwner/vehicles"
+@import "VehicleOwner/vehicles";
+
+
+
+.loading-img{
+    width:100%;
+    height: 100vh;
+}
+.msg-error{
+    width: 100%;
+    background-color: #ff3333;
+    color: #ffff;
+    padding: 10px;
+    margin-bottom: 20px ;  
+}
+.create{
+    width: 100%;
+    background-color: #4ea159;
+    color: #ffff;
+    padding: 10px 30px;
+    margin-bottom: 30px ;  
+}

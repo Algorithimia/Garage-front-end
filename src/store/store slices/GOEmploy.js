@@ -23,32 +23,81 @@ export const createEmploy = createAsyncThunk ('auth/createEmploy',
   }
 })
 
+
+
+export const getemploys = createAsyncThunk ('employs/get',  async(_ ,thunkAPI) =>{
+    const {rejectWithValue , getState} = thunkAPI
+  
+    try{
+      const token= getState().auth.token
+      let res = await axios.get("http://162.0.237.5/api/v1/workshop/2/employees/",{
+        headers: {
+      'Content-Type': 'application/json', 
+       'Authorization': `Bearer ${token}`}
+      
+      })
+  
+    return await res.data
+
+}
+
+  catch(e){
+    return rejectWithValue(e.message)
+  }
+  
+  })
 const GoEmploye = createSlice({
     name: 'auth',
-    initialState: {  createemploy: false ,isLoading:false, error:null},
+    initialState: { employs:[], gocreateemploy: false ,isLoading:false, error:null},
     reducers:{
     }
     ,
     extraReducers:{
+        [getemploys.pending]:(state,action)=>{
+           
+            state.isLoading = true
+            state.error = null
+           
+    
+        },
+        [getemploys.fulfilled]:(state,action)=>{
+            
+            state.isLoading = false
+            state.error= null
+            state.employs= action.payload.results
+
+            
+         
+    
+        },
+        [getemploys.rejected]:(state,action)=>{
+            state.isLoading = false
+            state.error = action.payload
+            state.gocreateemploy= false
+            console.log(action.payload+'esraa')
+            
+    
+        },
         [createEmploy.pending]:(state,action)=>{
            
             state.isLoading = true
             state.error = null
-            state.create= false
+            state.gocreateemploy= false
     
         },
         [createEmploy.fulfilled]:(state,action)=>{
          
             state.isLoading = false
             state.error= null
-            state.createemploy= true
+            state.gocreateemploy= setTimeout(true, 3000);
+            state.employs= [...state.employs,action.payload]
          
     
         },
         [createEmploy.rejected]:(state,action)=>{
             state.isLoading = false
-            state.create= false
             state.error = action.payload
+            state.gocreateemploy= false
             console.log(action.payload+'esraa')
             
     

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {RiEditLine} from 'react-icons/ri'
-const Employ = ({img}) => {
+const Employ = ({employ}) => {
     return (
         <div className='employ'>
             <img
-            src={img}
+            src={employ.avatar}
             />
             <div className='name'>Jerry Watkins</div>
             <Link to='/workshop/owner/employassignworkorder'>
@@ -15,20 +15,20 @@ const Employ = ({img}) => {
                 <span className='right'> <Link to='/workshop/owner/employes/changeinfo'> <span> <RiEditLine /> </span> </Link> </span>
                 <div className='info'>
                     <div>USER NAME</div>
-                    <span className='gray_color'>garagehandle3258</span>
+                    <span className='gray_color'>{employ.email}</span>
                     <div>PASSWORD</div>
-                    <span className='gray_color'>garagehandle3258</span>
+                    <span className='gray_color'>password</span>
                 </div>
 
             </div>
             <div className='personal_info'>
-                <div>025 235 658 65</div>
-                <div>EMAIL@EXAMPLE.COM</div>
+                <div>{employ.phone}</div>
+                <div>{employ.email}</div>
 
             </div>
             <div className='salary_info'>
-                <div> <span>SALARY :  </span>5258 $</div>
-                <div> <span>BONUS PER MONTH : </span> 100 $</div>
+                <div> <span>SALARY :  </span>{employ.salary}</div>
+                <div> <span>BONUS PER MONTH : </span> {employ.bonus}</div>
             </div>
             <div className='assigned_decision'>
                 <div>ASSIGNED DECISIONS :</div>
