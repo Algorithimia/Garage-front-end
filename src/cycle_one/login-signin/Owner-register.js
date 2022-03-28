@@ -61,7 +61,7 @@ const Owner_register = () =>{
     let renderedCities = selectedcountry && selectedcountry.cities.map((city)=><option key={city.id} value={city.id} >{city.name}</option>)
     return(
         <>
-        {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
+        {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
         
         <div className='login owner_register'>
           

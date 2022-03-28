@@ -24,7 +24,7 @@ const VehicleLogin = () =>{
     
     return(
         <>
-         {isLoading ?   <img className='login' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
+         {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
          <div className='login owner_login owner_register'>
 
          <div className='owner_or_employee green'>

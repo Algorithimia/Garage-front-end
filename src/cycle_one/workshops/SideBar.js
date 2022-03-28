@@ -37,6 +37,7 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
                             {/* <option hidden >choose a Workshop</option> */}
                             {/* {renderedWorkshops} */}
                         {/* </select> */}
+                        
                   
                 <Dropdown>
                     <img className='dropdown_img' src='/images/cycle one/workshop.jpg' />

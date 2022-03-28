@@ -13,7 +13,7 @@ const EditeEmploy = () => {
     const dispatch = useDispatch()
     const [showAlert, setShowAlert]= useState(true)
     const {insideWorkShopLists}= useSelector((state)=>state.userDetails)
-    const {gocreateemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
+    const {goEditeemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
    
     const [formData, setFormData] = useState({
         workshop_id:2,
@@ -25,7 +25,7 @@ const EditeEmploy = () => {
         country_id:location.state.employ.country_id,
         salary:location.state.employ.salary,
         bonus:location.state.employ.bonus,
-        employee_id:3
+        employee_id:location.state.employ.id
         
     })
    
@@ -76,7 +76,7 @@ const EditeEmploy = () => {
   
       return (
           <>
-         { isLoading ? <img className='loading-img' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
+         { isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
         <div className='add_newEmploy'>
             <div className='header'>
                 
@@ -203,7 +203,7 @@ const EditeEmploy = () => {
              </div>
              </form>
             </div>
-            
+            { goEditeemploy ?  navigate("/workshop/owner/employes") : '' }
         </div>
         }
         </>

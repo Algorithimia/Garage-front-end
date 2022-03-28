@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import { Col, Row } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, Navigate } from 'react-router-dom'
 import AssignedCheck from './components/AssignedCheck'
 import{getUserDetails} from '../../store/store slices/detailUser'
 import {getaddress} from '../../store/store slices/addreseSlice'
@@ -33,8 +33,7 @@ const AddNewEmploy = () => {
        
     
       },[dispatch])
-   
-      
+  
      
     //   let renderedWorkshops = insideWorkShopLists.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
   
@@ -50,6 +49,7 @@ const AddNewEmploy = () => {
             //   console.log( grageOwnerRegister)
               e.preventDefault()
               dispatch( createEmploy(formData))
+              
               //for allert 
               setShowAlert(true)
               const timeId = setTimeout(() => {
@@ -72,22 +72,23 @@ const AddNewEmploy = () => {
         return <option key={country.id} value={country.id} >{country.name}</option>
         
    }))
-  
+ 
       return (
           <>
-         { gocreateemploy && navigate('/workshop/owner/employes')}
-         { isLoading ? <img className='loading-img' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
+        
+         { isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
         <div className='add_newEmploy'>
             <div className='header'>
-                
+           
             ADD NEW EMPLOYEE
+           
             </div>
             <div className='body'>
             {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
             <form onSubmit={e=>onSubmit(e)} >
              <div className='input_row'>
                EMPLOYEE INFO
-              
+            
                <Row>
                    <Col md={6} lg={4}>
                    <div className='main_input'>
@@ -115,17 +116,7 @@ const AddNewEmploy = () => {
                     </div>
 
                    </Col>
-                   <Col md={6} lg={4}>
-                   <div className='main_input'>
-                        <label>Workshop</label>
-                        <input value=''/>
-                        <select  name='workshop_id' value={workshop_id} onChange={e=>onChange(e)} required>
-                            <option hidden >choose a Workshop</option>
-                            {/* {renderedWorkshops} */}
-                        </select>
-                    </div>
-                    
-                   </Col>
+                
                    <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Country</label>
@@ -202,10 +193,13 @@ const AddNewEmploy = () => {
              </div>
              </form>
             </div>
-            
+           { gocreateemploy ?  navigate("/workshop/owner/employes") : '' }
         </div>
+        
         }
+         
         </>
+        
     )
 }
 

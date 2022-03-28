@@ -77,6 +77,11 @@ const GoEmploye = createSlice({
     name: 'auth',
     initialState: { employs:[], gocreateemploy: false, goEditeemploy:false ,isLoading:false, error:null},
     reducers:{
+      clearstate:(state)=>{
+        state.gocreateemploy= false
+        state.goEditeemploy=false
+
+      }
     }
     ,
     extraReducers:{
@@ -102,8 +107,7 @@ const GoEmploye = createSlice({
         [getemploys.rejected]:(state,action)=>{
             state.isLoading = false
             state.error = action.payload
-            state.gocreateemploy= false
-            state.goEditeemploy=false
+           
             console.log(action.payload+'esraa')
             
     
@@ -123,8 +127,7 @@ const GoEmploye = createSlice({
             state.gocreateemploy= true;
             state.goEditeemploy=false
             state.employs= [...state.employs,action.payload]
-            const navigate = useNavigate()
-            navigate('/products')
+            
          
     
         },
@@ -147,7 +150,7 @@ const GoEmploye = createSlice({
         
      },
      [ editeEmploy.fulfilled ] :(state,action)=>{
-      state.isLoading = true;
+      state.isLoading = false;
       state.error= null;
 
       state.gocreateemploy= false
@@ -176,6 +179,6 @@ const GoEmploye = createSlice({
 })
 
 
-
+export const {clearstate} = GoEmploye.actions
 
 export default GoEmploye.reducer

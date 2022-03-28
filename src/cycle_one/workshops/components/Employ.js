@@ -8,7 +8,7 @@ const Employ = ({employ}) => {
             <img
             src={employ.avatar}
             />
-            <div className='name'>Jerry Watkins</div>
+            <div className='name'>{employ.name}</div>
             <Link to='/workshop/owner/employassignworkorder'>
              <button>View Assigned Work Orders</button>
             </Link>
