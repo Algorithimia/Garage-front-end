@@ -1,12 +1,12 @@
 import React from 'react'
 import {IoIosTime} from 'react-icons/io'
 import { Link } from 'react-router-dom'
-const APPOINTMENT = () => {
+const Appointment = () => {
   return (
     <div className='box bigger'>
 
         <div className='title'>
-        APPOINTMENT
+        Appointment
         </div>
         <div className='body'>
         <div className='box-row  yello'>
@@ -23,4 +23,4 @@ const APPOINTMENT = () => {
   )
 }
 
-export default APPOINTMENT
+export default Appointment
