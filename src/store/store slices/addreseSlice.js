@@ -1,21 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 export const getaddress = createAsyncThunk ('address/get',  async(_ ,thunkAPI) =>{
-    const {rejectWithValue } = thunkAPI
+    const {rejectWithValue , getState} = thunkAPI
   
   try{
-  
+    const token= getState().auth.token
   
     let res = await axios.get(`http://162.0.237.5/api/v1/addresses/`,{
       headers: {
-       'Content-Type': 'application/json'
+       'Content-Type': 'application/json',
+       'X-CSRFToken': cookies.get("csrftoken")
       }
     
     
     })
-    
+    console.log(token)
   
     return await res.data
 

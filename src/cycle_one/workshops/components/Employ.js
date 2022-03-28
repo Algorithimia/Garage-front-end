@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import {RiEditLine} from 'react-icons/ri'
 const Employ = ({employ}) => {
+    let location = useLocation()
     return (
         <div className='employ'>
             <img
@@ -44,7 +45,7 @@ const Employ = ({employ}) => {
  
             </div>
            <button className='delete'>DELETE</button> 
-           <Link to='/workshop/owner/addemploy'> <button className='edite'>EDIT</button> </Link>
+           <Link to='/workshop/owner/editeemploy'  state={{ employ: employ }}> <button className='edite'>EDIT</button> </Link>
         </div>
     )
 }

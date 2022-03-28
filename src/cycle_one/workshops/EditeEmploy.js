@@ -1,41 +1,45 @@
 import React,{useEffect, useState} from 'react'
 import { Col, Row } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import AssignedCheck from './components/AssignedCheck'
 import{getUserDetails} from '../../store/store slices/detailUser'
 import {getaddress} from '../../store/store slices/addreseSlice'
 import { useDispatch,useSelector } from 'react-redux'
-import {createEmploy} from '../../store/store slices/GOEmploy'
-const AddNewEmploy = () => {
+import {editeEmploy} from '../../store/store slices/GOEmploy'
+
+const EditeEmploy = () => {
     const navigate = useNavigate()
+    let location = useLocation()
     const dispatch = useDispatch()
+    const [showAlert, setShowAlert]= useState(true)
     const {insideWorkShopLists}= useSelector((state)=>state.userDetails)
     const {gocreateemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
-    const [showAlert, setShowAlert]= useState(true)
+   
     const [formData, setFormData] = useState({
-        workshop_id: 2,
-        email:'',
-        password: '',
-        confirm_password:'',
-        name: '',
-        phone: '',
-        country_id:'',
-        salary:'',
-        bonus:''
+        workshop_id:2,
+        email:location.state.employ.email,
+        password:location.state.employ.password,
+        confirm_password:location.state.employ.confirm_password,
+        name: location.state.employ.name,
+        phone: location.state.employ.phone,
+        country_id:location.state.employ.country_id,
+        salary:location.state.employ.salary,
+        bonus:location.state.employ.bonus,
+        employee_id:3
+        
     })
+   
     const {workshop_id,email, name,phone , password, confirm_password,country_id,salary, bonus } = formData
     const {addressList}= useSelector((state)=>state.address)
     useEffect(() =>{
-        dispatch(getaddress()); 
+        dispatch(getaddress());
+       // dispatch(getUserDetails());
+     
         
-       
-       
        
     
       },[dispatch])
-   
       
-     
     //   let renderedWorkshops = insideWorkShopLists.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
   
       const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
@@ -48,26 +52,23 @@ const AddNewEmploy = () => {
           else{
               console.log(formData)
             //   console.log( grageOwnerRegister)
-              e.preventDefault()
-              dispatch( createEmploy(formData))
-              //for allert 
-              setShowAlert(true)
-              const timeId = setTimeout(() => {
-                // After 3 seconds set the showAlert value to false
-                setShowAlert(false)
-              }, 5000)
-          
-              return () => {
-                clearTimeout(timeId)
-              }
-              
-         //    dispatch( createEmploy(formData))
-              
+             e.preventDefault()
+             dispatch( editeEmploy(formData))
+             setShowAlert(true)
+             const timeId = setTimeout(() => {
+               // After 3 seconds set the showAlert value to false
+               setShowAlert(false)
+             }, 5000)
+         
+             return () => {
+               clearTimeout(timeId)
+             }
             
           }
       }
       
-    
+      console.log(typeof addressList)
+      console.log(addressList)
       const  countries = addressList.map((country=> {
         return <option key={country.id} value={country.id} >{country.name}</option>
         
@@ -75,20 +76,20 @@ const AddNewEmploy = () => {
   
       return (
           <>
-         { gocreateemploy && navigate('/workshop/owner/employes')}
          { isLoading ? <img className='loading-img' src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hjsoldus9207cszxgle578qvj05z1rwstzh7y0dw&rid=giphy.gif&ct=g" /> :
         <div className='add_newEmploy'>
             <div className='header'>
                 
-            ADD NEW EMPLOYEE
+           Edite EMPLOYEE
             </div>
             <div className='body'>
-            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
             <form onSubmit={e=>onSubmit(e)} >
+            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
              <div className='input_row'>
                EMPLOYEE INFO
               
                <Row>
+             
                    <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Employee Name</label>
@@ -209,4 +210,4 @@ const AddNewEmploy = () => {
     )
 }
 
-export default AddNewEmploy
+export default EditeEmploy

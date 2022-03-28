@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 
-export const createEmploy = createAsyncThunk ('auth/createEmploy', 
+export const createEmploy = createAsyncThunk ('goemploy//createEmploy', 
     async(createData ,thunkAPI) =>{
         const {rejectWithValue , getState} = thunkAPI
   
@@ -13,7 +14,7 @@ export const createEmploy = createAsyncThunk ('auth/createEmploy',
           'Content-Type': 'application/json', 
           'Authorization': `Bearer ${token}`
         }})
-        return (response.data) 
+        return ({...createData, ...response.data}) 
        
     }
     catch (e) {
@@ -21,6 +22,32 @@ export const createEmploy = createAsyncThunk ('auth/createEmploy',
       return rejectWithValue(e.response.data);
       
   }
+})
+export const editeEmploy = createAsyncThunk ('goemploy/updateemploy',  async(editedEmployData,thunkAPI) =>{
+  const {rejectWithValue , getState} = thunkAPI
+  const token= getState().auth.token
+  const config = {     
+    headers: { 'content-type': 'application/json',
+               'Authorization': `Bearer ${token}`,
+  }}
+try{
+
+let body= JSON.stringify(editedEmployData)
+let response = await axios.put("http://162.0.237.5/api/v1/workshop/employee/update1/", body, config)
+
+  if(response.status == 200) {
+    return  ({...editedEmployData, ...response.data}) 
+  }
+
+
+ 
+}
+catch(e){
+  return rejectWithValue(e.response.data)
+  
+}
+
+
 })
 
 
@@ -48,7 +75,7 @@ export const getemploys = createAsyncThunk ('employs/get',  async(_ ,thunkAPI) =
   })
 const GoEmploye = createSlice({
     name: 'auth',
-    initialState: { employs:[], gocreateemploy: false ,isLoading:false, error:null},
+    initialState: { employs:[], gocreateemploy: false, goEditeemploy:false ,isLoading:false, error:null},
     reducers:{
     }
     ,
@@ -57,14 +84,16 @@ const GoEmploye = createSlice({
            
             state.isLoading = true
             state.error = null
+         
            
     
         },
         [getemploys.fulfilled]:(state,action)=>{
             
-            state.isLoading = false
-            state.error= null
+            state.isLoading = false;
+            state.error = null
             state.employs= action.payload.results
+           
 
             
          
@@ -74,6 +103,7 @@ const GoEmploye = createSlice({
             state.isLoading = false
             state.error = action.payload
             state.gocreateemploy= false
+            state.goEditeemploy=false
             console.log(action.payload+'esraa')
             
     
@@ -83,14 +113,18 @@ const GoEmploye = createSlice({
             state.isLoading = true
             state.error = null
             state.gocreateemploy= false
+            state.goEditeemploy=false
     
         },
         [createEmploy.fulfilled]:(state,action)=>{
          
             state.isLoading = false
             state.error= null
-            state.gocreateemploy= setTimeout(true, 3000);
+            state.gocreateemploy= true;
+            state.goEditeemploy=false
             state.employs= [...state.employs,action.payload]
+            const navigate = useNavigate()
+            navigate('/products')
          
     
         },
@@ -98,10 +132,43 @@ const GoEmploye = createSlice({
             state.isLoading = false
             state.error = action.payload
             state.gocreateemploy= false
+            state.goEditeemploy=false
             console.log(action.payload+'esraa')
             
     
         },
+        [ editeEmploy.pending ] :(state,action)=>{
+
+          state.isLoading = true
+          state.error = null
+          state.gocreateemploy= false
+          state.goEditeemploy=false
+       
+        
+     },
+     [ editeEmploy.fulfilled ] :(state,action)=>{
+      state.isLoading = true;
+      state.error= null;
+
+      state.gocreateemploy= false
+      state.goEditeemploy=true
+      const index =  state.employs.findIndex(employ => employ.id == action.payload.id);                                                            
+      const newArray = [...state.employs]; 
+      if(index)
+      {  newArray[index] = action.payload;}
+      state.employs=newArray ;
+  
+      
+      },
+
+      [ editeEmploy.rejected ] :(state,action)=>{
+           state.isLoading = false
+           state.gocreateemploy= false
+           state.goEditeemploy=false
+           state.error = action.payload
+         console.log(action)
+         
+      }, 
      
 
     }

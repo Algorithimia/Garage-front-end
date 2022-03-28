@@ -54,6 +54,7 @@ import Settings from './Settings'
 import MaintenancePackaging from './MaintenancePackaging'
 import SidebarOptions from './components/SidebarOptions'
 import AddWorkshop from './AddWorkshop'
+import EditeEmploy from './EditeEmploy'
 const WorkshopRoutes = () => {
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
@@ -130,6 +131,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/viewvehicle" element={<ViewVehicle />} exact  />
                     <Route path="/owner/employes/*" element={<Employes />} exact  />
                     <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
+                    <Route path="/owner/editeemploy" element={<EditeEmploy />} exact  />
                     <Route path="/owner/employassignworkorder" element={<EpmloysAssignedWorkOrder />} exact  />
                     <Route path="/owner/alloverdue" element={<AllOverDue />} exact  />
                     <Route path="/owner/alloverduesentpayment" element={<SentPayment />} exact  />
