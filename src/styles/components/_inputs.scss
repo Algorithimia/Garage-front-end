@@ -39,15 +39,26 @@
         padding:35px;
         padding-left: 50px;
         font-size: 20px;
+        background-color: #ffff;
        
     }
    
     .phone-code{
-     width: 30% !important;
-     border-right: none ;
+     width: 20% !important;
+     border-right-color: #dfdfdf ;
+    }
+    .phone-code::-webkit-outer-spin-button,
+    .phone-code::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    .phone-code[type=number] {
+    -moz-appearance: textfield;
     }
     .phone-number{
-        width: 70% !important;
+        width: 80% !important;
         border-left: none ;
     }
     input::placeholder {
@@ -95,4 +106,22 @@
 }   
 .pointer{
     cursor: pointer;
+}
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover, 
+select:-webkit-autofill:focus, 
+select:-webkit-autofill:active
+
+
+{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    background-color: #fff;
+}
+input:-internal-autofill-selected {
+    background-color: #fff;
 }

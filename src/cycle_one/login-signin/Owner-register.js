@@ -92,13 +92,13 @@ const Owner_register = () =>{
              
           <div className='address-id'>
                 <select name='country_id' value={country_id} onChange={e=>onChange(e)}>
-                <option hidden >choose a country</option>
+                <option hidden >Country</option>
                     {countries}
                 </select>
           </div>
           <div className='address-id'>
                 <select name='area_id' value={area_id} onChange={e=>onChange(e)}>
-                <option hidden >choose a city</option>
+                <option hidden >City</option>
                     {renderedCities}
                 </select>
            </div>
@@ -114,8 +114,11 @@ const Owner_register = () =>{
 
            <div className='main_input'>
                <label>Phone Number</label>
-               <input className='phone-code' onChange={e=>onChange(e)} required placeholder='code'  name="code"  />
-               <input className='phone-number' onChange={e=>onChange(e)} required type='tel' placeholder='+1 (999) 278 589 2'  name="phone" value={phone} />
+               <input className='phone-code' onChange={e=>onChange(e)} required    maxLength="3"  placeholder='20' 
+               value={ country_id !== '' ?  addressList.find(country => country.id == country_id).phone_code:'' }  
+               name="code"  />
+             
+               <input className='phone-number' onChange={e=>onChange(e)} required type='tel' placeholder='1111111111'  name="phone" value={phone} />
                 <div className='mark'><FcCheckmark /></div> 
                
            </div>
