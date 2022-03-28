@@ -46,7 +46,7 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
                     Workshop Name
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
+                    <Dropdown.Menu onSelect={eventKey=> console.log(eventKey)}>
                     {renderedWorkshops}
                        <div>
                            <Dropdown.Item ><img className='dropdown_img drop_imgg ' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item></div> 
