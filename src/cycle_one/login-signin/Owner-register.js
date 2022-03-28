@@ -90,15 +90,18 @@ const Owner_register = () =>{
            
            <div className="title">Workshop Address</div>
              
-          
-           <select className='address-id'name='country_id' value={country_id} onChange={e=>onChange(e)}>
-           <option hidden >choose a country</option>
-              {countries}
-           </select>
-           <select className='address-id'name='area_id' value={area_id} onChange={e=>onChange(e)}>
-           <option hidden >choose a city</option>
-              {renderedCities}
-           </select>
+          <div className='address-id'>
+                <select name='country_id' value={country_id} onChange={e=>onChange(e)}>
+                <option hidden >choose a country</option>
+                    {countries}
+                </select>
+          </div>
+          <div className='address-id'>
+                <select name='area_id' value={area_id} onChange={e=>onChange(e)}>
+                <option hidden >choose a city</option>
+                    {renderedCities}
+                </select>
+           </div>
           
            
            <div className="title">Login Info</div>
@@ -111,7 +114,8 @@ const Owner_register = () =>{
 
            <div className='main_input'>
                <label>Phone Number</label>
-               <input onChange={e=>onChange(e)} required type='tel' placeholder='+1 (999) 278 589 2'  name="phone" value={phone} />
+               <input className='phone-code' onChange={e=>onChange(e)} required placeholder='code'  name="code"  />
+               <input className='phone-number' onChange={e=>onChange(e)} required type='tel' placeholder='+1 (999) 278 589 2'  name="phone" value={phone} />
                 <div className='mark'><FcCheckmark /></div> 
                
            </div>

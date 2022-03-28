@@ -411,11 +411,21 @@
 
 .address-id{
     width: 30%;
-    padding: 10px;
+   
     margin: 1%;
-    outline: none;
+  
     display:inline-block;
     margin-top:20px;
+    border: solid 1px #dadada;
+    padding: 10px 20px;
+
+    select{
+        width:100%;
+        border: none;
+        outline: none;
+        display:block;
+    }
+    
     @media screen and (max-width: 880px) {
         
         width: 40%;

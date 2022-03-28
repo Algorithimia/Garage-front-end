@@ -41,6 +41,15 @@
         font-size: 20px;
        
     }
+   
+    .phone-code{
+     width: 30% !important;
+     border-right: none ;
+    }
+    .phone-number{
+        width: 70% !important;
+        border-left: none ;
+    }
     input::placeholder {
         color: #969B858F;
     }
