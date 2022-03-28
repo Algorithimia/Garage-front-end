@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
-import Appointment from './Appointment'
+// import Appointment from './Appointment'
 import CurentOrders from './CurentOrders'
 import GARAGEWORKSHOPS from './GARAGEWORKSHOPS'
 import PROFILE from './PROFILE'
@@ -30,7 +30,7 @@ const Dashbord = () => {
           <GARAGEWORKSHOPS />
         </Col>
         <Col  sm={12} md={12} lg={6}>
-          <Appointment/>
+          {/* <Appointment/> */}
         </Col>
   
         <Col sm={12} md={12} lg={6}>
