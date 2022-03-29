@@ -12,7 +12,7 @@ const EditeEmploy = () => {
     let location = useLocation()
     const dispatch = useDispatch()
     const [showAlert, setShowAlert]= useState(true)
-    const {insideWorkShopLists}= useSelector((state)=>state.userDetails)
+    const {userDetails}= useSelector((state)=>state.userDetails)
     const {goEditeemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
    
     const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ const EditeEmploy = () => {
     
       },[dispatch])
       
-    //   let renderedWorkshops = insideWorkShopLists.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
+    //   let renderedWorkshops = userDetails.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
   
       const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
       const onSubmit= async (e) => {

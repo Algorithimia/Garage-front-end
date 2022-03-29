@@ -105,9 +105,7 @@
         color: #969B85CF;
         position: relative;
         padding-left: 30px;
-        &:hover{
-            opacity: .5;
-        }
+      
         .img_link{
             width: 17px;
             height: 17px;
@@ -132,6 +130,10 @@
             position: absolute;
             left: 140px;
             top: -220px;
+            opacity: .99 !important;
+            &:hover{
+                 opacity: .99 !important;
+            }
            
             .option{
                 padding: 14px 25px;

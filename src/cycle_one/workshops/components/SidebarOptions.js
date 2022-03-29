@@ -1,18 +1,22 @@
 import React , {useState} from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch,useSelector } from 'react-redux'
+import{getUserDetails} from '../../../store/store slices/detailUser'
 
 const SidebarOptions = () => {
     const [showSettings,setShowSettings]= useState(false)
+    const {userDetails , isLoading ,error}= useSelector((state)=>state.userDetails)
     return (
         <div className='sidebar_options sidebar'>
                 <Link to='/employ/employinfo'>
-                    <div className='employ'>
+                {!userDetails.is_garage_owner &&    <div className='employ'>
                         <img 
                         src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
                             /> 
                             Employ Name
 
                     </div>
+                   }
                 </Link>
              <div className='link'>
                    <Link to='/workshop/owner/vheiclesview'>
@@ -22,7 +26,7 @@ const SidebarOptions = () => {
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop/owner/allworkorders'>
+                   <Link to={userDetails.is_garage_owner ? '/workshop/owner/allworkorders' : '/employ/workorders'}>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Mask Group 9.svg' />
                     <span className='text_link'>WORK ORDERS</span>
                     </Link>
@@ -82,35 +86,36 @@ const SidebarOptions = () => {
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop/owner/assets'>
+                   <Link to={userDetails.is_garage_owner ? '/workshop/owner/assets' : '/employ/assets'}>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Group 636.svg' />
                     <span className='text_link'>ASSETS</span>
                     </Link>
                 </div>
-                  
-                <div className='link pointer settings_target' onClick={()=>{setShowSettings(!showSettings)}}>
-                   {/* <Link to='/workshop/owner/settings'> */}
-                    <img className='img_link settings_target' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
-                    <span id='settings_target' className='text_link settings_target'>SETTING</span>
-                    {/* </Link> */}
-                   { showSettings &&
-                     <div className='settings'>
-                        <Link to='/workshop/owner/settings'>
-                                <div className='option'> Prefrence Settings </div>  
-                        </Link>
-                        <Link to='/workshop/owner/subscribtion'>
-                           <div className='option'> Subscribtion Plan </div>
-                        </Link>
-                        <Link to='/workshop/owner/maintnance'>
-                        <div className='option'> Mintenance Packaging </div>
-                        </Link>
-                        <div className='option log_out'> Logout </div>
-                        
+                {userDetails.is_garage_owner &&  
+                    <div className='link pointer settings_target' onClick={()=>{setShowSettings(!showSettings)}}>
+                    {/* <Link to='/workshop/owner/settings'> */}
+                        <img className='img_link settings_target' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
+                        <span id='settings_target' className='text_link settings_target'>SETTING</span>
+                        {/* </Link> */}
+                    { showSettings &&
+                        <div className='settings'>
+                            <Link to='/workshop/owner/settings'>
+                                    <div className='option'> Prefrence Settings </div>  
+                            </Link>
+                            <Link to='/workshop/owner/subscribtion'>
+                            <div className='option'> Subscribtion Plan </div>
+                            </Link>
+                            <Link to='/workshop/owner/maintnance'>
+                            <div className='option'> Mintenance Packaging </div>
+                            </Link>
+                            <div className='option log_out'> Logout </div>
+                            
 
 
-                    </div>}
-                
-                </div>
+                        </div>}
+                    
+                    </div>
+                }
             
         </div>
     )

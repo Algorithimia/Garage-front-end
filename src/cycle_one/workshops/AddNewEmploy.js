@@ -9,7 +9,7 @@ import {createEmploy} from '../../store/store slices/GOEmploy'
 const AddNewEmploy = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {insideWorkShopLists}= useSelector((state)=>state.userDetails)
+    const {userDetails}= useSelector((state)=>state.userDetails)
     const {gocreateemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
     const [showAlert, setShowAlert]= useState(true)
     const [formData, setFormData] = useState({
@@ -35,7 +35,7 @@ const AddNewEmploy = () => {
       },[dispatch])
   
      
-    //   let renderedWorkshops = insideWorkShopLists.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
+    //   let renderedWorkshops = userDetails.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
   
       const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
       const onSubmit= async (e) => {

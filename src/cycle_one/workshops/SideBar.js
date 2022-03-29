@@ -6,9 +6,9 @@ import { useDispatch,useSelector } from 'react-redux'
 import{getUserDetails} from '../../store/store slices/detailUser'
 
 
-const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
+const SideBar = ({settings}) => {
     const dispatch = useDispatch()
-    const {insideWorkShopLists , isLoading ,error}= useSelector((state)=>state.userDetails)
+    const {userDetails , isLoading ,error}= useSelector((state)=>state.userDetails)
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
     useEffect(()=>{
@@ -20,7 +20,7 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
        
     
       },[dispatch])
-    let renderedWorkshops =insideWorkShopLists && insideWorkShopLists.map((workshop)=>{return <div>
+    let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div>
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
         
         //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)
@@ -28,7 +28,7 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
     return (
         <>
             <div className='sidebar'> 
-                <Link to={golink}>
+                <Link to={ userDetails.is_garage_owner ? '/workshop/owner/dashbord' :'/employ/'}>
                        <img className='logo' src='/images/cycle one/GarageWorkLogo.png' />
                 </Link>
                 <br />
@@ -69,7 +69,7 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop/owner/allworkorders'>
+                   <Link to={userDetails.is_garage_owner ? '/workshop/owner/allworkorders' : '/employ/workorders'}>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Mask Group 9.svg' />
                     <span className='text_link'>WORK ORDERS</span>
                     </Link>
@@ -129,16 +129,17 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
                 </div>
 
                 <div className='link'>
-                   <Link to='/workshop/owner/assets'>
+                   <Link to={userDetails.is_garage_owner ? '/workshop/owner/assets' : '/employ/assets'}>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Group 636.svg' />
                     <span className='text_link'>ASSETS</span>
                     </Link>
                 </div>
-                <div className='line'></div>    
+                <div className='line'></div>   
+                {userDetails.is_garage_owner &&  
                 <div className='link pointer' onClick={()=>{setShowSettings(!showSettings)}}>
                    {/* <Link to='/workshop/owner/settings'> */}
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon ionic-ios-settings.svg' />
-                    <span id='side_settings'  className='text_link'>SETTING</span>
+                       <span id='side_settings'  className='text_link'>SETTING</span>
                     {/* </Link> */}
                    {showSettings &&
                      <div className='settings'>
@@ -156,15 +157,16 @@ const SideBar = ({settings,golink='/workshop/owner/dashbord'}) => {
 
                     </div>}
                     
-                </div>
+                </div>}
                  <Link to='/employ/employinfo'>
-                    <div className='employ'>
+                 {!userDetails.is_garage_owner &&  <div className='employ'>
                         <img 
                         src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
                             /> 
                             Employ Name
 
                     </div>
+                   }
                 </Link>
              
 

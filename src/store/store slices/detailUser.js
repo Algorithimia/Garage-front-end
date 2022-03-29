@@ -27,7 +27,7 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
   
   const userDetails=createSlice({
     name:'discounts',
-    initialState : {insideWorkShopLists:[], isLoading:false,addLoading:false, error:null},
+    initialState : {userDetails:[], isLoading:false,addLoading:false, error:null},
     reducers:{
 
     },
@@ -44,7 +44,7 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
         state.isLoading = false
         state.error= null
        
-        state.insideWorkShopLists = action.payload.workshops
+        state.userDetails = action.payload
     
         
         },
