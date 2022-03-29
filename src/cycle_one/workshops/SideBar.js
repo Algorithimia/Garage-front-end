@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import {AiFillPlusCircle} from 'react-icons/ai'
 import { useDispatch,useSelector } from 'react-redux'
 import{getUserDetails} from '../../store/store slices/detailUser'
-
+import {logOut} from '../../store/store slices/auth'
 
 const SideBar = ({settings}) => {
     const dispatch = useDispatch()
@@ -25,6 +25,7 @@ const SideBar = ({settings}) => {
         
         //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)
     const onChange=e=>SetWorkshop_id(e.target.value)
+  
     return (
         <>
             <div className='sidebar'> 
@@ -48,11 +49,7 @@ const SideBar = ({settings}) => {
 
                     <Dropdown.Menu onSelect={eventKey=> console.log(eventKey)}>
                     {renderedWorkshops}
-                       <div>
-                           <Dropdown.Item ><img className='dropdown_img drop_imgg ' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item></div> 
-                       <div> 
-                          <Dropdown.Item><img className='dropdown_img drop_imgg' src='/images/cycle one/workshop.jpg' /> &nbsp;Workshop Name</Dropdown.Item>
-                       </div>
+                      
                        <div className='add'>
                         <Dropdown.Item ><Link to='/workshop/owner/addworkshop'><span><AiFillPlusCircle /></span> Add New</Link></Dropdown.Item>
                             
@@ -152,16 +149,16 @@ const SideBar = ({settings}) => {
                         <Link to='/workshop/owner/maintnance'>
                         <div className='option'> Mintenance Packaging </div>
                         </Link>
-                        <div className='option log_out'> Logout </div>
+                        <div className='option log_out' onClick={()=>dispatch(logOut())}> Logout </div>
 
 
                     </div>}
                     
                 </div>}
                  <Link to='/employ/employinfo'>
-                 {!userDetails.is_garage_owner &&  <div className='employ'>
+                 {userDetails.is_employeer &&  <div className='employ'>
                         <img 
-                        src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
+                         src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
                             /> 
                             Employ Name
 

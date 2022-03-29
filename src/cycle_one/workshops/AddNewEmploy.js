@@ -10,6 +10,7 @@ const AddNewEmploy = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {userDetails}= useSelector((state)=>state.userDetails)
+    const {loggedIn}= useSelector((state)=>state.auth)
     const {gocreateemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
     const [showAlert, setShowAlert]= useState(true)
     const [formData, setFormData] = useState({
@@ -194,6 +195,7 @@ const AddNewEmploy = () => {
              </form>
             </div>
            { gocreateemploy ?  navigate("/workshop/owner/employes") : '' }
+           {!loggedIn ? navigate('/login_process/owner_login'): ''}
         </div>
         
         }

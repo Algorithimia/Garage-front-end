@@ -44,11 +44,13 @@ export const login = createAsyncThunk ('auth/login',
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState: { loggedIn: false, create: false ,isLoading:false, error:null, token:cookies.get("token")},
+    initialState: { loggedIn:cookies.get("login"), create: false ,isLoading:false, error:null, token:cookies.get("token")},
     reducers:{
       logOut:(state)=>{
         state.token='';
-       
+        state.loggedIn=false;
+        cookies.remove("login")
+
     
        
       },
@@ -91,6 +93,7 @@ const authSlice = createSlice({
           state.token=action.payload.access
          
           cookies.set("token", action.payload.access)
+          cookies.set("login", true)
      
          
        

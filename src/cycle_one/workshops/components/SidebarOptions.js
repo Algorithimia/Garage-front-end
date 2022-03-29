@@ -9,7 +9,7 @@ const SidebarOptions = () => {
     return (
         <div className='sidebar_options sidebar'>
                 <Link to='/employ/employinfo'>
-                {!userDetails.is_garage_owner &&    <div className='employ'>
+                {userDetails.is_employee &&    <div className='employ'>
                         <img 
                         src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
                             /> 

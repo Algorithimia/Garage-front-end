@@ -3,14 +3,16 @@ import { Col, Row } from 'react-bootstrap'
 import Employ from './components/Employ'
 import {AiFillPlusCircle} from "react-icons/ai"
 import {FaSearch} from'react-icons/fa'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes , useNavigate} from 'react-router-dom'
 import ChangeEmployinfo from './ChangeEmployinfo'
 import { useDispatch,useSelector } from 'react-redux'
 import {getemploys, clearstate} from '../../store/store slices/GOEmploy'
  
 const Employes = () => {
     const {employs, gocreateemploy,goEditeemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
+    const {loggedIn}= useSelector((state)=>state.auth)
     const [showAlert, setShowAlert]= useState(true)
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     useEffect(() =>{
         dispatch(getemploys());
@@ -72,6 +74,7 @@ const Employes = () => {
             
         </div>
 }
+{!loggedIn ? navigate('/login_process/owner_login'): ''}
 </>
     )
 }
