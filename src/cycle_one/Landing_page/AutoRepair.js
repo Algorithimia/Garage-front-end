@@ -8,7 +8,7 @@ return(
       <Row>
           <Col sm={12}lg={6}>
            <div className='auto-mechanic-checking-car'>
-
+              {console.log(process.env.PUBLIC_URL)}
            </div>
             
           </Col>
