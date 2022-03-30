@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
 import {FaSearch} from'react-icons/fa'
 import {AiFillPlusCircle} from "react-icons/ai"
 import {GoTriangleDown,GoTriangleUp} from "react-icons/go"
@@ -8,9 +8,15 @@ import { Link, Route,Routes } from 'react-router-dom'
 import WorkOrder from './WorkOrder'
 import FilterWorkOrders from "./FilterWorkOrders"
 import AssignEmploye from './AssinEmploye'
+
+import { useDispatch,useSelector } from 'react-redux'
+import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
 const AllWorkOrders = () => {
+    const dispatch = useDispatch()
+    const {workorders , isLoading ,error}= useSelector((state)=>state.woekOrders)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
+  
     const upEntries=()=>{
        setEntries(parseInt(entries)+1)
     }
@@ -26,6 +32,14 @@ const AllWorkOrders = () => {
         setDate(parseInt(date)-1)
       
      }
+     useEffect(() =>{
+        dispatch(getWorkOrders());
+       
+    
+      },[dispatch])
+      const renderedWorkorders= workorders.map((workorder)=>{
+          return ( <WorkOrder status={workorder.status}  stage='STAGE'  num={workorder.id} date={workorder.created_at} customerName={workorder.customer.name} workItem='Gear Replacement' employName='Sam'   />)
+      })
     return (
         <div className='work_orders'>
             <div className='head_section'>
@@ -92,8 +106,8 @@ const AllWorkOrders = () => {
                 <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
                 <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />
 
-<WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
-<WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
+                <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
+                <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
                    
             </table>
             <Routes>

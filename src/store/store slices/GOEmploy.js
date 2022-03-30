@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 
 export const createEmploy = createAsyncThunk ('goemploy//createEmploy', 
@@ -69,7 +68,7 @@ export const getemploys = createAsyncThunk ('employs/get',  async(_ ,thunkAPI) =
 }
 
   catch(e){
-    return rejectWithValue(e.message)
+    return rejectWithValue(e.response.data)
   }
   
   })

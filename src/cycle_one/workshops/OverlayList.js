@@ -1,7 +1,24 @@
  import {Popover, OverlayTrigger, Button} from 'react-bootstrap'
  import{BsThreeDotsVertical} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState,useEffect ,useRef} from 'react'
+
+
+function useOutsideAlerter(ref,setShow) {
+  useEffect(() =>{
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setShow(false)
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    
+  }}, [ref]);
+}
 
 const OverlayList = ({option1, option1_path,
 option2, option2_path,
@@ -9,13 +26,15 @@ option3, option3_path,
 option4, option4_path,  
 option5, option5_path }) => {
   const[show,setShow]=useState(false)
-  
+   // close list when click any where
+   const wrapperRef = useRef(null);
+   useOutsideAlerter(wrapperRef,setShow);
     return (
         
             <>
             
             <button onClick={()=>setShow(!show)}><BsThreeDotsVertical /></button>
-{show &&<div className='table_hidden_list'>
+{show &&<div className='table_hidden_list'  ref={wrapperRef}>
             <div className='option'>
            <Link to={option1_path} style={{color:"#4390E0", fontWeight:"bold"}}>{option1}</Link>
            <br />
