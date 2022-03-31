@@ -73,7 +73,7 @@ export const getemploys = createAsyncThunk ('employs/get',  async(_ ,thunkAPI) =
   
   })
 const GoEmploye = createSlice({
-    name: 'auth',
+    name: 'go-employ',
     initialState: { employs:[], gocreateemploy: false, goEditeemploy:false ,isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{

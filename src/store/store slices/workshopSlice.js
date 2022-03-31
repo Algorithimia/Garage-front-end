@@ -28,7 +28,7 @@ export const creatWorkshop = createAsyncThunk ('goemploy/creatWorkshop',
   }
 })
 const workshop = createSlice({
-    name: 'auth',
+    name: 'workshop',
     initialState: { workshops:[],isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{

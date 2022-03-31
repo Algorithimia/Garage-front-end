@@ -74,7 +74,7 @@ export const getcustommers = createAsyncThunk ('gocustomer/getcustommers',  asyn
   
   })
 const Gocustommer = createSlice({
-    name: 'auth',
+    name: 'go',
     initialState: { custommer:[], gocreatecustommer:false, goEditecustommer:false ,isLoading:false, error:null},
     reducers:{
     }

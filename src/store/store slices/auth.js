@@ -44,7 +44,7 @@ export const login = createAsyncThunk ('auth/login',
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState: { loggedIn:cookies.get("login"), create: false ,isLoading:false, error:null, token:cookies.get("token")},
+    initialState: { loggedIn:cookies.get("login")?cookies.get("login"):false, create: false ,isLoading:false, error:null, token:cookies.get("token")? cookies.get("token"):""},
     reducers:{
       logOut:(state)=>{
         state.token='';

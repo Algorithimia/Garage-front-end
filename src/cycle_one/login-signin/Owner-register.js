@@ -57,8 +57,9 @@ const Owner_register = () =>{
          return <option key={country.id} value={country.id} >{country.name}</option>
          
     }))
-    let  selectedcountry =  country_id !== '' &&  addressList.find(country => country.id == country_id)
-    let renderedCities = selectedcountry && selectedcountry.cities.map((city)=><option key={city.id} value={city.id} >{city.name}</option>)
+    let  selectedcountry = country_id !== '' &&  addressList.find(country => country.id == country_id)
+    let renderedareas = selectedcountry && selectedcountry.cities.map((city)=>city.areas.map((area)=><option key={area.id} value={area.id} >{area.name}</option>))
+    
     return(
         <>
         {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
@@ -98,8 +99,8 @@ const Owner_register = () =>{
           </div>
           <div className='address-id'>
                 <select name='area_id' value={area_id} onChange={e=>onChange(e)}>
-                <option hidden >City</option>
-                    {renderedCities}
+                <option hidden >Area</option>
+                    {renderedareas}
                 </select>
            </div>
           

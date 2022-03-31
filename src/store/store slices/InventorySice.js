@@ -1,13 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-
-
-export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI) =>{
+export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunkAPI) =>{
     const {rejectWithValue , getState} = thunkAPI
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("http://162.0.237.5/api/v1/user/",{
+      let res = await axios.get("http://162.0.237.5/api/v1/vehicle_models/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}
@@ -19,36 +17,33 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
 }
 
   catch(e){
-    return rejectWithValue(e.message)
+    return rejectWithValue(e.response.data)
   }
   
   })
-
-  
-  const userDetails=createSlice({
-    name:'details',
-    initialState : {userDetails:[], isLoading:false,addLoading:false, error:null},
+  const modelSlice= createSlice({
+    name:'model',
+    initialState : {addressList:[], isLoading:false,addLoading:false, error:null},
     reducers:{
 
     },
     extraReducers:{
          // ............. start address ......................
-        [ getUserDetails.pending ] :(state,action)=>{
+        [ getaddress.pending ] :(state,action)=>{
 
             state.isLoading = true
             state.error = null
             
           
        },
-       [ getUserDetails.fulfilled ] :(state,action)=>{
+       [ getaddress.fulfilled ] :(state,action)=>{
         state.isLoading = false
         state.error= null
-       
-        state.userDetails = action.payload
+        state.addressList = action.payload
     
         
         },
-        [ getUserDetails.rejected ] :(state,action)=>{
+        [ getaddress.rejected ] :(state,action)=>{
              state.isLoading = false
              state.error = action.payload
            console.log(action)
@@ -60,4 +55,4 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
 
 
 })
-export default userDetails.reducer
+export default modelSlice.reducer

@@ -12,7 +12,7 @@ export const getaddress = createAsyncThunk ('address/get',  async(_ ,thunkAPI) =
     let res = await axios.get(`http://162.0.237.5/api/v1/addresses/`,{
       headers: {
        'Content-Type': 'application/json',
-       'X-CSRFToken': cookies.get("csrftoken")
+      
       }
     
     
@@ -30,8 +30,8 @@ export const getaddress = createAsyncThunk ('address/get',  async(_ ,thunkAPI) =
   })
 
   const addressesSlice= createSlice({
-    name:'discounts',
-    initialState : {addressList:[], isLoading:false,addLoading:false, error:null},
+    name:'address',
+    initialState : {addressList:[], isLoading:false, error:null},
     reducers:{
 
     },
