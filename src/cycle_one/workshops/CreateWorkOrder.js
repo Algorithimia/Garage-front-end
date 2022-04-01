@@ -5,6 +5,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import AfterWorkOrder from "./AfterWorkOrder"
 import { useState, useEffect } from "react"
 import {getaddress} from '../../store/store slices/addreseSlice'
+import {getModels} from '../../store/store slices/workOrderSlices/modelSlice'
 const CreateWorkOrder = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -28,8 +29,10 @@ const CreateWorkOrder = () => {
     })
     const {workshop_id, name , phone , email, area_id, country_id ,tax_id ,city_id,vehicle_number,kilometer_driven, chassis_number, engine_number, order_remark ,model_id, fuel_type}=formData
     const {addressList}= useSelector((state)=>state.address)
+    const {models}= useSelector((state)=>state.models)
     useEffect(() =>{
         dispatch(getaddress()); 
+        dispatch(getModels()); ;
       },[dispatch])
       let  countries = addressList.map((country=> {
         return <option key={country.id} value={country.id} >{country.name}</option>

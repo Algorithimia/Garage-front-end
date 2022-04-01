@@ -44,7 +44,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
   }
 })
   const workorderSlice = createSlice({
-    name: 'auth',
+    name: 'workOrders',
     initialState: { workorders:[], isLoading:false, error:null},
     reducers:{
     
@@ -63,7 +63,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
             
             state.isLoading = false;
             state.error = null
-            state.workorders= action.payload.results
+            state.workorders= action.payload
            
 
             

@@ -13,7 +13,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
 const AllWorkOrders = () => {
     const dispatch = useDispatch()
-    const {workorders , isLoading ,error}= useSelector((state)=>state.woekOrders)
+    const {workorders , isLoading ,error}= useSelector((state)=>state.workOrders)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
   
@@ -37,8 +37,8 @@ const AllWorkOrders = () => {
        
     
       },[dispatch])
-      const renderedWorkorders= workorders.map((workorder)=>{
-          return ( <WorkOrder status={workorder.status}  stage='STAGE'  num={workorder.id} date={workorder.created_at} customerName={workorder.customer.name} workItem='Gear Replacement' employName='Sam'   />)
+      const renderedWorkorders= workorders&&workorders.map((workorder)=>{
+          return ( <WorkOrder key={workorder.id} status={workorder.status}  stage='STAGE'  num={workorder.id} date={workorder.created_at} customerName={workorder.customer.name} workItem='Gear Replacement' employName='Sam'   />)
       })
     return (
         <div className='work_orders'>
@@ -99,8 +99,8 @@ const AllWorkOrders = () => {
                         <th> EMPLOYEE <br/>NAME</th>
                     </tr>
                 </thead>
-              
-                <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />
+                {renderedWorkorders}
+                {/* <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />
 
                 <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
                 <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
@@ -108,7 +108,7 @@ const AllWorkOrders = () => {
 
                 <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
                 <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
-                   
+                    */}
             </table>
             <Routes>
                     <Route path="/filter" element={<FilterWorkOrders />} exact  />

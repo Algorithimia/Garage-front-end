@@ -4,7 +4,8 @@ import address from './store slices/addreseSlice'
 import userDetails from './store slices/detailUser'
 import GoEmploye from './store slices/GOEmploy'
 import workshop from './store slices/workshopSlice'
-import woekOrders from './store slices/workOrderSlices/workOrder'
+import workOrders from './store slices/workOrderSlices/workOrder'
+import models from './store slices/workOrderSlices/modelSlice'
 export default   configureStore({
   reducer: {
       auth,
@@ -12,7 +13,8 @@ export default   configureStore({
       userDetails,
       GoEmploye,
       workshop,
-      woekOrders
+      workOrders,
+      models
     }
 
   })

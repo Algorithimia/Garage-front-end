@@ -22,7 +22,7 @@ export const getModels = createAsyncThunk ('models/get',  async(_ ,thunkAPI) =>{
   
   })
   const modelSlice= createSlice({
-    name:'model',
+    name:'models',
     initialState : {models:[], isLoading:false,addLoading:false, error:null},
     reducers:{
 
