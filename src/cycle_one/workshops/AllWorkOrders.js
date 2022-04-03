@@ -16,7 +16,8 @@ const AllWorkOrders = () => {
     const {workorders , isLoading ,error}= useSelector((state)=>state.workOrders)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
-  
+    const [showAlert, setShowAlert]= useState(true)
+
     const upEntries=()=>{
        setEntries(parseInt(entries)+1)
     }
@@ -34,6 +35,15 @@ const AllWorkOrders = () => {
      }
      useEffect(() =>{
         dispatch(getWorkOrders());
+        const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+           
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
        
     
       },[dispatch])
@@ -41,81 +51,87 @@ const AllWorkOrders = () => {
           return ( <WorkOrder key={workorder.id} status={workorder.status}  stage='STAGE'  num={workorder.id} date={workorder.created_at} customerName={workorder.customer.name} workItem='Gear Replacement' employName='Sam'   />)
       })
     return (
-        <div className='work_orders'>
-            <div className='head_section'>
-                <div className='first_line'>
-                    <span>ALL WORK ORDERS</span>
-                    <div className="right">
-                        <div className='inline-block'><Link to='/workshop/owner/allworkorders/filter'><button className="light_blue">FILTER</button></Link></div>
-                        <div className='inline-block show_desktop'><Link to='/workshop/owner/createworkeorder'><button className="blue"><span><AiFillPlusCircle  /> </span>Create Work Oder</button></Link></div>
-                        <div className='inline-block show_mob'><Link to='/workshop/owner/createworkeorder'><button className="blue"><span><AiFillPlusCircle  /> </span>Create</button></Link></div>
-                    </div>
-                </div>
-                <div className="second_line">
-                    <div className='inline-block input_block'>
-                       <span>
-                       Show Entries
-                       </span>
-                       <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
-                       <div className="change_number">
-                        <div className='change' onClick={upEntries}>   
-                         <GoTriangleUp />
+        <>
+          {isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
+
+            <div className='work_orders'>
+                <div className='head_section'>
+                    <div className='first_line'>
+                        <span>ALL WORK ORDERS</span>
+                        <div className="right">
+                        <Link to='/workshop/owner/allworkorders/filter'><div className='inline-block'><button className="light_blue">FILTER</button></div></Link>
+                            <div className='inline-block show_desktop'><Link to='/workshop/owner/createworkeorder'><button className="blue"><span><AiFillPlusCircle  /> </span>Create Work Oder</button></Link></div>
+                            <div className='inline-block show_mob'><Link to='/workshop/owner/createworkeorder'><button className="blue"><span><AiFillPlusCircle  /> </span>Create</button></Link></div>
                         </div>
-                        <div className="up change" onClick={downEntries}>
-                         <GoTriangleDown />
-                        </div>
-                       </div>
-                       
                     </div>
-                    <div className='inline-block input_block'>
+                    <div className="second_line">
+                        <div className='inline-block input_block'>
                         <span>
-                        Date
+                        Show Entries
                         </span>
-                        <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                        <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
                         <div className="change_number">
-                            <div className='change' onClick={upDate}>
-                             <GoTriangleUp />
+                            <div className='change' onClick={upEntries}>   
+                            <GoTriangleUp />
                             </div>
-                            <div className="up change" onClick={downDate}>
-                             <GoTriangleDown />
+                            <div className="up change" onClick={downEntries}>
+                            <GoTriangleDown />
                             </div>
                         </div>
+                        
                         </div>
-                    <div className="right">
-                    <input  placeholder="Search Repair Order" />
-                    <div className='icon'><FaSearch /></div> 
+                        <div className='inline-block input_block'>
+                            <span>
+                            Date
+                            </span>
+                            <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                            <div className="change_number">
+                                <div className='change' onClick={upDate}>
+                                <GoTriangleUp />
+                                </div>
+                                <div className="up change" onClick={downDate}>
+                                <GoTriangleDown />
+                                </div>
+                            </div>
+                            </div>
+                        <div className="right">
+                        <input  placeholder="Search Repair Order" />
+                        <div className='icon'><FaSearch /></div> 
+                        </div>
                     </div>
                 </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> STATUS</th>
+                            <th> (WO)<br/> STAGE</th>
+                            <th> (WO) <br/> NUM</th>
+                            <th> (WO) <br/>DATE</th>
+                            <th>CUSTOMER <br/>NAME </th>
+                            <th> WORK <br/>ITEM</th>
+                            <th> EMPLOYEE <br/>NAME</th>
+                        </tr>
+                    </thead>
+                    {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                    
+                    {renderedWorkorders}
+                    {/* <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />
+
+                    <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
+                    <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
+                    <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />
+
+                    <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
+                    <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
+                        */}
+                </table>
+                <Routes>
+                        <Route path="/filter" element={<FilterWorkOrders />} exact  />
+                        <Route path="/assignEmploye" element={<AssignEmploye />} exact  />
+
+                </Routes>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th> STATUS</th>
-                        <th> (WO)<br/> STAGE</th>
-                        <th> (WO) <br/> NUM</th>
-                        <th> (WO) <br/>DATE</th>
-                        <th>CUSTOMER <br/>NAME </th>
-                        <th> WORK <br/>ITEM</th>
-                        <th> EMPLOYEE <br/>NAME</th>
-                    </tr>
-                </thead>
-                {renderedWorkorders}
-                {/* <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />
-
-                <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
-                <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
-                <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />
-
-                <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement' employName='harry'   />
-                <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement' employName='rose'   />
-                    */}
-            </table>
-            <Routes>
-                    <Route path="/filter" element={<FilterWorkOrders />} exact  />
-                    <Route path="/assignEmploye" element={<AssignEmploye />} exact  />
-
-            </Routes>
-        </div>
+             } </>
     )
 }
 

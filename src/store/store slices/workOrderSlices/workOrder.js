@@ -45,14 +45,15 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
 })
   const workorderSlice = createSlice({
     name: 'workOrders',
-    initialState: { workorders:[], isLoading:false, error:null},
+    initialState: { workorders:[], orderCreated:false , isLoading:false, error:null},
     reducers:{
+  
     
     }
     ,
     extraReducers:{
         [getWorkOrders.pending]:(state,action)=>{
-           
+            state.orderCreated=false
             state.isLoading = true
             state.error = null
          
@@ -60,7 +61,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
     
         },
         [getWorkOrders.fulfilled]:(state,action)=>{
-            
+          state.orderCreated=false
             state.isLoading = false;
             state.error = null
             state.workorders= action.payload
@@ -71,6 +72,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
     
         },
         [getWorkOrders.rejected]:(state,action)=>{
+          state.orderCreated=false
             state.isLoading = false
             state.error = action.payload
            
@@ -79,15 +81,18 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
     
         },
         [ cteateWorkOrder.pending]:(state,action)=>{
+          state.orderCreated=false
             state.isLoading = true
             state.error= null
         },
         [ cteateWorkOrder.fulfilled]:(state,action)=>{
+          state.orderCreated=true
             state.isLoading = false
             state.error= null
             state.workorders= [...state.workorders,action.payload]
         },
          [cteateWorkOrder.rejected]:(state,action)=>{
+          state.orderCreated=false
             state.isLoading = false
             state.error = action.payload
         },
@@ -95,4 +100,5 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
     }
 
 })
+
 export default workorderSlice.reducer

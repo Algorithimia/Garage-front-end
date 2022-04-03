@@ -1,11 +1,12 @@
 import { Col, Row } from "react-bootstrap"
 import { FaSearch } from "react-icons/fa"
-import { Link, Routes, Route, useNavigate } from "react-router-dom"
+import { Link, Routes, Route, useNavigate, Navigate } from "react-router-dom"
 import { useDispatch,useSelector } from 'react-redux'
 import AfterWorkOrder from "./AfterWorkOrder"
 import { useState, useEffect } from "react"
 import {getaddress} from '../../store/store slices/addreseSlice'
 import {getModels} from '../../store/store slices/workOrderSlices/modelSlice'
+import {cteateWorkOrder} from '../../store/store slices/workOrderSlices/workOrder'
 const CreateWorkOrder = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -30,6 +31,7 @@ const CreateWorkOrder = () => {
     const {workshop_id, name , phone , email, area_id, country_id ,tax_id ,city_id,vehicle_number,kilometer_driven, chassis_number, engine_number, order_remark ,model_id, fuel_type}=formData
     const {addressList}= useSelector((state)=>state.address)
     const {models}= useSelector((state)=>state.models)
+    const {orderCreated}= useSelector((state)=>state.workOrders)
     useEffect(() =>{
         dispatch(getaddress()); 
         dispatch(getModels()); ;
@@ -38,6 +40,11 @@ const CreateWorkOrder = () => {
         return <option key={country.id} value={country.id} >{country.name}</option>
         
    }))
+   let  renderedModels = models.map((model=> {
+    return <option key={model.id} value={model.id} >{model.name} &nbsp; {model.brand.name} Brand </option>
+    
+}))
+
    let  selectedcountry = country_id !== '' &&  addressList.find(country => country.id == country_id)
    let renderedCities = selectedcountry && selectedcountry.cities.map((city)=><option key={city.id} value={city.id} >{city.name}</option>)
    let selectedCity = city_id !== '' && selectedcountry.cities.find(city=>city.id ==city_id)
@@ -46,10 +53,11 @@ const CreateWorkOrder = () => {
    const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
    const onSubmit= async e => {   
           e.preventDefault()
-        //   dispatch( (formData))
+         dispatch(cteateWorkOrder (formData))
 
    }
    return (
+       <>
         <div className="create_work_order">
             <div className="main_ttitle">CREATE WORK ORDER
             
@@ -156,9 +164,10 @@ const CreateWorkOrder = () => {
                         <input type='text' placeholder='' disabled/>
                             <select  name='model_id' value={model_id} onChange={e=>onChange(e)}>
                                     <option  hidden >select Model</option>
-                                    <option> option 1</option>
+                                     {renderedModels}
+                                    {/* <option> option 1</option>
                                     <option> option 2</option>
-                                    <option> option 3</option>
+                                    <option> option 3</option> */}
                              </select>
                       </div>
                      </Col>
@@ -221,13 +230,21 @@ const CreateWorkOrder = () => {
                         </Col>
                   </Row>
                 </div>
-               <Link to='/workshop/owner/createworkeorder/afterworkorder'> <input className='dark_button' type='submit' value='Create Order'/> </Link> 
+               {/* <Link to='/workshop/owner/createworkeorder/afterworkorder'> */}
+                    <input className='dark_button' type='submit' value='Create Order'/> 
+                    {/* </Link>  */}
+                    
             </form>
+            {console.log(orderCreated)}
+            
 
             <Routes>
                     <Route path="/afterworkorder" element={<AfterWorkOrder  back='BACK TO WORK ORDERS' path='/workshop/owner/allworkorders' />} exact  />
             </Routes>
+        
         </div>
+        { orderCreated ?  <Navigate to="/workshop/owner/createworkeorder/afterworkorder" > </Navigate> : ''}
+     </>
     )
 }
 
