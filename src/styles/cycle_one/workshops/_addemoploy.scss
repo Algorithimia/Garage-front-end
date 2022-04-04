@@ -156,6 +156,21 @@
         margin-bottom: 15px;
     }
     }
+    
+    .main_input .phone-code {
+         padding: 20px 0px!important;
+         text-align: center;
+        width: 20% !important;
+        @media screen and (max-width: 556px) {
+            width: 30% !important;
+           }
+    }
+    .phone-number{
+        width: 70% !important;
+        @media screen and (max-width: 556px) {
+            width: 60% !important;
+           }
+    }
        
 
 

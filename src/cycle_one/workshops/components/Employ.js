@@ -13,7 +13,7 @@ const Employ = ({employ}) => {
              <button>View Assigned Work Orders</button>
             </Link>
             <div className='login_info'>
-                <span className='right'> <Link to='/workshop/owner/employes/changeinfo'> <span> <RiEditLine /> </span> </Link> </span>
+                <span className='right'> <Link to='/workshop/owner/employes/changeinfo' state={{ employ: employ }}> <span> <RiEditLine /> </span> </Link> </span>
                 <div className='info'>
                     <div>USER NAME</div>
                     <span className='gray_color'>{employ.email}</span>

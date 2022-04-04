@@ -10,7 +10,7 @@ const AfterWorkOrder = ({back,path}) => {
   
       
         dispatch(getWorkOrders());
-    });
+    },[dispatch]);
 
     return (
         <div className='opacity'>

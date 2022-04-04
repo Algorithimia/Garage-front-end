@@ -28,7 +28,45 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
   
      try{
           const token= getState().auth.token
-      const body= JSON.stringify(createData)
+          createData.vehicle={
+            model_id:createData.model_id,
+            name:createData.model_id,
+            fuel_type:createData.fuel_type,
+            fuel_indicator:createData.fuel_indicator,
+            kilometer_driven:createData.kilometer_driven,
+            chassis_number:createData.chassis_number,
+            engine_number:createData.engine_number,
+            vehicle_number:createData.vehicle_number,
+
+          }
+          createData.customer={
+            email:createData.email,
+            name:createData.name,
+            phone:createData.phone,
+            area_id:createData.area_id,
+            country_id:createData.country_id,
+            tax_id:createData.tax_id,
+            
+
+          }
+         
+            // delete createData.model_id
+            // delete createData.fuel_type
+            // delete createData.fuel_indicator
+            // delete createData.kilometer_driven
+            // delete createData.chassis_number
+            // delete createData.engine_number
+            // delete createData.vehicle_number
+
+            // delete createData.email
+            // delete createData.name
+            // delete createData.phone
+            // delete createData.area_id
+            // delete createData.country_id
+            // delete createData.tax_id
+            let data = createData
+   
+      const body= JSON.stringify(data)
       const response = await axios.post("http://162.0.237.5/api/v1/workshop/work_orders/create/", body, {
         headers: {
           'Content-Type': 'application/json', 
@@ -47,6 +85,11 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
     name: 'workOrders',
     initialState: { workorders:[], orderCreated:false , isLoading:false, error:null},
     reducers:{
+      clearstate:(state)=>{
+        state.orderCreated= false
+        state.error= false
+
+      }
   
     
     }
@@ -100,5 +143,6 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
     }
 
 })
+export const {clearstate} = workorderSlice.actions
 
 export default workorderSlice.reducer

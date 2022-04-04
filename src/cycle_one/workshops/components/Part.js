@@ -1,27 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import{MdCreditCard,MdDeleteSweep} from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
-const Part = () => {
+const Part = ({sparePart}) => {
+    const[showList, setShowList] = useState(false)
     return (
         <div className='part'>
-                PART 3
+            <div onClick={() =>setShowList(!showList)}>
+           { sparePart.spare_part.title}
                 <span className='right'> <Link to='/workshop/owner/purchase/visa'><span className='yello'><MdCreditCard /></span></Link> <span className='gray'><MdDeleteSweep /></span>  </span>
-                <div className='hiddenlist'>
-                <span>A/C air duct and vent</span>
+            </div>
+               
+               {showList && <div className='hiddenlist'>
+                <span>{ sparePart.spare_part.description}</span>
                 <br />
                 QUANTITY
                 <br />
-                <span>01</span>
+                <span>{ sparePart.spare_part.quantity}</span>
                 <br />
                 INVOICE NUMBER
                 <br />
-                <span>451</span>
+                <span>??</span>
                 <br />
                 DATE
                 <br />
-                <span>12/6</span>
+                <span>{ sparePart.spare_part.total_price}</span>
                 <table>
                     
                         <tr>
@@ -32,12 +36,12 @@ const Part = () => {
                         </tr>
                     
                     <tr className='bold'>
-                        <th className='black' > 100 $</th>
-                        <th  className='blue'>70 $ </th>
-                        <th className='red'>30 $</th>
+                        <th className='black' > { sparePart.total_price}</th>
+                        <th  className='blue'>{ sparePart.paid} </th>
+                        <th className='red'>{ sparePart.due_amount}</th>
                         </tr>
             </table>
-            </div>
+                </div>}
         </div>
     )
 }

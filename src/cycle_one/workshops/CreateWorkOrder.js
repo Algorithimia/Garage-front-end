@@ -6,11 +6,11 @@ import AfterWorkOrder from "./AfterWorkOrder"
 import { useState, useEffect } from "react"
 import {getaddress} from '../../store/store slices/addreseSlice'
 import {getModels} from '../../store/store slices/workOrderSlices/modelSlice'
-import {cteateWorkOrder} from '../../store/store slices/workOrderSlices/workOrder'
+import {cteateWorkOrder , clearstate} from '../../store/store slices/workOrderSlices/workOrder'
 const CreateWorkOrder = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    
+    const [showAlert, setShowAlert]= useState(true)
     const [formData, setFormData] = useState({
         workshop_id: 2,
         email:'',
@@ -26,15 +26,19 @@ const CreateWorkOrder = () => {
         engine_number:'',
         order_remark:'',
         model_id:'',
-        fuel_type:''
+        fuel_type:'',
+        fuel_indicator:''
     })
-    const {workshop_id, name , phone , email, area_id, country_id ,tax_id ,city_id,vehicle_number,kilometer_driven, chassis_number, engine_number, order_remark ,model_id, fuel_type}=formData
+    const {workshop_id, name , phone , email, area_id, country_id ,tax_id ,city_id,vehicle_number,kilometer_driven, chassis_number, engine_number, order_remark ,model_id, fuel_type, fuel_indicator}=formData
     const {addressList}= useSelector((state)=>state.address)
     const {models}= useSelector((state)=>state.models)
-    const {orderCreated}= useSelector((state)=>state.workOrders)
+    const {orderCreated, error}= useSelector((state)=>state.workOrders)
     useEffect(() =>{
+        
         dispatch(getaddress()); 
-        dispatch(getModels()); ;
+        dispatch(getModels()); 
+        dispatch(clearstate()); 
+           
       },[dispatch])
       let  countries = addressList.map((country=> {
         return <option key={country.id} value={country.id} >{country.name}</option>
@@ -47,17 +51,33 @@ const CreateWorkOrder = () => {
 
    let  selectedcountry = country_id !== '' &&  addressList.find(country => country.id == country_id)
    let renderedCities = selectedcountry && selectedcountry.cities.map((city)=><option key={city.id} value={city.id} >{city.name}</option>)
-   let selectedCity = city_id !== '' && selectedcountry.cities.find(city=>city.id ==city_id)
+   let selectedCity = city_id !== '' && selectedcountry && selectedcountry.cities.find(city=>city.id ==city_id)
    let renderedareas = selectedCity && selectedCity.areas.map((area)=><option key={area.id} value={area.id} >{area.name}</option>)
   
    const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
    const onSubmit= async e => {   
           e.preventDefault()
          dispatch(cteateWorkOrder (formData))
-
+          //for allert 
+          setShowAlert(true)
+          const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
+          
+            
+          
+      
    }
    return (
        <>
+         {console.log('esraae' + showAlert)}
+         {console.log(showAlert)}
+          
         <div className="create_work_order">
             <div className="main_ttitle">CREATE WORK ORDER
             
@@ -66,8 +86,10 @@ const CreateWorkOrder = () => {
                  <span> <FaSearch /> </span>
              </div>
             </div>
-           
+            {showAlert && error && <div className='msg-error'>{ Object.values(error) ? Object.values(error): error } error</div> }<br/>
+          
             <form onSubmit={e=>onSubmit(e)}>
+           
                 <div className="customer_info_create">
                 <div className="title">CUSTOMER INFO</div>
                 <Row>
@@ -130,8 +152,9 @@ const CreateWorkOrder = () => {
                 <div className='main_input'>
                     <label>Phone Number</label>
                     <input className='phone-code'   maxLength="3"  placeholder='+20' 
-                    value={ country_id !== '' ?  addressList.find(country => country.id == country_id).phone_code:'' }  
-                    name="code"  />
+                    defaultValue={ country_id !== '' ?  selectedcountry&& addressList.find(country => country.id == country_id).phone_code:'' }  
+                    name="code" 
+                     />
                     
                     <input className='phone-number' onChange={e=>onChange(e)} required type='tel' placeholder='1111111111'  name="phone" value={phone} />
                
@@ -186,32 +209,32 @@ const CreateWorkOrder = () => {
                      <Col lg={4} md={6} className="margin_top">
                      <div className='main_input'>
                         <label>Vehicle Number</label>
-                        <input type='text' placeholder='Vehicle Number'  name='vehicle_number' value={vehicle_number} onChange={e=>onChange(e)} required/>
+                        <input type='number' placeholder='Vehicle Number'  name='vehicle_number' value={vehicle_number} onChange={e=>onChange(e)} required/>
                          
                       </div>
                      </Col>
                      <Col lg={4} md={6} className="margin_top">
                      <div className='main_input'>
                             <label>Kilometer Driven</label>
-                            <input type='text' placeholder='Kilometer Driven'  name='kilometer_driven' value={kilometer_driven} onChange={e=>onChange(e)} required/>
+                            <input type='number' placeholder='Kilometer Driven'  name='kilometer_driven' value={kilometer_driven} onChange={e=>onChange(e)} required/>
                         </div>
                      </Col>
                      <Col lg={4} md={6} className="margin_top">
                      <div className='main_input'>
                             <label>Chassis Number</label>
-                            <input type='text' placeholder='Chassis Number'  name='chassis_number' value={chassis_number} onChange={e=>onChange(e)} required/>
+                            <input type='number' placeholder='Chassis Number'  name='chassis_number' value={chassis_number} onChange={e=>onChange(e)} required/>
                         </div>
                      </Col>
                      <Col lg={4} md={6} className="margin_top">
                      <div className='main_input'>
                             <label>Engine Number</label>
-                            <input type='text' placeholder='Engine Number' name='engine_number' value={engine_number} onChange={e=>onChange(e)} required/>
+                            <input type='number' placeholder='Engine Number' name='engine_number' value={engine_number} onChange={e=>onChange(e)} required/>
                         </div>
                      </Col>
                      <Col lg={4} md={6} className="margin_top">
                      <div className='main_input'>
                             <label>Fuel Indicator</label>
-                            <input type='text' placeholder='Fuel Indicator'/>
+                            <input type='number' placeholder='Fuel Indicator'  name='fuel_indicator' value={fuel_indicator} onChange={e=>onChange(e)} required/>
                         </div>
                      </Col>
                  </Row>
@@ -235,7 +258,7 @@ const CreateWorkOrder = () => {
                     {/* </Link>  */}
                     
             </form>
-            {console.log(orderCreated)}
+            
             
 
             <Routes>

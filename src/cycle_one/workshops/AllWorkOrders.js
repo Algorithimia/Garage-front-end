@@ -10,10 +10,10 @@ import FilterWorkOrders from "./FilterWorkOrders"
 import AssignEmploye from './AssinEmploye'
 
 import { useDispatch,useSelector } from 'react-redux'
-import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+import{getWorkOrders, clearstate} from '../../store/store slices/workOrderSlices/workOrder'
 const AllWorkOrders = () => {
     const dispatch = useDispatch()
-    const {workorders , isLoading ,error}= useSelector((state)=>state.workOrders)
+    const {workorders , isLoading, orderCreated ,error}= useSelector((state)=>state.workOrders)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
     const [showAlert, setShowAlert]= useState(true)
@@ -22,7 +22,7 @@ const AllWorkOrders = () => {
        setEntries(parseInt(entries)+1)
     }
     const downEntries=()=>{
-       setEntries(parseInt(entries)-1)
+        entries!==0 && setEntries(parseInt(entries)-1)
     }
     const upDate=()=>{
         setDate(parseInt(date)+1)
@@ -30,11 +30,12 @@ const AllWorkOrders = () => {
       
      }
      const downDate=()=>{
-        setDate(parseInt(date)-1)
+        date!==0 && setDate(parseInt(date)-1)
       
      }
      useEffect(() =>{
         dispatch(getWorkOrders());
+        dispatch(clearstate()); 
         const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
             setShowAlert(false)
@@ -48,7 +49,7 @@ const AllWorkOrders = () => {
     
       },[dispatch])
       const renderedWorkorders= workorders&&workorders.map((workorder)=>{
-          return ( <WorkOrder key={workorder.id} status={workorder.status}  stage='STAGE'  num={workorder.id} date={workorder.created_at} customerName={workorder.customer.name} workItem='Gear Replacement' employName='Sam'   />)
+          return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
       })
     return (
         <>
@@ -69,7 +70,7 @@ const AllWorkOrders = () => {
                         <span>
                         Show Entries
                         </span>
-                        <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
+                        <input type='number'  onChange={(e)=> setEntries(e.target.value)} min="0" value={entries}/>
                         <div className="change_number">
                             <div className='change' onClick={upEntries}>   
                             <GoTriangleUp />
@@ -84,7 +85,7 @@ const AllWorkOrders = () => {
                             <span>
                             Date
                             </span>
-                            <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                            <input type='number'  value={date} min="0"  onChange={(e)=> setDate(e.target.value)}/>
                             <div className="change_number">
                                 <div className='change' onClick={upDate}>
                                 <GoTriangleUp />
@@ -113,6 +114,7 @@ const AllWorkOrders = () => {
                         </tr>
                     </thead>
                     {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                   
                     
                     {renderedWorkorders}
                     {/* <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement' employName='Sam'   />

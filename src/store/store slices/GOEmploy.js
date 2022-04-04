@@ -30,8 +30,12 @@ export const editeEmploy = createAsyncThunk ('goemploy/updateemploy',  async(edi
                'Authorization': `Bearer ${token}`,
   }}
 try{
+if(editedEmployData.oldEmail == editedEmployData.email ){
+  delete editedEmployData.email
 
-let body= JSON.stringify(editedEmployData)
+}
+let data = editedEmployData
+let body= JSON.stringify(data)
 let response = await axios.put("http://162.0.237.5/api/v1/workshop/employee/update1/", body, config)
 
   if(response.status == 200) {
@@ -79,6 +83,7 @@ const GoEmploye = createSlice({
       clearstate:(state)=>{
         state.gocreateemploy= false
         state.goEditeemploy=false
+        state.error= false
 
       }
     }

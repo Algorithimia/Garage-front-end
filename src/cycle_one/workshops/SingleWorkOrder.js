@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {BsPencilSquare} from 'react-icons/bs'
 import{FaCar} from 'react-icons/fa'
 import{MdCreditCard,MdDeleteSweep} from 'react-icons/md'
@@ -7,11 +7,39 @@ import { Col, Row } from 'react-bootstrap'
 
 
 import Part from './components/Part'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import ShowMoreText from 'react-show-more-text'
+import { useDispatch, useSelector } from 'react-redux'
+import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+
 
 const SingleWorkOrder = () => {
+  const dispatch = useDispatch()
+  const {workorders , isLoading ,error}= useSelector((state)=>state.workOrders)
+  const [showAlert, setShowAlert]= useState(true)
+  useEffect(() =>{
+    dispatch(getWorkOrders());
+    const timeId = setTimeout(() => {
+        // After 3 seconds set the showAlert value to false
+        setShowAlert(false)
+       
+      }, 5000)
+  
+      return () => {
+        clearTimeout(timeId)
+      }
+   
+
+  },[dispatch])
+  let { id }  = useParams();
+  const workorder =workorders&& workorders.find(order => order.id == id)
+ 
+ const renderedSpareParts=  workorder&&  workorder.used_spare_parts && workorder.used_spare_parts.map((sparePart)=>{
+   return <Part sparePart={sparePart} key={sparePart.id} /> 
+ }
+ 
+ )
     return (
         <div className='single_work_order'>
             <div className='first_line'>
@@ -30,11 +58,11 @@ const SingleWorkOrder = () => {
                   <Col md={12} lg={6}> 
                    <div className='car'> 
                      <div className='header'>
-                       <span>CAR NAME</span>
+                       <span>{workorder && workorder.vehicle.name}</span>
                        <Link to='/workshop/owner/createworkeorder'><button className='right'><span><BsPencilSquare /> </span>Edit</button></Link>
                      </div>
-                     <div className='car_info'> <FaCar /> &nbsp;  Car &nbsp;  BMW &nbsp;  A7 &nbsp; Fuel 6%</div>
-                     <div className='more_info'>Engine Number : 2 | Chassis <br /> Number : 125 <br/> 0 KM Driven <br/> yomna sabry<br/> 012 158 123 - example@gmail.com <br/>ADDRESS : Egypt ,Cairo <br/>TAX NUMBER : 123
+                     <div className='car_info'> <FaCar /> &nbsp;  {workorder && workorder.vehicle.model.name}  &nbsp;  {workorder && workorder.vehicle.model.brand.name} &nbsp;  A7 &nbsp; {workorder&& workorder.vehicle.fuel_type} &nbsp; {workorder&& workorder.vehicle.fuel_indicator}%</div>
+                     <div className='more_info'>Engine Number : {workorder && workorder.vehicle.engine_number} | {workorder && workorder.vehicle.chassis_number} <br /> Number : {workorder&& workorder.id} <br/> {workorder&& workorder.vehicle.kilometer_driven} KM Driven <br/> {workorder&& workorder.customer.name}<br/> {workorder&& workorder.customer.phone} - {workorder&& workorder.customer.email} <br/>ADDRESS : Egypt ,Cairo <br/>TAX NUMBER : 123
                       <div className='line'></div>
                      </div>
                       <div className='note'><Row> <Col sm={3}><span>Note</span> </Col> <Col sm={9}> <div className='text'>
@@ -50,7 +78,7 @@ const SingleWorkOrder = () => {
                                       width={280}
                                       truncatedEndingComponent={"... "}
                                   >
-                                      Nulla eleifend pulvinar purus, molestie euismod odio imperdiet ac. Ut sit amet erat nec nibh rhoncus varius in non lorem. Donec interdum, lectus in convallis pulvinar, enim elit porta sapien, vel finibus erat felis sed neque. Etiam aliquet neque sagittis erat tincidunt aliquam. Vestibulum at neque hendrerit, mollis dolor at, blandit justo. Integer ac interdum purus. In placerat lorem non quam pulvinar molestie ac eget lacus. Proin mollis lobortis porttitor. Nam in fringilla felis. Nunc non magna maximus, pulvinar justo ut, pulvinar lacus. Vivamus semper ex vel felis lobortis, nec feugiat erat pulvinar. Cras eu sem sed tellus sodales pellentesque nec id libero. Vestibulum tincidunt, ipsum vitae finibus tempus, orci mi iaculis lacus, id faucibus erat leo ac nisl. Nullam vel pulvinar nisi, ac fringilla urna.
+                                   {workorder&& workorder.order_remark}
                                </ShowMoreText>
                         
                         </div></Col></Row> </div>
@@ -61,18 +89,7 @@ const SingleWorkOrder = () => {
                        <Link to='/workshop/owner/selectinventory'><button className='right'>Add</button></Link>
                      </div>
                      <div className='parts'>
-                         <div className='part'>
-                         PART 1
-                         <span className='right'> <Link to='/workshop/owner/purchase/visa'> <span className='yello'><MdCreditCard /></span></Link> <span className='gray'><MdDeleteSweep /></span>  </span>
-                          
-
-                         </div>
-                         <div className='part'>
-                         PART 2
-                         <span className='right'> <Link to='/workshop/owner/purchase/visa'><span className='yello'><MdCreditCard /></span> </Link><span className='gray'><MdDeleteSweep /></span>  </span>
-                         </div>
-                         < Part />
-
+                         {renderedSpareParts}
                        </div>
                        
 

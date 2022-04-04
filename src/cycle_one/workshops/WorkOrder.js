@@ -1,20 +1,20 @@
 
 import{BsThreeDotsVertical} from 'react-icons/bs'
 import OverlayList from './OverlayList'
-const WorkOrder = ({status, stage,  num, date, customerName, workItem, employName}) => {
+const WorkOrder = ({workorder}) => {
     return (
         <tr>
-        <th > <div className={status+' '+ 'state'}>{status}</div> </th>
-        <th> {stage}</th>
-        <th> {num}</th>
-        <th> {date}</th>
-        <th>{customerName}</th>
-        <th>{workItem}</th>
-        <th> {employName}</th>
+        <th > <div className={workorder.status+' '+ 'state'}>{workorder.status}</div> </th>
+        <th> {workorder.stages}</th>
+        <th> {workorder.id}</th>
+        <th> {workorder.created_at}</th>
+        <th>{workorder.customer.name}</th>
+        <th>{workorder.workItem}</th>
+        <th> {workorder.employees}</th>
         <th className='moreIcon'>
         
 
-           <OverlayList option1='VIEW WORK ORDER' option1_path='/workshop/owner/singleworkorder'
+           <OverlayList option1='VIEW WORK ORDER' option1_path={`/workshop/owner/singleworkorder/${workorder.id}`}
                         option2='ASSIGN EMPLOYEE' option2_path='/workshop/owner/allworkorders/assignEmploye'
                         option3='ASSIGN SPARE PARTS' option3_path='/workshop/owner/selectinventory' 
                         option4='VIEW CUSTOMER' option4_path='/workshop/owner/viewcustomer'  
