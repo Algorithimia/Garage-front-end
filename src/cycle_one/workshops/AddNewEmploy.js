@@ -98,9 +98,18 @@ const AddNewEmploy = () => {
                     </div>
                    </Col>
                    <Col md={6} lg={4}>
-                   <div className='main_input'>
+                   {/* <div className='main_input'>
                         <label>Phone Number</label>
+                        
                         <input type='text' placeholder='Phone Number' name='phone' value={phone} onChange={e=>onChange(e)} required/>
+                    </div> */}
+                    <div className='main_input'>
+                        <label>Country</label>
+                        <input type='text' value=' '/>
+                        <select name='country_id' value={country_id} onChange={e=>onChange(e)} required>
+                        <option hidden >choose a country</option>
+                            {countries}
+                        </select>
                     </div>
                    </Col>
            
@@ -120,13 +129,17 @@ const AddNewEmploy = () => {
                 
                    <Col md={6} lg={4}>
                    <div className='main_input'>
-                        <label>Country</label>
-                        <input type='text' value=' '/>
-                        <select name='country_id' value={country_id} onChange={e=>onChange(e)} required>
-                        <option hidden >choose a country</option>
-                            {countries}
-                        </select>
+                    <label>Phone Number</label>
+                    <input className='phone-code'   maxLength="3"  placeholder='+20' 
+                    defaultValue={ country_id !== '' ?   addressList.find(country => country.id == country_id).phone_code:'' }  
+                    name="code" 
+                     />
+                    
+                    <input className='phone-number' onChange={e=>onChange(e)} required type='tel' placeholder='1111111111'  name="phone" value={phone} />
+               
+               
                     </div>
+                 
                    </Col> 
                </Row>
              

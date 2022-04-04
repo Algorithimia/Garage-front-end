@@ -30,6 +30,7 @@ const Employes = () => {
     
       },[dispatch])
 
+    
     const renderedEmploys =employs && employs.map((employ)=>{ return(
         <Col md={6} sm={12}>
                  <Employ employ={employ} /> 

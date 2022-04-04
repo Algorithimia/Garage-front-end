@@ -17,9 +17,8 @@ const EditeEmploy = () => {
    
     const [formData, setFormData] = useState({
         workshop_id:2,
+        oldEmail:location.state.employ.email,
         email:location.state.employ.email,
-        password:location.state.employ.password,
-        confirm_password:location.state.employ.confirm_password,
         name: location.state.employ.name,
         phone: location.state.employ.phone,
         country_id:location.state.employ.country_id,
@@ -29,7 +28,7 @@ const EditeEmploy = () => {
         
     })
    
-    const {workshop_id,email, name,phone , password, confirm_password,country_id,salary, bonus } = formData
+    const {workshop_id,email,oldEmail, name,phone , password, confirm_password,country_id,salary, bonus } = formData
     const {addressList}= useSelector((state)=>state.address)
     useEffect(() =>{
         dispatch(getaddress());
@@ -98,8 +97,12 @@ const EditeEmploy = () => {
                    </Col>
                    <Col md={6} lg={4}>
                    <div className='main_input'>
-                        <label>Phone Number</label>
-                        <input type='text' placeholder='Phone Number' name='phone' value={phone} onChange={e=>onChange(e)} required/>
+                        <label>Country</label>
+                        <input type='text' value=' '/>
+                        <select name='country_id' value={country_id} onChange={e=>onChange(e)} required>
+                        <option hidden >choose a country</option>
+                            {countries}
+                        </select>
                     </div>
                    </Col>
            
@@ -116,25 +119,19 @@ const EditeEmploy = () => {
                     </div>
 
                    </Col>
+            
                    <Col md={6} lg={4}>
-                   <div className='main_input'>
-                        <label>Workshop</label>
-                        <input value=''/>
-                        <select  name='workshop_id' value={workshop_id} onChange={e=>onChange(e)} required>
-                            <option hidden >choose a Workshop</option>
-                            {/* {renderedWorkshops} */}
-                        </select>
-                    </div>
+                   
+                    <div className='main_input'>
+                    <label>Phone Number</label>
+                    <input className='phone-code'   maxLength="3"  placeholder='+20' 
+                    defaultValue={ country_id !== '' ?  country_id && addressList.find(country => country.id == country_id).phone_code:'' }  
+                    name="code" 
+                     />
                     
-                   </Col>
-                   <Col md={6} lg={4}>
-                   <div className='main_input'>
-                        <label>Country</label>
-                        <input type='text' value=' '/>
-                        <select name='country_id' value={country_id} onChange={e=>onChange(e)} required>
-                        <option hidden >choose a country</option>
-                            {countries}
-                        </select>
+                    <input className='phone-number' onChange={e=>onChange(e)} required type='tel' placeholder='1111111111'  name="phone" value={phone} />
+               
+               
                     </div>
                    </Col> 
                </Row>
@@ -146,10 +143,10 @@ const EditeEmploy = () => {
                    <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Email ID</label>
-                        <input type='text' placeholder='Email ID'  name='email' value={email} onChange={e=>onChange(e)} required/>
+                        <input type='text' placeholder='Email ID'  name='email' value={email? email : oldEmail} onChange={e=>onChange(e)} required/>
                     </div>
                    </Col>
-                   <Col md={6} lg={4}>
+                   {/* <Col md={6} lg={4}>
                    <div className='main_input'>
                         <label>Password</label>
                         <input type='password' placeholder='●●●●●●●●●●●' name='password' value={password} onChange={e=>onChange(e)} required/>
@@ -160,7 +157,7 @@ const EditeEmploy = () => {
                         <label>Confirm Pasword</label>
                         <input type='password' placeholder='●●●●●●●●●●●' name='confirm_password' value={confirm_password} onChange={e=>onChange(e)} required/>
                     </div>
-                   </Col>
+                   </Col> */}
                </Row>
              
              </div>
