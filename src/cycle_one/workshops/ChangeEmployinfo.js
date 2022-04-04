@@ -50,8 +50,8 @@ const onSubmit= async (e) => {
       <div className='change'>
           <div className='title'>
           CHANGE 
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL3bQlljod-AMBeQQJDMtOgaugGBBuz1LI2w&usqp=CAU' />
-            <span> employee name </span>
+            <img src={location.state.employ.avatar} />
+            <span> {location.state.employ.name} </span>
              Email/PASSWORD 
           </div>
           <form onSubmit={e=>onSubmit(e)}>

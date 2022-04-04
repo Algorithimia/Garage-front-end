@@ -17,6 +17,7 @@ const AllWorkOrders = () => {
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
     const [showAlert, setShowAlert]= useState(true)
+    const [filteredData, setFilteredData]= useState(null)
 
     const upEntries=()=>{
        setEntries(parseInt(entries)+1)
@@ -48,7 +49,10 @@ const AllWorkOrders = () => {
        
     
       },[dispatch])
-      const renderedWorkorders= workorders&&workorders.map((workorder)=>{
+      const renderedWorkorders=filteredData? filteredData.map((workorder)=>{
+        return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
+    })
+    : workorders&&workorders.map((workorder)=>{
           return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
       })
     return (
@@ -128,7 +132,7 @@ const AllWorkOrders = () => {
                         */}
                 </table>
                 <Routes>
-                        <Route path="/filter" element={<FilterWorkOrders />} exact  />
+                        <Route path="/filter" element={<FilterWorkOrders workorders={workorders} setFilteredData={setFilteredData} />} exact  />
                         <Route path="/assignEmploye" element={<AssignEmploye />} exact  />
 
                 </Routes>
