@@ -9,7 +9,7 @@ async(createData ,thunkAPI) =>{
  try{
       const token= getState().auth.token
   const body= JSON.stringify(createData)
-  const response = await axios.post("http://162.0.237.5/api/v1/workshop/employee/create/", body, {
+  const response = await axios.post("https://www.getgarage.me/api/v1/workshop/employee/create/", body, {
     headers: {
       'Content-Type': 'application/json', 
       'Authorization': `Bearer ${token}`
@@ -33,7 +33,7 @@ catch (e) {
       try{
       
       let body= JSON.stringify(editedEmployData)
-      let response = await axios.put("http://162.0.237.5/api/v1/workshop/employee/update1/", body, config)
+      let response = await axios.put("https://www.getgarage.me/api/v1/workshop/employee/update1/", body, config)
       
         if(response.status == 200) {
           return  ({...editedEmployData, ...response.data}) 
@@ -57,7 +57,7 @@ export const getcustommers = createAsyncThunk ('gocustomer/getcustommers',  asyn
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("http://162.0.237.5/api/v1/workshop/2/custommeres/",{
+      let res = await axios.get("https://www.getgarage.me/api/v1/workshop/2/custommeres/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}

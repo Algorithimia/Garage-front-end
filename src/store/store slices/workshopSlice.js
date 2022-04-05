@@ -13,7 +13,7 @@ export const creatWorkshop = createAsyncThunk ('goemploy/creatWorkshop',
       formData.append('area_id', createData.area_id);
       formData.append('image', createData.image);
       
-      const response = await axios.post("http://162.0.237.5/api/v1/workshop/create/", formData, {
+      const response = await axios.post("https://www.getgarage.me/api/v1/workshop/create/", formData, {
         headers: {
           'Content-Type': 'application/json', 
           'Authorization': `Bearer ${token}`

@@ -18,7 +18,7 @@ const AllWorkOrders = () => {
     const [date, setDate] =  useState(0);
     const [showAlert, setShowAlert]= useState(true)
     const [filteredData, setFilteredData]= useState(null)
-
+    const [search , setSearch] = useState('')
     const upEntries=()=>{
        setEntries(parseInt(entries)+1)
     }
@@ -55,6 +55,19 @@ const AllWorkOrders = () => {
     : workorders&&workorders.map((workorder)=>{
           return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
       })
+      const onChange=e=>{setSearch(e.target.value.toLowerCase())}
+      const data = filteredData ? filteredData: workorders
+      const searchResult = data.filter((el) => {
+   
+        if (search === '') {
+            return el
+        }
+      
+        else {        
+            return ( el.customer.name.toLowerCase().includes(search) )           
+        }
+    })
+    console.log(searchResult)
     return (
         <>
           {isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
@@ -100,7 +113,7 @@ const AllWorkOrders = () => {
                             </div>
                             </div>
                         <div className="right">
-                        <input  placeholder="Search Repair Order" />
+                        <input  placeholder="Search Repair Order"  value={search} onChange={e=>onChange(e)} />
                         <div className='icon'><FaSearch /></div> 
                         </div>
                     </div>

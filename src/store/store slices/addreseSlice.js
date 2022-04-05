@@ -9,7 +9,7 @@ export const getaddress = createAsyncThunk ('address/get',  async(_ ,thunkAPI) =
   try{
     const token= getState().auth.token
   
-    let res = await axios.get(`http://162.0.237.5/api/v1/addresses/`,{
+    let res = await axios.get(`https://www.getgarage.me/api/v1/addresses/`,{
       headers: {
        'Content-Type': 'application/json',
       

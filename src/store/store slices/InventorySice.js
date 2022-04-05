@@ -5,7 +5,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("http://162.0.237.5/api/v1/vehicle_models/",{
+      let res = await axios.get("https://www.getgarage.me/api/v1/vehicle_models/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}

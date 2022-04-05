@@ -5,7 +5,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("http://162.0.237.5/api/v1/workshop/2/work_orders/inside/",{
+      let res = await axios.get("https://www.getgarage.me/api/v1/workshop/2/work_orders/inside/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}
@@ -67,7 +67,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
             let data = createData
    
       const body= JSON.stringify(data)
-      const response = await axios.post("http://162.0.237.5/api/v1/workshop/work_orders/create/", body, {
+      const response = await axios.post("https://www.getgarage.me/api/v1/workshop/work_orders/create/", body, {
         headers: {
           'Content-Type': 'application/json', 
           'Authorization': `Bearer ${token}`

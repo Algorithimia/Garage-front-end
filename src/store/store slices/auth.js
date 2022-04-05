@@ -8,7 +8,7 @@ export const grageOwnerRegister = createAsyncThunk ('auth/grageOwnerRegister',
     try{
 
       const body= JSON.stringify(registerData)
-      const response = await axios.post("http://162.0.237.5/api/v1/garage_owner/create/", body, {
+      const response = await axios.post("https://www.getgarage.me/api/v1/garage_owner/create/", body, {
         headers: {
           'Content-Type': 'application/json', 
         
@@ -27,7 +27,7 @@ export const login = createAsyncThunk ('auth/login',
     const {rejectWithValue} = thunkAPI
     try{
       const body= JSON.stringify(loginData)
-      const response = await axios.post("http://162.0.237.5/api/v1/login/", body, {
+      const response = await axios.post("https://www.getgarage.me/api/v1/login/", body, {
         headers: {
           'Content-Type': 'application/json', 
        

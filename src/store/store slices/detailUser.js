@@ -7,7 +7,7 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("http://162.0.237.5/api/v1/user/",{
+      let res = await axios.get("https://www.getgarage.me/api/v1/user/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}
