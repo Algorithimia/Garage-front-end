@@ -49,12 +49,7 @@ const AllWorkOrders = () => {
        
     
       },[dispatch])
-      const renderedWorkorders=filteredData? filteredData.map((workorder)=>{
-        return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
-    })
-    : workorders&&workorders.map((workorder)=>{
-          return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
-      })
+     
       const onChange=e=>{setSearch(e.target.value.toLowerCase())}
       const data = filteredData ? filteredData: workorders
       const searchResult = data.filter((el) => {
@@ -67,7 +62,10 @@ const AllWorkOrders = () => {
             return ( el.customer.name.toLowerCase().includes(search) )           
         }
     })
-    console.log(searchResult)
+    const renderedWorkorders= searchResult.map((workorder)=>{
+        return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
+    })
+ 
     return (
         <>
           {isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
