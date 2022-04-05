@@ -202,6 +202,24 @@
         padding-left: 20px;
         margin-top: 117px;
     }
+    .search-result{
+        padding: 10px;
+        width: 50%;
+        margin: auto;
+        text-align:left;
+        background-color: #fff;
+        box-shadow: 0px 3px 6px #00000029;
+        max-height: 160px;
+        overflow-y: scroll;
+        div{
+          padding:5px 10px;
+          cursor: pointer;
+        }
+        .selected{
+            background-color: blue;
+            color: #fff;
+        }
+    }
     .buttons{
         margin-top: 150px;
         button{

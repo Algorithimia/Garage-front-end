@@ -81,12 +81,45 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
       
   }
 })
+export const editeWorkOrder = createAsyncThunk ('goemploy/updateemploy',  async(workorderData,thunkAPI) =>{
+  const {rejectWithValue , getState} = thunkAPI
+  const token= getState().auth.token
+  const config = {     
+    headers: { 'content-type': 'application/json',
+               'Authorization': `Bearer ${token}`,
+  }}
+try{
+  workorderData.add_employees=[{
+    employee_id:workorderData.employee_id,
+    }]
+  
+  let data=workorderData
+let body= JSON.stringify(data)
+let response = await axios.put("https://www.getgarage.me/api/v1/workshop/work_orders/update/", body, config)
+
+  if(response.status == 200) {
+    return  ({...data, ...response.data}) 
+  }
+
+
+ 
+}
+catch(e){
+  return rejectWithValue(e.response.data)
+  
+}
+
+
+})
+
+
   const workorderSlice = createSlice({
     name: 'workOrders',
-    initialState: { workorders:[], orderCreated:false , isLoading:false, error:null},
+    initialState: { workorders:[], orderCreated:false ,  orderEdited:false, isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
         state.orderCreated= false
+        state.orderEdited= false
         state.error= false
 
       }
@@ -99,6 +132,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
             state.orderCreated=false
             state.isLoading = true
             state.error = null
+            state.orderEdited=false
          
            
     
@@ -127,6 +161,7 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
           state.orderCreated=false
             state.isLoading = true
             state.error= null
+            state.orderEdited=false
         },
         [ cteateWorkOrder.fulfilled]:(state,action)=>{
           state.orderCreated=true
@@ -137,6 +172,23 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
          [cteateWorkOrder.rejected]:(state,action)=>{
           state.orderCreated=false
             state.isLoading = false
+            state.error = action.payload
+        },
+        [ editeWorkOrder.pending]:(state,action)=>{
+          state.orderCreated=false
+            state.isLoading = true
+            state.error= null
+        },
+        [ editeWorkOrder.fulfilled]:(state,action)=>{
+          state.orderEdited=true
+            state.isLoading = false
+            state.error= null
+         
+        },
+         [editeWorkOrder.rejected]:(state,action)=>{
+          state.orderCreated=false
+            state.isLoading = false
+            state.orderEdited=false
             state.error = action.payload
         },
       

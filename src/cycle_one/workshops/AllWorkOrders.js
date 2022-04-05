@@ -144,7 +144,7 @@ const AllWorkOrders = () => {
                 </table>
                 <Routes>
                         <Route path="/filter" element={<FilterWorkOrders workorders={workorders} setFilteredData={setFilteredData} />} exact  />
-                        <Route path="/assignEmploye" element={<AssignEmploye />} exact  />
+                        <Route path="/assignEmploye/:id" element={<AssignEmploye />} exact  />
 
                 </Routes>
             </div>
