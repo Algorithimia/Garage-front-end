@@ -6,6 +6,7 @@ import GoEmploye from './store slices/GOEmploy'
 import workshop from './store slices/workshopSlice'
 import workOrders from './store slices/workOrderSlices/workOrder'
 import models from './store slices/workOrderSlices/modelSlice'
+import inventory from './store slices/InventorySice'
 export default   configureStore({
   reducer: {
       auth,
@@ -14,7 +15,8 @@ export default   configureStore({
       GoEmploye,
       workshop,
       workOrders,
-      models
+      models,
+      inventory
     }
 
   })

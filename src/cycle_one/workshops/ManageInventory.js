@@ -1,16 +1,19 @@
-import React ,{useState} from 'react'
+import React ,{useState, useEffect} from 'react'
 import {AiFillPlusCircle} from "react-icons/ai"
 
 import {GoTriangleDown,GoTriangleUp} from "react-icons/go"
 import{BsSortAlphaUpAlt, BsSortAlphaUp} from 'react-icons/bs'
 import { FaSearch } from 'react-icons/fa'
 
-
+import { useDispatch,useSelector } from 'react-redux'
 import RowInventory from './components/RowInventory'
 import { Link } from 'react-router-dom'
+import { getSpareParts} from '../../store/store slices/InventorySice'
 const ManageInventory = () => {
-
-    
+    const [showAlert, setShowAlert]= useState(true)
+    const dispatch = useDispatch()
+    const {spareParts , isLoading, error}= useSelector((state)=>state.inventory)
+    {console.log(spareParts)}
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
     const upEntries=()=>{
@@ -28,109 +31,133 @@ const ManageInventory = () => {
         setDate(parseInt(date)-1)
       
      }
+     useEffect(() =>{
+        dispatch(getSpareParts());
+        const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+           
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
+      
+       
+    
+      },[dispatch])
+      let renderedSpareParts= spareParts.map(part=>{
+      return  <RowInventory key={part.id} part={part} />
+      })
     return (
-        <div className='mange_inventory'>
-           <div className='header'>
-           INVENTORY
-           <div className='right'>
-               <button className='light_blue'>FILTER</button>
-               <Link to='/workshop/owner/buyspareparts'><button className='add_purchase'> <span> <AiFillPlusCircle /></span>  Add New Purchase </button> </Link>
-               <Link to='/workshop/owner/addsparepart'> <button className='add_part'> <span> <AiFillPlusCircle /> </span>   Add New Part </button> </Link>
+        <>
+        {isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
+            <div className='mange_inventory'>
+            <div className='header'>
+            INVENTORY
+            <div className='right'>
+                <button className='light_blue'>FILTER</button>
+                <Link to='/workshop/owner/buyspareparts'><button className='add_purchase'> <span> <AiFillPlusCircle /></span>  Add New Purchase </button> </Link>
+                <Link to='/workshop/owner/addsparepart'> <button className='add_part'> <span> <AiFillPlusCircle /> </span>   Add New Part </button> </Link>
 
-           </div>
+            </div>
 
-           </div>
-           <div className='second_line'>
-                    <div className='inline-block input_block'>
-                                <span>
-                                Show Entries
-                                </span>
-                                <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
-                                <div className="change_number">
-                                    <div className='change' onClick={upEntries}>   
-                                    <GoTriangleUp />
-                                    </div>
-                                    <div className="up change" onClick={downEntries}>
-                                    <GoTriangleDown />
-                                    </div>
-                                </div>
-                                
-                                </div>
-                                
-                                <div className='inline-block input_block'>
+            </div>
+            <div className='second_line'>
+                        <div className='inline-block input_block'>
                                     <span>
-                                    Date
+                                    Show Entries
                                     </span>
-                                    <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                                    <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
                                     <div className="change_number">
-                                        <div className='change' onClick={upDate}>
+                                        <div className='change' onClick={upEntries}>   
                                         <GoTriangleUp />
                                         </div>
-                                        <div className="up change" onClick={downDate}>
+                                        <div className="up change" onClick={downEntries}>
                                         <GoTriangleDown />
                                         </div>
                                     </div>
-                                    </div>
-                                    <span className='alpha_small'>
-                                        <span className='alpha z_to_a'>
-                                            <BsSortAlphaUpAlt />
-                                        </span>
                                     
-                                        <span className='alpha a_to_z'>
-                                            <BsSortAlphaUp />
-                                        </span>
-                                    </span>
-                                    <div className='right'>
-                                        <input  placeholder='Search Inventory'/>
-                                        <span><FaSearch/></span>
-
                                     </div>
                                     
+                                    <div className='inline-block input_block'>
+                                        <span>
+                                        Date
+                                        </span>
+                                        <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                                        <div className="change_number">
+                                            <div className='change' onClick={upDate}>
+                                            <GoTriangleUp />
+                                            </div>
+                                            <div className="up change" onClick={downDate}>
+                                            <GoTriangleDown />
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <span className='alpha_small'>
+                                            <span className='alpha z_to_a'>
+                                                <BsSortAlphaUpAlt />
+                                            </span>
+                                        
+                                            <span className='alpha a_to_z'>
+                                                <BsSortAlphaUp />
+                                            </span>
+                                        </span>
+                                        <div className='right'>
+                                            <input  placeholder='Search Inventory'/>
+                                            <span><FaSearch/></span>
 
-                                    
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> PAYMENT <br/> TYPE  </th>
-                                <th> DATE</th>
-                                <th> INVOICE <br/> NUMBER </th>
-                                <th> BUSINESS <br/> INFO</th>
-                                <th> PURCHASE <br/> AVAILABILITY</th>
-                                <th> TOTAL</th>
-                                <th> PAID</th>
-                                <th>DUE</th>
-                              
+                                        </div>
+                                        
+
+                                        
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th> PAYMENT <br/> TYPE  </th>
+                                    <th> DATE</th>
+                                    <th> INVOICE <br/> NUMBER </th>
+                                    <th> BUSINESS <br/> INFO</th>
+                                    <th> PURCHASE <br/> AVAILABILITY</th>
+                                    <th> TOTAL</th>
+                                    <th> PAID</th>
+                                    <th>DUE</th>
                                 
-                            </tr>
-                           
-                        </thead>
-                        <RowInventory payment_type='CREDIT' date='12/6' invoice_num='451'
-                         buisiness_info={<> name <br/> 125 358 369 </>}
-                          purchase_info='Available' total='822' paid='80,451' due='80,451' />
+                                    
+                                </tr>
+                            
+                            </thead>
+                            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                            {renderedSpareParts}
+                            {/* <RowInventory payment_type='CREDIT' date='12/6' invoice_num='451'
+                            buisiness_info={<> name <br/> 125 358 369 </>}
+                            purchase_info='Available' total='822' paid='80,451' due='80,451' />
 
 
-                          <RowInventory payment_type='CASH' date='12/6' invoice_num='451'
-                         buisiness_info={<> name <br/> 125 358 369 </>}
-                          purchase_info='Unavailable' total='822' paid='80,451' due='80,451' />
+                            <RowInventory payment_type='CASH' date='12/6' invoice_num='451'
+                            buisiness_info={<> name <br/> 125 358 369 </>}
+                            purchase_info='Unavailable' total='822' paid='80,451' due='80,451' />
 
-                          <RowInventory payment_type='CREDIT' date='12/6' invoice_num='451'
-                         buisiness_info={<> name <br/> 125 358 369 </>}
-                          purchase_info='Available' total='822' paid='80,451' due='80,451' />
+                            <RowInventory payment_type='CREDIT' date='12/6' invoice_num='451'
+                            buisiness_info={<> name <br/> 125 358 369 </>}
+                            purchase_info='Available' total='822' paid='80,451' due='80,451' />
 
-                          <RowInventory payment_type='NONE' date='12/6' invoice_num='451'
-                         buisiness_info={<> name <br/> 125 358 369 </>}
-                          purchase_info='Unavailable' total='822' paid='80,451' due='80,451' />
+                            <RowInventory payment_type='NONE' date='12/6' invoice_num='451'
+                            buisiness_info={<> name <br/> 125 358 369 </>}
+                            purchase_info='Unavailable' total='822' paid='80,451' due='80,451' />
 
-                          <RowInventory payment_type='CASH' date='12/6' invoice_num='451'
-                         buisiness_info={<> name <br/> 125 358 369 </>}
-                          purchase_info='Available' total='822' paid='80,451' due='80,451' />
+                            <RowInventory payment_type='CASH' date='12/6' invoice_num='451'
+                            buisiness_info={<> name <br/> 125 358 369 </>}
+                            purchase_info='Available' total='822' paid='80,451' due='80,451' />
 
-                          <RowInventory payment_type='NONE' date='12/6' invoice_num='451'
-                         buisiness_info={<> name <br/> 125 358 369 </>}
-                          purchase_info='Unavailable' total='822' paid='80,451' due='80,451' />
-                    </table>    
-        </div>
+                            <RowInventory payment_type='NONE' date='12/6' invoice_num='451'
+                            buisiness_info={<> name <br/> 125 358 369 </>}
+                            purchase_info='Unavailable' total='822' paid='80,451' due='80,451' /> */}
+                        </table>    
+            </div>
+        }
+      </>
     )
 }
 

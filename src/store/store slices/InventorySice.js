@@ -1,18 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunkAPI) =>{
+export const getSpareParts = createAsyncThunk ('spareparts/get',  async(_ ,thunkAPI) =>{
     const {rejectWithValue , getState} = thunkAPI
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("https://www.getgarage.me/api/v1/vehicle_models/",{
+      let res = await axios.get("https://www.getgarage.me/api/v1/workshop/2/spare_parts/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}
       
-      })
+      }) 
   
-    return await res.data
+    return await res.data.results
 
 }
 
@@ -21,29 +21,29 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
   }
   
   })
-  const modelSlice= createSlice({
-    name:'model',
-    initialState : {addressList:[], isLoading:false,addLoading:false, error:null},
+  const inventorySlice= createSlice({
+    name:'inventory',
+    initialState : {spareParts:[], isLoading:false,addLoading:false, error:null},
     reducers:{
 
     },
     extraReducers:{
          // ............. start address ......................
-        [ getaddress.pending ] :(state,action)=>{
+        [ getSpareParts.pending ] :(state,action)=>{
 
             state.isLoading = true
             state.error = null
             
           
        },
-       [ getaddress.fulfilled ] :(state,action)=>{
+       [ getSpareParts.fulfilled ] :(state,action)=>{
         state.isLoading = false
         state.error= null
-        state.addressList = action.payload
+        state.spareParts = action.payload
     
         
         },
-        [ getaddress.rejected ] :(state,action)=>{
+        [ getSpareParts.rejected ] :(state,action)=>{
              state.isLoading = false
              state.error = action.payload
            console.log(action)
@@ -55,4 +55,4 @@ export const getWorkOrders = createAsyncThunk ('workorders/get',  async(_ ,thunk
 
 
 })
-export default modelSlice.reducer
+export default inventorySlice.reducer
