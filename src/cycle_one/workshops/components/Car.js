@@ -10,7 +10,7 @@ const Car = ({view= false, car,isLoading}) => {
     const [show,setShow]=useState(view)
     return (
         <div className="car car_border">
-      { isLoading? 'Loading ..': <>
+      { isLoading || !car? 'Loading ..': <>
         <span  onClick={()=>setShow(!show)}>{car && car.name}</span>
         <div className="right_icons">
             <span><MdDeleteSweep /></span>

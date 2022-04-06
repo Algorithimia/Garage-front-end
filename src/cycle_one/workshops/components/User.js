@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const User = ({user,isLoading}) => {
     return (
         <div className="customer_info">
-        {isLoading ? 'loading ..' : <>
+        {isLoading || !user ? 'loading ..' : <>
         { user &&    <img 
             src={user.avater}
             />}
