@@ -23,18 +23,20 @@ import {getemploys} from '../../store/store slices/GOEmploy'
 
 const GrageOwnerDashbord = () => {
     const dispatch = useDispatch()
-    const {workorders}= useSelector((state)=>state.workOrders)
+    const {workorders,isLoading}= useSelector((state)=>state.workOrders)
     const {employs} = useSelector((state)=>state.GoEmploye)
+    let employState= useSelector((state)=>state.GoEmploye)
+    let employLoading =employState.isLoading
     useEffect(() =>{
         dispatch(getWorkOrders());
         dispatch(getemploys());
       },[dispatch])
-      let createdWorkordersLenth=workorders.length
-      let inProgressWorkordersLenth=workorders.filter(workOrder => workOrder.status == "In Progress").length
-      let completedWorkordersLenth=workorders.filter(workOrder => workOrder.status == "Completed").length
+      let createdWorkordersLenth=isLoading?'Loading..' :workorders.length
+      let inProgressWorkordersLenth=isLoading?'Loading..' :workorders.filter(workOrder => workOrder.status == "In Progress").length
+      let completedWorkordersLenth=isLoading?'Loading..' :workorders.filter(workOrder => workOrder.status == "Completed").length
       let firstThreeEmployees=employs.slice(0, 3);
-      let renderedEmployees=firstThreeEmployees.map((employ)=> <EmployInList key={employ.id} employ={employ}/>)
-      
+      let renderedEmployees=employLoading ? <div> Loading ...</div>:firstThreeEmployees.map((employ)=> <EmployInList key={employ.id} employ={employ}/>)
+      console.log(firstThreeEmployees)
      
     return (
         <>
