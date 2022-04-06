@@ -1,9 +1,9 @@
 
 
-const SelectedSpareParts = () => {
+const SelectedSpareParts = ({part}) => {
     return (
         <tr className="spare_part">
-            <th > part_name  </th>
+            <th > {part.title}  </th>
             <th><input type='number' className="input"  min='0' /> </th>
             <th> <button className="gray">REMOVE</button> </th> 
        </tr>

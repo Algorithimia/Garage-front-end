@@ -1,11 +1,11 @@
 
-const SparePartsInventory = () => {
+const SparePartsInventory = ({sparepart, setSelectedSpareParts, selectedSpareParts}) => {
     return (
      
         <tr className="spare_part">
-        <th > part_name  </th>
+        <th > {sparepart.title}  </th>
         <th><input type='number' className="input" min='0' /> </th>
-        <th> <button className="blue">Add</button> </th>
+        <th> <button className="blue" onClick={()=>setSelectedSpareParts([...selectedSpareParts,{ id: sparepart.id, title:sparepart.title}])}>Add</button> </th>
       
        </tr>
     )

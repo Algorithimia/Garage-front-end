@@ -16,7 +16,7 @@ const WorkOrder = ({workorder}) => {
 
            <OverlayList option1='VIEW WORK ORDER' option1_path={`/workshop/owner/singleworkorder/${workorder.id}`}
                         option2='ASSIGN EMPLOYEE' option2_path={`/workshop/owner/allworkorders/assignEmploye/${workorder.id}`}
-                        option3='ASSIGN SPARE PARTS' option3_path='/workshop/owner/selectinventory' 
+                        option3='ASSIGN SPARE PARTS' option3_path={`/workshop/owner/selectinventory/${workorder.id}`}
                         option4='VIEW CUSTOMER' option4_path='/workshop/owner/viewcustomer'  
                         option5='VIEW VEHICLE' option5_path='/workshop/owner/viewvehicle'  />
           

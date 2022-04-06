@@ -4,7 +4,33 @@ import {FaSearch} from'react-icons/fa'
 
 import SparePartBuy from "./SparePartBuy"
 import SelectedSparePart from "./SelectedSpareParts"
+import { useDispatch,useSelector } from 'react-redux'
+import { getSpareParts} from '../../store/store slices/InventorySice'
+import {React , useEffect, useState } from "react"
+import SparePartsInventory from "./SparePartsInventory"
 const SelectSparePartsFromInventry = () => {
+    const dispatch = useDispatch()
+    const {spareParts , isLoading, error}= useSelector((state)=>state.inventory)
+    const [showAlert, setShowAlert]= useState(true)
+    const [selectedSpareParts,setSelectedSpareParts]=useState([])
+    useEffect(() =>{
+        dispatch(getSpareParts());
+        const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+           
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
+      
+       
+    
+      },[dispatch])
+      console.log(selectedSpareParts)
+    let renderedSpareParts = isLoading ? <img className="loading" src="/images/giphy.gif" /> : spareParts.map(sparePart=>  <SparePartsInventory key={sparePart.id} sparepart={sparePart} setSelectedSpareParts={setSelectedSpareParts} selectedSpareParts={selectedSpareParts}/>)
+    let renderedSelectedSpareParts = selectedSpareParts.map((part)=><SelectedSparePart part={part} />)
     return (
         <div className="select_spareparts">
             <div className="first_row">
@@ -32,10 +58,7 @@ const SelectSparePartsFromInventry = () => {
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                        <SparePartBuy />
-                        <SparePartBuy />
-                        <SparePartBuy />
-                        <SparePartBuy />
+                       {renderedSpareParts}
                         </table>
                     </div>
                 </Col>
@@ -50,10 +73,7 @@ const SelectSparePartsFromInventry = () => {
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                        <SelectedSparePart />
-                        <SelectedSparePart />
-                        <SelectedSparePart />
-                        <SelectedSparePart />
+                        {renderedSelectedSpareParts}
                         </table>
                     </div>
                 </Col>

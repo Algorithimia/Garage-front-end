@@ -119,7 +119,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
                     <Route path="/owner/allworkorders/*" element={<AllWorkOrders />} exact  />
                     <Route path="/owner/createworkeorder/*" element={<CreateWorkOrder />} exact  />
-                    <Route path="/owner/selectinventory" element={<SelectSparePartsFromInventory />} exact  />
+                    <Route path="/owner/selectinventory/:id" element={<SelectSparePartsFromInventory />} exact  />
                     <Route path="/owner/buyspareparts" element={<BuySpareParts />} exact  />
                     <Route path="/owner/buyspareparts/grge" element={<BuySpareParts businessName='BUSINESS NAME'businessType='GARAGE TYPE'  />} exact  />
                     <Route path="/owner/purchase/*" element={<Purchase />} exact  />

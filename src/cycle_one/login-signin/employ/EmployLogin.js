@@ -49,15 +49,7 @@ const EmployLogin = () =>{
                  
                </Col>
            </Row>
-           <div className='login-with'>
-                    <div>Login With</div>
-                    <span className="icon"><BsGoogle /></span>
-                    <span className="icon"><BsTwitter /></span>
-                    <span className="icon"><FaFacebookF /></span>
-           </div>
-           <div className='orby'>
-              <div className='absolute'>Or By</div>
-           </div>
+          
            <form onSubmit={e=>onSubmit(e)}>
            {error&& <div className='msg-error'>{ Object.values(error)}</div> }
            <div className='main_input'>

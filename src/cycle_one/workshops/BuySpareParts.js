@@ -6,6 +6,7 @@ import {FaSearch} from'react-icons/fa'
 
 import SparePartInventory from "./SparePartsInventory"
 import SelectedSparePart from "./SelectedSpareParts"
+import SparePartBuy from "./SparePartBuy"
 const BuySpareParts = ({businessName, businessType}) => {
     return (
         <div className="select_spareparts buy">
@@ -41,10 +42,10 @@ const BuySpareParts = ({businessName, businessType}) => {
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                        <SparePartInventory />
-                        <SparePartInventory />
-                        <SparePartInventory />
-                        <SparePartInventory />
+                        <SparePartBuy />
+                        <SparePartBuy />
+                        <SparePartBuy />
+                        <SparePartBuy />
                         </table>
                     </div>
                 </Col>
