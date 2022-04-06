@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from 'react'
 import {Dropdown} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {AiFillPlusCircle} from 'react-icons/ai'
 import { useDispatch,useSelector } from 'react-redux'
 import{getUserDetails} from '../../store/store slices/detailUser'
@@ -8,6 +8,7 @@ import {logOut} from '../../store/store slices/auth'
 
 const SideBar = ({settings}) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const {userDetails , isLoading ,error}= useSelector((state)=>state.userDetails)
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
@@ -25,10 +26,16 @@ const SideBar = ({settings}) => {
         
         //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)
     const onChange=e=>SetWorkshop_id(e.target.value)
+    const userlogout=()=>{
+        dispatch(logOut());
+        navigate('/login_process/owner_login')
+    }
   
     return (
         <>
             <div className='sidebar'> 
+            {!userDetails || isLoading ? <div>loading ..</div>:
+            <div>
                 <Link to={ userDetails.is_garage_owner ? '/workshop/owner/dashbord' :'/employ/'}>
                        <img className='logo' src='/images/cycle one/GarageWorkLogo.png' />
                 </Link>
@@ -149,7 +156,7 @@ const SideBar = ({settings}) => {
                         <Link to='/workshop/owner/maintnance'>
                         <div className='option'> Mintenance Packaging </div>
                         </Link>
-                        <div className='option log_out' onClick={()=>dispatch(logOut())}> Logout </div>
+                        <div className='option log_out' onClick={()=>userlogout()}> Logout </div>
 
 
                     </div>}
@@ -168,7 +175,7 @@ const SideBar = ({settings}) => {
              
 
 
-
+               </div>}
             </div>
         </>
     )

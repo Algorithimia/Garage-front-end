@@ -47,9 +47,11 @@ const authSlice = createSlice({
     initialState: { loggedIn:cookies.get("login")?cookies.get("login"):false, create: false ,isLoading:false, error:null, token:cookies.get("token")? cookies.get("token"):""},
     reducers:{
       logOut:(state)=>{
+        cookies.remove("login")
+        cookies.remove("token")
         state.token='';
         state.loggedIn=false;
-        cookies.remove("login")
+        
 
     
        
