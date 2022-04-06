@@ -5,7 +5,6 @@ import {AiFillPlusCircle} from 'react-icons/ai'
 import { useDispatch,useSelector } from 'react-redux'
 import{getUserDetails} from '../../store/store slices/detailUser'
 import {logOut} from '../../store/store slices/auth'
-
 const SideBar = ({settings}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -21,7 +20,7 @@ const SideBar = ({settings}) => {
        
     
       },[dispatch])
-    let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div>
+    let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id }>
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
         
         //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)

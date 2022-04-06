@@ -8,16 +8,16 @@ const Part = ({sparePart}) => {
     return (
         <div className='part'>
             <div onClick={() =>setShowList(!showList)}>
-           { sparePart.spare_part.title}
+           { sparePart.spare_part? sparePart.spare_part.title : sparePart.title}
                 <span className='right'> <Link to='/workshop/owner/purchase/visa'><span className='yello'><MdCreditCard /></span></Link> <span className='gray'><MdDeleteSweep /></span>  </span>
             </div>
                
                {showList && <div className='hiddenlist'>
-                <span>{ sparePart.spare_part.description}</span>
+                <span>{sparePart.spare_part ?  sparePart.spare_part.description : sparePart.description }</span>
                 <br />
                 QUANTITY
                 <br />
-                <span>{ sparePart.spare_part.quantity}</span>
+                <span>{sparePart.spare_part ?  sparePart.spare_part.quantity : sparePart.quantity}</span>
                 <br />
                 INVOICE NUMBER
                 <br />
@@ -25,7 +25,7 @@ const Part = ({sparePart}) => {
                 <br />
                 DATE
                 <br />
-                <span>{ sparePart.spare_part.total_price}</span>
+                <span>{sparePart.spare_part? sparePart.spare_part.total_price :sparePart.total_price }</span>
                 <table>
                     
                         <tr>

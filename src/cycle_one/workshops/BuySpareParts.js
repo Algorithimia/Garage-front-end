@@ -8,6 +8,44 @@ import SparePartInventory from "./SparePartsInventory"
 import SelectedSparePart from "./SelectedSpareParts"
 import SparePartBuy from "./SparePartBuy"
 const BuySpareParts = ({businessName, businessType}) => {
+    let  part={
+        "id": 7,
+        "title": "new",
+        "description": "Des ..",
+        "type": {
+            "id": 1,
+            "title": "we"
+        },
+        "unit_price": 5,
+        "quantity": 9,
+        "status": "Active",
+        "is_available": true,
+        "is_purchase": false,
+        "created_at": "2022-03-29 09:47:41",
+        "updated_at": "2022-03-29 09:54:28",
+        "galleries": [
+            {
+                "id": 11,
+                "priority": 212,
+                "image": "/media/spare_parts/1027207_9d4bCPD.png"
+            },
+            {
+                "id": 13,
+                "priority": 23,
+                "image": "/media/spare_parts/ikea1_BkdDUCj.png"
+            },
+            {
+                "id": 12,
+                "priority": 0,
+                "image": "/media/spare_parts/ss.png"
+            },
+            {
+                "id": 14,
+                "priority": 0,
+                "image": "/media/spare_parts/ss_vCdfCBj.png"
+            }
+        ]
+    }
     return (
         <div className="select_spareparts buy">
               <div className="first_row">
@@ -60,9 +98,9 @@ const BuySpareParts = ({businessName, businessType}) => {
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                        <SelectedSparePart />
-                        <SelectedSparePart />
-                        <SelectedSparePart />
+                        <SelectedSparePart part={part}/>
+                        <SelectedSparePart part={part} />
+                        <SelectedSparePart part={part} />
                        
                         <tr className="spare_part">
                             <th className="total" >TOTAL  </th>

@@ -16,7 +16,7 @@ const RowInventory = ({part}) => {
             <th> {part.unit_price}</th>
             <th>{part.unit_price}</th>
             <th>
-                <Link to='/workshop/owner/viewsingleiteminventory'>
+                <Link to='/workshop/owner/viewsingleiteminventory'  state={{part:part}}>
                       <button>VIEW</button>
                 </Link>
             </th>

@@ -3,12 +3,14 @@ import { Col, Row } from 'react-bootstrap'
 
 import {FaCar} from 'react-icons/fa'
 import {AiFillPlusCircle} from 'react-icons/ai'
-
+ 
 import Part from './components/Part'
 import UsedPaymentMethods from './components/UsedPaymentMethods'
 import BoughtFrom from './components/BoughtFrom'
-import { Link } from 'react-router-dom'
+import { Link , useLocation} from 'react-router-dom'
 const ViewSingleItemInventory = () => {
+    let location = useLocation()
+    let part=location.state.part
     return (
         <div className='single_item_in_inventory'>
             <div className='header'>
@@ -24,7 +26,7 @@ const ViewSingleItemInventory = () => {
                 <Col md={12} lg={6}>
                     <div className='spare_part'>
                         <span>SPARE PART NMBER</span>
-                        <Part />
+                        <Part  sparePart={part}/>
                         <div className='line'></div>
                         <div className='payment_methods'>
                              USED PAYMENT METHODS
