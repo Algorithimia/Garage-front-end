@@ -1,12 +1,12 @@
 
 import {RiDeleteBinFill} from "react-icons/ri"
-const EmployInList = ({name,date,imgUrl}) => {
+const EmployInList = ({employ}) => {
     return (
         <div className="employ">
-            <img src={imgUrl} />
+            <img src={employ.avatar2} />
             <div className="inline-block">
-                <div>{name}</div>
-                <div className="gray">Added {date}</div>
+                <div>{employ.name}</div>
+                <div className="gray">Added {employ.created_at}</div>
             </div>
             <div className="inline-block delete_icon">
                 <RiDeleteBinFill style={{marginBottom:'5' }}/>
