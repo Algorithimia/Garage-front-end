@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import {RiTimer2Fill} from "react-icons/ri"
 import {GiSandsOfTime} from "react-icons/gi"
 import {BsCheckCircleFill} from "react-icons/bs"
@@ -16,7 +17,20 @@ import IconBox from "./IconBox"
 import EmployInList from "./EmployInList"
 import CustomerInList from "./CustomerInList"
 import Appointment from "./Appointment"
+import { useDispatch,useSelector } from 'react-redux'
+import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+
 const GrageOwnerDashbord = () => {
+    const dispatch = useDispatch()
+    const {workorders}= useSelector((state)=>state.workOrders)
+    useEffect(() =>{
+        dispatch(getWorkOrders());
+      
+      },[dispatch])
+      let createdWorkordersLenth=workorders.length
+      let inProgressWorkordersLenth=workorders.filter(workOrder => workOrder.status == "In Progress").length
+      let completedWorkordersLenth=workorders.filter(workOrder => workOrder.status == "Completed").length
+     
     return (
         <>
         
@@ -34,13 +48,13 @@ const GrageOwnerDashbord = () => {
                       <Col  md={12} lg={9} className="width">
                           <Row className="justify-md-lg-center">
                             <Col md={3} sm={6}>
-                                <BoxInfo icon={<RiTimer2Fill />} title='Created' number='120' bacGroundColor="#71A43F" path='/workshop/owner/allworkorders'/>
+                                <BoxInfo icon={<RiTimer2Fill />} title='Created' number={createdWorkordersLenth} bacGroundColor="#71A43F" path='/workshop/owner/allworkorders'/>
                             </Col>
                             <Col md={3} sm={6}>
-                                <BoxInfo icon={<GiSandsOfTime />} title='In Progress' number='2' bacGroundColor="#F2A911" path='/workshop/owner/allworkorders'/>
+                                <BoxInfo icon={<GiSandsOfTime />} title='In Progress' number={inProgressWorkordersLenth} bacGroundColor="#F2A911" path='/workshop/owner/allworkorders'/>
                             </Col>
                             <Col md={3} sm={6}>
-                                <BoxInfo icon={<BsCheckCircleFill />} title='Completed' number='2' bacGroundColor="#4094EB" path='/workshop/owner/allworkorders'/>
+                                <BoxInfo icon={<BsCheckCircleFill />} title='Completed' number={completedWorkordersLenth} bacGroundColor="#4094EB" path='/workshop/owner/allworkorders'/>
                             </Col>
                             <Col md={3} sm={6}>
                                 <BoxInfo md={<lgPayment />} title='Payment Due' number='120 $' bacGroundColor="#51459D" path='/workshop/owner/alloverdue'/>
