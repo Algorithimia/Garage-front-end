@@ -7,12 +7,14 @@ import { useState, useEffect } from "react"
 import {getaddress} from '../../store/store slices/addreseSlice'
 import {getModels} from '../../store/store slices/workOrderSlices/modelSlice'
 import {cteateWorkOrder , clearstate} from '../../store/store slices/workOrderSlices/workOrder'
+import Cookies from "universal-cookie";
 const CreateWorkOrder = () => {
+    const cookies = new Cookies();
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [showAlert, setShowAlert]= useState(true)
     const [formData, setFormData] = useState({
-        workshop_id: 2,
+        workshop_id:  cookies.get("workshop").id,
         email:'',
         name: '',
         phone: '',

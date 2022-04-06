@@ -3,15 +3,16 @@ import { Link, useParams } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import {getemploys, clearstate} from '../../store/store slices/GOEmploy'
 import {editeWorkOrder,getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
- 
+import Cookies from "universal-cookie";
 const AssignEmploye = ({back='workshop/owner/allworkorders'}) => {
+    const cookies = new Cookies();
     let { id }  = useParams();
     const dispatch = useDispatch()
     const [showAlert, setShowAlert]= useState(true)
     const [search , setSearch] = useState('')
     const [activeIndex,setActiveIndex]=useState()
     const[reqData, setReqData] = useState({
-        workshop_id:2,
+        workshop_id:cookies.get("workshop").id,
         work_order_id:id,
         employee_id:''
     })

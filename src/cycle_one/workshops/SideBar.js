@@ -5,12 +5,15 @@ import {AiFillPlusCircle} from 'react-icons/ai'
 import { useDispatch,useSelector } from 'react-redux'
 import{getUserDetails} from '../../store/store slices/detailUser'
 import {logOut} from '../../store/store slices/auth'
+import Cookies from "universal-cookie";
 const SideBar = ({settings}) => {
+    const cookies = new Cookies();
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {userDetails , isLoading ,error}= useSelector((state)=>state.userDetails)
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
+    const[workshop, setWorkshop]= useState(cookies.get("workshop"))
     useEffect(()=>{
         setShowSettings(settings)
     },[settings])
@@ -20,7 +23,7 @@ const SideBar = ({settings}) => {
        
     
       },[dispatch])
-    let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id }>
+    let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop);cookies.set("workshop", workshop)}}>
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
         
         //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)
@@ -29,6 +32,7 @@ const SideBar = ({settings}) => {
         dispatch(logOut());
         navigate('/login_process/owner_login')
     }
+    console.log(workshop)
   
     return (
         <>
@@ -47,10 +51,10 @@ const SideBar = ({settings}) => {
                         
                   
                 <Dropdown>
-                    <img className='dropdown_img' src='/images/cycle one/workshop.jpg' />
+                   {workshop && <img className='dropdown_img' src={workshop.image} />}
                     <Dropdown.Toggle  className='dropdown' >
                   
-                    Workshop Name
+                   {workshop ? workshop.title :  'Select workshop'}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu onSelect={eventKey=> console.log(eventKey)}>

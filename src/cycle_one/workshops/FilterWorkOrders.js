@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import{getWorkOrders, clearstate} from '../../store/store slices/workOrderSlices/workOrder'
 import SearchList from './components/SearchList';
+import Cookies from "universal-cookie";
 const FilterWorkOrders = ({workorders , setFilteredData}) => {
-   
+    const cookies = new Cookies();
 
     const [formData, setFormData] = useState({
-        workshop_id: 2,
+        workshop_id: cookies.get("workshop").id,
         customer:'',
         workItems:'',
         status:null 

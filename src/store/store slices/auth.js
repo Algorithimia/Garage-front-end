@@ -49,6 +49,7 @@ const authSlice = createSlice({
       logOut:(state)=>{
         cookies.remove("login")
         cookies.remove("token")
+        cookies.remove("workshop")
         state.token='';
         state.loggedIn=false;
         

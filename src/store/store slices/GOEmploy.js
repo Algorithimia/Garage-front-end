@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import Cookies from "universal-cookie";
+
 import axios from 'axios';
 
 export const createEmploy = createAsyncThunk ('goemploy//createEmploy', 
@@ -60,7 +62,9 @@ export const getemploys = createAsyncThunk ('employs/get',  async(_ ,thunkAPI) =
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("https://www.getgarage.me/api/v1/workshop/2/employees/",{
+      const cookies = new Cookies();
+      let workshopId= cookies.get("workshop").id
+      let res = await axios.get(`https://www.getgarage.me/api/v1/workshop/${workshopId}/employees/`,{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}

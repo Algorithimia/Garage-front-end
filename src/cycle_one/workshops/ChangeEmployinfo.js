@@ -2,14 +2,16 @@ import React, {useState} from 'react';
 import { Link, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux'
 import {editeEmploy} from '../../store/store slices/GOEmploy'
+import Cookies from "universal-cookie";
 const ChangeEmployinfo = () => {
+  const cookies = new Cookies();
   const navigate = useNavigate()
   let location = useLocation()
   const dispatch = useDispatch()
   const {goEditeemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
   const [showAlert, setShowAlert]= useState(true)
   const [formData, setFormData] = useState({
-    workshop_id:2,
+    workshop_id: cookies.get("workshop").id,
     employee_id:location.state.employ.id,
     password:'', 
     confirm_password:'',

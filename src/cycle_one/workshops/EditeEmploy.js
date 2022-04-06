@@ -6,8 +6,10 @@ import{getUserDetails} from '../../store/store slices/detailUser'
 import {getaddress} from '../../store/store slices/addreseSlice'
 import { useDispatch,useSelector } from 'react-redux'
 import {editeEmploy} from '../../store/store slices/GOEmploy'
+import Cookies from "universal-cookie";
 
 const EditeEmploy = () => {
+    const cookies = new Cookies();
     const navigate = useNavigate()
     let location = useLocation()
     const dispatch = useDispatch()
@@ -16,7 +18,7 @@ const EditeEmploy = () => {
     const {goEditeemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
    
     const [formData, setFormData] = useState({
-        workshop_id:2,
+        workshop_id:cookies.get("workshop").id,
         oldEmail:location.state.employ.email,
         email:location.state.employ.email,
         name: location.state.employ.name,
