@@ -10,10 +10,12 @@ const SideBar = ({settings}) => {
     const cookies = new Cookies();
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const {created}= useSelector((state)=>state.workshop)
     const {userDetails , isLoading ,error}= useSelector((state)=>state.userDetails)
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
     const[workshop, setWorkshop]= useState(cookies.get("workshop"))
+   
     useEffect(()=>{
         setShowSettings(settings)
     },[settings])
@@ -22,8 +24,8 @@ const SideBar = ({settings}) => {
         dispatch(getUserDetails());
        
     
-      },[dispatch])
-    let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop);cookies.set("workshop", workshop)}}>
+      },[dispatch,created])
+    let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop); cookies.remove("workshop"); cookies.set("workshop", workshop); document.location.reload()}}>
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
         
         //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)

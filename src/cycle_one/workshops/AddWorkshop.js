@@ -4,10 +4,14 @@ import { useDispatch,useSelector } from 'react-redux'
 import { FcCheckmark } from 'react-icons/fc'
 import { MdPhotoCamera } from 'react-icons/md'
 import{creatWorkshop} from '../../store/store slices/workshopSlice'
+import {useNavigate} from 'react-router-dom'
 const AddWorkshop = () => {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {addressList}= useSelector((state)=>state.address)
 
+    const {addressList}= useSelector((state)=>state.address)
+    const {created , error}= useSelector((state)=>state.workshop)
+    const [showAlert, setShowAlert]= useState(true)
     const [formData, setFormData] = useState({
         title:'',
         area_id:'',
@@ -20,7 +24,6 @@ const AddWorkshop = () => {
     const {title, area_id,country_id  }=formData
     useEffect(() =>{
         dispatch(getaddress());   
-          
       },[dispatch])
 
       let  countries = addressList.map((country=> {
@@ -33,7 +36,17 @@ const AddWorkshop = () => {
    const imgChange=e=>setFormData({...formData, [e.target.name]: e.target.files[0]})
    const onSubmit= async e => {
           e.preventDefault()
+
           dispatch( creatWorkshop(formData))
+          const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+           
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
      
    }
 
@@ -43,6 +56,7 @@ const AddWorkshop = () => {
               ADD NEW WORKSHOP
             </div>
             <div className='body'>
+            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
                 <form  onSubmit={(e)=>onSubmit(e)}> 
                  <div className='change_img'  onClick={()=> document.getElementById("my_file").click()}>
                     <img 
@@ -82,7 +96,8 @@ const AddWorkshop = () => {
                      </form>
 
             
-            </div>     
+            </div>    
+            {created && navigate('/workshop/owner/dashbord')} 
 
             
         </div>

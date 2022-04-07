@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {getUserDetails} from './detailUser'
 import axios from 'axios';
 let formData = new FormData(); 
 export const creatWorkshop = createAsyncThunk ('goemploy/creatWorkshop', 
@@ -29,7 +30,7 @@ export const creatWorkshop = createAsyncThunk ('goemploy/creatWorkshop',
 })
 const workshop = createSlice({
     name: 'workshop',
-    initialState: { workshops:[],isLoading:false, error:null},
+    initialState: { workshops:[],created:false,isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
         state.gocreateemploy= false
@@ -50,6 +51,7 @@ const workshop = createSlice({
          
             state.isLoading = false
             state.error= null
+             state.created=true
           
             
             
@@ -64,6 +66,11 @@ const workshop = createSlice({
             
     
         },
+        [ getUserDetails.fulfilled ] :(state,action)=>{
+          state.created=false
+      
+          
+          },
        
     }
 

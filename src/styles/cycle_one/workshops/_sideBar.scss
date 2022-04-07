@@ -46,6 +46,8 @@
         margin-top: 0;
     }
     .dropdown-menu{
+        max-height: 160px;
+        overflow-y: scroll;
         .add{
            a{ color: #4390E0;}
         }
@@ -55,6 +57,7 @@
            padding: 10px;
            
           padding-left: 0;
+         
          
         }
       

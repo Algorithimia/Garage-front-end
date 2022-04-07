@@ -2,12 +2,13 @@ import { Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import {FaSearch} from'react-icons/fa'
 
+
 import SparePartBuy from "./SparePartBuy"
 import SelectedSparePart from "./SelectedSpareParts"
 import { useDispatch,useSelector } from 'react-redux'
 import { getSpareParts} from '../../store/store slices/InventorySice'
 import {React , useEffect, useState } from "react"
-import SparePartsInventory from "./SparePartsInventory"
+import SparePartsInventory from "./SparePartsInventory" 
 const SelectSparePartsFromInventry = () => {
     const dispatch = useDispatch()
     const {spareParts , isLoading, error}= useSelector((state)=>state.inventory)
@@ -29,8 +30,36 @@ const SelectSparePartsFromInventry = () => {
     
       },[dispatch])
       console.log(selectedSpareParts)
-    let renderedSpareParts = isLoading ? <img className="loading" src="/images/giphy.gif" /> : spareParts.map(sparePart=>  <SparePartsInventory key={sparePart.id} sparepart={sparePart} setSelectedSpareParts={setSelectedSpareParts} selectedSpareParts={selectedSpareParts}/>)
-    let renderedSelectedSpareParts = selectedSpareParts.map((part)=><SelectedSparePart part={part} />)
+      // add spare part to selected list 
+      const addToSelectedList=(sparepart,quantity)=>{
+     
+        let  selectedSparePartExistIndex = selectedSpareParts.findIndex(part => part.id == sparepart.id)
+        let  oldQuantity =selectedSparePartExistIndex !== -1 && selectedSpareParts.find(part => part.id == sparepart.id).quantity
+       
+        console.log('old quantity',oldQuantity)
+        if (selectedSparePartExistIndex !== -1) 
+        {
+             const newArray = [...selectedSpareParts];
+            console.log(newArray) 
+           
+          newArray[selectedSparePartExistIndex] =  {id: sparepart.id, title:sparepart.title, quantity:parseInt(quantity)+parseInt(oldQuantity)}
+          console.log(newArray)
+            setSelectedSpareParts(newArray)
+            console.log(selectedSparePartExistIndex)
+        
+         
+        }
+        else{   
+        setSelectedSpareParts([...selectedSpareParts,{ id: sparepart.id, title:sparepart.title, quantity:quantity}])
+        }
+
+      }
+      // remove spare part from selected list 
+      let removeSelected=(sparepart)=>{
+        setSelectedSpareParts(selectedSpareParts.filter((part)=>part.id != sparepart.id))
+    }
+    let renderedSpareParts = isLoading ? <img className="loading" src="/images/giphy.gif" /> : spareParts.map(sparePart=>  <SparePartsInventory key={sparePart.id} sparepart={sparePart} setSelectedSpareParts={addToSelectedList} selectedSpareParts={selectedSpareParts}/>)
+    let renderedSelectedSpareParts = selectedSpareParts.map((part)=><SelectedSparePart  part={part} removeSelected={removeSelected} />)
     return (
         <div className="select_spareparts">
             <div className="first_row">

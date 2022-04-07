@@ -1,13 +1,33 @@
 import { Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import {FaSearch} from'react-icons/fa'
-
-
-
-import SparePartInventory from "./SparePartsInventory"
+import SparePartsInventory from "./SparePartsInventory" 
 import SelectedSparePart from "./SelectedSpareParts"
 import SparePartBuy from "./SparePartBuy"
+import { useEffect, useState } from "react"
+import { useDispatch,useSelector } from 'react-redux'
+import { getSpareParts} from '../../store/store slices/InventorySice'
+
 const BuySpareParts = ({businessName, businessType}) => {
+    const dispatch = useDispatch()
+    const [showAlert, setShowAlert]= useState(true)
+    const [selectedSpareParts,setSelectedSpareParts]=useState([])
+    const {spareParts , isLoading, error}= useSelector((state)=>state.inventory)
+    useEffect(() =>{
+        dispatch(getSpareParts());
+        const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+           
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
+      
+       
+    
+      },[dispatch])
     let  part={
         "id": 7,
         "title": "new",
@@ -46,6 +66,35 @@ const BuySpareParts = ({businessName, businessType}) => {
             }
         ]
     }
+    const addToSelectedList=(sparepart,quantity)=>{
+     
+        let  selectedSparePartExistIndex = selectedSpareParts.findIndex(part => part.id == sparepart.id)
+        let  oldQuantity =selectedSparePartExistIndex !== -1 && selectedSpareParts.find(part => part.id == sparepart.id).quantity
+       
+        console.log('old quantity',oldQuantity)
+        if (selectedSparePartExistIndex !== -1) 
+        {
+             const newArray = [...selectedSpareParts];
+            console.log(newArray) 
+           
+          newArray[selectedSparePartExistIndex] =  {id: sparepart.id, title:sparepart.title, quantity:parseInt(quantity)+parseInt(oldQuantity)}
+          console.log(newArray)
+            setSelectedSpareParts(newArray)
+            console.log(selectedSparePartExistIndex)
+        
+         
+        }
+        else{   
+        setSelectedSpareParts([...selectedSpareParts,{ id: sparepart.id, title:sparepart.title, quantity:quantity}])
+        }
+
+      }
+      // remove spare part from selected list 
+      let removeSelected=(sparepart)=>{
+        setSelectedSpareParts(selectedSpareParts.filter((part)=>part.id != sparepart.id))
+    }
+    let renderedSpareParts = isLoading ? <img className="loading" src="/images/giphy.gif" /> : spareParts.map(sparePart=>  <SparePartsInventory key={sparePart.id} sparepart={sparePart} setSelectedSpareParts={addToSelectedList} selectedSpareParts={selectedSpareParts}/>)
+    let renderedSelectedSpareParts = selectedSpareParts.map((part)=><SelectedSparePart  part={part} removeSelected={removeSelected} />)
     return (
         <div className="select_spareparts buy">
               <div className="first_row">
@@ -80,10 +129,7 @@ const BuySpareParts = ({businessName, businessType}) => {
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                        <SparePartBuy />
-                        <SparePartBuy />
-                        <SparePartBuy />
-                        <SparePartBuy />
+                        {renderedSpareParts}
                         </table>
                     </div>
                 </Col>
@@ -98,9 +144,7 @@ const BuySpareParts = ({businessName, businessType}) => {
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                        <SelectedSparePart part={part}/>
-                        <SelectedSparePart part={part} />
-                        <SelectedSparePart part={part} />
+                        {renderedSelectedSpareParts}
                        
                         <tr className="spare_part">
                             <th className="total" >TOTAL  </th>
