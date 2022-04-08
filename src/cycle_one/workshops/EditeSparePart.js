@@ -1,25 +1,29 @@
 import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Cookies from "universal-cookie";
-import {addSparePart} from '../../store/store slices/InventorySice'
+import {editePart} from '../../store/store slices/InventorySice'
 import { useDispatch,useSelector } from 'react-redux'
-import {useNavigate} from 'react-router-dom'
-const AddSparePart = () => {
+import {useNavigate, useLocation} from 'react-router-dom'
+const EditeSparePart = () => {
+    let location = useLocation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [showAlert, setShowAlert]= useState(true)
     const cookies = new Cookies();
-    const { created, error}= useSelector((state)=>state.inventory)
+    const { edited, error}= useSelector((state)=>state.inventory)
     const [formData, setFormData] = useState({
         workshop_id: cookies.get("workshop").id,
-        type_id:1,
-        title: '',
-        description:'',
-        unit_price: '',
-        quantity: '',
-        galleries :[],
+        spare_part_id:location.state.part.id,
+        type_id:location.state.part.type.id,
+        title: location.state.part.title,
+        description:location.state.part.description,
+        unit_price:location.state.part.unit_price,
+        quantity: location.state.part.quantity,
+        galleries :location.state.part.galleries,
         is_purchase:false
     })
+    console.log(location.state.part)
+    
     console.log(formData)
     const { title,description , unit_price, quantity, galleries, is_purchase}=formData
 
@@ -28,7 +32,7 @@ const AddSparePart = () => {
     const imgChange=e=>setFormData({...formData, [e.target.name]:{image :e.target.files[0]}})
     const onSubmit= async e => {
         e.preventDefault()
-        dispatch(addSparePart(formData))
+        dispatch(editePart(formData))
         setShowAlert(true)
         const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
@@ -44,7 +48,7 @@ const AddSparePart = () => {
     return (
         <div className='add_sparePart'>
             <div className='header'>
-            ADD SPARE PART
+            Edite SPARE PART
  
             </div>
             <div className='body'>
@@ -57,7 +61,7 @@ const AddSparePart = () => {
                         <span>UPLOAD PHOTOS</span>
                     </div>
         
-                <input type="file" id="my_file" style={{display: "none"}} name='galleries'   onChange={(e)=>imgChange(e)} required/>
+                <input type="file" id="my_file" style={{display: "none"}} name='galleries'   onChange={(e)=>imgChange(e)} />
 
             
                 <div className='input_Section'>
@@ -141,10 +145,10 @@ const AddSparePart = () => {
             </form>
             </div> 
 
-          {created && navigate('/workshop/owner/manageinventory')}
+          {edited && navigate('/workshop/owner/manageinventory')}
            
         </div>
     )
 }
 
-export default AddSparePart
+export default EditeSparePart

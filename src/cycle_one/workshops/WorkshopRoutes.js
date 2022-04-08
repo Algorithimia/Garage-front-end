@@ -55,6 +55,7 @@ import MaintenancePackaging from './MaintenancePackaging'
 import SidebarOptions from './components/SidebarOptions'
 import AddWorkshop from './AddWorkshop'
 import EditeEmploy from './EditeEmploy'
+import EditeSparePart from './EditeSparePart'
 const WorkshopRoutes = () => {
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
@@ -140,6 +141,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/vehicle2" element={<Vehicles2 />} exact  />
                     <Route path="/owner/addvehicle2" element={<Addvehicle2 />} exact  />
                     <Route path="/owner/addsparepart" element={<AddSparePart />} exact  />
+                    <Route path="/owner/editesparepart" element={<EditeSparePart />} exact  />
                     <Route path="/owner/businesses" element={<Businesses />} exact  />
                     <Route path="/owner/favbusinesses" element={<FavouriteBusinesses />} exact  />
                     <Route path="/owner/dealtwithbusinesses" element={<DealtWithBusinesses />} exact  />

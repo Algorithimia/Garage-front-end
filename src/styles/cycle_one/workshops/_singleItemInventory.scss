@@ -20,7 +20,7 @@
                 border: none;
                 color: #fff;
                 border-radius: 25px;
-                width: 231px;
+                padding: 0 50px;
                 height: 38px;
                 font-weight: 400;
                 font-size: 16px;
@@ -44,6 +44,10 @@
     }
     .body{
         margin-top: 70px;
+        .showd-img{
+            height:300px;
+            width:100px;
+        }
     .spare_part{
 
         width: 370px;

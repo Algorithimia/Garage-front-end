@@ -7,11 +7,11 @@ import { FaSearch } from 'react-icons/fa'
 import { useDispatch,useSelector } from 'react-redux'
 import RowInventory from './components/RowInventory'
 import { Link } from 'react-router-dom'
-import { getSpareParts} from '../../store/store slices/InventorySice'
+import { getSpareParts,clearstate} from '../../store/store slices/InventorySice'
 const ManageInventory = () => {
     const [showAlert, setShowAlert]= useState(true)
     const dispatch = useDispatch()
-    const {spareParts , isLoading, error}= useSelector((state)=>state.inventory)
+    const {spareParts , isLoading, error, created,edited}= useSelector((state)=>state.inventory)
     {console.log(spareParts)}
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
@@ -19,7 +19,8 @@ const ManageInventory = () => {
        setEntries(parseInt(entries)+1)
     }
     const downEntries=()=>{
-       setEntries(parseInt(entries)-1)
+     if(entries>0)
+      { setEntries(parseInt(entries)-1)}
     }
     const upDate=()=>{
         setDate(parseInt(date)+1)
@@ -27,7 +28,8 @@ const ManageInventory = () => {
       
      }
      const downDate=()=>{
-        setDate(parseInt(date)-1)
+        if(date>0)
+        {setDate(parseInt(date)-1)}
       
      }
      useEffect(() =>{
@@ -35,6 +37,7 @@ const ManageInventory = () => {
         const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
             setShowAlert(false)
+            dispatch(clearstate());
            
           }, 5000)
       
@@ -111,6 +114,9 @@ const ManageInventory = () => {
 
                                         
                         </div>
+                        {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                        {showAlert && created && <div className='create-msg'> You Create a Spare part </div> }
+                        {showAlert && edited && <div className='edite-msg'> You Edite a Spare part </div> }
                         <table>
                             <thead>
                                 <tr>
@@ -127,7 +133,7 @@ const ManageInventory = () => {
                                 </tr>
                             
                             </thead>
-                            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                           
                             {renderedSpareParts}
                             {/* <RowInventory payment_type='CREDIT' date='12/6' invoice_num='451'
                             buisiness_info={<> name <br/> 125 358 369 </>}
