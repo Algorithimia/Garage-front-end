@@ -9,6 +9,7 @@ import models from './store slices/workOrderSlices/modelSlice'
 import inventory from './store slices/InventorySice'
 import UsedSpareParts from './store slices/workOrderSlices/sparePartForOrder'
 import customers from './store slices/workshopCustommerSlice'
+import appointment from './store slices/appointmentSlice'
 export default   configureStore({
   reducer: {
       auth,
@@ -20,7 +21,8 @@ export default   configureStore({
       workOrders,
       models,
       inventory,
-      UsedSpareParts
+      UsedSpareParts,
+      appointment
     }
 
   })

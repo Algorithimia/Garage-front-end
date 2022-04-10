@@ -14,7 +14,7 @@ const GarageCustomers = () => {
     const [showAlert, setShowAlert]= useState(true)  
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
-
+    const [search , setSearch] = useState('')
     useEffect(() =>{
         dispatch(getcustommers());
       
@@ -37,7 +37,20 @@ const GarageCustomers = () => {
         setDate(parseInt(date)-1)
       
      }
-     let renderedCustommers= custommers&& custommers.map((customer)=>{
+     const onChange=e=>{setSearch(e.target.value.toLowerCase())}
+     const searchResult = custommers.filter((el) => {
+   
+        if (search === '') {
+            return el
+        }
+      
+        else {        
+            return ( el.name.toLowerCase().includes(search) )           
+        }
+    })
+  
+ 
+     let renderedCustommers= custommers&& searchResult.map((customer)=>{
          return <CustomerRow   customer={customer}/>
      })
     return (
@@ -58,7 +71,7 @@ const GarageCustomers = () => {
                     <button  className='desktop_button'>with current work orders</button>
                     <button className='mobile_button' >current</button>
                     <div className='right'>
-                        <input placeholder='Search Customers' /> 
+                        <input placeholder='Search Customers'  value={search} onChange={e=>onChange(e)} /> 
                         <span><FaSearch /> </span>
 
                     </div>

@@ -293,6 +293,14 @@ margin-top: 50px;
              }
              .blue{
                  background-color:#4390E0 ;
+                 border: none;
+                 color: #fff;
+                 width: 85px;
+                 height: 38px;
+                 border-radius: 25px;  
+                 &:hover{
+                     opacity: 0.5;
+                 }         
              }
         }
         
