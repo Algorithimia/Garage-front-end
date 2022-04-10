@@ -1,16 +1,27 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {GoTriangleDown,GoTriangleUp} from "react-icons/go"
 import{BsSortAlphaUpAlt, BsSortAlphaUp} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
-
+import { useDispatch,useSelector } from 'react-redux'
 
 import CustomerRow from './components/CustomerRow'
+import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
 const GarageCustomers = () => {
-    
+    const dispatch = useDispatch()
+    const {custommers, isLoading, error}= useSelector((state)=>state.customers)
+    const [showAlert, setShowAlert]= useState(true)  
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
+
+    useEffect(() =>{
+        dispatch(getcustommers());
+      
+     
+       
+    
+      },[dispatch])
     const upEntries=()=>{
        setEntries(parseInt(entries)+1)
     }
@@ -26,118 +37,98 @@ const GarageCustomers = () => {
         setDate(parseInt(date)-1)
       
      }
+     let renderedCustommers= custommers&& custommers.map((customer)=>{
+         return <CustomerRow   customer={customer}/>
+     })
     return (
-        <div className='grage_customers'>
-            <div className='header'>
-            GARAGE COUSTOMERS
-            <Link to='/workshop/owner/createoreditecustomer'>
-                <button className='right'><span><AiFillPlusCircle /></span> Add New Customers</button>
-                <button className='right mobile'><span><AiFillPlusCircle /></span> Add</button>
-            </Link>
+        <>
+        { isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
 
-            </div>
-            <div className='second_line'>
-                   <button className='active'>All</button>
-                   <button  className='desktop_button'>with current work orders</button>
-                   <button className='mobile_button' >current</button>
-                   <div className='right'>
-                      <input placeholder='Search Customers' /> 
-                      <span><FaSearch /> </span>
+            <div className='grage_customers'>
+                <div className='header'>
+                GARAGE COUSTOMERS
+                <Link to='/workshop/owner/createoreditecustomer'>
+                    <button className='right'><span><AiFillPlusCircle /></span> Add New Customers</button>
+                    <button className='right mobile'><span><AiFillPlusCircle /></span> Add</button>
+                </Link>
 
-                   </div>
-            </div>
+                </div>
+                <div className='second_line'>
+                    <button className='active'>All</button>
+                    <button  className='desktop_button'>with current work orders</button>
+                    <button className='mobile_button' >current</button>
+                    <div className='right'>
+                        <input placeholder='Search Customers' /> 
+                        <span><FaSearch /> </span>
+
+                    </div>
+                </div>
 
 
-            <div className='third_line'>
-                    <div className='inline-block input_block'>
-                                <span>
-                                Show Entries
-                                </span>
-                                <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
-                                <div className="change_number">
-                                    <div className='change' onClick={upEntries}>   
-                                    <GoTriangleUp />
-                                    </div>
-                                    <div className="up change" onClick={downEntries}>
-                                    <GoTriangleDown />
-                                    </div>
-                                </div>
-                                
-                                </div>
-                                
-                                <div className='inline-block input_block'>
+                <div className='third_line'>
+                        <div className='inline-block input_block'>
                                     <span>
-                                    Date
+                                    Show Entries
                                     </span>
-                                    <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                                    <input type='number'  onChange={(e)=> setEntries(e.target.value)} value={entries}/>
                                     <div className="change_number">
-                                        <div className='change' onClick={upDate}>
+                                        <div className='change' onClick={upEntries}>   
                                         <GoTriangleUp />
                                         </div>
-                                        <div className="up change" onClick={downDate}>
+                                        <div className="up change" onClick={downEntries}>
                                         <GoTriangleDown />
                                         </div>
                                     </div>
+                                    
                                     </div>
-                                    <span className='alpha_small'>
-                                        <span className='alpha z_to_a'>
-                                            <BsSortAlphaUpAlt />
-                                        </span>
-                                        <span className='alpha a_to_z'>
-                                            <BsSortAlphaUp />
-                                        </span>
-                                    </span>
                                     
+                                    <div className='inline-block input_block'>
+                                        <span>
+                                        Date
+                                        </span>
+                                        <input type='number'  value={date} onChange={(e)=> setDate(e.target.value)}/>
+                                        <div className="change_number">
+                                            <div className='change' onClick={upDate}>
+                                            <GoTriangleUp />
+                                            </div>
+                                            <div className="up change" onClick={downDate}>
+                                            <GoTriangleDown />
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <span className='alpha_small'>
+                                            <span className='alpha z_to_a'>
+                                                <BsSortAlphaUpAlt />
+                                            </span>
+                                            <span className='alpha a_to_z'>
+                                                <BsSortAlphaUp />
+                                            </span>
+                                        </span>
+                                        
 
-                                    
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> CUSTOMER <br/> NAME</th>
-                                <th> ADDRESS</th>
-                                <th> PHONE <br/> NUMBER</th>
-                                <th> EMAIL</th>
-                                <th> WORK orders</th>
-                              
+                                        
+                        </div>
+                        <table>
+                        {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                            <thead>
+                                <tr>
+                                    <th> CUSTOMER <br/> NAME</th>
+                                    <th> ADDRESS</th>
+                                    <th> PHONE <br/> NUMBER</th>
+                                    <th> EMAIL</th>
+                                    <th> WORK orders</th>
                                 
-                            </tr>
-                           
-                        </thead>
-                        <CustomerRow  name='Denise Powell'
-                                        address='Egypt ,Cairo..'
-                                        phone='025 025 256 3'
-                                        mail='y@y.com'
-                                        workorders='0' />
-                        <CustomerRow  name='Denise Powell'
-                                        address='Egypt ,Cairo..'
-                                        phone='025 025 256 3'
-                                        mail='y@y.com'
-                                        workorders='1' />   
-                         <CustomerRow  name='Denise Powell'
-                                        address='Egypt ,Cairo..'
-                                        phone='025 025 256 3'
-                                        mail='y@y.com'
-                                        workorders='0' />   
-                         <CustomerRow  name='Denise Powell'
-                                        address='Egypt ,Cairo..'
-                                        phone='025 025 256 3'
-                                        mail='y@y.com'
-                                        workorders='0' />
-                           <CustomerRow  name='Denise Powell'
-                                        address='Egypt ,Cairo..'
-                                        phone='025 025 256 3'
-                                        mail='y@y.com'
-                                        workorders='1' />   
-                         <CustomerRow  name='Denise Powell'
-                                        address='Egypt ,Cairo..'
-                                        phone='025 025 256 3'
-                                        mail='y@y.com'
-                                        workorders='0' />   
-                                     
-                    </table>
-            
-        </div>
+                                    
+                                </tr>
+                            
+                            </thead>
+                            {renderedCustommers} 
+                                        
+                        </table>
+                
+            </div>
+        }
+        </>
     )
 }
 

@@ -52,12 +52,12 @@ catch (e) {
 
 
 
-export const getcustommers = createAsyncThunk ('gocustomer/getcustommers',  async(_ ,thunkAPI) =>{
+export const getcustommers = createAsyncThunk ('customer/get',  async(_ ,thunkAPI) =>{
     const {rejectWithValue , getState} = thunkAPI
   
     try{
       const token= getState().auth.token
-      let res = await axios.get("https://www.getgarage.me/api/v1/workshop/2/custommeres/",{
+      let res = await axios.get("https://www.getgarage.me/api/v1/workshop/customers/",{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}
@@ -73,9 +73,9 @@ export const getcustommers = createAsyncThunk ('gocustomer/getcustommers',  asyn
   }
   
   })
-const Gocustommer = createSlice({
-    name: 'go',
-    initialState: { custommer:[], gocreatecustommer:false, goEditecustommer:false ,isLoading:false, error:null},
+const custommerSlice = createSlice({
+    name: 'workshop-custommer',
+    initialState: { custommers:[],isLoading:false, error:null},
     reducers:{
     }
     ,
@@ -92,7 +92,7 @@ const Gocustommer = createSlice({
             
             state.isLoading = false;
             state.error = null
-            state.employs= action.payload.results
+            state.custommers= action.payload
            
 
             
@@ -122,7 +122,7 @@ const Gocustommer = createSlice({
             state.error= null
             state.gocreateemploy= true;
             state.goEditeemploy=false
-            state.employs= [...state.employs,action.payload]
+            state.custommers= [...state.custommers,action.payload]
             const navigate = useNavigate()
             navigate('/products')
          
@@ -137,7 +137,7 @@ const Gocustommer = createSlice({
             
     
         },
-        [ editeEmploy.pending ] :(state,action)=>{
+        [ editecustommer.pending ] :(state,action)=>{
 
           state.isLoading = true
           state.error = null
@@ -146,22 +146,22 @@ const Gocustommer = createSlice({
        
         
      },
-     [ editeEmploy.fulfilled ] :(state,action)=>{
+     [ editecustommer.fulfilled ] :(state,action)=>{
       state.isLoading = true;
       state.error= null;
 
       state.gocreateemploy= false
       state.goEditeemploy=true
-      const index =  state.employs.findIndex(employ => employ.id == action.payload.id);                                                            
-      const newArray = [...state.employs]; 
+      const index =  state.custommers.findIndex(employ => employ.id == action.payload.id);                                                            
+      const newArray = [...state.custommers]; 
       if(index)
       {  newArray[index] = action.payload;}
-      state.employs=newArray ;
+      state.custommers=newArray ;
   
       
       },
 
-      [ editeEmploy.rejected ] :(state,action)=>{
+      [ editecustommer.rejected ] :(state,action)=>{
            state.isLoading = false
            state.gocreateemploy= false
            state.goEditeemploy=false
@@ -178,4 +178,4 @@ const Gocustommer = createSlice({
 
 
 
-export default GoEmploye.reducer
+export default custommerSlice.reducer

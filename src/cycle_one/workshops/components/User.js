@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-const User = ({user,isLoading}) => {
+ 
+const User = ({custommer,isLoading}) => {
     return (
         <div className="customer_info">
-        {isLoading || !user ? 'loading ..' : <>
-        { user &&    <img 
-            src={user.avater}
+        {isLoading || !custommer ? 'loading ..' : <>
+        { custommer &&    <img 
+            src={custommer.avater}
             />}
-            {user &&  <div className="title"> {user.name}</div>}
+            {custommer &&  <div className="title"> {custommer.name}</div>}
             <div className="personal_info">
-            { user &&  <span>{user.phone}</span>} <br/>
-                {  user && <span>{user.email}</span>} <br/>
+            { custommer &&  <span>{custommer.phone}</span>} <br/>
+                {  custommer && <span>{custommer.email}</span>} <br/>
                 <span>LOCATION??</span> <br/>
             </div>
             <Link to='/workshop/owner/createoreditecustomer'>

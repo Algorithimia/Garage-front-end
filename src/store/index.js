@@ -7,16 +7,20 @@ import workshop from './store slices/workshopSlice'
 import workOrders from './store slices/workOrderSlices/workOrder'
 import models from './store slices/workOrderSlices/modelSlice'
 import inventory from './store slices/InventorySice'
+import UsedSpareParts from './store slices/workOrderSlices/sparePartForOrder'
+import customers from './store slices/workshopCustommerSlice'
 export default   configureStore({
   reducer: {
       auth,
       address,
       userDetails,
       GoEmploye,
+      customers,
       workshop,
       workOrders,
       models,
-      inventory
+      inventory,
+      UsedSpareParts
     }
 
   })

@@ -86,7 +86,7 @@ const SingleWorkOrder = () => {
                    <div className='spare_parts'>
                      <div className='header'>
                        <span>USED SPARE PARTS</span>
-                       <Link to='/workshop/owner/selectinventory'><button className='right'>Add</button></Link>
+                       <Link to={`/workshop/owner/selectinventory/${id}`}><button className='right'>Add</button></Link>
                      </div>
                      <div className='parts'>
                          {renderedSpareParts}

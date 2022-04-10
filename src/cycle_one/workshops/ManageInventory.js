@@ -13,6 +13,7 @@ const ManageInventory = () => {
     const dispatch = useDispatch()
     const {spareParts , isLoading, error, created,edited}= useSelector((state)=>state.inventory)
     {console.log(spareParts)}
+    const [search , setSearch] = useState('')
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
     const upEntries=()=>{
@@ -48,7 +49,21 @@ const ManageInventory = () => {
        
     
       },[dispatch])
-      let renderedSpareParts= spareParts.map(part=>{
+      //get search input value 
+      const onChange=e=>{setSearch(e.target.value.toLowerCase())}
+      //search function 
+      const searchResult = spareParts.filter((el) => {
+   
+        if (search === '') {
+            return el
+        }
+      
+        else {        
+            return ( el.description.toLowerCase().includes(search) )           
+        }
+    })
+    //rendered spareparts
+      let renderedSpareParts= searchResult.map(part=>{
       return  <RowInventory key={part.id} part={part} />
       })
     return (
@@ -106,7 +121,7 @@ const ManageInventory = () => {
                                             </span>
                                         </span>
                                         <div className='right'>
-                                            <input  placeholder='Search Inventory'/>
+                                            <input  placeholder='Search Inventory' value={search} onChange={e=>onChange(e)}/>
                                             <span><FaSearch/></span>
 
                                         </div>

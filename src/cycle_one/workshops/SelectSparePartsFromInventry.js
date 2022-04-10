@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import {FaSearch} from'react-icons/fa'
 
 
@@ -9,7 +9,11 @@ import { useDispatch,useSelector } from 'react-redux'
 import { getSpareParts} from '../../store/store slices/InventorySice'
 import {React , useEffect, useState } from "react"
 import SparePartsInventory from "./SparePartsInventory" 
+import {AddSparePart} from "../../store/store slices/workOrderSlices/sparePartForOrder"
+import Cookies from "universal-cookie";
 const SelectSparePartsFromInventry = () => {
+    const cookies = new Cookies();
+    let { id }  = useParams();
     const dispatch = useDispatch()
     const {spareParts , isLoading, error}= useSelector((state)=>state.inventory)
     const [showAlert, setShowAlert]= useState(true)
@@ -37,20 +41,23 @@ const SelectSparePartsFromInventry = () => {
         let  oldQuantity =selectedSparePartExistIndex !== -1 && selectedSpareParts.find(part => part.id == sparepart.id).quantity
        
         console.log('old quantity',oldQuantity)
+        console.log(sparepart)
         if (selectedSparePartExistIndex !== -1) 
         {
              const newArray = [...selectedSpareParts];
-            console.log(newArray) 
            
-          newArray[selectedSparePartExistIndex] =  {id: sparepart.id, title:sparepart.title, quantity:parseInt(quantity)+parseInt(oldQuantity)}
-          console.log(newArray)
+           
+          newArray[selectedSparePartExistIndex] =  {id: sparepart.id, title:sparepart.title, quantity:parseInt(quantity)+parseInt(oldQuantity)};
+           dispatch(AddSparePart({spare_part_id: sparepart.id, title:sparepart.title,work_order_id:id,workshop_id:cookies.get("workshop").id, quantity:parseInt(quantity) }));
             setSelectedSpareParts(newArray)
-            console.log(selectedSparePartExistIndex)
+            
         
          
         }
         else{   
+           
         setSelectedSpareParts([...selectedSpareParts,{ id: sparepart.id, title:sparepart.title, quantity:quantity}])
+        dispatch(AddSparePart({spare_part_id: sparepart.id, title:sparepart.title,work_order_id:id,workshop_id:cookies.get("workshop").id, quantity:parseInt(quantity) }));
         }
 
       }
