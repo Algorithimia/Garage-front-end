@@ -22,7 +22,10 @@ const SideBar = ({settings}) => {
 
     useEffect(() =>{
         dispatch(getUserDetails());
-       
+       if  ( !cookies.get("workshop") )
+        { userDetails && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length>0 && userDetails.workshops.length-1]);
+        userDetails&& setWorkshop(userDetails.workshops.length>0&&userDetails.workshops[userDetails.workshops.length-1])}
+        
     
       },[dispatch,created])
     let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop); cookies.remove("workshop"); cookies.set("workshop", workshop); document.location.reload()}}>
@@ -34,7 +37,7 @@ const SideBar = ({settings}) => {
         dispatch(logOut());
         navigate('/login_process/owner_login')
     }
-    console.log(workshop)
+    console.log(cookies.get("workshop"),'esraa')
   
     return (
         <>

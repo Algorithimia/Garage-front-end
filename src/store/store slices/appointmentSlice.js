@@ -60,14 +60,14 @@ catch(e){
 
 
 
-export const getemploys = createAsyncThunk ('employs/get',  async(_ ,thunkAPI) =>{
+export const geAppointments = createAsyncThunk ('appointments/get',  async(_ ,thunkAPI) =>{
     const {rejectWithValue , getState} = thunkAPI
   
     try{
       const token= getState().auth.token
       const cookies = new Cookies();
       let workshopId= cookies.get("workshop").id
-      let res = await axios.get(`https://www.getgarage.me/api/v1/workshop/${workshopId}/employees/`,{
+      let res = await axios.get(`https://www.getgarage.me/api/v1/workshop/${workshopId}/inside_appointments/`,{
         headers: {
       'Content-Type': 'application/json', 
        'Authorization': `Bearer ${token}`}
@@ -85,44 +85,43 @@ export const getemploys = createAsyncThunk ('employs/get',  async(_ ,thunkAPI) =
   })
 const appointmentSlice = createSlice({
     name: 'Appointment',
-    initialState: { appointments:[],created:false, isLoading:false, error:null},
+    initialState: { appointmentsList:[],created:false, isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
-        state.goaddAppointment= false
-        state.goEditeemploy=false
+        state.created= false
         state.error= false
 
       }
     }
     ,
     extraReducers:{
-        // [getemploys.pending]:(state,action)=>{
+        [geAppointments.pending]:(state,action)=>{
            
-        //     state.isLoading = true
-        //     state.error = null
+            state.isLoading = true
+            state.error = null
          
            
     
-        // },
-        // [getemploys.fulfilled]:(state,action)=>{
+        },
+        [geAppointments.fulfilled]:(state,action)=>{
             
-        //     state.isLoading = false;
-        //     state.error = null
-        //     state.employs= action.payload.results
+            state.isLoading = false;
+            state.error = null
+            state.appointmentsList= action.payload.results
            
 
             
          
     
-        // },
-        // [getemploys.rejected]:(state,action)=>{
-        //     state.isLoading = false
-        //     state.error = action.payload
+        },
+        [geAppointments.rejected]:(state,action)=>{
+            state.isLoading = false
+            state.error = action.payload
            
-        //     console.log(action.payload+'esraa')
+           
             
     
-        // },
+        },
         [addAppointment.pending]:(state,action)=>{
            
             state.isLoading = true
@@ -136,7 +135,7 @@ const appointmentSlice = createSlice({
             state.isLoading = false
             state.error= null
             state.created=true
-            state.appointments= [...state.appointments,action.payload]
+            state.appointmentsList= [...state.appointmentsList,action.payload]
             
          
     
@@ -189,6 +188,6 @@ const appointmentSlice = createSlice({
 })
 
 
-
+export const {clearstate} = appointmentSlice.actions
 
 export default appointmentSlice.reducer

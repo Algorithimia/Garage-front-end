@@ -3,6 +3,22 @@
 width: 90%;
 background-color: #fff;
 margin-top: 50px;
+.highlight{
+    position: relative;
+    cursor: pointer;
+        :after{
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #4390E0;
+           position: absolute;
+           top: 5px;
+           right: 5px;
+        
+        }
+        
+    }
     .header{
         padding: 30px;
         border-bottom: 1px solid #EFEFEF;
@@ -132,6 +148,7 @@ margin-top: 50px;
     }
 }
 
+
 }
 
 
@@ -241,14 +258,21 @@ margin-top: 50px;
             margin: auto;
             margin-bottom: 30px;
             max-width: 100%;
-            input,textarea{
+            input,textarea, select{
                 border: solid 2px  #EFEFEF;
                 padding: 20px 12px;
                 border-radius: 10px;
                 width: 100%;
                 outline: none;
+
+                option{
+                    padding:20px;
+                    display: block;
+                  
+                }
                
              }
+            
              label{
                  font-size: 16px;
                  font-weight: 500;

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate,  useLocation } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import {addAppointment} from '../../store/store slices/appointmentSlice'
 import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
-const AddAppointment = () => {
+import moment from 'moment'
+const EditeAppointment = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    let location = useLocation()
     const { error,created} = useSelector((state)=>state.appointment)
     const {custommers, isLoading}= useSelector((state)=>state.customers)
     const [showAlert, setShowAlert]= useState(true)
@@ -13,10 +15,11 @@ const AddAppointment = () => {
     const [formData, setFormData] = useState({
         workshop_id:2,
         customer_id:'',
-        title: '',
-        start_at_date:'',
+        title: location.state.apoointment.title,
+        start_at_date:moment(location.state.apoointment.start_at).format("DD-MM-YYYY"),
         start_at_time:'',
-        note:""
+        date:location.state.apoointment.start_at,
+        note:location.state.apoointment.note
 
       
      
@@ -108,4 +111,6 @@ const AddAppointment = () => {
     )
 }
 
-export default AddAppointment
+
+
+export default EditeAppointment

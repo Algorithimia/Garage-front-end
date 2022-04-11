@@ -56,6 +56,7 @@ import SidebarOptions from './components/SidebarOptions'
 import AddWorkshop from './AddWorkshop'
 import EditeEmploy from './EditeEmploy'
 import EditeSparePart from './EditeSparePart'
+import EditeAppointment from './EditeAppointment'
 const WorkshopRoutes = () => {
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
@@ -149,6 +150,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/partstransactionview" element={<PartsTransActionView />} exact  />
                     <Route path="/owner/calender" element={<Calender />} exact  />
                     <Route path="/owner/addappointment" element={<AddAppointment />} exact  />
+                    <Route path="/owner/editeappointment" element={<EditeAppointment />} exact  />
                     <Route path="/owner/vheiclesview" element={<VehicleView/>} exact  />
                     <Route path="/owner/vheiclesListview/*" element={<ViewVehiclesList/>} exact  />
                     <Route path="/owner/choosegrage" element={<ChooseGrage/>} exact  />
