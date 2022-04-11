@@ -18,14 +18,21 @@ const SideBar = ({settings}) => {
    
     useEffect(()=>{
         setShowSettings(settings)
+        if  ( !cookies.get("workshop") )
+        { userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length && userDetails.workshops.length-1]);
+        userDetails.workshops&& setWorkshop(userDetails.workshops.length&&userDetails.workshops[userDetails.workshops.length-1])
+        document.location.reload()
+    }
+      
+        
     },[settings])
 
     useEffect(() =>{
-        dispatch(getUserDetails());
-       if  ( !cookies.get("workshop") )
-        { userDetails && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length>0 && userDetails.workshops.length-1]);
-        userDetails&& setWorkshop(userDetails.workshops.length>0&&userDetails.workshops[userDetails.workshops.length-1])}
-        
+        dispatch(
+            
+        getUserDetails());
+         
+       
     
       },[dispatch,created])
     let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop); cookies.remove("workshop"); cookies.set("workshop", workshop); document.location.reload()}}>
