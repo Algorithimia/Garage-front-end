@@ -15,14 +15,15 @@ const SideBar = ({settings}) => {
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
     const[workshop, setWorkshop]= useState(cookies.get("workshop"))
-   
+    
+    if  ( !cookies.get("workshop") )
+    { userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length && userDetails.workshops.length-1]);
+    userDetails.workshops&& setWorkshop(userDetails.workshops.length&&userDetails.workshops[userDetails.workshops.length-1])
+    document.location.reload()
+}
     useEffect(()=>{
         setShowSettings(settings)
-        if  ( !cookies.get("workshop") )
-        { userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length && userDetails.workshops.length-1]);
-        userDetails.workshops&& setWorkshop(userDetails.workshops.length&&userDetails.workshops[userDetails.workshops.length-1])
-        document.location.reload()
-    }
+      
       
         
     },[settings])
