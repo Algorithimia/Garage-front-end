@@ -7,7 +7,7 @@ import { Link, Route, Routes , useNavigate} from 'react-router-dom'
 import ChangeEmployinfo from './ChangeEmployinfo'
 import { useDispatch,useSelector } from 'react-redux'
 import {getemploys, clearstate} from '../../store/store slices/GOEmploy'
- 
+  
 const Employes = () => {
     const {employs, gocreateemploy,goEditeemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
     const {loggedIn}= useSelector((state)=>state.auth)

@@ -57,6 +57,7 @@ import AddWorkshop from './AddWorkshop'
 import EditeEmploy from './EditeEmploy'
 import EditeSparePart from './EditeSparePart'
 import EditeAppointment from './EditeAppointment'
+import CustomerVehicles from './CustomerVehicles'
 const WorkshopRoutes = () => {
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
@@ -131,6 +132,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
                     <Route path="/owner/addvehicle" element={<AddVehicle path='/workshop/owner/viewvehicle' />} exact  />
                     <Route path="/owner/viewvehicle/:id" element={<ViewVehicle />} exact  />
+                    <Route path="/owner/Custommervehicles/:id" element={<CustomerVehicles />} exact  />
                     <Route path="/owner/employes/*" element={<Employes />} exact  />
                     <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
                     <Route path="/owner/editeemploy" element={<EditeEmploy />} exact  />
