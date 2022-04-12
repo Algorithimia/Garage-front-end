@@ -12,15 +12,14 @@ const SideBar = ({settings}) => {
     const navigate = useNavigate()
     const {created}= useSelector((state)=>state.workshop)
     const {userDetails , isLoading ,error}= useSelector((state)=>state.userDetails)
+       
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
-    const[workshop, setWorkshop]= useState(cookies.get("workshop"))
-    
-    if  ( !cookies.get("workshop") )
-    { userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length && userDetails.workshops.length-1]);
-    userDetails.workshops&& setWorkshop(userDetails.workshops.length&&userDetails.workshops[userDetails.workshops.length-1])
-    document.location.reload()
-}
+    // let defaultWorkShop= userDetails.workshops[userDetails.workshops.length -1]
+    const[workshop, setWorkshop]= useState(cookies.get("workshop") )
+   
+    ! workshop && userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length - 1]);
+    ! workshop && userDetails.workshops &&   setWorkshop(userDetails.workshops && userDetails.workshops[userDetails.workshops.length - 1])
     useEffect(()=>{
         setShowSettings(settings)
       
@@ -28,10 +27,10 @@ const SideBar = ({settings}) => {
         
     },[settings])
 
+
     useEffect(() =>{
-        dispatch(
-            
-        getUserDetails());
+        dispatch(getUserDetails());
+      
          
        
     
@@ -40,12 +39,21 @@ const SideBar = ({settings}) => {
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
         
         //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)
-    const onChange=e=>SetWorkshop_id(e.target.value)
+    //     if  ( !workshop) 
+    //     {
+          
+    //      userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length-1]);
+    //     setWorkshop(userDetails.workshops && userDetails.workshops[userDetails.workshops.length-1])
+       
+      
+    // }
+   
+        const onChange=e=>SetWorkshop_id(e.target.value)
     const userlogout=()=>{
         dispatch(logOut());
         navigate('/login_process/owner_login')
     }
-    console.log(cookies.get("workshop"),'esraa')
+ 
   
     return (
         <>
