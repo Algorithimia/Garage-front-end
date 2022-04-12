@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate,  useLocation } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
-import {addAppointment} from '../../store/store slices/appointmentSlice'
+import {editeAppointment} from '../../store/store slices/appointmentSlice'
 import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
 import moment from 'moment'
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 const EditeAppointment = () => {
+   
     const dispatch = useDispatch()
     const navigate = useNavigate()
     let location = useLocation()
-    const { error,created} = useSelector((state)=>state.appointment)
+    const { error,edited} = useSelector((state)=>state.appointment)
     const {custommers, isLoading}= useSelector((state)=>state.customers)
     const [showAlert, setShowAlert]= useState(true)
     //add data 
     const [formData, setFormData] = useState({
-        workshop_id:2,
-        customer_id:'',
+        workshop_id:cookies.get("workshop").id,
+        customer_id: location.state.apoointment.customer.id,
+        appointment_id: location.state.apoointment.id,
         title: location.state.apoointment.title,
-        start_at_date:moment(location.state.apoointment.start_at).format("DD-MM-YYYY"),
-        start_at_time:'',
+        start_at_date:location.state.apoointment.start_at.split(" ")[0],
+        start_at_time:location.state.apoointment.start_at.split(" ")[1],
         date:location.state.apoointment.start_at,
         note:location.state.apoointment.note
 
@@ -41,7 +45,7 @@ const EditeAppointment = () => {
     const onSubmit= async e => {
         e.preventDefault()
            e.preventDefault()
-           dispatch( addAppointment(formData))
+           dispatch( editeAppointment(formData))
            setShowAlert(true)
            const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
@@ -71,7 +75,7 @@ const EditeAppointment = () => {
                     <div className='input_div date'>
                         <label>APPOINTMENT DATE</label>
                         <br/>
-                        <input  type='date' name='start_at_date' value={start_at_date} onChange={e=>onChange(e)} />
+                        <input   type='date' name='start_at_date' value={start_at_date} onChange={e=>onChange(e)} />
                     </div>
                     <div className='input_div time'>
                         <label>APPOINTMENT TIME</label>
@@ -100,13 +104,13 @@ const EditeAppointment = () => {
                     </div>
                     <div className='butns'>
                         <Link to='/workshop/owner/calender'><button className='gray'>RESET</button></Link>
-                        <input type='submit'className='blue' value='Add' />
+                        <input type='submit'className='blue' value='Edite' />
 
                     </div>
                     </form>
 
             </div>
-            {created && navigate('/workshop/owner/calender')}
+            {edited && navigate('/workshop/owner/calender')}
         </div>
     )
 }

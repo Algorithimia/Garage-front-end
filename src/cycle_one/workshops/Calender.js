@@ -14,7 +14,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import {geAppointments, clearstate} from '../../store/store slices/appointmentSlice'
 const Calender = () => {
   const dispatch = useDispatch()
-  const { appointmentsList, error,created} = useSelector((state)=>state.appointment)
+  const { appointmentsList, error,created, edited} = useSelector((state)=>state.appointment)
   let list =  appointmentsList && appointmentsList.map(a=>moment(a.start_at).format("DD-MM-YYYY") )
  
  
@@ -49,6 +49,8 @@ console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
       <div className='calender'>
           <div className='header'>
               CALENDER 	&#38; APPOINTMENTS
+
+             
               <div className='right'>
                   <Link to='/workshop/owner/addappointment'>
                     <button>
@@ -62,6 +64,9 @@ console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
 
 
           </div>
+          {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }
+             {showAlert && created && <div className='create-msg'> You Create an Appointment </div> }
+             {showAlert && edited && <div className='edite-msg'> Edited successfully </div> }
           <div className='body'>
           <Row>
               <Col lg={6}>

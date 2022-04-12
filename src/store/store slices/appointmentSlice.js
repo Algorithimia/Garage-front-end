@@ -27,7 +27,7 @@ export const addAppointment = createAsyncThunk ('Appointment/add',
       
   }
 })
-export const editeEmploy = createAsyncThunk ('goemploy/updateemploy',  async(editedEmployData,thunkAPI) =>{
+export const editeAppointment = createAsyncThunk ('Appintment/edite',  async(editeData,thunkAPI) =>{
   const {rejectWithValue , getState} = thunkAPI
   const token= getState().auth.token
   const config = {     
@@ -35,20 +35,16 @@ export const editeEmploy = createAsyncThunk ('goemploy/updateemploy',  async(edi
                'Authorization': `Bearer ${token}`,
   }}
 try{
-if(editedEmployData.oldEmail == editedEmployData.email ){
-  delete editedEmployData.email
+if(editeData.oldEmail == editeData.email ){
+  delete editeData.email
 
 }
-let data = editedEmployData
+let data = editeData
 let body= JSON.stringify(data)
-let response = await axios.put("https://www.getgarage.me/api/v1/workshop/employee/update1/", body, config)
-
+let response = await axios.put("https://www.getgarage.me/api/v1/workshop/appointment/update/", body, config)
   if(response.status == 200) {
-    return  ({...editedEmployData, ...response.data}) 
+    return  ({...editeData, ...response.data}) 
   }
-
-
- 
 }
 catch(e){
   return rejectWithValue(e.response.data)
@@ -85,11 +81,12 @@ export const geAppointments = createAsyncThunk ('appointments/get',  async(_ ,th
   })
 const appointmentSlice = createSlice({
     name: 'Appointment',
-    initialState: { appointmentsList:[],created:false, isLoading:false, error:null},
+    initialState: { appointmentsList:[],created:false, edited:false, isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
         state.created= false
         state.error= false
+        state.edited=false
 
       }
     }
@@ -127,6 +124,7 @@ const appointmentSlice = createSlice({
             state.isLoading = true
             state.error = null
             state.created=false
+            state.edited=false
           
     
         },
@@ -135,6 +133,7 @@ const appointmentSlice = createSlice({
             state.isLoading = false
             state.error= null
             state.created=true
+            state.edited=false
             state.appointmentsList= [...state.appointmentsList,action.payload]
             
          
@@ -144,43 +143,45 @@ const appointmentSlice = createSlice({
             state.isLoading = false
             state.error = action.payload
             state.created=false
+            state.edited=false
           
 
             
     
         },
-    //     [ editeEmploy.pending ] :(state,action)=>{
+        [ editeAppointment.pending ] :(state,action)=>{
 
-    //       state.isLoading = true
-    //       state.error = null
-    //       state.goaddAppointment= false
-    //       state.goEditeemploy=false
+          state.isLoading = true
+          state.error = null
+          state.created=false
+          state.edited=false
        
         
-    //  },
-    //  [ editeEmploy.fulfilled ] :(state,action)=>{
-    //   state.isLoading = false;
-    //   state.error= null;
+     },
+     [ editeAppointment.fulfilled ] :(state,action)=>{
+      state.isLoading = false;
+      state.error= null;
 
-    //   state.goaddAppointment= false
-    //   state.goEditeemploy=true
-    //   const index =  state.employs.findIndex(employ => employ.id == action.payload.id);                                                            
-    //   const newArray = [...state.employs]; 
-    //   if(index)
-    //   {  newArray[index] = action.payload;}
-    //   state.employs=newArray ;
+      state.created= false
+      state.edited=true
+
+      const index =  state.appointmentsList.findIndex(appoint => appoint.id == action.payload.id);                                                            
+      const newArray = [...state.appointmentsList]; 
+      if(index)
+      {  newArray[index] = action.payload;}
+      state.appointmentsList=newArray ;
   
       
-    //   },
+      },
 
-    //   [ editeEmploy.rejected ] :(state,action)=>{
-    //        state.isLoading = false
-    //        state.goaddAppointment= false
-    //        state.goEditeemploy=false
-    //        state.error = action.payload
-    //      console.log(action)
+      [ editeAppointment.rejected ] :(state,action)=>{
+           state.isLoading = false
+           state.created= false
+           state.edited=false
+           state.error = action.payload
+         console.log(action)
          
-    //   }, 
+      }, 
      
 
     }

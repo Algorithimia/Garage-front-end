@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import {addAppointment} from '../../store/store slices/appointmentSlice'
 import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 const AddAppointment = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -11,7 +13,7 @@ const AddAppointment = () => {
     const [showAlert, setShowAlert]= useState(true)
     //add data 
     const [formData, setFormData] = useState({
-        workshop_id:2,
+        workshop_id:cookies.get("workshop").id,
         customer_id:'',
         title: '',
         start_at_date:'',
