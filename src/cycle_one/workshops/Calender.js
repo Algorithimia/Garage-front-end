@@ -22,7 +22,9 @@ const Calender = () => {
     const [value,setValue]=useState()
     const [showAlert, setShowAlert]= useState(true)
 {console.log(appointmentsList)}
-let commingAppointment = appointmentsList[appointmentsList.length-1]
+let realDates=appointmentsList.filter(a=>moment(a.start_at)  >= new Date())
+console.log(realDates)
+let commingAppointment = realDates[realDates.length-1]
 console.log(commingAppointment)
 {console.log(new Date(2021, 11, 27))}
 console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
@@ -110,7 +112,7 @@ console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
                               {commingAppointment &&moment(commingAppointment.start_at).format("DD-MM-YYYY") }
                               </div>
                               <div className='with'>
-                              <FaTools /> With VEHICLE OWNER
+                              <FaTools /> With {commingAppointment && commingAppointment.customer.name}
 
                               </div>
                               <div className='note'><Row> <Col sm={2}><span>Note</span> </Col> <Col sm={10}> <div className='text'>
