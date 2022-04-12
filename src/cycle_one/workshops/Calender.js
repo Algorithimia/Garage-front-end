@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom';
 import AddAppointment from './AddAppointment';
 // import 'react-calendar/dist/Calendar.css';
 import { useDispatch,useSelector } from 'react-redux'
-import {geAppointments, clearstate} from '../../store/store slices/appointmentSlice'
+import {geAppointments,deletAppointment, clearstate} from '../../store/store slices/appointmentSlice'
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 const Calender = () => {
   const dispatch = useDispatch()
   const { appointmentsList, error,created, edited} = useSelector((state)=>state.appointment)
@@ -91,11 +93,11 @@ console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
               </Col>
               <Col lg={6}>
                   <div className='right_div'>
-                      <div className='comming'>
+                     {commingAppointment&& <div className='comming'>
                           <div className='first_line'>
                               <span>COMING</span>
                               <div className='right'>
-                                  <span className='gray'>
+                                  <span className='gray' onClick={()=>dispatch(deletAppointment({appointment_id:commingAppointment.id ,workshop_id:cookies.get("workshop").id}))}>
                                      <MdDeleteSweep />
                                   </span>
                                   <Link to='/workshop/owner/editeappointment' state={{apoointment:commingAppointment}}>
@@ -112,7 +114,7 @@ console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
                               {commingAppointment &&moment(commingAppointment.start_at).format("DD-MM-YYYY") }
                               </div>
                               <div className='with'>
-                              <FaTools /> With {commingAppointment && commingAppointment.customer.name}
+                              <FaTools /> With {commingAppointment && commingAppointment.customer &&commingAppointment.customer.name }
 
                               </div>
                               <div className='note'><Row> <Col sm={2}><span>Note</span> </Col> <Col sm={10}> <div className='text'>
@@ -138,7 +140,7 @@ console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
 
                           </div>
 
-                      </div>
+                      </div>}
                   </div>
               
               </Col>

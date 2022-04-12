@@ -79,6 +79,24 @@ export const geAppointments = createAsyncThunk ('appointments/get',  async(_ ,th
   }
   
   })
+
+  export const deletAppointment=   createAsyncThunk ('appointments/delete',  async(deleteData ,thunkAPI) =>{
+    const {rejectWithValue , getState} = thunkAPI
+    const token= getState().auth.token
+    try {
+      const body= JSON.stringify(deleteData)
+      const response = await axios.delete("https://www.getgarage.me/api/v1/workshop/appointment/delete/", {
+        headers: {
+          'Content-Type': 'application/json', 
+          'Authorization': `Bearer ${token}`,
+        },data: body})
+        if(response.status==200)
+       return deleteData.appointment_id
+      }
+      catch (e) {
+      return rejectWithValue(e.message);
+    }
+    })
 const appointmentSlice = createSlice({
     name: 'Appointment',
     initialState: { appointmentsList:[],created:false, edited:false, isLoading:false, error:null},
@@ -182,6 +200,31 @@ const appointmentSlice = createSlice({
          console.log(action)
          
       }, 
+
+      [ deletAppointment.pending ] :(state,action)=>{
+
+        state.isLoading = true
+        state.error = null
+        
+      
+   },
+   [ deletAppointment.fulfilled ] :(state,action)=>{
+    state.isLoading = false
+    state.error= null
+    state.appointmentsList  = state.appointmentsList.filter((appointment)=>appointment.id != action.payload)
+    
+  
+
+    
+    },
+    [ deletAppointment.rejected ] :(state,action)=>{
+         state.isLoading = false
+         state.error = action.payload
+        
+      
+       
+    }, 
+
      
 
     }

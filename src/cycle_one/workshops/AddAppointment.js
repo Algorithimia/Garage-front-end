@@ -70,24 +70,25 @@ const AddAppointment = () => {
                     <div className='input_div date'>
                         <label>APPOINTMENT DATE</label>
                         <br/>
-                        <input  type='date' name='start_at_date' value={start_at_date} onChange={e=>onChange(e)} />
+                        <input  type='date' name='start_at_date' value={start_at_date} onChange={e=>onChange(e)} required/>
                     </div>
                     <div className='input_div time'>
                         <label>APPOINTMENT TIME</label>
                         <br/>
-                        <input type='time'  name='start_at_time' value={start_at_time} onChange={e=>onChange(e)} />
+                        <input type='time'  name='start_at_time' value={start_at_time} onChange={e=>onChange(e)} required/>
                     </div>
                 </div>
                 <div className='input_div'>
                         <label>APPOINTMENT TITLE</label>
                         <br/>
-                        <input  placeholder='APPOINTMENT TITLE' name='title' value={title} onChange={e=>onChange(e)}/>
+                        <input  placeholder='APPOINTMENT TITLE' name='title' value={title} onChange={e=>onChange(e)} required/>
                     </div>
                     <div className='input_div'>
                         <label>VEHICLE OWNER</label>
                         <br/>
                       
-                        <select   name='customer_id' value={customer_id} onChange={e=>onChange(e)}>
+                        <select   name='customer_id' value={customer_id} onChange={e=>onChange(e)} required>
+                        <option hidden >Customer Name</option>
                         {renderedCustommers}
                     </select>
                     </div>
