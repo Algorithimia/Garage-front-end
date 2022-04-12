@@ -1,9 +1,26 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import { Col, Row } from 'react-bootstrap'
 import {FaSearch} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Buisness from './components/Buisness'
+import { useDispatch,useSelector } from 'react-redux'
+ import {getAllbusiness} from '../../store/store slices/businessesSlice'
 const Businesses = () => {
+    const {bussinesses, isLoading, error} = useSelector((state)=>state.businesses)
+    const dispatch = useDispatch()
+
+    useEffect(() =>{
+        dispatch(getAllbusiness());
+      },[dispatch])
+      let renderedBusinesses = bussinesses.map(business => 
+        
+       { return  <Col lg={4} md={6}>
+                    <Buisness business={business}/>
+                  </Col>
+        
+        }
+        )
+
     return (
         <div className='businesses'>
           
@@ -38,36 +55,7 @@ const Businesses = () => {
 
             <div className='body'>
                 <Row>
-                    <Col lg={4} md={6}>
-                     <Buisness favourite={false}/>
-                    
-                    </Col>
-                    <Col lg={4} md={6}>
-                     <Buisness favourite={true}/>
-                    
-                    </Col>
-
-                    <Col lg={4} md={6}>
-                     <Buisness  favourite={false}/>
-                    
-                    </Col>
-                    <Col lg={4} md={6}>
-                     <Buisness favourite={true}/>
-                    
-                    </Col>
-                    <Col lg={4} md={6}>
-                     <Buisness  favourite={false}/>
-                    
-                    </Col>
-                    <Col lg={4} md={6}>
-                     <Buisness  favourite={true}/>
-                    
-                    </Col>
-                    <Col lg={4} md={6}>
-                     <Buisness  favourite={false}/>
-                    
-                    </Col>
-
+                    {renderedBusinesses}
                 </Row>
  
 
