@@ -30,7 +30,7 @@ const[fav,setFav]=useState( )
               {business.title}
             </div>
             <div className='type'>
-             {business.city.name} {business.area.name}
+             {/* {business.city && business.city.name} {business.area && business.area.name} */}
             </div>
 
             

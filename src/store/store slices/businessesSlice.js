@@ -24,10 +24,33 @@ export const getAllbusiness = createAsyncThunk ('business/get',  async(_ ,thunkA
   }
   
   })
+  export const Favbusiness = createAsyncThunk ('favbusiness/get',  async(_ ,thunkAPI) =>{
+    const {rejectWithValue , getState} = thunkAPI
+  
+    try{
+      const token= getState().auth.token
+      const cookies = new Cookies();
+      let workshopId= cookies.get("workshop").id
+      let res = await axios.get(`https://www.getgarage.me/api/v1/workshop/${workshopId}/favorites/`,{
+        headers: {
+      'Content-Type': 'application/json', 
+       'Authorization': `Bearer ${token}`}
+      
+      })
+  
+    return await res.data
+
+}
+
+  catch(e){
+    return rejectWithValue(e.response.data)
+  }
+  
+  })
 
   const businesses = createSlice({
     name: 'businesses',
-    initialState: { bussinesses:[], gocreateemploy: false, goEditeemploy:false ,isLoading:false, error:null},
+    initialState: { bussinesses:[], favbussinesses:[],isLoading:false, error:null},
     reducers:{
     
     }
@@ -59,6 +82,32 @@ export const getAllbusiness = createAsyncThunk ('business/get',  async(_ ,thunkA
             
     
         },
+        [Favbusiness.pending]:(state,action)=>{
+           
+          state.isLoading = true
+          state.error = null
+       
+         
+  
+      },
+      [Favbusiness.fulfilled]:(state,action)=>{
+          
+          state.isLoading = false;
+          state.error = null
+          state.favbussinesses= action.payload[0].favorites
+         
+
+          
+       
+  
+      },
+      [Favbusiness.rejected]:(state,action)=>{
+          state.isLoading = false
+          state.error = action.payload
+      
+          
+  
+      },
       
 
     }
