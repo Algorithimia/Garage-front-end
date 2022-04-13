@@ -11,6 +11,7 @@ import UsedSpareParts from './store slices/workOrderSlices/sparePartForOrder'
 import customers from './store slices/workshopCustommerSlice'
 import appointment from './store slices/appointmentSlice'
 import businesses from './store slices/businessesSlice'
+import assets from './store slices/assetSlice'
 export default   configureStore({
   reducer: {
       auth,
@@ -24,7 +25,8 @@ export default   configureStore({
       inventory,
       UsedSpareParts,
       appointment,
-      businesses
+      businesses,
+      assets
     }
 
   })
