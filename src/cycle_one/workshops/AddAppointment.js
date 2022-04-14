@@ -11,6 +11,7 @@ const AddAppointment = () => {
     const { error,created} = useSelector((state)=>state.appointment)
     const {custommers, isLoading}= useSelector((state)=>state.customers)
     const [showAlert, setShowAlert]= useState(true)
+   
     //add data 
     const [formData, setFormData] = useState({
         workshop_id:cookies.get("workshop").id,
@@ -37,6 +38,13 @@ const AddAppointment = () => {
     let renderedCustommers = custommers.map(c=><option value={c.id}> {c.name}</option>)
        //input change 
        const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
+       const onChangeDate= async e => {
+         if(new Date(e.target.value) >= new Date())       
+       { setFormData({...formData, start_at_date : e.target.value})}
+       else{
+           alert('You pick old Date')
+       }
+    }
     const onSubmit= async e => {
         e.preventDefault()
            e.preventDefault()
@@ -70,7 +78,7 @@ const AddAppointment = () => {
                     <div className='input_div date'>
                         <label>APPOINTMENT DATE</label>
                         <br/>
-                        <input  type='date' name='start_at_date' value={start_at_date} onChange={e=>onChange(e)} required/>
+                        <input    type='date' name='start_at_date' min={new Date()} value={start_at_date} onChange={e=>onChangeDate(e)} required/>
                     </div>
                     <div className='input_div time'>
                         <label>APPOINTMENT TIME</label>
