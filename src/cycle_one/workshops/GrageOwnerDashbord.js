@@ -8,7 +8,7 @@ import {RiCarFill} from "react-icons/ri"
 import {AiFillPlusCircle} from "react-icons/ai"
 import {FaUsers} from "react-icons/fa"
 import {RiFileCopy2Fill} from "react-icons/ri"
-
+import moment from 'moment'
 import { Row,Col } from "react-bootstrap"
 import {Link} from "react-router-dom"
 
@@ -20,16 +20,23 @@ import Appointment from "./Appointment"
 import { useDispatch,useSelector } from 'react-redux'
 import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
 import {getemploys} from '../../store/store slices/GOEmploy'
-
+import {geAppointments} from '../../store/store slices/appointmentSlice'
 const GrageOwnerDashbord = () => {
     const dispatch = useDispatch()
     const {workorders,isLoading}= useSelector((state)=>state.workOrders)
     const {employs} = useSelector((state)=>state.GoEmploye)
+    const { appointmentsList} = useSelector((state)=>state.appointment)
     let employState= useSelector((state)=>state.GoEmploye)
     let employLoading =employState.isLoading
+    const appointmentState=  useSelector((state)=>state.appointment)
+    // dates 
+    const appointmentLoading = appointmentState.isLoading
+    let realDates=appointmentsList.filter(a=>moment(a.start_at)  >= new Date())
+    let commingAppointment = realDates[realDates.length-1]
     useEffect(() =>{
         dispatch(getWorkOrders());
         dispatch(getemploys());
+        dispatch(geAppointments());
       },[dispatch])
       let createdWorkordersLenth=isLoading?'Loading..' :workorders.length
       let inProgressWorkordersLenth=isLoading?'Loading..' :workorders.filter(workOrder => workOrder.status == "In Progress").length
@@ -72,7 +79,7 @@ const GrageOwnerDashbord = () => {
                                 <div className="tools_image">
                                <img  src='/images/cycle one/Group 24.svg' />
                                </div> 
-                               <Appointment />
+                               <Appointment  appointment={commingAppointment} loading={appointmentLoading}/>
                              </Col>
                              <Col md={12} lg={6}>
                                  <div className="title">QUICK PROCESSES</div>

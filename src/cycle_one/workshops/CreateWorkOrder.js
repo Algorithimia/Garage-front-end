@@ -88,7 +88,7 @@ const CreateWorkOrder = () => {
                  <span> <FaSearch /> </span>
              </div>
             </div>
-            {showAlert && error && <div className='msg-error'>{ Object.values(error) ? Object.values(error): error } error</div> }<br/>
+            {showAlert && error && <div className='msg-error'>{ Object.values(error) } error</div> }<br/>
           
             <form onSubmit={e=>onSubmit(e)}>
            
@@ -187,7 +187,7 @@ const CreateWorkOrder = () => {
                      <div className='main_input'>
                         <label>Model</label>
                         <input type='text' placeholder='' disabled/>
-                            <select  name='model_id' value={model_id} onChange={e=>onChange(e)}>
+                            <select  name='model_id' value={model_id} onChange={e=>onChange(e)} required>
                                     <option  hidden >select Model</option>
                                      {renderedModels}
                                     {/* <option> option 1</option>
