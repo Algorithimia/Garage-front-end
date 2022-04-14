@@ -26,9 +26,30 @@ export const getAssets = createAsyncThunk ('assets/get',  async(_ ,thunkAPI) =>{
   }
   
   })
+  export const getAssettypes = createAsyncThunk ('assets/typesget',  async(_ ,thunkAPI) =>{
+    const {rejectWithValue , getState} = thunkAPI
+  
+    try{
+      const token= getState().auth.token
+      let res = await axios.get(`https://www.getgarage.me/api/v1/asset_types/`,{
+        headers: {
+      'Content-Type': 'application/json', 
+       'Authorization': `Bearer ${token}`}
+      
+      })
+  
+    return await res.data
+
+}
+
+  catch(e){
+    return rejectWithValue(e.response.data)
+  }
+  
+  })
 const assetsSlice = createSlice({
     name: 'assets',
-    initialState: { assets:[], created: false ,isLoading:false, error:null},
+    initialState: { assets:[],types:[], created: false ,isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
         state.created= false
@@ -56,6 +77,24 @@ const assetsSlice = createSlice({
             state.error = action.payload
     
         },
+        [getAssettypes.pending]:(state,action)=>{
+           
+         
+          state.error = null
+       
+         
+  
+      },
+      [getAssettypes.fulfilled]:(state,action)=>{
+          state.isLoading = false;
+          state.error = null
+          state.types= action.payload
+      },
+      [getAssettypes.rejected]:(state,action)=>{
+          state.isLoading = false
+          state.error = action.payload
+  
+      },
     
       
 

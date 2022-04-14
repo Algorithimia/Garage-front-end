@@ -8,13 +8,16 @@ import AssetsRow from './components/AssetsRow'
 import FilterAssets from './FilterAssets'
 import AssignEmploye from './AssinEmploye'
 import { useDispatch,useSelector } from 'react-redux'
-import {getAssets, clearstate} from '../../store/store slices/assetSlice'
+import {getAssets, clearstate,getAssettypes} from '../../store/store slices/assetSlice'
 const Assets = () => {
     const dispatch = useDispatch()
+    dispatch(getAssettypes())
     const {assets, isLoading, error} = useSelector((state)=>state.assets)
     const [showAlert, setShowAlert]= useState(true)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
+    const [search , setSearch] = useState('')
+    const [filteredData, setFilteredData]= useState(null)
     const upEntries=()=>{
        setEntries(parseInt(entries)+1)
     }
@@ -35,7 +38,7 @@ const Assets = () => {
         const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
             setShowAlert(false)
-            dispatch(clearstate())
+            // dispatch(clearstate())
           }, 5000)
       
           return () => {
@@ -45,11 +48,26 @@ const Assets = () => {
        
     
       },[dispatch])
+      const onChange=e=>{setSearch(e.target.value.toLowerCase())}
+      const data = filteredData ? filteredData : assets
+     
 
-      const renderedAssets = assets.map(asset =>{
-          return    <AssetsRow asset={asset}/>
+      //search 
+      const searchResult = data.filter((el) => {
+   
+        if (search === '') {
+            return el
+        }
+      
+        else {        
+            return ( el.title.toLowerCase().includes(search) )           
+        }
+    })
+      const renderedAssets = searchResult.map(asset =>{
+          return    <AssetsRow asset={asset} key={asset.id}/>
       })
-      console.log(assets)
+      
+  
     return (
         <>
         {isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
@@ -102,7 +120,7 @@ const Assets = () => {
                         </div>
                        
                      <div className='search'>
-                         <input placeholder='Search Assets' />
+                         <input placeholder='Search Assets'  value={search} onChange={e=>onChange(e)} />
                          <span> <FaSearch /> </span>
 
                      </div>
@@ -135,10 +153,10 @@ const Assets = () => {
                 <AssetsRow type='SPARE PART' num='1342' name='Eget nisi'assignment='EMPLOYEE NAME' date='12/6'/>
                 <AssetsRow type='ASSET TYPE' num='1342' name='Eget nisi'assignment='EMPLOYEE NAME' date='12/6'/> */}
                 {renderedAssets}
-                
+               
           </table>     
           <Routes>
-             <Route path="/filter" element={<FilterAssets/>} exact  />
+             <Route path="/filter" element={<FilterAssets assets={assets} setFilteredData={setFilteredData} />} exact  />
              <Route path="/assignemploy" element={<AssignEmploye back='/workshop/owner/assets' />} exact  />
           </Routes> 
         </div>}
