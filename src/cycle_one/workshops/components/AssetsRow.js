@@ -5,7 +5,7 @@ const AssetsRow =  ({asset}) => {
     return (
         <tr>
            
-            <th className={asset.type.title}>{asset.type.title}</th>
+            <th className={asset.type && asset.type.title}>{asset.type && asset.type.title}</th>
             <th> {asset.id}</th>
             <th>{asset.title}</th>
             <th>{asset.employees.map(e=>e.name)}</th>  

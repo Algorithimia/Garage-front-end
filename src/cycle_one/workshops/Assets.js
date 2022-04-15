@@ -11,8 +11,8 @@ import { useDispatch,useSelector } from 'react-redux'
 import {getAssets, clearstate,getAssettypes} from '../../store/store slices/assetSlice'
 const Assets = () => {
     const dispatch = useDispatch()
-    dispatch(getAssettypes())
-    const {assets, isLoading, error} = useSelector((state)=>state.assets)
+    
+    const {assets, isLoading,created, error} = useSelector((state)=>state.assets)
     const [showAlert, setShowAlert]= useState(true)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
@@ -38,7 +38,7 @@ const Assets = () => {
         const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
             setShowAlert(false)
-            // dispatch(clearstate())
+             dispatch(clearstate())
           }, 5000)
       
           return () => {
@@ -64,7 +64,7 @@ const Assets = () => {
         }
     })
       const renderedAssets = searchResult.map(asset =>{
-          return    <AssetsRow asset={asset} key={asset.id}/>
+          return    <AssetsRow asset={asset}  key={asset.id}/>
       })
       
   
@@ -86,7 +86,8 @@ const Assets = () => {
                  </div>
 
              </div>
-             {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+             {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }
+             {showAlert && created && <div className='create-msg'>asset added</div>} 
              <div className='second_row'>
          <div className='inline-block input_block'>
                        <span>
@@ -152,7 +153,7 @@ const Assets = () => {
                 <AssetsRow type='ASSET TYPE' num='1342' name='Eget nisi'assignment='EMPLOYEE NAME' date='12/6'/>
                 <AssetsRow type='SPARE PART' num='1342' name='Eget nisi'assignment='EMPLOYEE NAME' date='12/6'/>
                 <AssetsRow type='ASSET TYPE' num='1342' name='Eget nisi'assignment='EMPLOYEE NAME' date='12/6'/> */}
-                {renderedAssets}
+                {!isLoading && renderedAssets}
                
           </table>     
           <Routes>

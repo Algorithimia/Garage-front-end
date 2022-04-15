@@ -94,9 +94,11 @@ const authSlice = createSlice({
           state.isLoading = false
           state.error= null
           state.token=action.payload.access
+          let date= new Date()
+          let expire = new Date(new Date().setDate(date.getDate()+7))
          
-          cookies.set("token", action.payload.access)
-          cookies.set("login", true)
+          cookies.set("token", action.payload.access,{httpOnly :true},{expires : expire})
+          cookies.set("login", true,{expires :expire})
      
          
        

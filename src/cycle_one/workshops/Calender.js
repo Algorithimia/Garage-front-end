@@ -23,9 +23,9 @@ const Calender = () => {
     const [appointments, setAppointments] = useState([new Date("2024-03-04 04:44:03"),new Date("2024-04-04 04:44:03")]);
     const [value,setValue]=useState()
     const [showAlert, setShowAlert]= useState(true)
-{console.log(appointmentsList)}
+
 let realDates=appointmentsList.filter(a=>moment(a.start_at)  >= new Date())
-console.log(realDates)
+
 let commingAppointment = realDates[realDates.length-1]
 console.log(commingAppointment)
 {console.log(new Date(2021, 11, 27))}
