@@ -32,8 +32,8 @@ export const login = createAsyncThunk ('auth/login',
           'Content-Type': 'application/json', 
        
         }})
-      //  console.log(response.headers)
-        return ( await response.data)
+     
+        return {...response.data , ['remember']:loginData.remember}
       }
       
       catch (e) {
@@ -57,6 +57,10 @@ const authSlice = createSlice({
     
        
       },
+      clearstate:(state)=>{
+        state.error= false
+        state.create= false
+      }
     }
     ,
     extraReducers:{
@@ -78,8 +82,15 @@ const authSlice = createSlice({
         [grageOwnerRegister.rejected]:(state,action)=>{
             state.isLoading = false
             state.create= false
+            state.loggedIn=true
             state.error = action.payload
-            console.log(action.payload+'esraa')
+            state.token=action.payload.access
+            let remember=action.payload.remember
+            let date= new Date()
+            let expire =remember ? new Date(new Date().setDate(date.getDate()+7)) : ''
+           console.log(action.payload)
+            cookies.set("token", action.payload.access, {expires : expire})
+            cookies.set("login", true,{expires :expire})
             
     
         },
@@ -94,9 +105,10 @@ const authSlice = createSlice({
           state.isLoading = false
           state.error= null
           state.token=action.payload.access
+          let remember=action.payload.remember
           let date= new Date()
-          let expire = new Date(new Date().setDate(date.getDate()+7))
-         
+          let expire = new Date(new Date().setDate(date.getDate()+1))
+         console.log(action.payload)
           cookies.set("token", action.payload.access, {expires : expire})
           cookies.set("login", true,{expires :expire})
      
@@ -118,6 +130,7 @@ const authSlice = createSlice({
 })
 
 export const { logOut } = authSlice.actions;
+export const {clearstate} = authSlice.actions
 
 
 export default authSlice.reducer

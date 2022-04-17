@@ -2,7 +2,7 @@ import React ,{useState, useEffect} from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { FcCheckmark } from "react-icons/fc";
 import {getaddress} from '../../store/store slices/addreseSlice'
-import {grageOwnerRegister} from '../../store/store slices/auth'
+import {grageOwnerRegister, clearstate } from '../../store/store slices/auth'
 import { useDispatch,useSelector } from 'react-redux'
 
 const Owner_register = () =>{
@@ -10,9 +10,9 @@ const Owner_register = () =>{
     const navigate = useNavigate()
 
 
-    const {create,isLoading,error}= useSelector((state)=>state.auth)
+    const {create,loggedIn,isLoading,error}= useSelector((state)=>state.auth)
     const {addressList}= useSelector((state)=>state.address)
-   
+    const [showAlert, setShowAlert]= useState(true)
     const [formData, setFormData] = useState({
         workshopname:'',
         workshopAddress:'',
@@ -49,6 +49,17 @@ const Owner_register = () =>{
             console.log( grageOwnerRegister)
            e.preventDefault()
            dispatch( grageOwnerRegister(formData))
+
+           setShowAlert(true)
+           const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+            dispatch(clearstate())
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
           
         }
     }
@@ -62,6 +73,7 @@ const Owner_register = () =>{
     
     return(
         <>
+        {loggedIn&& navigate('/workshop/owner/dashbord')}
         {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
         
         <div className='login owner_register'>
@@ -74,7 +86,7 @@ const Owner_register = () =>{
             <form onSubmit={e=>onSubmit(e)}>
            
             <div className="title">Workshop Info</div>
-            {error&& <div className='msg-error'>{ Object.values(error)}</div> }
+            {showAlert && error&& <div className='msg-error'>{ Object.values(error)}</div> }
             <div className='main_input'>
                <label>Workshop Name</label>
                <input onChange={e=>onChange(e)} required type='text' name="workshopname" value={workshopname} placeholder='Jessica Hayes'/>

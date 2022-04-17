@@ -72,10 +72,14 @@
         right: 10.5%;
         top: 10px;
         background-color: #fff;
-        height: 90%;
+        height: 45%;
         margin-top: -7px;
         max-height: 66px;
         padding-top: 8px;
+
+        .validation-error{
+            color: #b41212;
+        }
         
     }
 
@@ -100,9 +104,21 @@
         color: #969B858F;
         
     }
+    .error-text{
+        text-align: left;
+        color: #b41212;
+        font-size: 18px;
+      margin-top: 10px;
+    }
 
     
 }   
+.input-error{
+    input{
+           border-color: #b41212; 
+         }
+   
+}
 .pointer{
     cursor: pointer;
 }
