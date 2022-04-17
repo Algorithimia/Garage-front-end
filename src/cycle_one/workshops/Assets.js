@@ -8,7 +8,7 @@ import AssetsRow from './components/AssetsRow'
 import FilterAssets from './FilterAssets'
 import AssignEmploye from './AssinEmploye'
 import { useDispatch,useSelector } from 'react-redux'
-import {getAssets, clearstate,getAssettypes} from '../../store/store slices/assetSlice'
+import {getAssets, editeAsset,clearstate,getAssettypes} from '../../store/store slices/assetSlice'
 const Assets = () => {
     const dispatch = useDispatch()
     
@@ -158,7 +158,7 @@ const Assets = () => {
           </table>     
           <Routes>
              <Route path="/filter" element={<FilterAssets assets={assets} setFilteredData={setFilteredData} />} exact  />
-             <Route path="/assignemploy" element={<AssignEmploye back='/workshop/owner/assets' />} exact  />
+             <Route path="/assignemploy/:id" element={<AssignEmploye back='/workshop/owner/assets' assign={editeAsset} assets={true} />}   exact  />
           </Routes> 
         </div>}
         </>

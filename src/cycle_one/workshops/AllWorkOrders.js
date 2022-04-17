@@ -10,7 +10,7 @@ import FilterWorkOrders from "./FilterWorkOrders"
 import AssignEmploye from './AssinEmploye'
 
 import { useDispatch,useSelector } from 'react-redux'
-import{getWorkOrders, clearstate} from '../../store/store slices/workOrderSlices/workOrder'
+import{getWorkOrders,editeWorkOrder, clearstate} from '../../store/store slices/workOrderSlices/workOrder'
 const AllWorkOrders = () => {
     const dispatch = useDispatch()
     const {workorders , isLoading, orderCreated ,error}= useSelector((state)=>state.workOrders)
@@ -144,7 +144,7 @@ const AllWorkOrders = () => {
                 </table>
                 <Routes>
                         <Route path="/filter" element={<FilterWorkOrders workorders={workorders} setFilteredData={setFilteredData} />} exact  />
-                        <Route path="/assignEmploye/:id" element={<AssignEmploye />} exact  />
+                        <Route path="/assignEmploye/:id" element={<AssignEmploye />} assign={editeWorkOrder} exact  />
 
                 </Routes>
             </div>

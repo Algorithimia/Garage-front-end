@@ -72,9 +72,40 @@ export const getAssets = createAsyncThunk ('assets/get',  async(_ ,thunkAPI) =>{
       
   }
 })
+// assign employ 
+export const editeAsset = createAsyncThunk ('assets/addemploy', async(editedData,thunkAPI) =>{
+  const {rejectWithValue , getState} = thunkAPI
+  const token= getState().auth.token
+  const config = {     
+    headers: { 'content-type': 'application/json',
+               'Authorization': `Bearer ${token}`,
+  }}
+try{
+  editedData.add_employees=[{
+    employee_id:editedData.employee_id,
+    }]
+  
+  let data=editedData
+let body= JSON.stringify(data)
+let response = await axios.put("https://www.getgarage.me/api/v1/workshop/asset/update/", body, config)
+
+  if(response.status == 200) {
+    return  ({...editedData, ...response.data}) 
+  }
+
+
+ 
+}
+catch(e){
+  return rejectWithValue(e.response.data)
+  
+}
+
+
+}) 
 const assetsSlice = createSlice({
     name: 'assets',
-    initialState: { assets:[],types:[], created: false ,isLoading:false, error:null},
+    initialState: { assets:[],types:[],updated:false, created: false ,isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
         state.created= false
@@ -145,6 +176,22 @@ const assetsSlice = createSlice({
         console.log(action.payload+'esraa')
         
 
+    },
+    [ editeAsset.pending]:(state,action)=>{
+      state.updated=false
+        state.isLoading = true
+        state.error= null
+    },
+    [ editeAsset.fulfilled]:(state,action)=>{
+      state.updated=true
+        state.isLoading = false
+        state.error= null
+     
+    },
+     [editeAsset.rejected]:(state,action)=>{
+        state.updated=false
+        state.isLoading = false
+        state.error = action.payload
     },
     
       

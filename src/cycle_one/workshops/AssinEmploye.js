@@ -2,9 +2,10 @@ import React,{useEffect, useState} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import {getemploys, clearstate} from '../../store/store slices/GOEmploy'
-import {editeWorkOrder,getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+import {getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+import {getAssets} from '../../store/store slices/assetSlice'
 import Cookies from "universal-cookie";
-const AssignEmploye = ({back='workshop/owner/allworkorders'}) => {
+const AssignEmploye = ({back='workshop/owner/allworkorders', assign,assets}) => {
     const cookies = new Cookies();
     let { id }  = useParams();
     const dispatch = useDispatch()
@@ -13,7 +14,8 @@ const AssignEmploye = ({back='workshop/owner/allworkorders'}) => {
     const [activeIndex,setActiveIndex]=useState()
     const[reqData, setReqData] = useState({
         workshop_id:cookies.get("workshop").id,
-        work_order_id:id,
+       work_order_id:!assets &&id,
+        asset_id:id,
         employee_id:''
     })
     const {employee_id } = reqData
@@ -44,15 +46,16 @@ const AssignEmploye = ({back='workshop/owner/allworkorders'}) => {
         else {        
             return ( el.name.toLowerCase().includes(search) )           
         }
-    }) 
+    })  
     const clickSelected = (index,id)=> {
         setActiveIndex(index)
         setReqData({...reqData, employee_id: id})
        
     }
     const submitData = (data)=> {
-        dispatch(editeWorkOrder(data)); 
-        dispatch(getWorkOrders());
+        dispatch(assign(data)); 
+        !assets && dispatch(getWorkOrders());
+        assets && dispatch(getAssets());
 
     }
     

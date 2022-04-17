@@ -14,7 +14,7 @@ const AssetsRow =  ({asset}) => {
             <th> </th>
             <th> </th>
             <th> </th>
-            <th><Link to='/workshop/owner/assets/assignemploy'><button className='assign'>ASSIGN</button></Link></th>
+            <th><Link to={`/workshop/owner/assets/assignemploy/${asset.id}`}><button className='assign'>ASSIGN</button></Link></th>
         </tr>    
            
     )
