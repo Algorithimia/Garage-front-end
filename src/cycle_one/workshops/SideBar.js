@@ -17,8 +17,11 @@ const SideBar = ({settings}) => {
     const[workshop_id,SetWorkshop_id]= useState('')
     // let defaultWorkShop= userDetails.workshops[userDetails.workshops.length -1]
     const[workshop, setWorkshop]= useState(cookies.get("workshop") )
-   
-    ! workshop && userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length - 1]);
+   const setCookies=()=> {
+    cookies.set("workshop",userDetails.workshops[userDetails.workshops.length - 1])
+    document.location.reload()
+   }
+    ! workshop && userDetails.workshops && setCookies();
     ! workshop && userDetails.workshops &&   setWorkshop(userDetails.workshops && userDetails.workshops[userDetails.workshops.length - 1])
     useEffect(()=>{
         setShowSettings(settings)
