@@ -1,17 +1,43 @@
 import React ,{useState, useEffect} from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { FcCheckmark } from "react-icons/fc";
+import {AiOutlineClose} from "react-icons/ai"
 import {getaddress} from '../../store/store slices/addreseSlice'
 import {grageOwnerRegister, clearstate } from '../../store/store slices/auth'
 import { useDispatch,useSelector } from 'react-redux'
+//formik
+import { useField,Formik, Field, Form } from 'formik';
+// yup validation
+import * as yup from 'yup';
+
 
 const Owner_register = () =>{
+     // yup validation
+     const {addressList}= useSelector((state)=>state.address)
+
+     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+     let schema = yup.object().shape({
+   
+        email: yup.string().email('Enter a Valid Email').required("Email is required"),
+        password: yup.string().min(5,'password at least 5 characters').max(10, 'password max 10 characters'),
+        workshopname:yup.string().required('Workshop name is required'),
+        name: yup.string().required('Name is required'),
+        phone:yup.string().required('Phone is required').matches(phoneRegExp, 'Phone number is not valid'),    
+        password: yup.string().required('password is required').min(5,'password at least 5 characters').max(10, 'password max 10 characters'),
+        confirm_password:yup.string().required('confirm password is required').oneOf([yup.ref('password'), null], 'Passwords must match'),
+        area_id:yup.string().required("Please select a area"),
+        country_id:yup.string().required("Please select a area"),
+        title:yup.string().required('Workshop title  is required'),
+       
+      });
+
+      // end  yup 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
 
     const {create,loggedIn,isLoading,error}= useSelector((state)=>state.auth)
-    const {addressList}= useSelector((state)=>state.address)
+
     const [showAlert, setShowAlert]= useState(true)
     const [formData, setFormData] = useState({
         workshopname:'',
@@ -33,13 +59,13 @@ const Owner_register = () =>{
       
     
       },[dispatch])
-                        
+     
 
     const {workshopname,workshopAddress, name,phone , email, password, confirm_password, area_id,country_id,title  }=formData
   
     const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
-    const onSubmit= async e => {
-        e.preventDefault()
+    const onSubmit= async data => {
+       
         if(password !== confirm_password){
             alert('password do not match')
         }
@@ -47,8 +73,8 @@ const Owner_register = () =>{
         else{
             console.log(formData)
             console.log( grageOwnerRegister)
-           e.preventDefault()
-           dispatch( grageOwnerRegister(formData))
+         
+           dispatch( grageOwnerRegister(data))
 
            setShowAlert(true)
            const timeId = setTimeout(() => {
@@ -68,9 +94,19 @@ const Owner_register = () =>{
          return <option key={country.id} value={country.id} >{country.name}</option>
          
     }))
-    let  selectedcountry = country_id !== '' &&  addressList.find(country => country.id == country_id)
-    let renderedareas = selectedcountry && selectedcountry.cities.map((city)=>city.areas.map((area)=><option key={area.id} value={area.id} >{area.name}</option>))
+    const findCities = (country_id) =>{
+        let  selectedcountry = country_id !== '' &&  addressList.find(country => country.id == country_id)
+        let renderedareas = selectedcountry && selectedcountry.cities.map((city)=>city.areas.map((area)=><option key={area.id} value={area.id} >{area.name}</option>))
+           return renderedareas    
+    }
+    const phoneCode = (country_id) =>{
+       
+     let code=   country_id !== '' ?  addressList.find(country => country.id == country_id).phone_code:''
+     return code    
+    }
+          
     
+   
     return(
         <>
         {loggedIn&& navigate('/workshop/owner/dashbord')}
@@ -83,77 +119,119 @@ const Owner_register = () =>{
                         <div className="inline-block"> Garage Owner </div>
              </div>
 
-            <form onSubmit={e=>onSubmit(e)}>
+             <Formik
+             initialValues={{
+                workshopname:'',
+                workshopAddress:'',
+                name: '',
+                phone:'',
+                email: '',
+                password: '',
+                confirm_password:'',
+                area_id:'',
+                country_id:'',
+                title:'',
+               
+               
+              }}
+              validationSchema={schema}
+              onChange={(values=>{
+                  setFormData({...formData,['country_id']:values.country.id})
+              })}
+              onSubmit ={(values)=>{
+                onSubmit(values);
+             
+              }}
+             
+            
+           >
+            {({errors, touched,  handleSubmit, values})=> (
+            <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
            
             <div className="title">Workshop Info</div>
             {showAlert && error&& <div className='msg-error'>{ Object.values(error)}</div> }
-            <div className='main_input'>
+            <div className={`main_input ${errors.workshopname  && touched.workshopname &&'input-error'}`}>
                <label>Workshop Name</label>
-               <input onChange={e=>onChange(e)} required type='text' name="workshopname" value={workshopname} placeholder='Jessica Hayes'/>
-                <div className='mark'><FcCheckmark /></div> 
+               <Field  type='text' name="workshopname"  placeholder='Jessica Hayes'/>
+               {touched.workshopname && <div className='mark'>{errors.workshopname  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                {errors.workshopname && touched.workshopname && <div className='error-text'> {errors.workshopname}</div> }
                
            </div>
-           <div className='main_input'>
+           <div className={`main_input ${errors.title  && touched.title &&'input-error'}`}>
                <label>Workshop Title</label>
-               <input onChange={e=>onChange(e)} required type='text' name="title" value={title} placeholder='Jessica Hayes'/>
-                <div className='mark'><FcCheckmark /></div> 
+               <Field  type='text' name="title" placeholder='Jessica Hayes'/>
+               {touched.title && <div className='mark'>{errors.title  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                {errors.title && touched.title && <div className='error-text'> {errors.title}</div> }
                
            </div>
 
            
            <div className="title">Workshop Address</div>
              
-          <div className='address-id'>
-                <select name='country_id' value={country_id} onChange={e=>onChange(e)}>
+          <div className={` address-id ${errors.country_id  && touched.country_id &&'input-error'}`}>
+                <Field  as="select" name='country_id'   >
                 <option hidden >Country</option>
                     {countries}
-                </select>
+                </Field>
+                {errors.country_id && touched.country_id && <div className='error-text'> {errors.country_id}</div> }
+                
+               
+              
           </div>
-          <div className='address-id'>
-                <select name='area_id' value={area_id} onChange={e=>onChange(e)}>
+         
+          <div className={`address-id ${errors.area_id  && touched.area_id &&'input-error'}`}>
+                <Field  as="select" name='area_id' >
+               
                 <option hidden >Area</option>
-                    {renderedareas}
-                </select>
+                    {findCities(values.country_id)}
+                </Field>
+               
+               
            </div>
+          
           
            
            <div className="title">Login Info</div>
-           <div className='main_input'>
+           <div className={`main_input ${errors.name  && touched.name &&'input-error'}`}>
                <label>Owner Name</label>
-               <input onChange={e=>onChange(e)} required type='text' placeholder='Jessica Hayes'  name="name" value={name} />
-                <div className='mark'><FcCheckmark /></div> 
+               <Field  type='text' placeholder='Jessica Hayes'  name="name"  />
+               {touched.name && <div className='mark'>{errors.name  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                {errors.name && touched.name && <div className='error-text'> {errors.name}</div> }
                
            </div>
 
-           <div className='main_input'>
+           <div className={`main_input ${errors.phone  && touched.phone &&'input-error'}`}>
                <label>Phone Number</label>
                <input className='phone-code' onChange={e=>onChange(e)} required    maxLength="3"  placeholder='20' 
-               value={ country_id !== '' ?  addressList.find(country => country.id == country_id).phone_code:'' }  
+               value={ phoneCode(values.country_id)}  
                name="code"  />
-             
-               <input className='phone-number' onChange={e=>onChange(e)} required type='tel' placeholder='1111111111'  name="phone" value={phone} />
-                <div className='mark'><FcCheckmark /></div> 
+            
+               <Field className='phone-number'  type='tel' placeholder='1111111111'  name="phone"  />
+               {touched.phone && <div className='mark'>{errors.phone  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                {errors.phone && touched.phone && <div className='error-text'> {errors.phone}</div> }
                
            </div>
 
-           <div className='main_input'>
-               <label>Email</label>
-               <input onChange={e=>onChange(e)} required type='email' placeholder='handel@example.com'  name="email" value={email} />
-                <div className='mark'><FcCheckmark /></div> 
-               
+           <div className={`main_input ${errors.email  && touched.email &&'input-error'}`} >
+                    <label htmlFor='email'>Email</label>
+                    <Field type='email' placeholder='handel@example.com'  name="email" autoComplete="off"   />
+                       { touched.email && <div className='mark'>{errors.email ?  <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>}
+                       {errors.email && touched.email && <><div className='error-text'> {errors.email}</div></> }
+                    
            </div>
+                
+            <div className={`main_input ${errors.password  && touched.password &&'input-error'}`}>
+                <label htmlFor='password'>Password</label>
+                <Field type='password' placeholder='Type your password'  name="password" autoComplete="off"/>
+                {touched.password && <div className='mark'>{errors.password  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                {errors.password && touched.password && <div className='error-text'> {errors.password}</div> }
+            </div>
 
-           <div className='main_input'>
-               <label>Password</label>
-               <input onChange={e=>onChange(e)} required type='password' placeholder='Type your password'  name="password" value={password}  />
-                <div className='mark'><FcCheckmark /></div> 
-               
-           </div>
-
-           <div className='main_input'>
+           <div className={`main_input ${errors.confirm_password  && touched.confirm_password &&'input-error'}`}>
                <label>Confirm Password</label>
-               <input onChange={e=>onChange(e)} required type='password' placeholder='Type your password'  name="confirm_password" value={confirm_password} />
-               <div className='mark'><FcCheckmark /></div> 
+               <Field  type='password' placeholder='Type your password'  name="confirm_password"  />
+               {touched.confirm_password && <div className='mark'>{errors.confirm_password  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                {errors.confirm_password && touched.confirm_password && <div className='error-text'> {errors.confirm_password}</div> }
                
 
            </div>
@@ -172,7 +250,10 @@ const Owner_register = () =>{
                     
                     <div className='sign_up'>Don't Have Account ! <Link to='/login_process/owner_login'><span className='blue'>LOGIN</span></Link> </div>
                  </div>
-                 </form>     
+                 </form>
+            )}
+
+           </Formik>  
                 { create && navigate('/login_process/confirmation')}
          </div>
 }

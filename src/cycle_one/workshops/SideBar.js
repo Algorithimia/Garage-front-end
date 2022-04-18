@@ -33,23 +33,11 @@ const SideBar = ({settings}) => {
 
     useEffect(() =>{
         dispatch(getUserDetails());
-      
-         
-       
-    
+ 
       },[dispatch,created])
     let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop); cookies.remove("workshop"); cookies.set("workshop", workshop); document.location.reload()}}>
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
-        
-        //(workshop)=><option key={workshop.id} value={workshop.id}><img className='dropdown_img' src={workshop.image} />{workshop.title}</option>)
-    //     if  ( !workshop) 
-    //     {
-          
-    //      userDetails.workshops && cookies.set("workshop",userDetails.workshops[userDetails.workshops.length-1]);
-    //     setWorkshop(userDetails.workshops && userDetails.workshops[userDetails.workshops.length-1])
-       
-      
-    // }
+    
    
         const onChange=e=>SetWorkshop_id(e.target.value)
     const userlogout=()=>{
@@ -67,13 +55,6 @@ const SideBar = ({settings}) => {
                        <img className='logo' src='/images/cycle one/GarageWorkLogo.png' />
                 </Link>
                 <br />
-             
-                        {/* <select  name='workshop_id' value={workshop_id} onChange={e=>onChange(e)} required> */}
-                            {/* <option hidden >choose a Workshop</option> */}
-                            {/* {renderedWorkshops} */}
-                        {/* </select> */}
-                        
-                  
                 <Dropdown>
                    {workshop && <img className='dropdown_img' src={workshop.image} />}
                     <Dropdown.Toggle  className='dropdown' >
@@ -190,7 +171,7 @@ const SideBar = ({settings}) => {
                     
                 </div>}
                  <Link to='/employ/employinfo'>
-                 {userDetails.is_employeer &&  <div className='employ'>
+                 {userDetails.is_employee &&  <div className='employ'>
                         <img 
                          src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
                             /> 

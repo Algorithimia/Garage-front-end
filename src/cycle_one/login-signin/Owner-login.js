@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FcCheckmark } from "react-icons/fc";
 import {AiOutlineClose} from "react-icons/ai"
 import { Col, Row,Container } from 'react-bootstrap'
 import { Link , useNavigate} from 'react-router-dom'
 
-import {login, clearstate} from '../../store/store slices/auth'
+import {login,logOut, clearstate} from '../../store/store slices/auth'
+import{getUserDetails} from '../../store/store slices/detailUser'
 import { useDispatch,useSelector } from 'react-redux'
 //formik
 import { Formik, Field, Form } from 'formik';
@@ -27,21 +28,42 @@ const Owner_login = () =>{
       });
 
       // end  yup 
+    const {userDetails}= useSelector((state)=>state.userDetails)
     const [showAlert, setShowAlert]= useState(true)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const {loggedIn, isLoading,error}= useSelector((state)=>state.auth)
-    const[formData, setFormData]= useState({
-        email:'',
-        password:''
-    })
-    // const {email, password }=formData
-    const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
+    //get user details 
+   
+    useEffect(() =>{  
+      dispatch(getUserDetails())
+     
+      
+    },[loggedIn])
+    useEffect(() =>{  
+     
+
+     
+           const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+        
+            if(userDetails.is_employee)
+            { dispatch(logOut())}
+          }, 2000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
+     
+      
+    },[userDetails])
+   
+    // end user details
     const onSubmit= async( data )=> {
         
            dispatch( login(data))
-           loggedIn&& navigate('/workshop/owner/dashbord')
+          
            setShowAlert(true)
            const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
@@ -55,7 +77,8 @@ const Owner_login = () =>{
     }
     return(
         <>
-        {loggedIn&& navigate('/workshop/owner/dashbord')}
+       
+        { loggedIn && userDetails.is_garage_owner && navigate('/workshop/owner/dashbord')}
          {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
          <div className='login owner_login'>
 
@@ -80,6 +103,7 @@ const Owner_login = () =>{
              
            </Row>
            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }
+           {showAlert &&loggedIn && userDetails.is_employee && <div className="msg-error"> You aren't a grage owner</div>}
            <Formik
              initialValues={{
                 email: '',
