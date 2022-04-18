@@ -77,7 +77,7 @@ const authSlice = createSlice({
             state.error= null
             state.create= true
          
-    
+       
         },
         [grageOwnerRegister.rejected]:(state,action)=>{
             state.isLoading = false
