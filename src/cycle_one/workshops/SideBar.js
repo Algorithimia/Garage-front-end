@@ -18,11 +18,15 @@ const SideBar = ({settings}) => {
     // let defaultWorkShop= userDetails.workshops[userDetails.workshops.length -1]
     const[workshop, setWorkshop]= useState(cookies.get("workshop") )
    const setCookies=()=> {
-    cookies.set("workshop",userDetails.workshops[userDetails.workshops.length - 1])
+    userDetails.workshops&& cookies.set("workshop",userDetails.workshops[userDetails.workshops.length - 1]) || userDetails.workshop&& cookies.set("workshop",userDetails.workshop)
     document.location.reload()
    }
-    ! workshop && userDetails.workshops && setCookies();
-    ! workshop && userDetails.workshops &&   setWorkshop(userDetails.workshops && userDetails.workshops[userDetails.workshops.length - 1])
+   // auto choose work shop 
+    ! workshop && userDetails && setCookies();
+    let addCurrentWorkShop =()=>{
+        setWorkshop(userDetails.workshops && userDetails.workshops[userDetails.workshops.length - 1]) || userDetails.workshop&&setWorkshop(userDetails.workshop && userDetails.workshop)
+    } 
+    ! workshop && userDetails &&   addCurrentWorkShop()
     useEffect(()=>{
         setShowSettings(settings)
       
@@ -36,10 +40,13 @@ const SideBar = ({settings}) => {
  
       },[dispatch,created])
     let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop); cookies.remove("workshop"); cookies.set("workshop", workshop); document.location.reload()}}>
+
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
     
+    let employeeWorkshop= userDetails.workshop && <div key={userDetails.workshop.id } >
+    <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={userDetails.workshop.image} /> &nbsp;{userDetails.workshop.title}</Dropdown.Item></div>
    
-        const onChange=e=>SetWorkshop_id(e.target.value)
+        
     const userlogout=()=>{
         dispatch(logOut());
         navigate('/login_process/owner_login')
@@ -62,7 +69,7 @@ const SideBar = ({settings}) => {
                    {workshop ? workshop.title :  'Select workshop'}
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu onSelect={eventKey=> console.log(eventKey)}>
+                    {userDetails.workshops&&  <Dropdown.Menu onSelect={eventKey=> console.log(eventKey)}>
                     {renderedWorkshops}
                       
                        <div className='add'>
@@ -70,6 +77,7 @@ const SideBar = ({settings}) => {
                             
                        </div>
                     </Dropdown.Menu>
+                      }
                  </Dropdown>
                 <div className='line'></div>
                 
@@ -102,12 +110,13 @@ const SideBar = ({settings}) => {
                     </Link>
                 </div>
 
-                <div className='link'>
+              {userDetails.is_garage_owner&&  <div className='link'>
                    <Link to='/workshop/owner/employes'>
                     <img className='img_link' src='/images/cycle one/sidebar_icons/Icon awesome-users-cog.svg' />
                     <span className='text_link'>EMPLOYEES</span>
                     </Link>
                 </div>
+                 }
 
                 <div className='link'>
                    <Link to='/workshop/owner/businesses'>
@@ -173,9 +182,9 @@ const SideBar = ({settings}) => {
                  <Link to='/employ/employinfo'>
                  {userDetails.is_employee &&  <div className='employ'>
                         <img 
-                         src='https://img.freepik.com/free-photo/young-attractive-handsome-guy-feels-delighted-gladden-amazed_295783-535.jpg?t=st=1647439511~exp=1647440111~hmac=64d56b276703ad976c85aec5abd0016352eb27ce7d3732b6008da55960fef105&w=996'
+                         src={'https://www.getgarage.me/'+userDetails.avatar}
                             /> 
-                            Employ Name
+                           {userDetails.name}
 
                     </div>
                    }

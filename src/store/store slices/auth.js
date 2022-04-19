@@ -50,6 +50,7 @@ const authSlice = createSlice({
         cookies.remove("login")
         cookies.remove("token")
         cookies.remove("workshop")
+        localStorage.clear();
         state.token='';
         state.loggedIn=false;
         
