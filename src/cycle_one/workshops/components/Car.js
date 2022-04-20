@@ -9,9 +9,9 @@ import ShowMoreText from 'react-show-more-text'
 const Car = ({view= false, car,isLoading}) => {
     const [show,setShow]=useState(view)
     return (
-        <div className="car car_border">
+        <div className="car car_border" onClick={()=>setShow(!show)}>
       { isLoading || !car? 'Loading ..': <>
-        <span  onClick={()=>setShow(!show)}>{car && car.name}</span>
+        <span  >{car && car.name}</span>
         <div className="right_icons">
             <span><MdDeleteSweep /></span>
            <Link to='/workshop/owner/addvehicle'> <span className="blue"><RiEditLine /></span> </Link>

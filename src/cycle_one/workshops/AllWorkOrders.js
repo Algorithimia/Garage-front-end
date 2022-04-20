@@ -116,6 +116,8 @@ const AllWorkOrders = () => {
                         </div>
                     </div>
                 </div>
+                {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                {showAlert && orderCreated && <div className='create-msg'>order created</div> }<br/>
                 <table>
                     <thead>
                         <tr>
@@ -128,7 +130,7 @@ const AllWorkOrders = () => {
                             <th> EMPLOYEE <br/>NAME</th>
                         </tr>
                     </thead>
-                    {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+                   
                    
                     
                     {renderedWorkorders}
@@ -148,7 +150,7 @@ const AllWorkOrders = () => {
 
                 </Routes>
             </div>
-             } </>
+             } </> 
     )
 }
 

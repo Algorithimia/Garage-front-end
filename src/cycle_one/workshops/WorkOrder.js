@@ -5,7 +5,7 @@ const WorkOrder = ({workorder}) => {
     return (
         <tr>
         <th > <div className={workorder.status+' '+ 'state'}>{workorder.status}</div> </th>
-        <th> {workorder.stages}</th>
+        <th> {workorder.stages.length>=0 ? workorder.stages[0]&&workorder.stages[0].name: <span className='no-data'></span>}</th>
         <th> {workorder.id}</th>
         <th> {workorder.created_at}</th>
         <th>{workorder.customer.name}</th>

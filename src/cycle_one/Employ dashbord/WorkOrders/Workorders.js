@@ -7,10 +7,32 @@ import { Link, Route,Routes } from 'react-router-dom'
 
 import WorkOrder from './WorkOrder'
 import FilterWorkOrders from "./FilterWorkOrders"
-import AssignEmploye from '../../workshops/AssinEmploye'
+
+import { useDispatch,useSelector } from 'react-redux'
+import{getWorkOrders,editeWorkOrder, clearstate} from '../../../store/store slices/workOrderSlices/workOrder'
 const Workorders = () => {
+    const dispatch = useDispatch()
+    const {workorders , isLoading, orderCreated ,error}= useSelector((state)=>state.workOrders)
+    const [showAlert, setShowAlert]= useState(true)
+    const [search , setSearch] = useState('')
+    const [filteredData, setFilteredData]= useState(null)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
+    useEffect(() =>{
+        dispatch(getWorkOrders());
+        dispatch(clearstate()); 
+        const timeId = setTimeout(() => {
+            // After 3 seconds set the showAlert value to false
+            setShowAlert(false)
+           
+          }, 5000)
+      
+          return () => {
+            clearTimeout(timeId)
+          }
+       
+    
+      },[dispatch])
     const upEntries=()=>{
        setEntries(parseInt(entries)+1)
     }
@@ -26,7 +48,25 @@ const Workorders = () => {
         setDate(parseInt(date)-1)
       
      }
+     const onChange=e=>{setSearch(e.target.value.toLowerCase())}
+     const data = filteredData ? filteredData: workorders
+      const searchResult = data.filter((el) => {
+   
+        if (search === '') {
+            return el
+        }
+      
+        else {        
+            return ( el.customer.name.toLowerCase().includes(search) )           
+        }
+    })
+    const renderedWorkorders= searchResult.map((workorder)=>{
+        return ( <WorkOrder key={workorder.id}   workorder={workorder}    />)
+    })
+ 
     return (
+        <>
+        {isLoading ? <img className='loading-img' src="/images/giphy.gif" /> :
         <div className='work_orders'>
             <div className='head_section'>
                 <div className='first_line'>
@@ -68,12 +108,15 @@ const Workorders = () => {
                         </div>
                         </div>
                     <div className="right">
-                    <input  placeholder="Search Repair Order" />
+                    <input  placeholder="Search Repair Order" value={search} onChange={e=>onChange(e)} />
                     <div className='icon'><FaSearch /></div> 
                     </div>
                 </div>
             </div>
+            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }
+            {showAlert && orderCreated && <div className='create-msg'>order created</div> }
             <table>
+        
                 <thead>
                     <tr>
                         <th> STATUS</th>
@@ -86,22 +129,15 @@ const Workorders = () => {
                     </tr>
                 </thead>
               
-                <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement'   />
-
-                <WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement'   />
-                <WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement'    />
-                <WorkOrder status='created'  stage='STAGE'  num='451' date='12/6' customerName='Denise Powell' workItem='Gear Replacement'   />
-
-<WorkOrder status='Progress'  stage='STAGE'  num='420' date='12/6' customerName='Benjamin Fuller' workItem='TIRE Replacement'    />
-<WorkOrder status='completed'  stage='STAGE'  num='560' date='12/6' customerName='Christine Miller' workItem='Gear Replacement'   />
-                   
+                 {renderedWorkorders}
             </table>
             <Routes>
-                    <Route path="/filter" element={<FilterWorkOrders />} exact  />
-                    <Route path="/assignEmploye" element={<AssignEmploye />} exact  />
+                    <Route path="/filter" element={<FilterWorkOrders workorders={workorders} setFilteredData={setFilteredData} />} exact  />
+                  
 
             </Routes>
-        </div>
+        </div>}
+        </>
     )
 }
 export default Workorders

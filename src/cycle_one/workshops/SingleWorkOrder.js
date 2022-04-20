@@ -16,6 +16,7 @@ import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
 
 const SingleWorkOrder = () => {
   const dispatch = useDispatch()
+  const {userDetails}= useSelector((state)=>state.userDetails)
   const {workorders , isLoading ,error}= useSelector((state)=>state.workOrders)
   const [showAlert, setShowAlert]= useState(true)
   useEffect(() =>{
@@ -40,6 +41,18 @@ const SingleWorkOrder = () => {
  }
  
  )
+
+ const renderedStages =  workorder&&  workorder.stages.map(stage=>{
+  return<tr>
+       { userDetails.is_garage_owner && <th >{stage.employee.name}</th>}
+       <th >{stage.name} </th>
+       <th>{stage.hours}h </th>
+   </tr>
+ })
+ const stageNumbers = workorder&&  workorder.stages.length
+ const totalStagesHours =   workorder&&  workorder.stages.reduce((accumulator, object) => {
+  return accumulator + object.hours;
+}, 0);
     return (
         <div className='single_work_order'>
             <div className='first_line'>
@@ -99,51 +112,33 @@ const SingleWorkOrder = () => {
                    <div className='stages'>
                      <div className='header'>
                      WORK ORDER STAGES 
-                     <Link to='/workshop/owner/allworkorders/assignEmploye'><button className='right'>Assign</button></Link>
+                     { userDetails.is_garage_owner ?
+                      <Link to={`/workshop/owner/allworkorders/assignEmploye/${id}`}><button className='right'>Assign</button></Link>
+                      :  <Link to={`/workshop/owner/allworkorders/assignEmploye/${id}`}><button className='right'>New</button></Link>
+                    }
                      <div className='start_date'>Start Date 20 Mar 2021</div>
 
                      </div>
                      <table>
                         <thead>
                             <tr>
-                                <th> EMPLOYEE</th>
+                              { userDetails.is_garage_owner &&  <th> EMPLOYEE</th>}
                                 <th> STAGE</th>
                                 <th> HOURS</th>
                                
                             </tr>
                          </thead>
-                         <tr>
-                            <th > Anthony McCoy</th>
-                            <th >repair </th>
-                            <th>2 H </th>
-                            </tr>
-                       
-                        <tr>
-                            <th > Mike Oliver</th>
-                            <th >inspect </th>
-                            <th>2 H </th>
-                            </tr>
-                       
-                        <tr>
-                            <th > Keanu Vargas</th>
-                            <th >stage </th>
-                            <th>2 H </th>
-                            </tr>
-                       
-                        <tr>
-                            <th > Frank McDonald</th>
-                            <th >stage </th>
-                            <th>2 H </th>
-                            </tr>
-                            <tr className='red'>
-                              <th > 5 EMPOLYEE</th>
-                              <th >3 STAGES </th>
-                              <th>12 HOURS </th>
+                         {renderedStages}
+                         <tr className='red'>
+                         { userDetails.is_garage_owner &&     <th > 5 EMPOLYEE</th>}
+                              <th >{stageNumbers} STAGES </th>
+                              <th>{totalStagesHours} HOURS </th>
                             </tr>
                         </table>
-                        <div className='complete_buton'>
+                        { userDetails.is_garage_owner && <div className='complete_buton'>
                            <button className='complete'>Mark Completed</button>
                         </div>
+                        }
                      
                    </div>
                   </Col>
