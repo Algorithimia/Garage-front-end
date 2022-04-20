@@ -202,6 +202,10 @@
         padding: 7px;
         padding-left: 20px;
         margin-top: 117px;
+        @media screen and (max-width: 1000px) {
+            width: 80%;
+          
+           }
     }
     .search-result{
         padding: 10px;
@@ -223,13 +227,14 @@
     }
     .buttons{
         margin-top: 150px;
-        button{
+        button, .submit{
         color: #fff;
         border: none;
         width: 126px;
         height: 38px;
         border-radius: 25px;
         background-color: #4390E0;
+        padding:0;
         }
         .gray{
             background-color: #969b85;

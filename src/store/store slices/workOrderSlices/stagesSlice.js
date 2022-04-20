@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-export const AddSparePart = createAsyncThunk ('workordrSpareParts/add', 
+export const AddStage = createAsyncThunk ('workordrStages/add', 
     async(addData ,thunkAPI) =>{
         const {rejectWithValue , getState} = thunkAPI
   
      try{
           const token= getState().auth.token
       const body= JSON.stringify(addData)
-      const response = await axios.post("https://www.getgarage.me/api/v1/workshop/workorder/spare_part/add/", body, {
+      const response = await axios.post("https://www.getgarage.me/api/v1/workshop/work_order/stage/create/", body, {
         headers: {
           'Content-Type': 'application/json', 
           'Authorization': `Bearer ${token}`
@@ -22,36 +22,37 @@ export const AddSparePart = createAsyncThunk ('workordrSpareParts/add',
   }
 })
 
-const UsedSpareParts = createSlice({
-    name: 'usedSpareParts',
-    initialState: { usedSpareParts:[], isLoading:false, error:null},
+const stageSlice = createSlice({
+    name: 'stage',
+    initialState: { stageList:[],created:false, isLoading:false, error:null},
     reducers:{
    
     }
     ,
     extraReducers:{
 
-        [AddSparePart.pending]:(state,action)=>{
+        [AddStage.pending]:(state,action)=>{
            
             state.isLoading = true
             state.error = null
+            state.created=false
            
     
         },
-        [AddSparePart.fulfilled]:(state,action)=>{
+        [AddStage.fulfilled]:(state,action)=>{
          
             state.isLoading = false
             state.error= null
-            state.usedSpareParts= [...state.usedSpareParts,action.payload]
+            state.stageList= [...state.stageList,action.payload]
+            state.created=true
             
          
     
         },
-        [AddSparePart.rejected]:(state,action)=>{
+        [AddStage.rejected]:(state,action)=>{
             state.isLoading = false
             state.error = action.payload
-           
-            console.log(action.payload+'esraa')
+            state.created=false
             
     
         },
@@ -65,4 +66,4 @@ const UsedSpareParts = createSlice({
 
 
 
-export default UsedSpareParts.reducer
+export default stageSlice.reducer

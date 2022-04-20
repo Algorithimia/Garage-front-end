@@ -3,21 +3,26 @@ import {BsPencilSquare} from 'react-icons/bs'
 import{FaCar} from 'react-icons/fa'
 import{MdCreditCard,MdDeleteSweep} from 'react-icons/md'
 import { Col, Row } from 'react-bootstrap'
-
+import moment from 'moment'
 
 
 import Part from './components/Part'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Route, Routes, useParams } from 'react-router-dom'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import ShowMoreText from 'react-show-more-text'
 import { useDispatch, useSelector } from 'react-redux'
 import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+import AddNewStage from './components/AddNewStage'
+import AfterWorkOrder from './AfterWorkOrder'
 
 
 const SingleWorkOrder = () => {
   const dispatch = useDispatch()
   const {userDetails}= useSelector((state)=>state.userDetails)
-  const {workorders , isLoading ,error}= useSelector((state)=>state.workOrders)
+  const {workorders , isLoading , error}= useSelector((state)=>state.workOrders)
+  const { created } = useSelector((state)=>state.stages)
+  let stageState= useSelector((state)=>state.stages)
+  let stageError =stageState.error
   const [showAlert, setShowAlert]= useState(true)
   useEffect(() =>{
     dispatch(getWorkOrders());
@@ -32,7 +37,7 @@ const SingleWorkOrder = () => {
       }
    
 
-  },[dispatch])
+  },[dispatch,created])
   let { id }  = useParams();
   const workorder =workorders&& workorders.find(order => order.id == id)
  
@@ -53,6 +58,7 @@ const SingleWorkOrder = () => {
  const totalStagesHours =   workorder&&  workorder.stages.reduce((accumulator, object) => {
   return accumulator + object.hours;
 }, 0);
+const msg = created && 'A new stage created' || stageError && Object.values(stageError)
     return (
         <div className='single_work_order'>
             <div className='first_line'>
@@ -63,7 +69,9 @@ const SingleWorkOrder = () => {
                   <span><AiFillPlusCircle  /> </span>Create Work Oder
                 </button>
               </Link>
+             
             </div>
+            <br/>
 
             </div>
             <div className='main_info'>
@@ -114,9 +122,9 @@ const SingleWorkOrder = () => {
                      WORK ORDER STAGES 
                      { userDetails.is_garage_owner ?
                       <Link to={`/workshop/owner/allworkorders/assignEmploye/${id}`}><button className='right'>Assign</button></Link>
-                      :  <Link to={`/workshop/owner/allworkorders/assignEmploye/${id}`}><button className='right'>New</button></Link>
+                      :  <Link to={`/workshop/owner/singleworkorder/${id}/addstage`}><button className='right'>New</button></Link>
                     }
-                     <div className='start_date'>Start Date 20 Mar 2021</div>
+                     <div className='start_date'>{workorder && moment(workorder.created_at).format("DD-MM-YYYY")}</div>
 
                      </div>
                      <table>
@@ -145,6 +153,10 @@ const SingleWorkOrder = () => {
 
               </Row>
             </div>
+            <Routes>
+                <Route path="/addstage" element={<AddNewStage  workorderId={id}/>} exact />
+                <Route path="/afterStage" element={<AfterWorkOrder msg={msg} back='BACK TO WORK ORDER' path={`/workshop/owner/singleworkorder/${id}` }  stage={true} workorderId={id}/>} exact />
+            </Routes>
             
         </div>
     )

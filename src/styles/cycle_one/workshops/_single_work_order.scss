@@ -25,6 +25,10 @@
                 margin: 0 3px;
             }
             }
+            @media screen and (max-width: 600px) {
+                float: none !important;
+              
+               }
             
         }
     }
@@ -113,6 +117,7 @@
         background-color: #fff;
         box-shadow: 0px 3px 6px #00000029;
         font-size: 18px;
+        max-width: 100%;
         .header{
             color: #152F55;
             padding: 20px;
@@ -126,6 +131,8 @@
                 width: 92px;
                 height: 33px;
                 border-radius: 25px;
+            
+                
             }
             
         }
@@ -175,7 +182,7 @@
         .red{
             border-top: 1px solid rgb(230, 228, 228);
             th{
-            //    text-align: left;
+               
                 color: #EB0836;
                 font-weight: 500;
             }
@@ -194,6 +201,59 @@
             margin: auto;
         }
     }
+    }
+    .add-new-stage{
+        .add{
+            margin-bottom: 60px;
+        }
+        input{
+            margin-top:25px !important;
+            z-index: 9999;
+           
+        
+        }
+        .buttons{
+            margin-top:50px;
+        }
+        div{
+            position: relative;
+        }
+        .input-error{
+            input{
+                   border-color: #b41212; 
+                 }
+        .error-text{
+        text-align: left;
+        color: #b41212;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-left: 25%;
+        @media screen and (max-width: 1000px) {
+            margin-left: 10%;
+          
+           }
+    }
+           
+        }
+        .mark{
+            padding: 0 10px;
+            position: absolute;
+            right: 26%;
+            top: 30px;
+            background-color: #fff;
+         
+            font-size: 18px;
+            z-index: 1;
+            @media screen and (max-width: 1000px) {
+                right: 12%;
+              
+               }
+    
+            .validation-error{
+                color: #b41212;
+            }
+            
+        }
     }
 
 }
