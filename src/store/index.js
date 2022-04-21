@@ -13,6 +13,7 @@ import appointment from './store slices/appointmentSlice'
 import businesses from './store slices/businessesSlice'
 import assets from './store slices/assetSlice'
 import stages from './store slices/workOrderSlices/stagesSlice'
+import packages from './store slices/packagesSlice'
 export default   configureStore({
   reducer: {
       auth,
@@ -28,7 +29,8 @@ export default   configureStore({
       appointment,
       businesses,
       assets,
-      stages
+      stages,
+      packages
     }
 
   })
