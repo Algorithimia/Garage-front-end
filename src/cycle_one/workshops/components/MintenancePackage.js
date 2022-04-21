@@ -2,24 +2,28 @@ import React from 'react'
 import { MdDeleteSweep } from 'react-icons/md'
 import { RiEditLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
-
-const MintenancePackage = () => {
+import { useDispatch,useSelector } from 'react-redux'
+import {deletePackage} from '../../../store/store slices/packagesSlice'
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+const MintenancePackage = ({packageData}) => {
+    const dispatch = useDispatch()
     return (
         <div className='package'>
             <div className='img'>
-              <img  src='/images/cycle one/workshop.jpg' />
+              <img  src={packageData.image} />
 
             </div>
             <div className='info'>
             <div className='title'>
-                PACKAGE TITLE GOES HERE ...
+               {packageData.title}
             </div>
             <div className='endline'>
-                PRICE <span>20 $</span>
+                PRICE <span>  {packageData.price} $</span>
                 <span className='right'>
 
-                <span><MdDeleteSweep /></span>
-          <Link to='/workshop/owner/maintnance/add'>  <span className="blue"><RiEditLine /></span> </Link>
+                <span onClick={()=>dispatch(deletePackage({package_id:packageData.id,workshop_id:cookies.get("workshop").id }))}><MdDeleteSweep /></span>
+          <Link to='/workshop/owner/maintnance/edite' state={{packageData}}>  <span className="blue"><RiEditLine /></span> </Link>
                 </span>
 
             </div>

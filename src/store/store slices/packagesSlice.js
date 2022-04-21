@@ -1,16 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
-
 import axios from 'axios';
-
+let formData = new FormData(); 
 export const createPackage = createAsyncThunk ('package/create', 
     async(createData ,thunkAPI) =>{
         const {rejectWithValue , getState} = thunkAPI
   
      try{
           const token= getState().auth.token
-      const body= JSON.stringify(createData)
-      const response = await axios.post("https://www.getgarage.me/api/v1/workshop/package/create/", body, {
+          
+          formData.append('workshop_id', createData.workshop_id);
+          formData.append('title', createData.title);
+          formData.append('price', createData.price);
+          formData.append('image', createData.image);
+          formData.append('description', createData.description);
+     
+      const response = await axios.post("https://www.getgarage.me/api/v1/workshop/package/create/", formData, {
         headers: {
           'Content-Type': 'application/json', 
           'Authorization': `Bearer ${token}`
@@ -32,9 +37,15 @@ export const editePackage = createAsyncThunk ('package/update',  async(editeData
                'Authorization': `Bearer ${token}`,
   }}
 try{
+ 
+    editeData.workshop_id&& formData.append('workshop_id', editeData.workshop_id);
+    editeData.title&&formData.append('title', editeData.title);
+    editeData.price&&formData.append('price', editeData.price);
+    editeData.image !=='' &&formData.append('image', editeData.image);
+    editeData.description&& formData.append('description', editeData.description);
+    editeData.package_id&& formData.append('package_id', editeData.package_id);
 
-let body= JSON.stringify(editeData)
-let response = await axios.put("https://www.getgarage.me/api/v1/workshop/package/update/", body, config)
+let response = await axios.put("https://www.getgarage.me/api/v1/workshop/package/update/", formData, config)
 
   if(response.status == 200) {
     return  ({...editeData, ...response.data}) 
@@ -76,13 +87,30 @@ export const getPackages = createAsyncThunk ('packages/get',  async(_ ,thunkAPI)
   }
   
   })
+  export const deletePackage=   createAsyncThunk ('package/delete',  async(deleteData ,thunkAPI) =>{
+    const {rejectWithValue , getState} = thunkAPI
+    const token= getState().auth.token
+    try {
+      const body= JSON.stringify(deleteData)
+      const response = await axios.delete("https://www.getgarage.me/api/v1/workshop/package/delete/", {
+        headers: {
+          'Content-Type': 'application/json', 
+          'Authorization': `Bearer ${token}`,
+        },data: body})
+        if(response.status==200)
+       return deleteData.package_id
+      }
+      catch (e) {
+      return rejectWithValue(e.message);
+    }
+    })
 const packageSlice = createSlice({
     name: 'go-employ',
-    initialState: { employs:[], gocreateemploy: false, goEditeemploy:false ,isLoading:false, error:null},
+    initialState: { packages:[], created: false, updated:false ,isLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
-        state.gocreateemploy= false
-        state.goEditeemploy=false
+        state.created= false
+        state.updated=false
         state.error= false
 
       }
@@ -101,7 +129,7 @@ const packageSlice = createSlice({
             
             state.isLoading = false;
             state.error = null
-            state.employs= action.payload.results
+            state.packages= action.payload.results
            
 
             
@@ -120,17 +148,17 @@ const packageSlice = createSlice({
            
             state.isLoading = true
             state.error = null
-            state.gocreateemploy= false
-            state.goEditeemploy=false
+            state.created= false
+            state.updated=false
     
         },
         [createPackage.fulfilled]:(state,action)=>{
          
             state.isLoading = false
             state.error= null
-            state.gocreateemploy= true;
-            state.goEditeemploy=false
-            state.employs= [...state.employs,action.payload]
+            state.created= true;
+            state.updated=false
+            state.packages= [...state.packages,action.payload]
             
          
     
@@ -138,8 +166,8 @@ const packageSlice = createSlice({
         [createPackage.rejected]:(state,action)=>{
             state.isLoading = false
             state.error = action.payload
-            state.gocreateemploy= false
-            state.goEditeemploy=false
+            state.created= false
+            state.updated=false
             console.log(action.payload+'esraa')
             
     
@@ -148,8 +176,8 @@ const packageSlice = createSlice({
 
           state.isLoading = true
           state.error = null
-          state.gocreateemploy= false
-          state.goEditeemploy=false
+          state.created= false
+          state.updated=false
        
         
      },
@@ -157,25 +185,49 @@ const packageSlice = createSlice({
       state.isLoading = false;
       state.error= null;
 
-      state.gocreateemploy= false
-      state.goEditeemploy=true
-      const index =  state.employs.findIndex(employ => employ.id == action.payload.id);                                                            
-      const newArray = [...state.employs]; 
+      state.created= false
+      state.updated=true
+      const index =  state.packages.findIndex(employ => employ.id == action.payload.id);                                                            
+      const newArray = [...state.packages]; 
       if(index)
       {  newArray[index] = action.payload;}
-      state.employs=newArray ;
+      state.packages=newArray ;
   
       
       },
 
       [ editePackage.rejected ] :(state,action)=>{
            state.isLoading = false
-           state.gocreateemploy= false
-           state.goEditeemploy=false
+           state.created= false
+           state.updated=false
            state.error = action.payload
          console.log(action)
          
       }, 
+      [ deletePackage.pending ] :(state,action)=>{
+
+        state.isLoading = true
+        state.error = null
+        
+      
+   },
+   [ deletePackage.fulfilled ] :(state,action)=>{
+    state.isLoading = false
+    state.error= null
+    state.packages  = state.packages.filter((packag)=>packag.id != action.payload)
+    
+  
+
+    
+    },
+    [ deletePackage.rejected ] :(state,action)=>{
+         state.isLoading = false
+         state.error = action.payload
+        
+      
+       
+    }, 
+
      
 
     }

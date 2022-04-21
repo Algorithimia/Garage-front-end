@@ -1,0 +1,43 @@
+.form-validator{
+    div{
+        position: relative;
+    }
+    .input-error{
+        input{
+               border-color: #b41212; 
+             }
+    .error-text{
+    text-align: left;
+    color: #b41212;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 0%;
+  
+}
+       
+    }
+    .mark{
+        padding: 0 10px;
+        position: absolute;
+        right: 0%;
+        top: 30px;
+        background-color: inherit;
+     
+        font-size: 18px;
+        z-index: 1;
+       
+
+        .validation-error{
+            color: #b41212;
+        }
+        
+    }
+    .img-selected{
+        color: green ;
+        margin-top: 10px;
+    }
+    .img-notselected{
+        color: #b41212;
+        margin-top: 10px;
+    }
+}
