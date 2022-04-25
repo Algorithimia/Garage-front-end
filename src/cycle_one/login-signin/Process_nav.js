@@ -1,7 +1,11 @@
+import React , {useState} from 'react';
 import { Row, Col,Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Process_nav =()=>{
+
+
+
     return (
 
         <>
@@ -16,22 +20,27 @@ const Process_nav =()=>{
           <Col md={8} lg={7}>
            <div className='options'>
             
-              
+                 <Link to='/'>
                 <span className='option active'>
                   Home
                 </span>
-            
+                </Link>
+                <Link to='/about'>
                 <span className='option'>
                    About
                 </span>
-            
+                </Link>
+                <Link to='/blog'>
                 <span className='option'>
                   Blog
                 </span>
-              
+                </Link>
+                <Link to='/contact'>
                 <span className='option'>
                   Contact_Us
                 </span>
+                </Link>
+          
              
           
            </div>  

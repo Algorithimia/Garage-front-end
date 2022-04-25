@@ -1,6 +1,42 @@
+import React , {useState} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
-const Nav = ()=>{
+const Nav = ({Index=0})=>{
+  const [activeIndex,setActiveIndex]=useState(Index)
+  const links = [
+    {
+    name:'Home',
+     link:'/'
+    },
+    {
+      name:'About',
+       link:'/about'
+      },
+      {
+        name:'Blog',
+         link:'/blog'
+        },
+        {
+          name:'Contact-Us',
+           link:'/contact'
+        }
+
+  ];
+
+  const renderedLinks=links.map((link,index)=>{
+    const  className = activeIndex === index ? 'active' : '';  
+    return(
+    <>
+     <Link to= {link.link}>
+                <span className={`option ${className} `} >
+                 {link.name}
+                </span>
+                </Link>
+    </>
+    
+    )
+
+})
     return(
      <>
         <div className='navv'>
@@ -10,23 +46,7 @@ const Nav = ()=>{
           </Col>
           <Col md={8} lg={7}>
            <div className='options'>
-            
-              
-                <span className='option active'>
-                  Home
-                </span>
-            
-                <span className='option'>
-                   About
-                </span>
-            
-                <span className='option'>
-                  Blog
-                </span>
-              
-                <span className='option'>
-                  Contact-Us
-                </span>
+                {renderedLinks}
              
           
            </div>  
