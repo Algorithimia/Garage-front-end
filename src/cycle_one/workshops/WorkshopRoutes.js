@@ -58,6 +58,7 @@ import EditeEmploy from './EditeEmploy'
 import EditeSparePart from './EditeSparePart'
 import EditeAppointment from './EditeAppointment'
 import CustomerVehicles from './CustomerVehicles'
+import WorkshopSettings from './WorkshopSettings'
 const WorkshopRoutes = () => {
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
@@ -173,6 +174,7 @@ const WorkshopRoutes = () => {
                     <Route path="/owner/assets/*" element={<Assets/>} exact  />
                     <Route path="/owner/createasset" element={<CreateAssets/>} exact  />
                     <Route path="/owner/settings" element={<Settings/>} exact  />
+                    <Route path="/owner/workshopsettings" element={<WorkshopSettings/>} exact  />
                     <Route path="/owner/maintnance/*" element={<MaintenancePackaging/>} exact  />
                     <Route path="/owner/addworkshop" element={<AddWorkshop/>} exact  />
                     <Route path="/owner/sparepartsgrage" element={<ChooseGrage link= '/workshop/owner/buyspareparts'/>} exact  />

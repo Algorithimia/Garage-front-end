@@ -11,7 +11,8 @@ const SideBar = ({settings}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {created}= useSelector((state)=>state.workshop)
-    const {userDetails , isLoading ,error}= useSelector((state)=>state.userDetails)
+    const {userDetails ,updated, isLoading ,error}= useSelector((state)=>state.userDetails)
+    const {workshopUpdated }= useSelector((state)=>state.workshop)
        
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
@@ -38,7 +39,7 @@ const SideBar = ({settings}) => {
     useEffect(() =>{
         dispatch(getUserDetails());
  
-      },[dispatch,created])
+      },[dispatch,created , updated, workshopUpdated])
     let renderedWorkshops =userDetails.workshops && userDetails.workshops.map((workshop)=>{return <div key={workshop.id } onClick={()=>{setWorkshop(workshop); cookies.remove("workshop"); cookies.set("workshop", workshop); document.location.reload()}}>
 
     <Dropdown.Item ><img className='dropdown_img drop_imgg ' src={workshop.image} /> &nbsp;{workshop.title}</Dropdown.Item></div>} )
@@ -164,8 +165,11 @@ const SideBar = ({settings}) => {
                     {/* </Link> */}
                    {showSettings &&
                      <div className='settings'>
+                        <Link to='/workshop/owner/workshopsettings'>
+                                <div className='option'> Workshop Settings </div>  
+                        </Link>
                         <Link to='/workshop/owner/settings'>
-                                <div className='option'> Prefrence Settings </div>  
+                                <div className='option'> Your Settings </div>  
                         </Link>
                         <Link to='/workshop/owner/subscribtion'>
                            <div className='option'> Subscribtion Plan </div>
