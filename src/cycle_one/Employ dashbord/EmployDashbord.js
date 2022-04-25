@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import {RiTimer2Fill} from "react-icons/ri"
 import {GiSandsOfTime} from "react-icons/gi"
 import {BsCheckCircleFill} from "react-icons/bs"
@@ -10,14 +10,54 @@ import {FaUsers} from "react-icons/fa"
 import {RiFileCopy2Fill} from "react-icons/ri"
 import {FiLogOut} from "react-icons/fi"
 import { Row,Col } from "react-bootstrap"
-import {Link} from "react-router-dom"
-
+import {Link, useNavigate} from "react-router-dom"
+import moment from 'moment'
 import BoxInfo from "../workshops/BoxInfo"
 import IconBox from "../workshops/IconBox"
 
 import CustomerInList from "../workshops/CustomerInList"
 import Appointment from "../workshops/Appointment"
+import {logOut} from '../../store/store slices/auth'
+import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+import {geAppointments} from '../../store/store slices/appointmentSlice'
+import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
+import { useDispatch,useSelector } from 'react-redux'
 const EmployDashbord = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const {workorders,isLoading}= useSelector((state)=>state.workOrders)
+    const { appointmentsList} = useSelector((state)=>state.appointment)
+    //customers data 
+    const custommerState= useSelector((state)=>state.customers)
+    const {custommers}= useSelector((state)=>state.customers)
+    const custommersLoading = custommerState.isLoading
+    
+    
+    // dates 
+    const appointmentState =  useSelector((state)=>state.appointment)
+    const appointmentLoading = appointmentState.isLoading
+    let realDates=appointmentsList.filter(a=>moment(a.start_at)  >= new Date())
+    let commingAppointment = realDates[realDates.length-1]
+
+    //logout
+    const userlogout=()=>{
+        dispatch(logOut());
+        navigate('/login_process/owner_login')
+    }
+    //end logout
+    //inprogress orders
+    let inWorkordersLenth=isLoading?'Loading..' :workorders.length
+
+    //rendered customers
+    let firstThreeCusstommers=custommers.slice(0, 3);
+    const renderedcustomers = custommersLoading ? <div>Loading ..</div> :firstThreeCusstommers.map((customer)=> <CustomerInList key={customer.id} name={customer.name} id={customer.id} addBy="Employee name"  />)
+     
+    // get data
+    useEffect(() =>{
+        dispatch(getWorkOrders());
+        dispatch(geAppointments());
+        dispatch(getcustommers());
+      },[dispatch])
     return (
         <>
         
@@ -26,7 +66,7 @@ const EmployDashbord = () => {
             <Row>
                   <Col sm={12}>
                   <div className="right logout">
-                      <span><span className="icon"><FiLogOut /></span>logout</span>
+                      <span onClick={()=>userlogout()}><span className="icon"><FiLogOut /></span>logout</span>
                     
                   </div>
                   </Col>
@@ -35,7 +75,7 @@ const EmployDashbord = () => {
                       <Col  md={12} lg={9} className="width">
                           
                          <Row className="secoond_row">
-                             
+                             {/*start  employ info  */}
                              <Col md={12} lg={6}>
                              <Row className="justify-md-lg-center">
                             <Col  md={6}>
@@ -45,16 +85,19 @@ const EmployDashbord = () => {
                             </Col>
                             <Col md={6} >
                                 <div className="employ-boxinfo">
-                                    <BoxInfo icon={<GiSandsOfTime />} title='In WORK ORDERS' view={false} number='2' bacGroundColor="#F2A911" path='/workshop/owner/allworkorders'/>
+                                    <BoxInfo icon={<GiSandsOfTime />} title='In WORK ORDERS' view={false} number={inWorkordersLenth} bacGroundColor="#F2A911" path='/workshop/owner/allworkorders'/>
                                 </div>
                             </Col>
-                           
+                             {/*end  employ info  */}
                          </Row> 
                                 <div className="tools_image">
                                <img  src='/images/cycle one/Group 24.svg' />
                                </div> 
-                               <Appointment />
+                                 {/*start  comming appointment  */}
+                               <Appointment  appointment={commingAppointment} loading={appointmentLoading}/>
+                                {/*end  comming appointment  */}
                              </Col>
+                               {/*start  comming quick process  */}
                              <Col md={12} lg={6}>
                                  <div className="title">QUICK PROCESSES</div>
                                  <Row className="icon_row">
@@ -109,17 +152,19 @@ const EmployDashbord = () => {
 
 
                              </Col>
+
+                              {/* end  comming quick process  */}
                          </Row>
                       </Col>
+                       {/*start  custommers  */}
                       <Col sm={12} lg={3}>
                     
                         <div className="employes employ-customers">
                             <div className="title  margin_top">RECENT CUSTOMERS</div>
-                           <CustomerInList name="Steve Stewart" addBy="YOU" />
-                              <CustomerInList name="Mike Ford" addBy="Employee name"  />
-                              <CustomerInList name="Mike Ford" addBy="Employee name"  />
-                             <Link to='/workshop/owner/viewcustomer'>SEE ALL</Link>
+                           { renderedcustomers}
+                             <Link to='/workshop/owner/garagecustomers'>SEE ALL</Link>
                         </div>
+                         {/*end  custommers  */}
 
                       </Col>
                   

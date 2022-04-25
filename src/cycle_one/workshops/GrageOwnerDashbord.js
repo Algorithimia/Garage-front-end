@@ -19,6 +19,7 @@ import Appointment from "./Appointment"
 import { useDispatch,useSelector } from 'react-redux'
 import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
 import {getemploys} from '../../store/store slices/GOEmploy'
+import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
 import {geAppointments} from '../../store/store slices/appointmentSlice'
 const GrageOwnerDashbord = () => {
     const dispatch = useDispatch()
@@ -27,8 +28,15 @@ const GrageOwnerDashbord = () => {
     const { appointmentsList} = useSelector((state)=>state.appointment)
     let employState= useSelector((state)=>state.GoEmploye)
     let employLoading =employState.isLoading
-    const appointmentState=  useSelector((state)=>state.appointment)
+
+      //customers data 
+      const custommerState= useSelector((state)=>state.customers)
+      const {custommers}= useSelector((state)=>state.customers)
+      const custommersLoading = custommerState.isLoading
+      
+   
     // dates 
+    const appointmentState=  useSelector((state)=>state.appointment)
     const appointmentLoading = appointmentState.isLoading
     let realDates=appointmentsList.filter(a=>moment(a.start_at)  >= new Date())
     let commingAppointment = realDates[realDates.length-1]
@@ -37,13 +45,16 @@ const GrageOwnerDashbord = () => {
         dispatch(getWorkOrders());
         dispatch(getemploys());
         dispatch(geAppointments());
+        dispatch(getcustommers());
       },[dispatch])
       let createdWorkordersLenth=isLoading?'Loading..' :workorders.length
       let inProgressWorkordersLenth=isLoading?'Loading..' :workorders.filter(workOrder => workOrder.status == "In Progress").length
       let completedWorkordersLenth=isLoading?'Loading..' :workorders.filter(workOrder => workOrder.status == "Completed").length
       let firstThreeEmployees=employs.slice(0, 3);
       let renderedEmployees=employLoading ? <div> Loading ...</div>:firstThreeEmployees.map((employ)=> <EmployInList key={employ.id} employ={employ}/>)
-      console.log(firstThreeEmployees)
+     //rendered customers
+    let firstThreeCusstommers=custommers.slice(0, 3);
+    const renderedcustomers = custommersLoading ? <div>Loading ..</div> :firstThreeCusstommers.map((customer)=> <CustomerInList key={customer.id} name={customer.name} id={customer.id} addBy="Employee name"  />)
      
     return (
         <>
@@ -146,9 +157,7 @@ const GrageOwnerDashbord = () => {
 
                         <div className="employes">
                             <div className="title  margin_top">RECENT CUSTOMERS</div>
-                           <CustomerInList name="Steve Stewart" addBy="YOU" />
-                              <CustomerInList name="Mike Ford" addBy="Employee name"  />
-                              <CustomerInList name="Mike Ford" addBy="Employee name"  />
+                               {renderedcustomers}
                              <Link to='/workshop/owner/viewcustomer'>SEE ALL</Link>
                         </div>
 

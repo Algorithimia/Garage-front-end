@@ -1,7 +1,7 @@
 import {FaTools} from "react-icons/fa"
 import { Link } from "react-router-dom"
 
-const CustomerInList = ({name, addBy}) => {
+const CustomerInList = ({name, addBy, id}) => {
     return (
         <div className="employ customer_margin">
             
@@ -9,7 +9,7 @@ const CustomerInList = ({name, addBy}) => {
                 <div>{name}</div>
                 <div className="gray">Added by {addBy}</div>
             </div>
-            <Link to='/workshop/owner/singleworkorder'>
+            <Link to={`/workshop/owner/singleworkorder/${id}`}>
                 <div className="inline-block tools_icon delete_icon">
                 <FaTools style={{marginBottom:'5' }}/>
                 </div>
