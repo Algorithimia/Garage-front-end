@@ -29,15 +29,15 @@ const Footer=()=>{
                         <div className='fotter_col'>
                         <span className='title'>Quick Links</span>
                         <br />
-                        <Link to='/'>Join Us</Link>
+                        <Link to='/sign_in_choose'>Join Us</Link>
                         <br />
                         <Link to='/'>Home</Link>
                         <br />
-                        <Link to='/'>How It Works</Link>
+                        <Link to='/howItWorks'>How It Works</Link>
                         <br />
-                        <Link to='/'>Pricing</Link>
+                        <Link to='/pricing'>Pricing</Link>
                         <br />
-                        <Link to='/'>Features</Link>
+                        <Link to='/features'>Features</Link>
 
                        
                      </div>
@@ -46,9 +46,9 @@ const Footer=()=>{
                        <div className='fotter_col'>
                         <span  className='title'>Get To Know Us</span>
                         <br />
-                        <Link to='/'>About Us</Link>
+                        <Link to='/about'>About Us</Link>
                         <br />
-                        <Link to='/'>Our Team</Link>
+                        <Link to='/team'>Our Team</Link>
                      </div>
                     </Col>
                     <Col lg={2}>
@@ -65,13 +65,13 @@ const Footer=()=>{
                    <div className='fotter_col'>
                     <span  className='title'>Resources</span>
                     <br />
-                        <Link to='/'>Help</Link>
+                        <Link to='/help'>Help</Link>
                         <br />
-                        <Link to='/'>FAQ</Link>
+                        <Link to='/FAQ'>FAQ</Link>
                         <br />
-                        <Link to='/'>Terms Of Services</Link>
+                        <Link to='/service'>Terms Of Services</Link>
                         <br />
-                        <Link to='/'>Cookies Policies</Link>
+                        <Link to='/cookies'>Cookies Policies</Link>
                         <br />
                         
 

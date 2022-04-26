@@ -12,6 +12,14 @@ import VehicleOwnerRoutes from './cycle_one/Vehichle/VehicleOwnerRoutes';
 import About from './cycle_one/staticPages/About';
 import Blog from './cycle_one/staticPages/Blog';
 import ContactUs from './cycle_one/staticPages/ContactUs';
+import Team from './cycle_one/staticPages/Team';
+import Cookies from './cycle_one/staticPages/Cookies';
+import TermsService from './cycle_one/staticPages/TermsService';
+import FAQ from './cycle_one/staticPages/FAQ';
+import Help from './cycle_one/staticPages/Help';
+import HowItWorks from './cycle_one/staticPages/HowItWorks';
+import Pricing from './cycle_one/staticPages/Pricing';
+import Features from './cycle_one/staticPages/Features';
 
 
 const  App=() => {
@@ -36,6 +44,14 @@ const  App=() => {
                 <Route path="/about" element={<About />} exact />
                 <Route path="/contact" element={<ContactUs />} exact />
                 <Route path="/blog" element={<Blog />} exact />
+                <Route path="/team" element={<Team />} exact />
+                <Route path="/cookies" element={<Cookies />} exact />
+                <Route path="/service" element={<TermsService />} exact />
+                <Route path="/FAQ" element={<FAQ />} exact />
+                <Route path="/help" element={<Help />} exact />
+                <Route path="/howItWorks" element={<HowItWorks />} exact />
+                <Route path="/pricing" element={<Pricing />} exact />
+                <Route path="/features" element={<Features />} exact />
                
             </Routes>
 
