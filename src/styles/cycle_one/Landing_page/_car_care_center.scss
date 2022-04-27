@@ -1,12 +1,12 @@
 .car_care_center{
     background-color: #4390E08F;
-  
+    padding-top: 10px;
     .car_center_info{
         margin-left: 27%;
         max-width: 333px;
         margin-top: 80px;
        min-height: 450px;
-      
+     
        z-index: 999999999999999;
       
         @media screen and (max-width: 1024px) {

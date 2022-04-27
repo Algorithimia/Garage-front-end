@@ -11,6 +11,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import { Formik, Field, Form } from 'formik';
 // yup validation
 import * as yup from 'yup';
+import FlashMsg from "../workshops/components/FlashMsg";
 
     
 
@@ -30,9 +31,10 @@ const Owner_login = () =>{
       // end  yup 
     const {userDetails}= useSelector((state)=>state.userDetails)
     const [showAlert, setShowAlert]= useState(true)
+    const[flashmsg,setFlashmsg] = useState(true)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    
     const {loggedIn, isLoading,error}= useSelector((state)=>state.auth)
     //get user details 
    
@@ -68,22 +70,29 @@ const Owner_login = () =>{
            const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
             setShowAlert(false)
-            dispatch(clearstate())
+            setFlashmsg(true)
+            // dispatch(clearstate())
           }, 5000)
       
           return () => {
             clearTimeout(timeId)
           }
     }
+  
+    const setFlashScroll=(value)=>{
+      setFlashmsg(value)
+      window.scrollTo(0, 0);
+  }
     return(
         <>
-       
+            
         { loggedIn && userDetails.is_garage_owner && navigate('/workshop/owner/dashbord')}
          {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
          <div className='login owner_login'>
 
           
            <Row className="justify-content-md-center">
+       
                <Col sm={12}md={5}>
                   <div className='owner_or_employee active'>
                       <img src="/images/cycle one/service_icons/icon_2.png" />
@@ -102,8 +111,8 @@ const Owner_login = () =>{
                </Col>
              
            </Row>
-           {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }
-           {showAlert &&loggedIn && userDetails.is_employee && <div className="msg-error"> You aren't a grage owner</div>}
+        
+          
            <Formik
              initialValues={{
                 email: '',
@@ -122,7 +131,28 @@ const Owner_login = () =>{
            >
             {({errors, touched,  handleSubmit})=> (
             <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
-           
+               {/* start flash msgs */}
+
+               {flashmsg&& error && <FlashMsg 
+                                    icontype='error-icon' 
+                                    img={'/images/msgIcons/error.svg'}
+                                    title='Login Error !'
+                                    setFlashmsg={setFlashScroll}
+                                    p={Object.values(error)}
+                                  />
+           }
+
+              {flashmsg&&loggedIn && userDetails.is_employee && <FlashMsg 
+                                    icontype='error-icon' 
+                                    img={'/images/msgIcons/error.svg'}
+                                    title='Login Error !'
+                                    setFlashmsg={setFlashScroll}
+                                    p={"You aren't a Grage Owner"}
+                                  />}
+               {/* end flash msgs */}
+
+
+
                 <div className={`main_input ${errors.email  && touched.email &&'input-error'}`} >
                     <label htmlFor='email'>Email</label>
                     <Field type='email' placeholder='handel@example.com'  name="email" autoComplete="off"   />

@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 import { Row, Col,Container } from 'react-bootstrap';
-const Footer=()=>{
+const Footer=({setFlashmsg})=>{
     return(
         <>
             <div className='footer'>
@@ -22,7 +22,7 @@ const Footer=()=>{
                         <br/>
                         <input placeholder='@your_email'/>
                         <br/>
-                        <button className='dark_button'>Subscribe</button> 
+                        <button className='dark_button'onClick={()=>setFlashmsg(true)}>Subscribe</button> 
                     </div>   
                     </Col>
                     <Col lg={2}>

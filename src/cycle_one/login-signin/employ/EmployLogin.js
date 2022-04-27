@@ -12,6 +12,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import { Formik, Field, Form } from 'formik';
 // yup validation
 import * as yup from 'yup';
+import FlashMsg from "../../workshops/components/FlashMsg";
 
 const EmployLogin = () =>{
       // yup validation
@@ -28,7 +29,7 @@ const EmployLogin = () =>{
     const {userDetails}= useSelector((state)=>state.userDetails)
     const {loggedIn,isLoading,error}= useSelector((state)=>state.auth)
     const [showAlert, setShowAlert]= useState(true)
- 
+    const[flashmsg,setFlashmsg] = useState(true)
   useEffect(() =>{  
     dispatch(getUserDetails())
    
@@ -55,8 +56,9 @@ const EmployLogin = () =>{
            setShowAlert(true)
            const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
-            setShowAlert(false)
-            dispatch(clearstate())
+            // setShowAlert(false)
+            // setFlashmsg(true)
+            // dispatch(clearstate())
           
           }, 5000)
       
@@ -64,7 +66,11 @@ const EmployLogin = () =>{
             clearTimeout(timeId)
           }
     }
-   
+
+    const setFlashScroll=(value)=>{
+      setFlashmsg(value)
+      window.scrollTo(0, 0);
+  }
     return(
         <>
        
@@ -93,9 +99,7 @@ const EmployLogin = () =>{
                </Col>
            </Row>
           
-           {showAlert && loggedIn && userDetails.is_garage_owner && <div className="msg-error"> You aren't a grage employee</div>}
           
-           {showAlert && error&& <div className='msg-error'>{ Object.values(error)}</div> }
            <Formik
              initialValues={{
                 email: '',
@@ -114,6 +118,26 @@ const EmployLogin = () =>{
            >
             {({errors, touched,  handleSubmit})=> (
             <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
+                     {/* start flash msgs */}
+
+               {flashmsg&& error && <FlashMsg 
+                                    icontype='error-icon' 
+                                    img={'/images/msgIcons/error.svg'}
+                                    title='Login Error !'
+                                    setFlashmsg={setFlashScroll}
+                                    p={Object.values(error)}
+                                  />
+           }
+
+              {flashmsg&&loggedIn && userDetails.is_garage_owner && <FlashMsg 
+                                    icontype='error-icon' 
+                                    img={'/images/msgIcons/error.svg'}
+                                    title='Login Error !'
+                                    setFlashmsg={setFlashScroll}
+                                    p={"You aren't an Employ"}
+                                  />}
+               {/* end flash msgs */}
+
            
                 <div className={`main_input ${errors.email  && touched.email &&'input-error'}`} >
                     <label htmlFor='email'>Email</label>

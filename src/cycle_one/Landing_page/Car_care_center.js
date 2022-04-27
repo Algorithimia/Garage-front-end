@@ -1,10 +1,11 @@
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Car_care_center =()=>{
+const Car_care_center =({msg})=>{
     return(
         <>
          <div className='car_care_center'>
+             {msg}
           <Row>
             <Col sm={12} lg={6}>
                <div className="car_center_info">
@@ -13,7 +14,7 @@ const Car_care_center =()=>{
                     <div className='buttons'>
                         <Link to='/sign_in_choose'> <button  className='dark_button'>Signup</button></Link>
                       
-                       <button  className='light_button right'>Learn More</button>
+                        <Link to='/carecarecenter'>  <button  className='light_button right'>Learn More</button> </Link>
                     </div>
                    
                </div>

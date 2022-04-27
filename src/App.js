@@ -20,6 +20,9 @@ import Help from './cycle_one/staticPages/Help';
 import HowItWorks from './cycle_one/staticPages/HowItWorks';
 import Pricing from './cycle_one/staticPages/Pricing';
 import Features from './cycle_one/staticPages/Features';
+import GrageManagement from './cycle_one/staticPages/GrageManagement';
+import GrageInvoices from './cycle_one/staticPages/GrageInvoices';
+import CarCareCenter from './cycle_one/staticPages/CarCareCenter';
 
 
 const  App=() => {
@@ -52,6 +55,9 @@ const  App=() => {
                 <Route path="/howItWorks" element={<HowItWorks />} exact />
                 <Route path="/pricing" element={<Pricing />} exact />
                 <Route path="/features" element={<Features />} exact />
+                <Route path="/gragemanagement" element={<GrageManagement />} exact />
+                <Route path="/grageInvoices" element={<GrageInvoices />} exact />
+                <Route path="/carecarecenter" element={<CarCareCenter />} exact />
                
             </Routes>
 
