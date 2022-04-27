@@ -83,7 +83,7 @@ const EmployLogin = () =>{
                <Col sm={12}md={5}>
                    
                <Link to='/login_process/owner_login'>
-                    <div className='owner_or_employee '>
+                    <div className='owner_or_employee ' onClick={() =>dispatch(clearstate())}>
                         <img src="/images/cycle one/service_icons/icon_2.png" />
                         <div className="inline-block"> Garage Owner </div>
                     </div>
