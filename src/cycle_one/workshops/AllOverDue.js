@@ -4,9 +4,10 @@ import{BsSortAlphaUpAlt,BsSortAlphaDown, BsSortAlphaUp} from 'react-icons/bs'
 
 import OverDue from './components/OverDue'
 import { Link } from 'react-router-dom'
+import FlashMsg from './components/FlashMsg'
 
 const AllOverDue = () => {
-
+    const[flashmsg,setFlashmsg] = useState(true)
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
     const upEntries=()=>{
@@ -29,6 +30,12 @@ const AllOverDue = () => {
           <div className='header'>
           OVERDUE INVOICES
          </div>
+         {flashmsg&&<FlashMsg 
+                                title="Still Under Development !"
+                                img={'/images/msgIcons/info.svg'}
+                                setFlashmsg={setFlashmsg}
+                                icontype='info-icon'
+                        />}
          <div className='second_line'>
          <Link to='/workshop/owner/alloverduesentpayment'> <button className='all'>All</button></Link>
          <Link to='/workshop/owner/alloverdue'> <button className='over_due'>Overdue</button></Link>

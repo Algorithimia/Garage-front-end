@@ -1,15 +1,16 @@
 import React ,{useState, useEffect} from "react";
 import { Link , useNavigate} from "react-router-dom";
+import {Row, Col} from 'react-bootstrap'
 import { FcCheckmark } from "react-icons/fc";
 import {AiOutlineClose} from "react-icons/ai"
 import {getaddress} from '../../store/store slices/addreseSlice'
 import {grageOwnerRegister, clearstate } from '../../store/store slices/auth'
 import { useDispatch,useSelector } from 'react-redux'
+import{Dropdown} from 'react-bootstrap'
 //formik
 import { useField,Formik, Field, Form } from 'formik';
 // yup validation
 import * as yup from 'yup';
-import FlashMsg from "../workshops/components/FlashMsg";
 
 
 const Owner_register = () =>{
@@ -38,23 +39,11 @@ const Owner_register = () =>{
 
 
     const {create,loggedIn,isLoading,error}= useSelector((state)=>state.auth)
-
+    const[country_id, setCountry_id] = useState('')
+    const[city_id, setCity_id] = useState([])
+    const[area_id, setArea_id] = useState('')
     const [showAlert, setShowAlert]= useState(true)
-    const[flashmsg,setFlashmsg] = useState(true)
-    const [formData, setFormData] = useState({
-        workshopname:'',
-        workshopAddress:'',
-        name: '',
-        phone:'',
-        email: '',
-        password: '',
-        confirm_password:'',
-        area_id:'',
-        country_id:'',
-        title:'',
-     
-
-    })
+ 
     
     useEffect(() =>{
         dispatch(getaddress())
@@ -63,49 +52,56 @@ const Owner_register = () =>{
       },[dispatch])
      
 
-    const {workshopname,workshopAddress, name,phone , email, password, confirm_password, area_id,country_id,title  }=formData
+    // const {workshopname,workshopAddress, name,phone , email, password, confirm_password, area_id,country_id,title  }=formData
   
-    const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
-    const onSubmit= async data => {
+   
+    const onsubmit= async data => {
        
       
-            console.log(formData)
-            console.log( grageOwnerRegister)
+        
+        {
          
-           dispatch( grageOwnerRegister(data))
+           dispatch( grageOwnerRegister({...data, area_id:area_id, country_id:country_id}))
 
            setShowAlert(true)
            const timeId = setTimeout(() => {
             // After 3 seconds set the showAlert value to false
-          
+            setShowAlert(false)
+            dispatch(clearstate())
           }, 5000)
       
           return () => {
             clearTimeout(timeId)
-          
+          }
           
         }
     }
 
-    let  countries = addressList.map((country=> {
-         return <option key={country.id} value={country.id} >{country.name}</option>
+    // let  countries = addressList.map((country=> {
+    //      return <option key={country.id} value={country.id} >{country.name}</option>
          
-    }))
-    const findCities = (country_id) =>{
-        let  selectedcountry = country_id !== '' &&  addressList.find(country => country.id == country_id)
-        let renderedareas = selectedcountry && selectedcountry.cities.map((city)=>city.areas.map((area)=><option key={area.id} value={area.id} >{area.name}</option>))
-           return renderedareas    
-    }
+    // }))
+    // const findCities = (country_id) =>{
+    //     let  selectedcountry = country_id !== '' &&  addressList.find(country => country.id == country_id)
+    //     let renderedareas = selectedcountry && selectedcountry.cities.map((city)=>city.areas.map((area)=><option key={area.id} value={area.id} >{area.name}</option>))
+    //        return renderedareas    
+    // }
     const phoneCode = (country_id) =>{
        
      let code=   country_id !== '' ?  addressList.find(country => country.id == country_id).phone_code:''
      return code    
     }
           
-    const setFlashScroll=(value)=>{
-        setFlashmsg(value)
-        window.scrollTo(0, 0);
-    }
+     // select  address 
+     let  countries = addressList.map((country=> {
+        return  <Dropdown.Item  key={country.id} href="#/action-1" onClick={()=>setCountry_id(country.id)}>{country.name}</Dropdown.Item>
+        
+   }))
+     let selectedcountry = country_id !=='' &&  addressList.find(country=>country.id == country_id) 
+     let renderedcities =selectedcountry&& selectedcountry.cities.map((city=> <Dropdown.Item  key={city.id} href="#/action-1" onClick={()=>setCity_id(city.id)}>{city.name}</Dropdown.Item>))
+    let selectedCity = city_id !== '' && selectedcountry && selectedcountry.cities.find(city=>city.id ==city_id)
+    let renderedareas = selectedCity && selectedCity.areas.map((area)=><Dropdown.Item  key={area.id} href="#/action-1" onClick={()=>setArea_id(area.id)}>{area.name}</Dropdown.Item>)
+     let selectedArea = area_id !== '' && selectedCity.areas.find(area=>area.id == area_id)
    
     return(
         <>
@@ -128,40 +124,25 @@ const Owner_register = () =>{
                 email: '',
                 password: '',
                 confirm_password:'',
-                area_id:'',
-                country_id:'',
+                
                 title:'',
                
                
               }}
               validationSchema={schema}
-              onChange={(values=>{
-                  setFormData({...formData,['country_id']:values.country.id})
-              })}
+              
               onSubmit ={(values)=>{
-                onSubmit(values);
+                onsubmit(values);
              
               }}
              
             
            >
-          
-            {({errors, touched,  handleSubmit, values})=> (
-                 
+            {({errors, touched,  handleSubmit})=> (
             <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
-             
-             {flashmsg&& error && <FlashMsg 
-                                    icontype='error-icon' 
-                                    img={'/images/msgIcons/error.svg'}
-                                    title='Signup Error !'
-                                    setFlashmsg={setFlashScroll}
-                                    p={Object.values(error)}
-                                  />
-           }
-
+           
             <div className="title">Workshop Info</div>
-           
-           
+            {showAlert && error&& <div className='msg-error'>{ Object.values(error)}</div> }
             <div className={`main_input ${errors.workshopname  && touched.workshopname &&'input-error'}`}>
                <label>Workshop Name</label>
                <Field  type='text' name="workshopname"  placeholder='Jessica Hayes'/>
@@ -179,27 +160,57 @@ const Owner_register = () =>{
 
            
            <div className="title">Workshop Address</div>
+             <div className='select-dropdown'>
              
-          <div className={` address-id ${errors.country_id  && touched.country_id &&'input-error'}`}>
-                <Field  as="select" name='country_id'   >
-                <option hidden >Country</option>
-                    {countries}
-                </Field>
-                {errors.country_id && touched.country_id && <div className='error-text'> {errors.country_id}</div> }
-                
-               
-              
-          </div>
+                      <Row>
+                        <Col sm={4}>
+                              <div>
+                                <Dropdown>
+                                <Dropdown.Toggle   variant="outline-secondary" id="dropdown-basic">
+                                      <div className="select-title"> {selectedcountry ? selectedcountry.name :'country'}</div>
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                            
+                                    {countries ? countries : 'select a country'}
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            </div>
+                        
+                        </Col>
+                        <Col sm={4}>
+                             <div>
+                                <Dropdown>
+                                <Dropdown.Toggle   variant="outline-secondary" id="dropdown-basic">
+                                <div className="select-title">{selectedCity ? selectedCity.name :'city'} </div>
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                   
+                                {renderedcities ? renderedcities : 'selecte a city'}
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            </div>
+                        </Col>
+                        <Col sm={4}>
+                            <div>
+                                <Dropdown>
+                                <Dropdown.Toggle   variant="outline-secondary" id="dropdown-basic">
+                                <div className="select-title">{selectedArea ? selectedArea.name :'Area'}</div>
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                {renderedareas ? renderedareas : 'Area'}
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            </div>
+                        
+                        </Col>
+                    </Row>
+
+                    </div>
          
-          <div className={`address-id ${errors.area_id  && touched.area_id &&'input-error'}`}>
-                <Field  as="select" name='area_id' >
-               
-                <option hidden >Area</option>
-                    {findCities(values.country_id)}
-                </Field>
-               
-               
-           </div>
+          
           
           
            
@@ -214,8 +225,8 @@ const Owner_register = () =>{
 
            <div className={`main_input ${errors.phone  && touched.phone &&'input-error'}`}>
                <label>Phone Number</label>
-               <input className='phone-code' onChange={e=>onChange(e)} required    maxLength="3"  placeholder='20' 
-               value={ phoneCode(values.country_id)}  
+               <input className='phone-code'  required    maxLength="3"  placeholder='20' 
+               value={ phoneCode(country_id)}  
                name="code"  />
             
                <Field className='phone-number'  type='tel' placeholder='1111111111'  name="phone"  />

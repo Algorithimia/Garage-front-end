@@ -77,21 +77,28 @@ const authSlice = createSlice({
             state.isLoading = false
             state.error= null
             state.create= true
+            state.loggedIn=true
+            state.token=action.payload.access
+            // let remember=action.payload.remember
+            // let date= new Date()
+            // let expire =remember ? new Date(new Date().setDate(date.getDate()+7)) : ''
+           console.log(action.payload)
+           cookies.remove("login")
+           cookies.remove("token")
+           cookies.remove("workshop")
+            cookies.set("token", action.payload.access)
+            cookies.set("login", true)
+            
          
        
         },
         [grageOwnerRegister.rejected]:(state,action)=>{
             state.isLoading = false
             state.create= false
-            state.loggedIn=true
+            state.loggedIn=false
             state.error = action.payload
-            state.token=action.payload.access
-            let remember=action.payload.remember
-            let date= new Date()
-            let expire =remember ? new Date(new Date().setDate(date.getDate()+7)) : ''
-           console.log(action.payload)
-            cookies.set("token", action.payload.access, {expires : expire})
-            cookies.set("login", true,{expires :expire})
+           
+          
             
     
         },
@@ -110,6 +117,9 @@ const authSlice = createSlice({
           let date= new Date()
           let expire = new Date(new Date().setDate(date.getDate()+1))
          console.log(action.payload)
+         cookies.remove("login")
+         cookies.remove("token")
+         cookies.remove("workshop")
           cookies.set("token", action.payload.access, {expires : expire})
           cookies.set("login", true,{expires :expire})
      

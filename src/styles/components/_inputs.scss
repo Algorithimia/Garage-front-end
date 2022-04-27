@@ -140,3 +140,28 @@ select:-webkit-autofill:active
 input:-internal-autofill-selected {
     background-color: #fff;
 }
+.dropdown{
+    margin-top:10px;
+}
+.select-dropdown{
+    width: 80%;
+    margin: auto;
+    margin-top:10px;
+.dropdown{
+    .select-title{
+        display: inline-block;
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: none;
+    }
+    .dropdown-menu{
+    padding:10px 15px;
+    }
+   
+    button{
+        width: 90%;
+    }
+}
+}

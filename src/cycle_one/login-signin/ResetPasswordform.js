@@ -1,10 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { FcCheckmark } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
-
+import FlashMsg from "../workshops/components/FlashMsg"
 const ResetPasswordform = () => {
+  const[flashmsg,setFlashmsg] = useState(true)
   return <div className='login password_form'>
-      <div class="title">Please Enter Your Email To Receive The Code</div>
+     {flashmsg&&<FlashMsg 
+                            title="Still Under Development !"
+                            img={'/images/msgIcons/info.svg'}
+                            setFlashmsg={setFlashmsg}
+                            icontype='info-icon'
+                    />}
+      <div class="title">Please Reset Your New Password</div>
       <form>
       <div className='main_input'>
                <label>Password</label>
