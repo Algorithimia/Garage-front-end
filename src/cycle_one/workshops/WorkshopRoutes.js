@@ -80,7 +80,7 @@ const WorkshopRoutes = () => {
             {
             
            
-             userDetails.is_garage_owner || userDetails.is_employee || isLoading ? 
+             userDetails.is_garage_owner || userDetails.is_employee  ? 
            
             
             <div className='workshop-background' onClick={(e)=>
