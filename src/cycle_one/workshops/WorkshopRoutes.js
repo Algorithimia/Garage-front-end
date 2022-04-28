@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState , useEffect} from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Route, Routes} from 'react-router-dom'
 import {BsList} from 'react-icons/bs'
@@ -59,136 +59,161 @@ import EditeSparePart from './EditeSparePart'
 import EditeAppointment from './EditeAppointment'
 import CustomerVehicles from './CustomerVehicles'
 import WorkshopSettings from './WorkshopSettings'
+
+import { useNavigate } from 'react-router-dom'
+import{getUserDetails} from '../../store/store slices/detailUser'
+import { useDispatch,useSelector } from 'react-redux'
+import Login_choose from '../login-signin/Login_choose'
+import Landing_page from '../Landing_page/Landing_page'
 const WorkshopRoutes = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     const[showside,setShowSide]=useState(false)
     const[settings,setSetting]=useState()
-  
+    const {userDetails, isLoading}= useSelector((state)=>state.userDetails)
+    useEffect(() =>{
+        // dispatch(getUserDetails());
+ 
+      },[])
     return (
-        <div className='workshop-background' onClick={(e)=>
-       { if(e.target !== document.getElementById('option')   ){
-       if(e.target !== document.getElementById('settings_target') ){
-       setShowSide(false)
-      
-      
-       
-           } 
-           if(e.target !== document.getElementById('side_settings') ){
-            setSetting(false)
+        <>
+            {
+            
            
+             userDetails.is_garage_owner || userDetails.is_employee  ? 
            
             
-                } 
-                if(e.target == document.getElementById('side_settings') ){
-                    setSetting(true)
-                   
-                   
+            <div className='workshop-background' onClick={(e)=>
+                { if(e.target !== document.getElementById('option')   ){
+                if(e.target !== document.getElementById('settings_target') ){
+                setShowSide(false)
+               
+               
+                
+                    } 
+                    if(e.target !== document.getElementById('side_settings') ){
+                     setSetting(false)
                     
-                        } 
-            
-           
-        }
-
-        //   side_settings  if(e.target == document.getElementById('settings') ){
-        //     setShowSide(true)
-        //     console.log('hi')
-           
-    
-        //    }
-        //    if(e.target == document.getElementById('show') ){
-        //     setSetting(true)
-        //     console.log(settings)
-    
-        //    }
-    }
-        }>
-         
-                <div className='inline-block'>
-                    <SideBar settings={settings} />
-                    </div>
-             
-                    <div className='inline-block page'>
-                        <div id='option' className='show_sidebar'
-                         onClick={(e)=>{
-                            e.preventDefault()
-                            setShowSide(!showside)
-                           
-                        }
+                    
+                     
+                         } 
+                         if(e.target == document.getElementById('side_settings') ){
+                             setSetting(true)
                             
-                         }>
-                            <BsList />  options
-                        </div>
-                        {showside && <SidebarOptions />}
-
-                <Routes>
-                    <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
-                    <Route path="/owner/allworkorders/*" element={<AllWorkOrders />} exact  />
-                    <Route path="/owner/createworkeorder/*" element={<CreateWorkOrder />} exact  />
-                    <Route path="/owner/selectinventory/:id" element={<SelectSparePartsFromInventory />} exact  />
-                    <Route path="/owner/buyspareparts" element={<BuySpareParts />} exact  />
-                    <Route path="/owner/buyspareparts/grge" element={<BuySpareParts businessName='BUSINESS NAME'businessType='GARAGE TYPE'  />} exact  />
-                    <Route path="/owner/purchase/*" element={<Purchase />} exact  />
-                    <Route path="/owner/paginatin" element={<Pagination />} exact  />
-                    <Route path="/owner/singleworkorder/:id/*" element={<SingleWorkOrder />} exact  />
-                    <Route path="/owner/viewcustomer/:id" element={<ViewCustomer />} exact  />
-                    <Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
-                    <Route path="/owner/addvehicle" element={<AddVehicle path='/workshop/owner/viewvehicle' />} exact  />
-                    <Route path="/owner/viewvehicle/:id" element={<ViewVehicle />} exact  />
-                    <Route path="/owner/Custommervehicles/:id" element={<CustomerVehicles />} exact  />
-                    <Route path="/owner/employes/*" element={<Employes />} exact  />
-                    <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
-                    <Route path="/owner/editeemploy" element={<EditeEmploy />} exact  />
-                    <Route path="/owner/employassignworkorder" element={<EpmloysAssignedWorkOrder />} exact  />
-                    <Route path="/owner/alloverdue" element={<AllOverDue />} exact  />
-                    <Route path="/owner/alloverduesentpayment" element={<SentPayment />} exact  />
-                    <Route path="/owner/filtersentpayment" element={<FilterSentPayment />} exact  />
-                    <Route path="/owner/viewsingleiteminventory" element={<ViewSingleItemInventory />} exact  />
-                    <Route path="/owner/vehicle2" element={<Vehicles2 />} exact  />
-                    <Route path="/owner/addvehicle2" element={<Addvehicle2 />} exact  />
-                    <Route path="/owner/addsparepart" element={<AddSparePart />} exact  />
-                    <Route path="/owner/editesparepart" element={<EditeSparePart />} exact  />
-                    <Route path="/owner/businesses" element={<Businesses />} exact  />
-                    <Route path="/owner/favbusinesses" element={<FavouriteBusinesses />} exact  />
-                    <Route path="/owner/dealtwithbusinesses" element={<DealtWithBusinesses />} exact  />
-                    <Route path="/owner/transactionbusinesses" element={<BusinessTransAction />} exact  />
-                    <Route path="/owner/partstransactionview" element={<PartsTransActionView />} exact  />
-                    <Route path="/owner/calender" element={<Calender />} exact  />
-                    <Route path="/owner/addappointment" element={<AddAppointment />} exact  />
-                    <Route path="/owner/editeappointment" element={<EditeAppointment />} exact  />
-                    <Route path="/owner/vheiclesview" element={<VehicleView/>} exact  />
-                    <Route path="/owner/vheiclesListview/*" element={<ViewVehiclesList/>} exact  />
-                    <Route path="/owner/choosegrage" element={<ChooseGrage/>} exact  />
-                    <Route path="/owner/choosegragedeltwith" element={<ChooseGrageDeltWith/>} exact  />
-                    <Route path="/owner/choosegragefavourite" element={<ChooseGrageFavourite/>} exact  />
-                    <Route path="/owner/addworkordergrage" element={<AddWorkOrderGrage/>} exact  />
-                    <Route path="/owner/afterworkordergrage" element={<AfterWorkOrder path='/workshop/owner/vheiclesview' back='BACK TO VEHICLES' />} exact  />
-                    <Route path="/owner/garagecustomers" element={<GarageCustomers/>} exact  />
-                    <Route path="/owner/createworkorder2" element={<CreateWorkOrder2/>} exact  />
-                    <Route path="/owner/addvehiclecustomer" element={<AddVehicle path='/workshop/owner/createworkorder2' />} exact  />
-                    <Route path="/owner/manageinventory" element={<ManageInventory/>} exact  />
-                    <Route path="/owner/gragefinance" element={<GrageFinance/>} exact  />
-                    <Route path="/owner/paidinvoicess/*" element={<PaidInvoices/>} exact  />
-                    <Route path="/owner/subscribtionhistory" element={<SubscribtionHistory/>} exact  />
-                    <Route path="/owner/subscribtion" element={<Subscribtion/>} exact  />
-                    <Route path="/owner/purchasesubscribtion/*" element={<PurchaseSubsccribtion/>} exact  />
-                    <Route path="/owner/marketing/*" element={<Marketing/>} exact  />
-                    <Route path="/owner/assets/*" element={<Assets/>} exact  />
-                    <Route path="/owner/createasset" element={<CreateAssets/>} exact  />
-                    <Route path="/owner/settings" element={<Settings/>} exact  />
-                    <Route path="/owner/workshopsettings" element={<WorkshopSettings/>} exact  />
-                    <Route path="/owner/maintnance/*" element={<MaintenancePackaging/>} exact  />
-                    <Route path="/owner/addworkshop" element={<AddWorkshop/>} exact  />
-                    <Route path="/owner/sparepartsgrage" element={<ChooseGrage link= '/workshop/owner/buyspareparts'/>} exact  />
+                            
+                             
+                                 } 
+                     
                     
+                 }
+         
+                 //   side_settings  if(e.target == document.getElementById('settings') ){
+                 //     setShowSide(true)
+                 //     console.log('hi')
                     
+             
+                 //    }
+                 //    if(e.target == document.getElementById('show') ){
+                 //     setSetting(true)
+                 //     console.log(settings)
+             
+                 //    }
+             }
+                 }>
+                  
+                         <div className='inline-block'>
+                             <SideBar settings={settings} />
+                             </div>
+                      
+                             <div className='inline-block page'>
+                                 <div id='option' className='show_sidebar'
+                                  onClick={(e)=>{
+                                     e.preventDefault()
+                                     setShowSide(!showside)
+                                    
+                                 }
+                                     
+                                  }>
+                                     <BsList />  options
+                                 </div>
+                                 {showside && <SidebarOptions />}
 
-
-
-                    
-                    
-                </Routes>
-                </div>
+                          
+                        {isLoading? 'Loading ..' : <Routes>
+                             <Route path="/owner/dashbord" element={<GrageOwnerDashbord />} exact  />
+                             <Route path="/owner/allworkorders/*" element={<AllWorkOrders />} exact  />
+                             <Route path="/owner/createworkeorder/*" element={<CreateWorkOrder />} exact  />
+                             <Route path="/owner/selectinventory/:id" element={<SelectSparePartsFromInventory />} exact  />
+                             <Route path="/owner/buyspareparts" element={<BuySpareParts />} exact  />
+                             <Route path="/owner/buyspareparts/grge" element={<BuySpareParts businessName='BUSINESS NAME'businessType='GARAGE TYPE'  />} exact  />
+                             <Route path="/owner/purchase/*" element={<Purchase />} exact  />
+                             <Route path="/owner/paginatin" element={<Pagination />} exact  />
+                             <Route path="/owner/singleworkorder/:id/*" element={<SingleWorkOrder />} exact  />
+                             <Route path="/owner/viewcustomer/:id" element={<ViewCustomer />} exact  />
+                             <Route path="/owner/createoreditecustomer" element={<CreateOrEditeCustomer />} exact  />
+                             <Route path="/owner/addvehicle" element={<AddVehicle path='/workshop/owner/viewvehicle' />} exact  />
+                             <Route path="/owner/viewvehicle/:id" element={<ViewVehicle />} exact  />
+                             <Route path="/owner/Custommervehicles/:id" element={<CustomerVehicles />} exact  />
+                             <Route path="/owner/employes/*" element={<Employes />} exact  />
+                             <Route path="/owner/addemploy" element={<AddNewEmploy />} exact  />
+                             <Route path="/owner/editeemploy" element={<EditeEmploy />} exact  />
+                             <Route path="/owner/employassignworkorder" element={<EpmloysAssignedWorkOrder />} exact  />
+                             <Route path="/owner/alloverdue" element={<AllOverDue />} exact  />
+                             <Route path="/owner/alloverduesentpayment" element={<SentPayment />} exact  />
+                             <Route path="/owner/filtersentpayment" element={<FilterSentPayment />} exact  />
+                             <Route path="/owner/viewsingleiteminventory" element={<ViewSingleItemInventory />} exact  />
+                             <Route path="/owner/vehicle2" element={<Vehicles2 />} exact  />
+                             <Route path="/owner/addvehicle2" element={<Addvehicle2 />} exact  />
+                             <Route path="/owner/addsparepart" element={<AddSparePart />} exact  />
+                             <Route path="/owner/editesparepart" element={<EditeSparePart />} exact  />
+                             <Route path="/owner/businesses" element={<Businesses />} exact  />
+                             <Route path="/owner/favbusinesses" element={<FavouriteBusinesses />} exact  />
+                             <Route path="/owner/dealtwithbusinesses" element={<DealtWithBusinesses />} exact  />
+                             <Route path="/owner/transactionbusinesses" element={<BusinessTransAction />} exact  />
+                             <Route path="/owner/partstransactionview" element={<PartsTransActionView />} exact  />
+                             <Route path="/owner/calender" element={<Calender />} exact  />
+                             <Route path="/owner/addappointment" element={<AddAppointment />} exact  />
+                             <Route path="/owner/editeappointment" element={<EditeAppointment />} exact  />
+                             <Route path="/owner/vheiclesview" element={<VehicleView/>} exact  />
+                             <Route path="/owner/vheiclesListview/*" element={<ViewVehiclesList/>} exact  />
+                             <Route path="/owner/choosegrage" element={<ChooseGrage/>} exact  />
+                             <Route path="/owner/choosegragedeltwith" element={<ChooseGrageDeltWith/>} exact  />
+                             <Route path="/owner/choosegragefavourite" element={<ChooseGrageFavourite/>} exact  />
+                             <Route path="/owner/addworkordergrage" element={<AddWorkOrderGrage/>} exact  />
+                             <Route path="/owner/afterworkordergrage" element={<AfterWorkOrder path='/workshop/owner/vheiclesview' back='BACK TO VEHICLES' />} exact  />
+                             <Route path="/owner/garagecustomers" element={<GarageCustomers/>} exact  />
+                             <Route path="/owner/createworkorder2" element={<CreateWorkOrder2/>} exact  />
+                             <Route path="/owner/addvehiclecustomer" element={<AddVehicle path='/workshop/owner/createworkorder2' />} exact  />
+                             <Route path="/owner/manageinventory" element={<ManageInventory/>} exact  />
+                             <Route path="/owner/gragefinance" element={<GrageFinance/>} exact  />
+                             <Route path="/owner/paidinvoicess/*" element={<PaidInvoices/>} exact  />
+                             <Route path="/owner/subscribtionhistory" element={<SubscribtionHistory/>} exact  />
+                             <Route path="/owner/subscribtion" element={<Subscribtion/>} exact  />
+                             <Route path="/owner/purchasesubscribtion/*" element={<PurchaseSubsccribtion/>} exact  />
+                             <Route path="/owner/marketing/*" element={<Marketing/>} exact  />
+                             <Route path="/owner/assets/*" element={<Assets/>} exact  />
+                             <Route path="/owner/createasset" element={<CreateAssets/>} exact  />
+                             <Route path="/owner/settings" element={<Settings/>} exact  />
+                             <Route path="/owner/workshopsettings" element={<WorkshopSettings/>} exact  />
+                             <Route path="/owner/maintnance/*" element={<MaintenancePackaging/>} exact  />
+                             <Route path="/owner/addworkshop" element={<AddWorkshop/>} exact  />
+                             <Route path="/owner/sparepartsgrage" element={<ChooseGrage link= '/workshop/owner/buyspareparts'/>} exact  />
+                             
+                             
+         
+         
+         
+                             
+                             
+                         </Routes>}
+                         </div>
+                     
+                 </div> :<Login_choose/>
             
-        </div>
+            }
+        
+        </>
+       
     )
 }
 

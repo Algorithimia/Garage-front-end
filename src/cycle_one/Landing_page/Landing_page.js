@@ -10,7 +10,7 @@ const Landing_page=()=>{
     const[flashmsg,setFlashmsg] = useState(false)
     const setFlashScroll=(value)=>{
         setFlashmsg(value)
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
     }
     const msg=flashmsg && <FlashMsg 
         title="Still Under Development !"

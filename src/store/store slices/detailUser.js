@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI) =>{
     const {rejectWithValue , getState} = thunkAPI
@@ -50,8 +51,13 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
 })
   const userDetails=createSlice({
     name:'details',
-    initialState : {userDetails:[],updated:false, isLoading:false,addLoading:false, error:null},
+    initialState : {userDetails:cookies.get("userDetails")?cookies.get("userDetails"):[],updated:false, isLoading:false,addLoading:false, error:null},
     reducers:{
+      clearUserstate:(state)=>{
+        state.userDetails=[]
+       
+
+      }
 
     },
     extraReducers:{
@@ -68,6 +74,7 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
         state.error= null
        
         state.userDetails = action.payload
+        cookies.set("userDetails", action.payload)
     
         
         },
@@ -75,6 +82,7 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
              state.isLoading = false
              state.error = action.payload
            console.log(action)
+
            
         }, 
         [ updateGrageOwner.pending ] :(state,action)=>{
@@ -103,4 +111,5 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
 
 
 })
+export const {clearUserstate} = userDetails.actions
 export default userDetails.reducer

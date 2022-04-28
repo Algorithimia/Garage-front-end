@@ -30,6 +30,8 @@ const Owner_login = () =>{
 
       // end  yup 
     const {userDetails}= useSelector((state)=>state.userDetails)
+    const userDetailsState= useSelector((state)=>state.userDetails)
+    const userDetailsLoading= userDetailsState.isLoading
     const [showAlert, setShowAlert]= useState(true)
     const[flashmsg,setFlashmsg] = useState(true)
     const dispatch = useDispatch()

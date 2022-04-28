@@ -5,16 +5,24 @@
     // position: fixed;
     top: 10%;
     background-color:#fff;
-    // width: 65%;
+     width: 50vW;
     max-width: 80%;;
     z-index: 99999999999999999999;
     
     box-shadow: 0px 3px 6px #00000029;
-    margin:10px auto;
-    position: relative;
-    color: #000;
-   
+ 
+    position:fixed;
+    top: 17vh;
+    left: 25vw;
+    
+    
 
+    color: #000;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-bottom: 10px;
+ 
   
 
    .close{
@@ -64,4 +72,12 @@
       margin-left: 50px;;
       font-size: 16px;
   }
+
+  @media screen and (max-width: 500px) {
+    width: 80vW;
+    left: 10vw; 
+    .title{
+        font-size: 17px !important;
+    }
+}
 }

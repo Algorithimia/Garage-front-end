@@ -47,7 +47,8 @@ const authSlice = createSlice({
     initialState: { loggedIn:cookies.get("login")?cookies.get("login"):false, create: false ,isLoading:false, error:null, token:cookies.get("token")? cookies.get("token"):""},
     reducers:{
       logOut:(state)=>{
-        cookies.remove("login")
+        // cookies.remove("login")
+        cookies.set("login",false)
         cookies.remove("token")
         cookies.remove("workshop")
         localStorage.clear();
