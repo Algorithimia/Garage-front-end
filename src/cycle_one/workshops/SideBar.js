@@ -16,7 +16,7 @@ const SideBar = ({settings}) => {
        
     const [showSettings,setShowSettings]= useState(false)
     const[workshop_id,SetWorkshop_id]= useState('')
-    // let defaultWorkShop= userDetails.workshops[userDetails.workshops.length -1]
+    let defaultWorkShop= userDetails.workshops[userDetails.workshops.length -1]
     const[workshop, setWorkshop]= useState(cookies.get("workshop") )
    const setCookies=()=> {
     userDetails.workshops&& cookies.set("workshop",userDetails.workshops[userDetails.workshops.length - 1]) || userDetails.workshop&& cookies.set("workshop",userDetails.workshop)

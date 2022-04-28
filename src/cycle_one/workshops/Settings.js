@@ -70,7 +70,7 @@ const Settings = () => {
                     email:  userDetails.email,
                     oldEmail:  userDetails.email,
                     phone: userDetails.phone.split(" ")[1],
-                    country_id:1
+                   
                    
                   
                   

@@ -75,6 +75,7 @@ const EmployLogin = () =>{
         <>
        
          {loggedIn && userDetails.is_employee && navigate('/employ')}
+         { loggedIn && userDetails.is_garage_owner && dispatch(logOut())}
          {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
          <div className='login owner_login'>
 
