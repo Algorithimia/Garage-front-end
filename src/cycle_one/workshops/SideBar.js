@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import {AiFillPlusCircle} from 'react-icons/ai'
 import { useDispatch,useSelector } from 'react-redux'
 import{getUserDetails, clearUserstate} from '../../store/store slices/detailUser'
+import {clearWorkshopstate} from '../../store/store slices/workshopSlice'
 import {logOut} from '../../store/store slices/auth'
 import Cookies from "universal-cookie";
 const SideBar = ({settings}) => {
@@ -52,6 +53,7 @@ const SideBar = ({settings}) => {
         dispatch(logOut());
         dispatch(clearUserstate());
         navigate('/login_process/owner_login')
+        dispatch(clearWorkshopstate());
     }
  
   

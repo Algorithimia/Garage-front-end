@@ -53,9 +53,11 @@ const workshop = createSlice({
     name: 'workshop',
     initialState: { workshops:[],workshopUpdated:false,created:false,isLoading:false, error:null},
     reducers:{
-      clearstate:(state)=>{
-        state.gocreateemploy= false
+      clearWorkshopstate:(state)=>{
+        state.workshops= []
         state.goEditeemploy=false
+        state.isLoading = false
+        state.error = false
 
       }
     }
@@ -118,6 +120,6 @@ const workshop = createSlice({
 })
 
 
-
+export const {clearWorkshopstate} = workshop.actions
 
 export default workshop.reducer

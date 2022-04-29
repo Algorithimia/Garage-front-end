@@ -54,7 +54,7 @@ export const getUserDetails= createAsyncThunk ('details/get',  async(_ ,thunkAPI
     initialState : {userDetails:cookies.get("userDetails")?cookies.get("userDetails"):[],updated:false, isLoading:false,addLoading:false, error:null},
     reducers:{
       clearUserstate:(state)=>{
-        state.userDetails=[]
+        state.userDetails=null
        
 
       }

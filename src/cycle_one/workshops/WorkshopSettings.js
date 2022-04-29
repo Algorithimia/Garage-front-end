@@ -98,7 +98,7 @@ const WorkshopSettings = () => {
              initialValues={{
                
                 workshop_id:cookies.get("workshop").id,
-                name: cookies.get("workshop").title,
+                title: cookies.get("workshop").title,
                 hours: '',
                 country_id:'',
                 city_id: '',
@@ -134,11 +134,11 @@ const WorkshopSettings = () => {
                    </Col>
                    <Col sm={12} lg={8}>
              <div className='right'>
-                <div className={`main_input ${errors.name  && touched.name &&'input-error'}`} >
+                <div className={`main_input ${errors.title  && touched.title &&'input-error'}`} >
                 <label>Workshop Name</label>
                     <Field type='text' placeholder='Workshop Name'  name="name" autoComplete="off"   />
-                       { touched.name && <div className='mark'>{errors.name ?  <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>}
-                       {errors.name && touched.name && <><div className='error-text'> {errors.name}</div></> }
+                       { touched.title && <div className='mark'>{errors.title ?  <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>}
+                       {errors.title && touched.title && <><div className='error-text'> {errors.title}</div></> }
                     
                 </div>
                 

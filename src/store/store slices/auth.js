@@ -49,11 +49,11 @@ const authSlice = createSlice({
       logOut:(state)=>{
         // cookies.remove("login")
         cookies.set("login",false)
-        cookies.remove("token")
+        cookies.set("token",null)
         cookies.set("userDetails", null)
         cookies.set("workshop", null)
         localStorage.clear();
-        state.token='';
+        state.token=null;
         state.loggedIn=false;
         
 

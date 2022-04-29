@@ -71,6 +71,11 @@ const EmployLogin = () =>{
       setFlashmsg(value)
       window.scrollTo(0, 0);
   }
+  const removeError=(setFieldValue,setFieldTouched, name)=>{
+    setFieldValue(name, '', false);
+    setFieldTouched(name, false,false)
+
+  }
     return(
         <>
        
@@ -117,7 +122,7 @@ const EmployLogin = () =>{
              
             
            >
-            {({errors, touched,  handleSubmit})=> (
+            {({errors, touched, setFieldTouched,  handleSubmit,setFieldValue })=> (
             <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
                      {/* start flash msgs */}
 
@@ -143,7 +148,7 @@ const EmployLogin = () =>{
                 <div className={`main_input ${errors.email  && touched.email &&'input-error'}`} >
                     <label htmlFor='email'>Email</label>
                     <Field type='email' placeholder='handel@example.com'  name="email" autoComplete="off"   />
-                       { touched.email && <div className='mark'>{errors.email ?  <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>}
+                       { touched.email && <div className='mark'>{errors.email ?  <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'email')}/></span>: <FcCheckmark />}</div>}
                        {errors.email && touched.email && <><div className='error-text'> {errors.email}</div></> }
                     
                 </div>
@@ -151,7 +156,7 @@ const EmployLogin = () =>{
                     <div className={`main_input ${errors.password  && touched.password &&'input-error'}`}>
                         <label htmlFor='password'>Password</label>
                         <Field type='password' placeholder='Type your password'  name="password" autoComplete="off"/>
-                        {touched.password && <div className='mark'>{errors.password  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                        {touched.password && <div className='mark'>{errors.password  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'email')}/></span>: <FcCheckmark />}</div>} 
                         {errors.password && touched.password && <div className='error-text'> {errors.password}</div> }
                         </div>
                         <div className="action">
