@@ -175,7 +175,7 @@ const Owner_login = () =>{
                     <div className={`main_input ${errors.password  && touched.password &&'input-error'}`}>
                         <label htmlFor='password'>Password</label>
                         <Field type='password' placeholder='Type your password'  name="password" autoComplete="off"/>
-                        {touched.password && <div className='mark'>{errors.password  ? <span className='validation-error'><AiOutlineClose  onClick={()=> removeError(setFieldValue,setFieldTouched,'email')}/></span>: <FcCheckmark />}</div>} 
+                        {touched.password && <div className='mark'>{errors.password  ? <span className='validation-error'><AiOutlineClose  onClick={()=> removeError(setFieldValue,setFieldTouched,'password')}/></span>: <FcCheckmark />}</div>} 
                         {errors.password && touched.password && <div className='error-text'> {errors.password}</div> }
                         </div>
                         <div className="action">
