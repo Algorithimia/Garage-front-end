@@ -26,8 +26,8 @@ const Owner_register = () =>{
         phone:yup.string().required('Phone is required').matches(phoneRegExp, 'Phone number is not valid'),    
         password: yup.string().required('password is required').min(5,'password at least 5 characters').max(10, 'password max 10 characters'),
         confirm_password:yup.string().required('confirm password is required').oneOf([yup.ref('password'), null], 'Passwords must match'),
-        area_id:yup.string().required("Please select a area"),
-        country_id:yup.string().required("Please select a area"),
+        area_id:yup.string().required("Please select an area"),
+        country_id:yup.string().required("Please select a country"),
         title:yup.string().required('Workshop title  is required'),
        
       });
@@ -106,10 +106,16 @@ const Owner_register = () =>{
         setFlashmsg(value)
         window.scrollTo(0, 0);
     }
-   
+
+//remove validation error 
+const removeError=(setFieldValue,setFieldTouched, name)=>{
+  setFieldValue(name, '', false);
+  setFieldTouched(name, false,false)
+
+}
     return(
         <>
-        {loggedIn&& navigate('/workshop/owner/dashbord')}
+        {/* {loggedIn&& navigate('/workshop/owner/dashbord')} */}
         {isLoading ?   <img className='login' src="/images/giphy.gif" /> :
         
         <div className='login owner_register'>
@@ -146,7 +152,7 @@ const Owner_register = () =>{
             
            >
           
-            {({errors, touched,  handleSubmit, values})=> (
+            {({errors, touched, setFieldTouched,  handleSubmit,setFieldValue, values})=> (
                  
             <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
              
@@ -165,14 +171,14 @@ const Owner_register = () =>{
             <div className={`main_input ${errors.workshopname  && touched.workshopname &&'input-error'}`}>
                <label>Workshop Name</label>
                <Field  type='text' name="workshopname"  placeholder='Jessica Hayes'/>
-               {touched.workshopname && <div className='mark'>{errors.workshopname  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+               {touched.workshopname && <div className='mark'>{errors.workshopname  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'workshopname')} /></span>: <FcCheckmark />}</div>} 
                 {errors.workshopname && touched.workshopname && <div className='error-text'> {errors.workshopname}</div> }
                
            </div>
            <div className={`main_input ${errors.title  && touched.title &&'input-error'}`}>
                <label>Workshop Title</label>
                <Field  type='text' name="title" placeholder='Jessica Hayes'/>
-               {touched.title && <div className='mark'>{errors.title  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+               {touched.title && <div className='mark'>{errors.title  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'title')}/></span>: <FcCheckmark />}</div>} 
                 {errors.title && touched.title && <div className='error-text'> {errors.title}</div> }
                
            </div>
@@ -184,11 +190,7 @@ const Owner_register = () =>{
                 <Field  as="select" name='country_id'   >
                 <option hidden >Country</option>
                     {countries}
-                </Field>
-                {errors.country_id && touched.country_id && <div className='error-text'> {errors.country_id}</div> }
-                
-               
-              
+                </Field>   
           </div>
          
           <div className={`address-id ${errors.area_id  && touched.area_id &&'input-error'}`}>
@@ -200,14 +202,15 @@ const Owner_register = () =>{
                
                
            </div>
-          
+            {errors.country_id && touched.country_id && <div  className='error-text'> {errors.country_id}</div> }
+          <div> {errors.area_id && touched.area_id && <div className='error-text'> {errors.area_id}</div> }</div>
           
            
            <div className="title">Login Info</div>
            <div className={`main_input ${errors.name  && touched.name &&'input-error'}`}>
                <label>Owner Name</label>
                <Field  type='text' placeholder='Jessica Hayes'  name="name"  />
-               {touched.name && <div className='mark'>{errors.name  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+               {touched.name && <div className='mark'>{errors.name  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'name')}/></span>: <FcCheckmark />}</div>} 
                 {errors.name && touched.name && <div className='error-text'> {errors.name}</div> }
                
            </div>
@@ -219,7 +222,7 @@ const Owner_register = () =>{
                name="code"  />
             
                <Field className='phone-number'  type='tel' placeholder='1111111111'  name="phone"  />
-               {touched.phone && <div className='mark'>{errors.phone  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+               {touched.phone && <div className='mark'>{errors.phone  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'phone')}/></span>: <FcCheckmark />}</div>} 
                 {errors.phone && touched.phone && <div className='error-text'> {errors.phone}</div> }
                
            </div>
@@ -227,7 +230,7 @@ const Owner_register = () =>{
            <div className={`main_input ${errors.email  && touched.email &&'input-error'}`} >
                     <label htmlFor='email'>Email</label>
                     <Field type='email' placeholder='handel@example.com'  name="email" autoComplete="off"   />
-                       { touched.email && <div className='mark'>{errors.email ?  <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>}
+                       { touched.email && <div className='mark'>{errors.email ?  <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'email')}/></span>: <FcCheckmark />}</div>}
                        {errors.email && touched.email && <><div className='error-text'> {errors.email}</div></> }
                     
            </div>
@@ -235,14 +238,14 @@ const Owner_register = () =>{
             <div className={`main_input ${errors.password  && touched.password &&'input-error'}`}>
                 <label htmlFor='password'>Password</label>
                 <Field type='password' placeholder='Type your password'  name="password" autoComplete="off"/>
-                {touched.password && <div className='mark'>{errors.password  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+                {touched.password && <div className='mark'>{errors.password  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'password')}/></span>: <FcCheckmark />}</div>} 
                 {errors.password && touched.password && <div className='error-text'> {errors.password}</div> }
             </div>
 
            <div className={`main_input ${errors.confirm_password  && touched.confirm_password &&'input-error'}`}>
                <label>Confirm Password</label>
                <Field  type='password' placeholder='Type your password'  name="confirm_password"  />
-               {touched.confirm_password && <div className='mark'>{errors.confirm_password  ? <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>} 
+               {touched.confirm_password && <div className='mark'>{errors.confirm_password  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'confirm_password')}/></span>: <FcCheckmark />}</div>} 
                 {errors.confirm_password && touched.confirm_password && <div className='error-text'> {errors.confirm_password}</div> }
                
 

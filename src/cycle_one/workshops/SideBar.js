@@ -11,20 +11,23 @@ const SideBar = ({settings}) => {
     const cookies = new Cookies();
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {created}= useSelector((state)=>state.workshop)
+    const {created, workshopUpdated}= useSelector((state)=>state.workshop)
     const {userDetails ,updated, isLoading ,error}= useSelector((state)=>state.userDetails)
-    const {workshopUpdated }= useSelector((state)=>state.workshop)
+    
        
     const [showSettings,setShowSettings]= useState(false)
-    const[workshop_id,SetWorkshop_id]= useState('')
-    let defaultWorkShop= userDetails.workshops[userDetails.workshops.length -1]
-    const[workshop, setWorkshop]= useState(cookies.get("workshop") )
+
+   const[workshop, setWorkshop]= useState(cookies.get("workshop") )
    const setCookies=()=> {
     userDetails.workshops&& cookies.set("workshop",userDetails.workshops[userDetails.workshops.length - 1]) || userDetails.workshop&& cookies.set("workshop",userDetails.workshop)
     document.location.reload()
    }
    // auto choose work shop 
     ! workshop && userDetails && setCookies();
+    // update workshop 
+    workshopUpdated && setCookies();
+
+    
     let addCurrentWorkShop =()=>{
         setWorkshop(userDetails.workshops && userDetails.workshops[userDetails.workshops.length - 1]) || userDetails.workshop&&setWorkshop(userDetails.workshop && userDetails.workshop)
     } 

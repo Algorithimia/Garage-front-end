@@ -24,7 +24,7 @@ const WorkshopSettings = () => {
 
          const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
          let schema = yup.object().shape({
-            name: yup.string().required('Name is required'), 
+            title: yup.string().required('Name is required'), 
           });
     
           // end  yup 
@@ -54,9 +54,10 @@ const WorkshopSettings = () => {
         let selectedArea = area_id !== '' && selectedCity.areas.find(area=>area.id == area_id)
         const {workshopUpdated , isLoading,error}= useSelector((state)=>state.workshop)
         const {userDetails }= useSelector((state)=>state.userDetails)
+       
+       
         const onSubmit= async data => {
             dispatch(updateWorkshop({...data,area_id:area_id}))
-            console.log({...data,area_id:area_id})
             setShowAlert(true)
             const timeId = setTimeout(() => {
                 // After 3 seconds set the showAlert value to false
@@ -119,6 +120,7 @@ const WorkshopSettings = () => {
             {({errors, touched,  handleSubmit, values})=> (
             <form className='form-validator' onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
                   <div className='workshop_info'>
+                      
               <Row>
                    <Col sm={12} lg={4}>
                       <div className='left'>
@@ -136,7 +138,7 @@ const WorkshopSettings = () => {
              <div className='right'>
                 <div className={`main_input ${errors.title  && touched.title &&'input-error'}`} >
                 <label>Workshop Name</label>
-                    <Field type='text' placeholder='Workshop Name'  name="name" autoComplete="off"   />
+                    <Field type='text' placeholder='Workshop Name'  name="title" autoComplete="off"   />
                        { touched.title && <div className='mark'>{errors.title ?  <span className='validation-error'><AiOutlineClose /></span>: <FcCheckmark />}</div>}
                        {errors.title && touched.title && <><div className='error-text'> {errors.title}</div></> }
                     
