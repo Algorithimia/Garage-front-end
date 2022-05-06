@@ -144,6 +144,18 @@
 .main_input{
     margin-top: 30px;
     margin-left: 5%;
+
+    .mark{
+        font-size: 20px;
+        margin-top: -3px;
+        margin-right: -14px;
+        display: inline-block;
+    }
+    .error-text{
+        width:100%;
+        margin-left:5%;
+
+    }
    
 }
 

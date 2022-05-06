@@ -1,6 +1,7 @@
 import React from 'react'
 
-const FlashMsg = ({title, p, icontype,img,setFlashmsg}) => {
+const FlashMsg = ({title, p, icontype,img,setFlashmsg, func, func_val}) => {
+  
   return (
   
      <div className='flash-msgs'>
@@ -12,6 +13,16 @@ const FlashMsg = ({title, p, icontype,img,setFlashmsg}) => {
                {title}
             </div>
             <p>{p}</p>
+            {func &&
+                    <div className='func'>
+                      <button className='confirm' onClick={()=>{func(func_val); setFlashmsg(false)}}>
+                     { icontype=='sure-icon' ? 'Delete' : 'Confirm'}
+                      </button>
+                      <button className='cancel'  onClick={()=>setFlashmsg(false)}>
+                           Cancel
+                      </button>
+              
+                     </div>}
    
    
 

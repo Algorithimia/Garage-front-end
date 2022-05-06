@@ -5,7 +5,7 @@ import { Col, Row,Container } from 'react-bootstrap'
 import { Link , useNavigate} from 'react-router-dom'
 
 import {login,logOut, clearstate} from '../../store/store slices/auth'
-import{getUserDetails} from '../../store/store slices/detailUser'
+import{getUserDetails,clearUserstate} from '../../store/store slices/detailUser'
 import { useDispatch,useSelector } from 'react-redux'
 //formik
 import { Formik, Field, Form } from 'formik';
@@ -53,7 +53,10 @@ const Owner_login = () =>{
             // After 3 seconds set the showAlert value to false
         
             if(userDetails.is_employee)
-            { dispatch(logOut())}
+            { dispatch(logOut());
+              dispatch(clearUserstate());
+            
+            }
           }, 2000)
       
           return () => {

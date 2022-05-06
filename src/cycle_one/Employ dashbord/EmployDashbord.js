@@ -19,6 +19,8 @@ import CustomerInList from "../workshops/CustomerInList"
 import Appointment from "../workshops/Appointment"
 import {logOut} from '../../store/store slices/auth'
 import{getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
+import{clearUserstate} from '../../store/store slices/detailUser'
+import {clearWorkshopstate} from '../../store/store slices/workshopSlice'
 import {geAppointments} from '../../store/store slices/appointmentSlice'
 import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
 import { useDispatch,useSelector } from 'react-redux'
@@ -42,6 +44,8 @@ const EmployDashbord = () => {
     //logout
     const userlogout=()=>{
         dispatch(logOut());
+        dispatch(clearUserstate());
+        dispatch(clearWorkshopstate());
         navigate('/login_process/owner_login')
     }
     //end logout

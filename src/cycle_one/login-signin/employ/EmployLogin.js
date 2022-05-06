@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import {FaFacebookF } from 'react-icons/fa'
 import {BsTwitter, BsGoogle } from 'react-icons/bs'
 import {login,clearstate,logOut} from '../../../store/store slices/auth'
-import{getUserDetails} from '../../../store/store slices/detailUser'
+import{getUserDetails, clearUserstate} from '../../../store/store slices/detailUser'
 import { useDispatch,useSelector } from 'react-redux'
 //formik
 import { Formik, Field, Form } from 'formik';
@@ -40,7 +40,12 @@ const EmployLogin = () =>{
         // After 3 seconds set the showAlert value to false
     
         if(userDetails.is_garage_owner)
-        { dispatch(logOut())}
+        { dispatch(logOut());
+          { dispatch(logOut());
+            dispatch(clearUserstate());
+          
+          }
+        }
       }, 2000)
   
       return () => {
