@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
  
 const User = ({custommer,isLoading}) => {
     return (
+     
         <div className="customer_info">
+               {console.log(custommer)}
         {isLoading || !custommer ? 'loading ..' : <>
         { custommer &&    <img 
             src={custommer.avater}

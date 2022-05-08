@@ -37,7 +37,7 @@ const Car = ({view= false, car,isLoading}) => {
                                       truncatedEndingComponent={"... "}
                                   >
                                     
-                                  {car && <>{car.note}</>}
+                                  {car && <>{car.note ? car.note : 'No notes entered'}</>}
                                </ShowMoreText>
                   </div></Col></Row> </div>
        </div>}

@@ -41,11 +41,11 @@ const SingleWorkOrder = () => {
   let { id }  = useParams();
   const workorder =workorders&& workorders.find(order => order.id == id)
  
- const renderedSpareParts=  workorder&&  workorder.used_spare_parts && workorder.used_spare_parts.map((sparePart)=>{
+ const renderedSpareParts=  workorder&&   workorder.used_spare_parts.length > 0 ? workorder.used_spare_parts.map((sparePart)=>{
    return <Part sparePart={sparePart} key={sparePart.id} /> 
  }
  
- )
+ ): 'no spare parts assigned to this workorder'
 
  const renderedStages =  workorder&&  workorder.stages.map(stage=>{
   return<tr>
@@ -54,6 +54,7 @@ const SingleWorkOrder = () => {
        <th>{stage.hours}h </th>
    </tr>
  })
+ const employesNumber =   workorder&& workorder.employees.length
  const stageNumbers = workorder&&  workorder.stages.length
  const totalStagesHours =   workorder&&  workorder.stages.reduce((accumulator, object) => {
   return accumulator + object.hours;
@@ -138,7 +139,7 @@ const msg = created && 'A new stage created' || stageError && Object.values(stag
                          </thead>
                          {renderedStages}
                          <tr className='red'>
-                         { userDetails.is_garage_owner &&     <th > 5 EMPOLYEE</th>}
+                         { userDetails.is_garage_owner &&     <th > {employesNumber} EMPOLYEES</th>}
                               <th >{stageNumbers} STAGES </th>
                               <th>{totalStagesHours} HOURS </th>
                             </tr>
