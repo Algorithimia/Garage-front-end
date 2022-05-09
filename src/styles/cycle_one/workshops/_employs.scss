@@ -136,7 +136,9 @@
      position: relative;
      top: 50%;
      transform: translateY(-50%);
-    
+    .flash-msgs{
+        left: 0;
+    }
     .title{
         font-size: 20px;
         font-weight:500 ;
@@ -165,6 +167,9 @@
             border: 1px solid #969B85;
             
 
+        }
+        .mark{
+            top: 5px;
         }
     }
     .buttons{

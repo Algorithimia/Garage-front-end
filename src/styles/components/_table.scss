@@ -40,9 +40,12 @@ tr{
         max-width: 100%;
         position: relative;
         .no-data{
-            width: 100%;
-            height:5px;
-            background-color: red;;
+            width: 30px;
+            max-width: 100%;
+            height: 2px;
+            background-color: #bebebc;
+            margin: auto;
+        
         }
         @media screen and (max-width: 767px) {
            padding:10px ;

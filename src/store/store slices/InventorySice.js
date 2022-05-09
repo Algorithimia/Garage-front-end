@@ -26,6 +26,30 @@ export const getSpareParts = createAsyncThunk ('spareparts/get',  async(_ ,thunk
   }
   
   })
+  export const getSparePartsTypes = createAsyncThunk ('sparepartstypes/get',  async(_ ,thunkAPI) =>{
+    const {rejectWithValue , getState} = thunkAPI
+  
+    try{
+      const token= getState().auth.token
+      const cookies = new Cookies();
+      let workshopId= cookies.get("workshop").id
+      let res = await axios.get(`https://www.getgarage.me/api/v1/spare_part_types/`,{
+        headers: {
+      'Content-Type': 'application/json', 
+       'Authorization': `Bearer ${token}`}
+      
+      }) 
+  
+    return await res.data
+
+}
+
+  catch(e){
+    return rejectWithValue(e.response.data)
+  }
+  
+  })
+
   export const addSparePart = createAsyncThunk ('spareparts/create', 
     async(createData ,thunkAPI) =>{
         const {rejectWithValue , getState} = thunkAPI
@@ -95,7 +119,7 @@ catch(e){
 
   const inventorySlice= createSlice({
     name:'inventory',
-    initialState : {spareParts:[], isLoading:false,created:false,edited:false, addLoading:false, error:null},
+    initialState : {spareParts:[], isLoading:false,typesLoading:false,sparepartstypes:[],created:false,edited:false, addLoading:false, error:null},
     reducers:{
       clearstate:(state)=>{
         state.created= false
@@ -188,6 +212,26 @@ catch(e){
        console.log(action)
        
     }, 
+    [ getSparePartsTypes.pending ] :(state,action)=>{
+
+      state.typesLoading = true
+      state.error = null
+      
+    
+ },
+ [ getSparePartsTypes.fulfilled ] :(state,action)=>{
+  state.typesLoading = false
+  state.error= null
+  state.sparepartstypes = action.payload
+
+  
+  },
+  [ getSparePartsTypes.rejected ] :(state,action)=>{
+       state.typesLoading = false
+       state.error = action.payload
+   
+     
+  }, 
    
     
     }

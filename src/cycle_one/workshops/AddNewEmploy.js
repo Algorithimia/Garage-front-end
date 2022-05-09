@@ -14,6 +14,7 @@ import Cookies from "universal-cookie";
 import { Formik, Field, Form } from 'formik';
 // yup validation
 import * as yup from 'yup';
+import FlashMsg from './components/FlashMsg'
 const AddNewEmploy = () => {
        // yup validation
 
@@ -22,7 +23,7 @@ const AddNewEmploy = () => {
      
           email: yup.string().email('Enter a Valid Email').required("Email is required"),
           password: yup.string().required('password is required').min(5,'password at least 5 characters').max(10, 'password max 10 characters'),
-          confirm_password:yup.string().required('confirm password is required').oneOf([yup.ref('password'), null], 'Passwords must match'),
+          confirm_password:yup.string().required('confirm pass is required').oneOf([yup.ref('password'), null], 'Passwords must match'),
           name: yup.string().required('Name is required'),
           phone:yup.string().required('Phone is required').matches(phoneRegExp, 'Phone number is not valid'),    
           country_id:yup.string().required("Please select a country"),
@@ -39,6 +40,8 @@ const AddNewEmploy = () => {
     const {loggedIn}= useSelector((state)=>state.auth)
     const {gocreateemploy, isLoading, error} = useSelector((state)=>state.GoEmploye)
     const [showAlert, setShowAlert]= useState(true)
+    const[createflashmsg,setCreateFlashmsg] = useState(false)
+    const[errorFlashmsg,setErrorFlashmsg] = useState(true)
     // const [formData, setFormData] = useState({
     //     workshop_id: cookies.get("workshop").id,
     //     email:'',
@@ -61,31 +64,11 @@ const AddNewEmploy = () => {
     
       },[dispatch])
   
-     
-    //   let renderedWorkshops = userDetails.map((workshop)=><option key={workshop.id} value={workshop.id}>{workshop.title}</option>)
-  
-    //   const onChange=e=>setFormData({...formData, [e.target.name]: e.target.value})
+    
       const onSubmit= async data => {
      
-       
-            //   console.log(formData)
-            //   console.log( grageOwnerRegister)
-            
-              dispatch( createEmploy(data))
-              
-              //for allert 
-              setShowAlert(true)
-              const timeId = setTimeout(() => {
-                // After 3 seconds set the showAlert value to false
-                setShowAlert(false)
-              }, 5000)
-          
-              return () => {
-                clearTimeout(timeId)
-              }
-              
-         //    dispatch( createEmploy(formData))
-              
+              dispatch( createEmploy(data))         
+              setErrorFlashmsg(true)
             
           }
       
@@ -98,7 +81,7 @@ const AddNewEmploy = () => {
    //find phone code for selected country
    const phoneCode = (country_id) =>{
        
-    let code=   country_id !== '' ?  addressList.find(country => country.id == country_id).phone_code:''
+    let code=   addressList.find(country => country.id == country)?  addressList.find(country => country.id == country_id).phone_code:''
     return code    
    }
    //remove validation error 
@@ -119,7 +102,13 @@ const AddNewEmploy = () => {
            
             </div>
             <div className='body'>
-            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+            {errorFlashmsg && error && <FlashMsg 
+                      title={`${Object.values(error)} !`}
+                      img={'/images/msgIcons/error.svg'}
+                      setFlashmsg={setErrorFlashmsg}
+
+                      icontype='error-icon'
+              />}
             <Formik
              initialValues={{
                 workshop_id: cookies.get("workshop").id,
@@ -128,7 +117,7 @@ const AddNewEmploy = () => {
                 confirm_password:'',
                 name: '',
                 phone: '',
-                country_id:'',
+              
                 salary:'',
                 bonus:''
                
@@ -137,14 +126,22 @@ const AddNewEmploy = () => {
             
               validationSchema={() =>schema}
               onSubmit ={(values)=>{
-            //   setCreateFlashmsg(true)
-              console.log(values)
+               setCreateFlashmsg(true)
+          
               }}
              
             
            >
             {({errors, touched, setFieldTouched,  handleSubmit,setFieldValue, values})=> (
                 <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
+                     {createflashmsg&&<FlashMsg 
+                            title={`You are add Employ   to  workshop ${cookies.get("workshop").title} !`}
+                            img={'/images/msgIcons/info.svg'}
+                            setFlashmsg={setCreateFlashmsg}
+                            func={onSubmit}
+                            func_val={values}
+                            icontype='info-icon'
+                    />}
                 <div className='input_row'>
                 EMPLOYEE INFO
                 
@@ -233,7 +230,7 @@ const AddNewEmploy = () => {
                     <Col md={6} lg={4}>
                          <div className={`main_input ${errors.confirm_password  && touched.confirm_password &&'input-error'}`}>
                                 <label>Confirm Password</label>
-                                <Field  type='password' placeholder='●●●●●●●●●●●'  name="confirm_password"  />
+                                <Field  type='password' placeholder='●●●●●●●●●'  name="confirm_password"  />
                                 {touched.confirm_password && <div className='mark'>{errors.confirm_password  ? <span className='validation-error'><AiOutlineClose onClick={()=> removeError(setFieldValue,setFieldTouched,'confirm_password')}/></span>: <FcCheckmark />}</div>} 
                                 {errors.confirm_password && touched.confirm_password && <div className='error-text'> {errors.confirm_password}</div> }
                             
