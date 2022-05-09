@@ -50,6 +50,8 @@ const AssignEmploye = ({back='workshop/owner/allworkorders', assign,assets}) => 
     const clickSelected = (index,id)=> {
         setActiveIndex(index)
         setReqData({...reqData, employee_id: id})
+        let selectedEmploy=employs.find(employ=>employ.id == id)
+        setSearch(selectedEmploy.name)
        
     }
     const submitData = (data)=> {
@@ -70,9 +72,9 @@ const AssignEmploye = ({back='workshop/owner/allworkorders', assign,assets}) => 
             <div className='assign_employ'>
                 <div>ASSIGN EMPLOYEE</div>
                 <input type='search' name='employSearch' placeholder='SEARCH EMPLOYEE'  value={search} onChange={e=>onChange(e)}/>
-                <div className='search-result'>
+                {search !== '' &&<div className='search-result'>
                     {renderedEmploys}
-                </div>
+                </div>}
                 <div className='buttons'>
                    <Link to={back}> <button className='gray'>Cancel</button> </Link>
                    < Link to={back}> <button onClick={()=>submitData(reqData)} >Assign</button> </Link>

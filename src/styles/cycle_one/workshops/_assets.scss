@@ -149,7 +149,7 @@
         .main_input{
             input{
                 width: 90%;
-                padding: 20px 60px;
+                padding: 20px ;
                 border-radius: 5px;
             }
             select{
@@ -166,6 +166,13 @@
             padding: 20px 50px;
             border-radius: 5px;
         }
+        .mark{
+            font-size: 20px;
+        }
+       
+    }
+    .error-text {
+        margin-left: 5%;
     }
     .button{
        margin-left: 25px;
@@ -180,5 +187,8 @@
 
     }
 
+    }
+    .search-result{
+        width: 90%;
     }
 }

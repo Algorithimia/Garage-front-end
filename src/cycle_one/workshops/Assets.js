@@ -9,6 +9,7 @@ import FilterAssets from './FilterAssets'
 import AssignEmploye from './AssinEmploye'
 import { useDispatch,useSelector } from 'react-redux'
 import {getAssets, editeAsset,clearstate,getAssettypes} from '../../store/store slices/assetSlice'
+import FlashMsg from './components/FlashMsg'
 const Assets = () => {
     const dispatch = useDispatch()
     
@@ -86,8 +87,22 @@ const Assets = () => {
                  </div>
 
              </div>
-             {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }
-             {showAlert && created && <div className='create-msg'>asset added</div>} 
+            
+             {showAlert && error &&   <FlashMsg 
+                      title={`${Object.values(error)} !`}
+                      img={'/images/msgIcons/error.svg'}
+                      setFlashmsg={setShowAlert}
+
+                      icontype='error-icon'
+              />}
+            {showAlert && created && <FlashMsg 
+                      title={`An asset Created successfully`}
+                      img={'/images/msgIcons/success.svg'}
+                      setFlashmsg={setShowAlert}
+
+                      icontype='success-icon'
+              />   }
+           
              <div className='second_row'>
          <div className='inline-block input_block'>
                        <span>
