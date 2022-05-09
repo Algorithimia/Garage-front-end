@@ -29,6 +29,7 @@ const AddSparePart = () => {
     const dispatch = useDispatch()
     const [showAlert, setShowAlert]= useState(true)
     const[createflashmsg,setCreateFlashmsg] = useState(false)
+    const[errorFlashmsg,setErrorFlashmsg] = useState(true)
     const cookies = new Cookies();
     const { created,typesLoading,sparepartstypes, error}= useSelector((state)=>state.inventory)
     const [formData, setFormData] = useState({
@@ -48,17 +49,9 @@ const AddSparePart = () => {
       },[dispatch])
     const onSubmit= async data => {
         
-        dispatch(addSparePart({...data, galleries:galleries,is_purchase:is_purchase }))
-        setShowAlert(true)
-        const timeId = setTimeout(() => {
-            // After 3 seconds set the showAlert value to false
-            setShowAlert(false)
-           
-          }, 5000)
-      
-          return () => {
-            clearTimeout(timeId)
-          }
+        dispatch(addSparePart({...data, galleries:galleries, is_purchase:is_purchase}))
+        setErrorFlashmsg(true)
+       
        
     }
     const renderedTypes=!typesLoading?sparepartstypes.map(type=><option key={type.id} value={type.id}>{type.title}</option>) : 'Loading'
@@ -75,7 +68,13 @@ const AddSparePart = () => {
  
             </div>
             <div className='body'>
-            {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
+            {errorFlashmsg && error && <FlashMsg 
+                      title={`${Object.values(error)} !`}
+                      img={'/images/msgIcons/error.svg'}
+                      setFlashmsg={setErrorFlashmsg}
+
+                      icontype='error-icon'
+              />}
             <Formik
              initialValues={{
                 workshop_id: cookies.get("workshop").id,
@@ -92,7 +91,7 @@ const AddSparePart = () => {
               validationSchema={() =>schema}
               onSubmit ={(values)=>{
                setCreateFlashmsg(true)
-               console.log({...values, galleries:galleries})
+              
           
               }}
              
@@ -100,7 +99,14 @@ const AddSparePart = () => {
            >
             {({errors, touched, setFieldTouched,  handleSubmit,setFieldValue, values})=> (
                 <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}  autoComplete="off">
-                    { console.log(values)}
+                     {createflashmsg&&<FlashMsg 
+                            title={`You will add a SPARE PART to  workshop ${cookies.get("workshop").title} !`}
+                            img={'/images/msgIcons/info.svg'}
+                            setFlashmsg={setCreateFlashmsg}
+                            func={onSubmit}
+                            func_val={values}
+                            icontype='info-icon'
+                    />}
                     <div className='upload'
                     onClick={()=> document.getElementById("my_file").click()}>
 
@@ -108,7 +114,7 @@ const AddSparePart = () => {
                         <span>UPLOAD PHOTOS</span>
                     </div>
         
-                <input type="file" id="my_file" style={{display: "none"}} name='galleries'   onChange={(e)=>imgChange(e)} required/>
+                <input type="file" id="my_file" style={{display: "none"}} name='galleries'   onChange={(e)=>imgChange(e)} />
 
             
                 <div className='input_Section'>
@@ -117,10 +123,10 @@ const AddSparePart = () => {
                             <div className='main_input'>
                                 <label>Select Type</label>
                                 <input   type='text' disabled /> 
-                                <select name="Select Type" >
+                                <Field  as="select" name='type_id'   >
                                         <option hidden >Select Type</option>
                                         {renderedTypes}
-                                </select>
+                                </Field>
                         </div>
                         </Col>
                         <Col md={6} lg={4}>
@@ -132,12 +138,7 @@ const AddSparePart = () => {
                                 
                            </div>
                         </Col>
-                        <Col md={6} lg={4}>
-                            <div className='main_input'>
-                                <label>Part Number</label>
-                                <input   placeholder='Part Number   ?????'  /> 
-                        </div>
-                        </Col>
+                        
                         <Col md={6} lg={4}>
                             <div className='main_input'>
                                 <label>MRP</label>
@@ -166,7 +167,7 @@ const AddSparePart = () => {
                         <Col md={6} lg={4}>
                             <div className='main_input'>
                                 <label>BUY FROM</label>
-                                <input   type='text' placeholder='SPARE PART SHOP  ??????'/> 
+                                <input   type='text' placeholder='SHOP  ??????'/> 
                         </div>
 
                         </Col>
@@ -194,7 +195,7 @@ const AddSparePart = () => {
                                 <textarea className='textareaa'  placeholder='Part Description'   name='description'   required/> 
                             </div> */}
                         <div className={`main_input `}>
-                                            <label className='textarea_label'>Price</label>
+                                            <label className='textarea_label'>Description</label>
                                             <Field  as="textarea" className='textareaa' type='number'placeholder='Part Description'  name='description' autoComplete="off"   />
                                          
                                     

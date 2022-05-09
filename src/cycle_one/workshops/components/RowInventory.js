@@ -6,7 +6,7 @@ const RowInventory = ({part}) => {
     return (
         <tr>
             {/* <th > <span className={`payment ${payment_type} cash`}> {payment_type}</span></th> */}
-            <th></th>
+            <th>{part.type&&part.type.title}</th>
             <th> {part.created_at}</th>
             <th> {part.id} </th>
             <th> <div>{part.title}</div>{part.description}</th>

@@ -8,6 +8,8 @@ import { useDispatch,useSelector } from 'react-redux'
 import RowInventory from './components/RowInventory'
 import { Link } from 'react-router-dom'
 import { getSpareParts,clearstate} from '../../store/store slices/InventorySice'
+import FlashMsg from './components/FlashMsg'
+  
 const ManageInventory = () => {
     const [showAlert, setShowAlert]= useState(true)
     const dispatch = useDispatch()
@@ -129,9 +131,28 @@ const ManageInventory = () => {
 
                                         
                         </div>
-                        {showAlert && error && <div className='msg-error'>{ Object.values(error)}</div> }<br/>
-                        {showAlert && created && <div className='create-msg'> You Create a Spare part </div> }
-                        {showAlert && edited && <div className='edite-msg'> You Edite a Spare part </div> }
+                       
+                        {showAlert && error &&   <FlashMsg 
+                            title={`${Object.values(error)} !`}
+                            img={'/images/msgIcons/error.svg'}
+                            setFlashmsg={setShowAlert}
+
+                            icontype='error-icon'
+                            />}
+                        {showAlert && created && <FlashMsg 
+                            title={`Spare part Created successfully`}
+                            img={'/images/msgIcons/success.svg'}
+                            setFlashmsg={setShowAlert}
+
+                            icontype='success-icon'
+                    />   }
+                    {showAlert && edited && <FlashMsg 
+                            title={`a  Spare part Edited successfully`}
+                            img={'/images/msgIcons/success.svg'}
+                            setFlashmsg={setShowAlert}
+
+                            icontype='success-icon'
+                    />   }
                         <table>
                             <thead>
                                 <tr>
