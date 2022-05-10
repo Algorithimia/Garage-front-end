@@ -37,16 +37,7 @@ const AllWorkOrders = () => {
      useEffect(() =>{
         dispatch(getWorkOrders());
         dispatch(clearstate()); 
-        const timeId = setTimeout(() => {
-            // After 3 seconds set the showAlert value to false
-            setShowAlert(false)
-           
-          }, 5000)
-      
-          return () => {
-            clearTimeout(timeId)
-          }
-       
+     
     
       },[dispatch])
      

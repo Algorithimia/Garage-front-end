@@ -84,7 +84,7 @@ const msg = created && 'A new stage created' || stageError && Object.values(stag
                        <Link to='/workshop/owner/createworkeorder'><button className='right'><span><BsPencilSquare /> </span>Edit</button></Link>
                      </div>
                      <div className='car_info'> <FaCar /> &nbsp;  {workorder && workorder.vehicle.model.name}  &nbsp;  {workorder && workorder.vehicle.model.brand.name} &nbsp;  A7 &nbsp; {workorder&& workorder.vehicle.fuel_type} &nbsp; {workorder&& workorder.vehicle.fuel_indicator}%</div>
-                     <div className='more_info'>Engine Number : {workorder && workorder.vehicle.engine_number} | {workorder && workorder.vehicle.chassis_number} <br /> Number : {workorder&& workorder.vehicle.id} <br/> {workorder&& workorder.vehicle.kilometer_driven} KM Driven <br/> {workorder&& workorder.customer.name}<br/> {workorder&& workorder.customer.phone} - {workorder&& workorder.customer.email} <br/>ADDRESS : Egypt ,Cairo <br/>TAX NUMBER : 123
+                     <div className='more_info'>Engine Number : {workorder && workorder.vehicle.engine_number} | Chassis: {workorder && workorder.vehicle.chassis_number} <br /> Number : {workorder&& workorder.vehicle.id} <br/> {workorder&& workorder.vehicle.kilometer_driven} KM Driven <br/> {workorder&& workorder.customer.name}<br/> {workorder&& workorder.customer.phone} - {workorder&& workorder.customer.email} <br/>ADDRESS : Egypt ,Cairo <br/>TAX NUMBER : 123
                       <div className='line'></div>
                      </div>
                       <div className='note'><Row> <Col sm={3}><span>Note</span> </Col> <Col sm={9}> <div className='text'>

@@ -1,10 +1,15 @@
 import React from 'react'
-import {BsArrowRightCircle} from "react-icons/bs"
+import{MdReplay} from "react-icons/md"
 import { Link } from 'react-router-dom'
 
 
 import VhiclesListView from './VhiclesListView'
-const OrderInfoListView = () => {
+const OrderInfoListView = ({workorders}) => {
+    const renderedOrders = workorders.map(workorder=>{
+        return <VhiclesListView key={workorder.id} page='thrpage' Order_remarks={workorder&&workorder.order_remark} CustomerAddress={workorder.customer&&workorder.customer.address}/>
+})
+console.log(workorders )
+    
     return (
     <table>
         <thead>
@@ -13,21 +18,12 @@ const OrderInfoListView = () => {
                 <th> Customer Address</th>
                 
             
-                <th><Link to='/workshop/owner/vheiclesListview/'> <BsArrowRightCircle /> </Link></th>
-                
+                <th className='moreIcon'><Link to='/workshop/owner/vheiclesListview/'> <MdReplay /> </Link></th>
+            
             
             </tr>
         </thead>
-        <VhiclesListView  Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
-        <VhiclesListView Order_remarks='100' CustomerAddress='Giza-Egypt' />
+        {renderedOrders}
         
 </table>
     )

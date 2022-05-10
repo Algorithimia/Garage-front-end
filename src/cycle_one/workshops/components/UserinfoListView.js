@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom'
 
 
 import VhiclesListView from './VhiclesListView'
-const UserinfoListView = () => {
+const UserinfoListView = ({workorders}) => {
+    const renderedcustomerinfo = workorders.map(workorder=>{
+        return <VhiclesListView page='spage'Fuel={workorder.vehicle&&workorder.vehicle.fuel_indicator} Phone={workorder.customer&&workorder.customer.phone} Customer_name={workorder.customer&&workorder.customer.name} Customer_taxid={workorder.customer&&workorder.customer.tax_id} Customermail={workorder.customer&&workorder.customer.email}/>
+})
     return (
         <table>
             <thead>
@@ -20,6 +23,7 @@ const UserinfoListView = () => {
                 
                 </tr>
             </thead>
+            {/* <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
             <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
             <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
             <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
@@ -28,9 +32,8 @@ const UserinfoListView = () => {
             <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
             <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
             <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
-            <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
-            <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' />
-            
+            <VhiclesListView Fuel='10%' Phone='01111111111111' Customer_name='john' Customer_taxid='8888' Customermail='example@gmail.com' /> */}
+            {renderedcustomerinfo}
     </table>
     )
 }

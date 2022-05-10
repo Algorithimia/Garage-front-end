@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom'
 
 
 import VhiclesListView from './VhiclesListView'
-
-const CarInfoListView = () => {
+//VhiclesListView  used in 3 pages for vhehicles list view
+const CarInfoListView = ({workorders}) => {
+    const renderedVehicles = workorders.map(workorder=>{
+        return <VhiclesListView page='fpage'key={workorder.id}car_name={workorder.vehicle&&workorder.vehicle.name} Brand={workorder.vehicle.model.brand&&workorder.vehicle.model.brand.name}  Model={workorder.vehicle.model&&workorder.vehicle.model.name}  Fuel_type={workorder.vehicle&&workorder.vehicle.fuel_type } Vehicle_num={workorder.vehicle&&workorder.vehicle.vehicle_number} Kilometer_driven={workorder.vehicle&&workorder.vehicle.kilometer_driven} Chassis_num={workorder.vehicle&&workorder.vehicle.chassis_number} Engine_num={workorder.vehicle&&workorder.vehicle.engine_number} />
+    })
     return (
         <table>
             <thead>
                 <tr>
+                    <th> Car Name</th>
                     <th> Brand</th>
                     <th> Model</th>
                     <th> Fuel Type</th>
@@ -17,21 +21,14 @@ const CarInfoListView = () => {
                     <th> Kilometer Driven</th>
                     <th> Chassis Number</th>
                     <th> Engine Number </th>
+                   
                     <th><Link to='/workshop/owner/vheiclesListview/user'> <BsArrowRightCircle /> </Link></th>
+                  
                     
                 
                 </tr>
             </thead>
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
-            <VhiclesListView Brand='BMW' Model='A7' Fuel_type='Fuel 6%' Vehicle_num='52332' Kilometer_driven='1000' Chassis_num='258' Engine_num='52332' />
+          {renderedVehicles}
             
     </table>
     )
