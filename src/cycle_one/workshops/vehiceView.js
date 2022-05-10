@@ -35,12 +35,12 @@ const vehiceView = () => {
 
                   <span className='icons'>
                      <Link to='/workshop/owner/vheiclesview'>
-                    <span className='grid'>   
+                    <span className='active-icon'>   
                          <HiViewGrid />
                     </span>
                     </Link>
                     <Link to='/workshop/owner/vheiclesListview'>
-                    <span className='list'>
+                    <span className='not-active-icon'>
                          <MdViewList />
                     </span>
                     </Link>

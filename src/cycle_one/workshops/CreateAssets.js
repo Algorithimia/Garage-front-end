@@ -64,7 +64,7 @@ const removeError=(setFieldValue,setFieldTouched, name)=>{
     }
   
     else {        
-        return ( el.name.toLowerCase().includes(search) )           
+        return ( el.name.toLowerCase().includes(search.toLowerCase()) )           
     }
 })  
 const clickSelected = (index,id)=> {

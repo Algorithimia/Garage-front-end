@@ -27,9 +27,6 @@ const Calender = () => {
 let realDates=appointmentsList.filter(a=>moment(a.start_at)  >= new Date())
 
 let commingAppointment = realDates[realDates.length-1]
-console.log(commingAppointment)
-{console.log(new Date(2021, 11, 27))}
-console.log([new Date("2024-03-04 04:44:03"), new Date(2021, 11, 27)])
 
     useEffect(() =>{
      dispatch(geAppointments());

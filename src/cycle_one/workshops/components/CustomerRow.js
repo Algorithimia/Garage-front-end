@@ -3,24 +3,24 @@ import React from 'react'
 
 
 import OverlayList from '../OverlayList'
-const CustomerRow = ({customer}) => {
+const CustomerRow = ({workorder}) => {
     return (
         <tr>
-            <th>{customer.name}</th>
-            <th>??</th>
-            <th>{customer.phone}</th>
-            <th>{customer.email}</th>
-            <th>??</th>
-            <th></th>
+            {/* <th>{customer.name ?customer.name : <div className='no-data'></div>}</th> */}
+            <th>{workorder.customer.name ? workorder.customer.name:<div className='no-data'></div>}</th>
+            <th>{workorder.customer.address? workorder.customer.address:<div className='no-data'></div>}</th>
+            <th>{workorder.customer.phone ? workorder.customer.phone:<div className='no-data'></div>}</th>
+            <th>{workorder.customer.email ? workorder.customer.email:<div className='no-data'></div>}</th>
+            <th>{workorder.id ? workorder.id:<div className='no-data'></div>}</th>
             
             <th></th>
             
             <th className='moreIcon'>
-            <OverlayList option1='View Customer' option1_path={`/workshop/owner/viewcustomer/${customer.id}`}
+            <OverlayList option1='View Customer' option1_path={`/workshop/owner/viewcustomer/${workorder.customer.id}`}
                                 option2='Add Work Order'  option2_path='/workshop/owner/createworkorder2'  
-                                option3='Edit Customer' option3_path='/workshop/owner/vheiclesListview'
-                                option4='View Vehicles' option4_path={`/workshop/owner/Custommervehicles/${customer.id}`}
-                                option5='Delete Customer' option5_path='/workshop/owner/garagecustomers'
+                               
+                                option3='View Vehicles' option3_path={`/workshop/owner/Custommervehicles/${workorder.customer.id}`}
+                                option4='Delete Customer' option4_path='/workshop/owner/garagecustomers'
                                 />
             </th>
         

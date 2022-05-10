@@ -5,18 +5,24 @@ import { Link } from 'react-router-dom'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
 import { useDispatch,useSelector } from 'react-redux'
-
+import  _ from "lodash";
 import CustomerRow from './components/CustomerRow'
-import {getcustommers} from '../../store/store slices/workshopCustommerSlice'
+import {getWorkOrders} from '../../store/store slices/workOrderSlices/workOrder'
 const GarageCustomers = () => {
     const dispatch = useDispatch()
-    const {custommers, isLoading, error}= useSelector((state)=>state.customers)
+    const {workorders , isLoading, orderCreated ,error}= useSelector((state)=>state.workOrders)
     const [showAlert, setShowAlert]= useState(true)  
     const [entries, setEntries] = useState(0);
     const [date, setDate] =  useState(0);
     const [search , setSearch] = useState('')
+    
+      var result = _.uniqBy(workorders, 'customer');
+
+console.log(result);
+      
+      console.log(result);
     useEffect(() =>{
-        dispatch(getcustommers());
+        dispatch(getWorkOrders());
       
      
        
@@ -38,7 +44,7 @@ const GarageCustomers = () => {
       
      }
      const onChange=e=>{setSearch(e.target.value.toLowerCase())}
-     const searchResult = custommers.filter((el) => {
+     const searchResult = workorders.filter((el) => {
    
         if (search === '') {
             return el
@@ -49,9 +55,9 @@ const GarageCustomers = () => {
         }
     })
   
- 
-     let renderedCustommers= custommers&& searchResult.map((customer)=>{
-         return <CustomerRow   customer={customer}/>
+ {console.log(searchResult)}
+     let renderedCustommers= workorders&& searchResult.map((workorder)=>{
+         return <CustomerRow   workorder={workorder}/>
      })
     return (
         <>
@@ -60,10 +66,10 @@ const GarageCustomers = () => {
             <div className='grage_customers'>
                 <div className='header'>
                 GARAGE COUSTOMERS
-                <Link to='/workshop/owner/createoreditecustomer'>
+                {/* <Link to='/workshop/owner/createoreditecustomer'>
                     <button className='right'><span><AiFillPlusCircle /></span> Add New Customers</button>
                     <button className='right mobile'><span><AiFillPlusCircle /></span> Add</button>
-                </Link>
+                </Link> */}
 
                 </div>
                 <div className='second_line'>

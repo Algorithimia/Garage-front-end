@@ -59,12 +59,12 @@ const ViewVehiclesList = () => {
 
               <span className='icons'>
                  <Link to='/workshop/owner/vheiclesview'>
-                <span className='grid'>   
+                <span className='list not-active-icon'>   
                      <HiViewGrid />
                 </span>
                 </Link>
                 <Link to='/workshop/owner/vheiclesListview'>
-                <span className='list'>
+                <span className='grid active-icon'>
                      <MdViewList />
                 </span>
                 </Link>
